@@ -1,0 +1,151 @@
+Changelog
+_______________________________________________________________________________
+v.1.6.0.4
+Added Swedish language kindly submitted by Mikael.
+
+______________________________________________________________________________
+v1.6.0.2
++ Fixed crash if automatic backup on open was enabled with no DB autoloaded.
+
+_______________________________________________________________________________
+v1.6.0.1
++ Fixed incorrect behaviour with only one destination
++ Fixed Czech language file
+
+_______________________________________________________________________________
+v1.6.0.0
++ WARNING: INI-File parameters changed!  'DB_Backup.BackupsOnSave' is now used 
+	instead of 'DB_Backup.BackupsEnabled'. Please don't forget to change your ini-file.
++ Added the possibility to create a copy of the DB right before opening. See the readme.
++ Added the possibility to customize the prefixes of the backup filenames (using 
+  backslash means the file will be placed into a subdirectory - see the readme).
++ Added additional checks for a valid destination path
++ If destination directory does not exist, it will be created
++ Updated sample HouseKeepeing.cmd file
++ Added croatian language submitted by SemiRocket
++ Bulgarian, Czech, German, Italian, Russian, Norwegian, Polish, Slovak, 
+	Hungarian and Dutch language files updated. The rest (French & Spanish) is 
+  more or	less working, but will fall back to english texts in some cases.
+  
+_______________________________________________________________________________
+v1.5.0.13
++ Recompiled for KeePas 1.0.14.
+
+_______________________________________________________________________________
+v1.5.0.12
++ Recompiled for KeePas 1.0.13.
++ Added Czech language kindly submitted by ElectriX
+
+_______________________________________________________________________________
+v1.5.0.11
++ Recompiled for KeePas 1.0.12.
++ Added Norwegian language kindly submitted by Markhus Ketil
+
+_______________________________________________________________________________
+v1.5.0.10
++ Recompiled for KeePas 1.0.11. Cosmetic changes in the sources.
+
+_______________________________________________________________________________
+v1.5.0.9
++ Recompiled for KeePas 1.0.10. No other changes.
+
+_______________________________________________________________________________
+v1.5.0.8
++ Recompiled for KeePas 1.0.9
+
+_______________________________________________________________________________
+v1.5.0.7
++ Recompiled for KeePas 1.0.8
+
+_______________________________________________________________________________
+v1.5.0.6
++ Recompiled for KeePass 1.0.7
++ Added Russian Language, submitted by Max Chuvstvin
+
+_______________________________________________________________________________
+v1.5.0.5.b
++ Added Dutch Language, kindly submitted by Batavier
+
+_______________________________________________________________________________
+v1.5.0.5
++ Fixed a bug when selecting an application to start using the FileOpen 
+  dialogue.
++ Added Bulgarian Language, submitted by Ivan Cenov
++ Added Italian translations, submitted by Paolo Basenghi
+
+_______________________________________________________________________________
+v1.5.0.4
++ Added Spanish Language submitted by Jesús Alonso Sanz
++ Compiled for KeePass 1.0.6
++ Added Polish Language, submitted by Robert Borkowski
++ Fixed a bug which did not allow to enable automatic backups - reported by
+  Robert Borkowski.
+
+_______________________________________________________________________________
+v1.5.0.3
++ Improved language file selector (fallback to common root file name)
++ Added French Language, submitted by Emmanuel LEVEUGLE
+
+_______________________________________________________________________________
+v1.5.0.2
++ Command line error handling improved
++ Fixed crash when no DB was open
+
+_______________________________________________________________________________
+v1.5.0.1
++ Command line handling rewritten, thanks to the help of Bill Rubin
++ "-ext:" paremeter prefix dropped.
+
+_______________________________________________________________________________
+v1.5.0.0
++ Added relative path recognition (using semi-environment variables 
+  %KEEPASSDIR% and %DBDIR% )
++ Added multi language support
+
+_______________________________________________________________________________
+v1.4.0.0:
++ Ported to be compatible with KeePass 1.0.5. 
++ Also a lot of deprecated functions have been replaced with their secure
+  versions (according to MS VC 2005)
++ You can now back up your database anytime (not just when Saving).
+
+_______________________________________________________________________________
+v1.3.0.3:
++ Fixed a bug, when the number of backups was set to "1".
+
+_______________________________________________________________________________
+v1.3:
++ Added a directory browser dialog to select the destination
++ DB_Backup is now able to keep several older backups in the backup locations 
+  and does not owerwrite them (i.e. housekeeping for the average ppl)
++ Ability to start an arbitrary program for each backed up file. Green light
+  for housekeeping scripts. Function for experts.
+
+_______________________________________________________________________________
+v1.2:
++ Added a GUI for the configuration of destinations. 
++ Enviromental variable expanding rewritten. Now it should behave exactly like
+  cmd.exe.
+
+* Now this version is far more then I have planned at the beginning. I did not
+  thought I will ever write a GUI using a notepad and a resource editor :)
+
+_______________________________________________________________________________
+v1.1:
++ Added command line parameter parsing. Parameter understood: 
+  -ext:DB_Backup.Dest=<DESTINATION>
++ <NUM> range extended to 1-99. No real reason behind that, but 99 is max for a
+  two digit number.
+
+_______________________________________________________________________________
+v1.0:
++ Added Environment variable expansion for parameter DB_Backup.Destination.<NUM>
+
+_______________________________________________________________________________
+v0.6
++ Added backup mirroring. From now on it uses parameter 
+  DB_Backup.Destination.<NUM>, where <NUM> is in the range 1-32
+
+_______________________________________________________________________________
+v0.5:
+  Initial version

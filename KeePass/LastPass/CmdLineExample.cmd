@@ -1,0 +1,1 @@
+KeePass.exe -DB_Backup.Dest:"C:\Program Files\KeePassNew" -DB_Backup.Dest:"C:\" -DB_Backup.Dest:"X:\AnotherPath" -DB_Backup.Dest:%%DBDIR%%\Test -db_backup.show:"-1" -db_backup.cnt:-007 -DB_Bac1kup.Dest:%%KEEPASSDIR%%\NewFolder\

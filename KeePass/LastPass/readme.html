@@ -1,0 +1,213 @@
+<html>
+<head>
+<style type="text/css" media="all">
+body {
+  font-family: Tahoma, Arial, Helvetica;
+  font-size: 10pt;
+  margin: 5px;
+  }
+.code {
+  font-family: Courier New;
+  font-size: 10pt;
+  border-width: 1;
+  border-style: solid;
+  border-color: Gray;
+  background-color:lightgray;
+ }
+table, td, th{
+  font-size: 10pt;
+  border-width: 1pt;
+  border-style: solid;
+  border-color: lightgray;
+}
+td.new {
+  color: red;
+}
+td.desc {
+  width: 500px;
+}
+</style> 
+<title>DB_Backup plugin Readme</title></head>
+<body>
+<div style="text-align:center;font-size:20pt;font-weight:bold;">DB_Backup plugin README</div> Last updated: 2.5.2011, version 1.6.0.4
+<div><h1>Contents</h1>
+<ol>
+<li><a href="#Preface">Preface</a></li>
+<li><a href="#Installation">Installation</a></li>
+<li><a href="#Configuration">Configuration</a><ul>
+	<li><a href="#Parameter">Parameter descriptions</a></li>
+	<li><a href="#Relative">Relative paths</a></li></ul></li>
+<li><a href="#Usage">Usage</a></li>
+<li><a href="#Limitations">Limitations</a></li>
+</ol></div>
+<div>
+<h1>Preface<a name="Preface"></a></h1>
+<span>This plugin is based on the TestPlugin by Dominik Reichl. The main credit goes to him.<br/>
+I have just used the skelet and modified the body to do what I wanted from it. <br/><br/>This plugin, as its name implies, backs up the database to predefined directories.</span>
+
+<h1>Installation<a name="Installation"></a></h1>
+<span><ol>
+<li>Simply copy the DB_Backup.dll to the directory of KeePass.exe</li>
+<li>Start KeePass</li>
+</ol>
+<br/>
+<b>Multiple languages - Additional steps:</b><br/><br/>
+If you would like DB_Backup to speak multiple languages (the same as KeePass), you should copy the appropriate language from the zip file (YOURLANGUAGE_DB_Backup.plng) also to the directory of KeePass.exe. If you can't find your desired language, I would like to encourage you to make a copy of English_DB_Backup.plng, rename it to YourDesiredLanguage_DB_Backup.plng and start translating the strings in it. After you finish, you can just put it into KeePass' directory. <br/><br/>
+<b>IMPORTANT:</b> In order for the plugin to speak your language, KeePass has to be able to do it also. Therefore, in a successful setup, you'll see two two language files
+in KeePass' directory for the same language:</br>
+YOURLANGUAGE.lng<br/>
+YOURLANGUAGE_DB_Backup.plng<br/><br/>
+Happy translation!</span>
+
+<h1>Configuration<a name="Configuration"></a></h1>
+<span>A GUI is available for the configuration. To reach the configuration dialog, please click on menus:<br/><br/>
+<em>Extras / DB Backup Plugin / Set Backup Destination</em><br/><br/>
+There you'll be able to define up to 99 destinations. The procedure is that you write/paste/select the full path of the directory into the "Destination" field and hit "ADD". "Remove" deletes a destination from the list. A directory browser button has been added to ease this task.<br/><br/>
+Environmental variables in the destination are expanded to their respective values. 
+Thus if my username is "PlattFuss" then<br/><br/>
+<b>"D:\%USERNAME%\KeePassBackup"</b> will be expanded to <b>"D:\PlattFuss\KeePassBackup"</b><br/>
+<br/>
+<h3>Configruation details</h3>
+All the configurations are stored in the KeePass.ini file (let it be wherever). Lets have a quick look on the keys used.<br/><br/>
+<em><b>DB_Backup.Destination.1</b></em> is one of the foremost important parameters.<br/><br/>
+This key should contain the path to the *directory* where you want to have your databases backed up. A trailing backslash is not needed, but will be handled if present. So the appropriate line in KeePass.ini will look like this:<br/>
+
+<div class="code">DB_Backup.Destination.1=C:\MyBackedUpDatabases</div><br/>
+
+or if your directory name contains spaces
+
+<div class="code">DB_Backup.Destination.1=C:\My Backed Up Databases</div><br/>
+
+Multiple destination in the ini file will look like this:
+<div class="code">
+DB_Backup.Destination.1=C:\My Backed Up Databases<br/>
+DB_Backup.Destination.2=D:\%USERNAME%\KeePassBackup<br/>
+DB_Backup.Destination.3=F:\USBBackup<br/>
+...<br/>
+DB_Backup.Destination.45=Z:\%HOSTNAME%\DB Files<br/>
+</div><br/>
+and so on.
+
+The maximum number of destinations is 99. This is because of the limitation of the two digit number. If someone out there would want to have more, drop me a note and I will create a special edition of the plugin extra for him :-) Note that the number has to increase sequentially. If there will be a gap, the remaining destinations will be skipped. But you can forget this whole bullshit becasue a simple and intuitive GUI is part of the solution as mentioned above.<br/>
+<br/>
+<br/>
+<h3>Configruation details: INI keys and Command line arguments<a name="Parameter"></a></h3>
+It is also possible to define the parameters used by this plugin through the command line. <b>Parameters entered through the command line override the settings in the ini file.</b> The following table lists the parameters, their INI file key name, command line prefix and a short description:</br></br>
+<table style="width:1000px;">
+<tr>
+  <th style="width:200px;">.ini file key</th>
+  <th style="width:300px;">CMDLine argument</th>
+  <th style="width:500px;">Description</th>
+</tr>
+<tr>
+  <td>DB_Backup.Destination.N</td>
+  <td>-DB_Backup.dest: </td>
+  <td>Backup destination. N can be between 1 and 99. The cmd param can appear repeatedly.</td>
+</tr>
+<tr>
+  <td>DB_Backup.ExtPrgPath</td>
+  <td>-db_backup.prog: </td>
+  <td>Full path name of the program to start after backup.</td>
+</tr>
+<tr>
+  <td>DB_Backup.StartExtPrg</td>
+  <td>implicitly yes, if '-db_backup.prog:' is set</td>
+  <td>If 'True', the app. specified  by ExtPrgPath will be executed. Default: False  </td>
+</tr>
+<tr>
+  <td>DB_Backup.KeepXBackups</td>
+  <td>-db_backup.cnt:</td>
+  <td>Number of older backups to keep. Default: 1</td>
+</tr>
+<tr>
+  <td>DB_Backup.ShowWindow</td>
+  <td>-db_backup.show:</td>
+  <td>If 'True' the window of the external program will be shown, otherwise the program will be started hidden, without a window. Default: False</td>
+</tr>
+<tr class="new">
+  <td  class="new">DB_Backup.BackupOnSave</td>
+  <td>implicitly, if db_backup.dest: is set</td>
+  <td>If 'True', backups will be created after every SAVE operation. Default: True<br/><b>In previous versions, this parameter was named "DB_Backup.BackupsEnabled"</b></td>
+</tr>
+<tr class="new">
+  <td class="new">DB_Backup.BackupOnOpen</td>
+  <td class="new">implicitly, if db_backup.openprfx: is set</td>
+  <td>If 'True', backups will be created before every OPEN operation. Default: False</td>
+</tr>
+<tr class="new">
+  <td class="new">DB_Backup.PrefixOnOpen</td>
+  <td class="new">-db_backup.openprfx:</td>
+  <td>Prefix of backup file names, that are created just before opening the DB. If backslash is used, the substring to the left of the backslash is considered a directory and will be created if non-existing. Default: "OpenedDBs\Copy_of_"</td>
+</tr>
+<tr>
+  <td class="new">DB_Backup.PrefixOnSave</td>
+  <td class="new">-db_backup.saveprfx:</td>
+  <td>Prefix of backup file names, that are created right after saving the DB. If backslash is used, the substring to the left of the backslash is considered a directory and will be created if non-existing. Default: "SavedDBs\Backup_of"</td>
+</tr>
+</table><br/>
+<em>-DB_Backup.Dest:&lt;destination&gt;</em><br/><br/>
+If the parameter value contains spaces, put the path in double quotes. You may define probably any number of such arguments, although I did not test more than two. It could happend the the length of the command line is somehow limited.<br/><br/>
+
+Command line example:<br/><br/>
+
+<div class="code"></span>KeePass.exe -DB_Backup.Dest:"c:\Program Files\KeePass\" -DB_Backup.Dest:C:\Backup\%USERNAME%\ -db_backup.cnt:3 -db_backup.prog:"notepad.exe" -db_backup.show:1</div><br/>
+
+<b>IMPORTANT:</b> The first parameter for the external program is always the full path of the backed up file. Thus in the above example, the program "notepad.exe" will be called several times and with the following arguments:<br/><br/>
+<div class="code">
+notepad.exe c:\Program Files\KeePass\&lt;BACKUP_FILE_NAME&gt;<br/>
+notepad.exe C:\Backup\%USERNAME%\&lt;BACKUP_FILE_NAME&gt;</div>
+
+
+<h3>Configruation details: Relative paths<a name="Relative"></a></h3>
+The plugin is able to handle relative paths (You will use something like: 'Backups' instead of a full path, like: 'M:\KeePassDB\Backups'), which comes handy if you want to store your database backups somewhere relative to the 'Current Working Directory'. This directory is usually the KeePass install dir, or the directory of the active database, or something totally different :)<br/><br/>
+
+Since we are not able to forecast its actual value, two <b>SEMI-environment variables</b> have been introduced, that are working inside the plugin: <br/><br/>
+<b>%KEEPASSDIR%</b>	-	Points always to the directory, from where KeePass was started.<br/>
+<b>%DBDIR%</b>			-	Points always to the directory of the actual database.<br/><br/>
+
+Using this variables, you can set up relative paths like:<br/><br/>
+%DBDIR%\Backups\SomeotherNestedDir\BackupSet1<br/>
+%KEEPASSDIR%\OtherBackup\nesting2\BackupSet2<br/>
+<br/>
+The advantages are hopefully clear to everyone. You don't have to investigate what is the actual "Current Working Directory" (this is really changing quite often), you just use one of the above variables and the backup will always be created where you wanted it. No matter if your USB key is called E: or X: or T: on different system.<br/>
+<br/>
+You are free to use these variables in command line parameters, but you should keep in mind that %KEEPASSDIR% and %DBDIR% are SEMI-environmental variables, therefore<br/><br/>
+
+<div class="code">echo %DBDIR%\Backups\SomeotherNestedDir\BackupSet1</div><br/>
+will only write:
+<b>\Backups\SomeotherNestedDir\BackupSet1</b><br/>
+<br/>
+and sadly, this is, what KeePass would get. Therefore we have to write:<br/>
+<br/>
+<div class="code">echo %%DBDIR%%\Backups\SomeotherNestedDir\BackupSet1</div><br/>
+which would result in:
+<b>%DBDIR%\Backups\SomeotherNestedDir\BackupSet1</b><br/>
+<br/>
+As you can see, unlike other environment variables (which are REAL and expandable by the shell itself), these have to be provided by DOUBLE PERCENT SIGNS (otherwise cmd.exe will expand it to nothing, as it is unaware of its value).<br/>
+<br/>
+A correct command-line for Keepass is hence:<br/>
+<br/>
+<div class="code">KeePass.exe -DB_Backup.dest:%APPDATA%\KeePass -DB_Backup.dest:%%DBDIR%%\Backups -db_backup.cnt:3</div>
+<br/>
+This is all from the configuration point of view. The rest can be handled from the menu ( enable / disable the automatic backups on save or load).
+</span><br/><br/>
+<h1>Usage<a name="Usage"></a></h1>
+<span>If the menu "Extras/DB Backup Plugin/Backups Enabled" is really enabled, the plugin will create a backup of your database whenever you call "Save Database" or "Save Database As.." either by clicking it on the toolbar, or by selecting this function through the menu.<br/>
+<br/>
+The backup files will be placed in the directory specified in KeePass.ini, in variable DB_Backup.Destination (see part 3. Configuration). The database files will be prefixed with whatever was set in the config dialog or the command line. By default the prefix after saving is <b>Backup_of_</b>, thus if the name of your database is <b>MyKeepassDB.kdb</b> then the backup will be called: <b>Backup_of_MyKeepassDB.kdb-0</b>.<br/>
+<br/>
+<b>Housekeeping:</b><br/>If the number of backups to keep is set higher than 1, the previous file with index 0 will be renamed to Backup_of_MyKeepassDB.kdb-1, Backup_of_MyKeepassDB.kdb-1 to Backup_of_MyKeepassDB.kdb-2 and so on.</br></br>
+Renaming and/or overwriting will fail if the existing file will have a "Hidden" or
+"System" attribute set.
+</span>
+
+<h1>Limitations<a name="Limitations"></a></h1>
+<span>The key file can't be backed up and would be anyway a security risk.
+</span>
+
+<h1>Contact</h1>
+<span>Matyas Bene<br/>
+notabenem@hotmail.com
+</span>
+</div>
+</body></html>

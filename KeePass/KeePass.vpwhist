@@ -1,0 +1,333 @@
+[Global]
+CurrentProject=KeePass\KeePass.vpj
+ActiveSolutionConfig=Release|Win32
+[ActiveConfig]
+WinGUI\PwSafe.vpj=,Debug|Win32
+KeePassLibC\KeePassLib.vpj=,Debug|Win32
+PluginFramework\PluginFramework.vpj=
+KeePass\PwSafe.vpj=
+LastPass\LastPass.vpj=,Debug|Win32
+KeePass\KeePass.vpj=,Release|Win32
+KeePassLib\KeePassLib.vpj=,Debug|Win32
+Installer\Installer.vpj=,Debug|x86
+[ProjectDates]
+LastPass\LastPass.vcxproj=20200129031228753
+KeePass\KeePass.vcxproj=20200214210041769
+KeePassLib\KeePassLib.vcxproj=20200214200956331
+Installer\Installer.wixproj=20200128061400895
+[TreeExpansion2]
++@ Installer\Installer.wixproj
+-@ KeePass\KeePass.vcxproj
+  + Header Files
+  + KeePassLibCpp
+    + Crypto
+      + SHA2
+    + DataExchange
+    + Details
+    + IO
+    + PasswordGenerator
+    + SDK
+      + Details
+    + SysSpec_Windows
+    + Util
+  + NewGUI
+    + TaskbarListEx
+    + TaskDialog
+    + VistaMenu
+  + Plugins
+  + Resource Files
+  + Source Files
+  + Util
+    + CmdLine
+    + SprEngine
++@ KeePassLib\KeePassLib.vcxproj
++@ LastPass\LastPass.vcxproj
+scroll:0
+[State]
+MONITOR_CONFIGS: 182
+MONITOR_CONFIG: 180 0 0 1920 1080
+SCREEN: 1920 1080 606 6 1261 1044 0 0 N 0 0 0 0 1070 734 0
+MDISTATE: 1
+AAAAAwAAAAIAAAAC2gAAAAIAMAAAAAAAAAA1AAAE7AAAA/0AAAAAAAAAAAAAB38AAAQ3AAAAAuoAAAE2AAAAAvsAAAADAAAAAwAAAAIAAAABAAAAAPsAAAADAAAAAwAAAAEAAAACAAAAAPwAAABjAAAAAFYAMgA6ADoAOgBEADoAXABTAG8AdQByAGMAZQBzAFwAYgBvAG8AcwB0AF8AMQBfADcAMgBcAEIAdQBpAGwAZABDAG8AbQBwAGwAZQB0AGUALgBjAG0AZAAA/////wAA/AAAAEkAAAAAPAA0ADoAOgA6AEQAOgBcAEcAaQB0AFwAUgBXAHIAYQBjAGUAcwBEAEIAXABSAEUAQQBEAE0ARQAuAG0AZAAA/////wAA/AAAAE0AAAAAQAAzADoAOgA6AEQAOgBcAFMAbwB1AHIAYwBlAHMAXABLAGUAZQBQAGEAcwBzAFwAUgBFAEEARABNAEUALgBtAGQBAP////8AAQAAAADaAAAAHgAwAC0AMQA1ADcAOQA4ADUAOAAxADEANwA0ADQANgBOAAADFwAAAe0AAAS2AAAD5AAAAAAAAAAAAAAHfwAABDcAAAAC6gAAABYAAAAC+wAAAAAAAAAA+wAAAAAAAAAAAAAAAA==
+DEBUG_LAYOUT: 56 1 42 7 6 N 0
+_tbprojects_form F=8
+_tbdebug_exceptions_form F=384
+_tbsymbolcalls_form F=40
+_tbfind_symbol_form F=32
+_tbdebug_breakpoints_form F=384
+_tbclass_form F=8
+_tbFTPOpen_form F=0
+_tbdebug_stack_form F=64
+_tbdeltasave_form F=0
+_tbslickc_stack_form F=8
+_tbproctree_form F=8
+_tbbaseclasses_form F=40
+_tbsymbol_props_form F=8
+_tbshell_form F=8
+_tbdebug_watches_form F=64
+_tbsearch_form F=8
+_tbcbrowser_form F=8
+_tbsymbolcallers_form F=40
+_tbregex_form F=40
+_tbunittest_form F=0
+_tbdebug_regs_form F=64
+_tbbufftabs_form F=11
+_tbFTPClient_form F=0
+_tbfind_form F=36
+_tbmessages_browser_form F=8
+_tbnotification_form F=36
+_tbsymbol_args_form F=8
+_tbfilelist_form F=44
+_tbbookmarks_form F=8
+_tbtagwin_form F=8
+_tbderivedclasses_form F=40
+_tbdebug_members_form F=64
+_tbannotations_browser_form F=0
+_tboutputwin_form F=8
+_tbtagrefs_form F=8
+_tbopen_form F=40
+_tbdebug_classes_form F=64
+_tbdebug_autovars_form F=64
+_tbdebug_locals_form F=64
+_tbdebug_threads_form F=64
+_tbdebug_memory_form F=64
+_tbclipboard_form F=44
+_tbdebug_stack_form T=0
+_tbdebug_locals_form T=0
+_tbdebug_autovars_form T=0
+_tbdebug_breakpoints_form T=0
+_tbdebug_exceptions_form T=0
+_tbdebug_watches_form T=0
+_tbdebug_members_form T=0
+AAAAAwAAAAEAAAAB2gAAAAIAMAAAAAAAAABXAAAE1AAAA/sAAAAAAAAAAAAAB38AAAQ3AAAAAesAAATMAAAAAPsAAAACAAAAAgAAAAEAAAAA+wAAAAIAAAACAAAAAAAAAAH9AAAB1wAAAAAaADoAOgA6AC8AdgBEAG8AYwBrAEEAcgBlAGEBAAAAAXwAAAAAAAH7AAAAAgAAAAIAAAABAAAAAPsAAAACAAAAAgAAAAEAAAAA/QAAAI0AAAAAGgA6ADoAOgAvAHYARABvAGMAawBBAHIAZQBhAQAAAAOSAAAAAAAC+wAAAAEAAAABAAAAAPsAAAABAAAAAQAAAAD8AAAAQwAAAAAuADAAOgA6ADoAXwB0AGIAZABlAGIAdQBnAF8AcwB0AGEAYwBrAF8AZgBvAHIAbQEA/////wAA///////////9AAAA8wAAAAAaADoAOgA6AC8AdgBEAG8AYwBrAEEAcgBlAGEBAAAAAOYAAAAAAAL7AAAAAgAAAAIAAAAAAAAAAfsAAAACAAAAAgAAAAAAAAAB/AAAAE8AAAAAOgAwADoAOgA6AF8AdABiAGQAZQBiAHUAZwBfAGIAcgBlAGEAawBwAG8AaQBuAHQAcwBfAGYAbwByAG0BAP////8AAP///////////AAAAE0AAAAAOAAwADoAOgA6AF8AdABiAGQAZQBiAHUAZwBfAGUAeABjAGUAcAB0AGkAbwBuAHMAXwBmAG8AcgBtAAD/////AAD///////////0AAAKhAAAAABoAOgA6ADoALwB2AEQAbwBjAGsAQQByAGUAYQEAAAADhwABAAAAAfsAAAACAAAAAgAAAAAAAAAB+wAAAAIAAAACAAAAAQAAAAD8AAAAKQAAAAAcADoAOgA6AE0ARABJAEEAUgBFAEEAVABJAEwARQEAAAACrAAB/QAAAiEAAAAAGgA6ADoAOgAvAHYARABvAGMAawBBAHIAZQBhAQAAAADmAAAAAAAA+wAAAAIAAAACAAAAAAAAAAH7AAAAAgAAAAIAAAABAAAAAP0AAAE5AAAAABoAOgA6ADoALwB2AEQAbwBjAGsAQQByAGUAYQEAAAAA6AAAAAAAAvsAAAADAAAAAwAAAAAAAAACAAAAAfsAAAADAAAAAwAAAAAAAAABAAAAAvwAAABJAAAAADQAMAA6ADoAOgBfAHQAYgBkAGUAYgB1AGcAXwBhAHUAdABvAHYAYQByAHMAXwBmAG8AcgBtAQD/////AAH///////////wAAABFAAAAADAAMAA6ADoAOgBfAHQAYgBkAGUAYgB1AGcAXwBsAG8AYwBhAGwAcwBfAGYAbwByAG0AAP////8AAP///////////AAAAEcAAAAAMgAwADoAOgA6AF8AdABiAGQAZQBiAHUAZwBfAG0AZQBtAGIAZQByAHMAXwBmAG8AcgBtAAD/////AAD///////////0AAACRAAAAABoAOgA6ADoALwB2AEQAbwBjAGsAQQByAGUAYQEAAAABfAAAAAAAAvsAAAABAAAAAQAAAAD7AAAAAQAAAAEAAAAA/AAAAEcAAAAAMgAwADoAOgA6AF8AdABiAGQAZQBiAHUAZwBfAHcAYQB0AGMAaABlAHMAXwBmAG8AcgBtAQD/////AAD//////////wAAAADbAAAAAAAAAALbAAAAAAAAAAHbAAAAAAAAAAPbAAAAAAAAAAA=
+QTOOLBAR 4 0
+AAAA/wAAAAD9AAAAAAAABNUAAAOlAAAABAAAAAQAAAAIAAAACPwAAAACAAAAAgAAAAMAAAAQAFMAdABhAG4AZABhAHIAZAEAAAAA/////wAAAAAAAAAAAAAAHgBDAHUAcgByAGUAbgB0ACAAQwBvAG4AdABlAHgAdAEAAAMt/////wAAAAAAAAAAAAAAGgBQAHIAbwBqAGUAYwB0ACAAVABvAG8AbABzAQAABJr/////AAAAAAAAAAAAAAACAAAAAQAAAAoARABlAGIAdQBnAQAAAAD/////AAAAAAAAAAA=
+_tbstandard_form 1
+_tbproject_tools_form 1
+_tbcontext_form 1
+_tbdebugbb_form 1
+STANDARD_LAYOUT: 59 1 42 11 5 N 0
+_tbprojects_form F=8
+_tbdebug_exceptions_form F=384
+_tbsymbolcalls_form F=40
+_tbfind_symbol_form F=32
+_tbdebug_breakpoints_form F=384
+_tbclass_form F=8
+_tbFTPOpen_form F=0
+_tbdebug_stack_form F=64
+_tbdeltasave_form F=0
+_tbslickc_stack_form F=8
+_tbproctree_form F=8
+_tbbaseclasses_form F=40
+_tbsymbol_props_form F=8
+_tbshell_form F=8
+_tbdebug_watches_form F=64
+_tbsearch_form F=8
+_tbcbrowser_form F=8
+_tbsymbolcallers_form F=40
+_tbregex_form F=40
+_tbunittest_form F=0
+_tbdebug_regs_form F=64
+_tbbufftabs_form F=11
+_tbFTPClient_form F=0
+_tbfind_form F=36
+_tbmessages_browser_form F=8
+_tbnotification_form F=36
+_tbsymbol_args_form F=8
+_tbfilelist_form F=44
+_tbbookmarks_form F=8
+_tbtagwin_form F=8
+_tbderivedclasses_form F=40
+_tbdebug_members_form F=64
+_tbannotations_browser_form F=0
+_tboutputwin_form F=8
+_tbtagrefs_form F=8
+_tbopen_form F=40
+_tbdebug_classes_form F=64
+_tbdebug_autovars_form F=64
+_tbdebug_locals_form F=64
+_tbdebug_threads_form F=64
+_tbdebug_memory_form F=64
+_tbclipboard_form F=44
+_tbsearch_form T=0
+_tbtagrefs_form T=0
+_tbcbrowser_form T=0
+_tbclass_form T=0
+_tbshell_form T=0
+_tbtagwin_form T=0
+_tbprojects_form T=0
+_tbproctree_form T=0
+_tbopen_form T=0
+_tbmessages_browser_form T=0
+_tboutputwin_form T=0
+AAAAAwAAAAEAAAAC2gAAAAIAMAAAAAAAAAA1AAAE7AAAA/0AAAAAAAAAAAAAB38AAAQ3AAAAAesAAARwAAAAAPsAAAACAAAAAgAAAAEAAAAA+wAAAAIAAAACAAAAAAAAAAH9AAABoQAAAAAaADoAOgA6AC8AdgBEAG8AYwBrAEEAcgBlAGEBAAAAALoAAAAAAAL7AAAABQAAAAUAAAAAAAAABAAAAAEAAAACAAAAA/sAAAAFAAAABQAAAAAAAAABAAAAAgAAAAMAAAAE/AAAAD0AAAAAKAAwADoAOgA6AF8AdABiAHAAcgBvAGoAZQBjAHQAcwBfAGYAbwByAG0BAP////8AAP///////////AAAAD0AAAAAKAAwADoAOgA6AF8AdABiAHAAcgBvAGMAdAByAGUAZQBfAGYAbwByAG0AAP////8AAP///////////AAAADcAAAAAIgAwADoAOgA6AF8AdABiAGMAbABhAHMAcwBfAGYAbwByAG0AAP////8AAP///////////AAAAD0AAAAAKAAwADoAOgA6AF8AdABiAGMAYgByAG8AdwBzAGUAcgBfAGYAbwByAG0AAP////8AAP///////////AAAADUAAAAAIAAwADoAOgA6AF8AdABiAG8AcABlAG4AXwBmAG8AcgBtAAD/////AAD///////////0AAAJ7AAAAABoAOgA6ADoALwB2AEQAbwBjAGsAQQByAGUAYQEAAAAELgABAAAAAfsAAAACAAAAAgAAAAAAAAAB+wAAAAIAAAACAAAAAQAAAAD8AAAAKQAAAAAcADoAOgA6AE0ARABJAEEAUgBFAEEAVABJAEwARQEAAAADxwAB/QAAAfsAAAAAGgA6ADoAOgAvAHYARABvAGMAawBBAHIAZQBhAQAAAADmAAAAAAAC+wAAAAYAAAAGAAAAAwAAAAUAAAAEAAAAAQAAAAIAAAAA+wAAAAYAAAAGAAAAAAAAAAEAAAACAAAAAwAAAAQAAAAF/AAAADkAAAAAJAAwADoAOgA6AF8AdABiAHMAZQBhAHIAYwBoAF8AZgBvAHIAbQAA/////wAA///////////8AAAAOQAAAAAkADAAOgA6ADoAXwB0AGIAdABhAGcAdwBpAG4AXwBmAG8AcgBtAAD/////AAD///////////wAAAA7AAAAACYAMAA6ADoAOgBfAHQAYgB0AGEAZwByAGUAZgBzAF8AZgBvAHIAbQAA/////wAA///////////8AAAANwAAAAAiADAAOgA6ADoAXwB0AGIAcwBoAGUAbABsAF8AZgBvAHIAbQEA/////wAA///////////8AAAATQAAAAA4ADAAOgA6ADoAXwB0AGIAbQBlAHMAcwBhAGcAZQBzAF8AYgByAG8AdwBzAGUAcgBfAGYAbwByAG0AAP////8AAP///////////AAAAD8AAAAAKgAwADoAOgA6AF8AdABiAG8AdQB0AHAAdQB0AHcAaQBuAF8AZgBvAHIAbQAA/////wAA//////////8AAAAA2wAAAAAAAAAC2wAAAAAAAAAB2wAAAAAAAAAD2wAAAAAAAAAA2gAAAB4AMAAtADEANQA3ADkAOAA1ADgAMQAxADcANAA0ADYATgAAAxcAAAHtAAAEtgAAA+QAAAAAAAAAAAAAB38AAAQ3AAAAAesAAAEIAAAAAPsAAAACAAAAAgAAAAAAAAAB+wAAAAIAAAACAAAAAAAAAAH9AAAAiwAAAAAaADoAOgA6AC8AdgBEAG8AYwBrAEEAcgBlAGEAAQAAAoAAAAAAAAL7AAAAAQAAAAEAAAAA+wAAAAEAAAABAAAAAPwAAABBAQAAACAAMQA6ADoAOgBfAHQAYgBmAGkAbgBkAF8AZgBvAHIAbQAB/////wAAAAABkAAAAdYAAAFv7thprAAAAAD8AAAAKQAAAAAcADoAOgA6AE0ARABJAEEAUgBFAEEAVABJAEwARQAB/////wAAAAAAANsAAAAAAAAAAtsAAAAAAAAAAdsAAAAAAAAAA9sAAAAAAAAAAA==
+QTOOLBAR 3 0
+AAAA/wAAAAD9AAAAAAAABO0AAAPJAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAMAAAAQAFMAdABhAG4AZABhAHIAZAEAAAAA/////wAAAAAAAAAAAAAAHgBDAHUAcgByAGUAbgB0ACAAQwBvAG4AdABlAHgAdAEAAAMt/////wAAAAAAAAAAAAAAGgBQAHIAbwBqAGUAYwB0ACAAVABvAG8AbABzAQAABLL/////AAAAAAAAAAA=
+_tbstandard_form 1
+_tbproject_tools_form 1
+_tbcontext_form 1
+APP_LAYOUT: 59 1 42 11 5 N 0
+_tbprojects_form F=8
+_tbdebug_exceptions_form F=384
+_tbsymbolcalls_form F=40
+_tbfind_symbol_form F=32
+_tbdebug_breakpoints_form F=384
+_tbclass_form F=8
+_tbFTPOpen_form F=0
+_tbdebug_stack_form F=64
+_tbdeltasave_form F=0
+_tbslickc_stack_form F=8
+_tbproctree_form F=8
+_tbbaseclasses_form F=40
+_tbsymbol_props_form F=8
+_tbshell_form F=8
+_tbdebug_watches_form F=64
+_tbsearch_form F=8
+_tbcbrowser_form F=8
+_tbsymbolcallers_form F=40
+_tbregex_form F=40
+_tbunittest_form F=0
+_tbdebug_regs_form F=64
+_tbbufftabs_form F=11
+_tbFTPClient_form F=0
+_tbfind_form F=36
+_tbmessages_browser_form F=8
+_tbnotification_form F=36
+_tbsymbol_args_form F=8
+_tbfilelist_form F=44
+_tbbookmarks_form F=8
+_tbtagwin_form F=8
+_tbderivedclasses_form F=40
+_tbdebug_members_form F=64
+_tbannotations_browser_form F=0
+_tboutputwin_form F=8
+_tbtagrefs_form F=8
+_tbopen_form F=40
+_tbdebug_classes_form F=64
+_tbdebug_autovars_form F=64
+_tbdebug_locals_form F=64
+_tbdebug_threads_form F=64
+_tbdebug_memory_form F=64
+_tbclipboard_form F=44
+_tbsearch_form T=0
+_tbtagrefs_form T=0
+_tbcbrowser_form T=0
+_tbclass_form T=0
+_tbshell_form T=0
+_tbtagwin_form T=0
+_tbprojects_form T=0
+_tbproctree_form T=0
+_tbopen_form T=0
+_tbmessages_browser_form T=0
+_tboutputwin_form T=0
+AAAAAwAAAAEAAAAC2gAAAAIAMAAAAAAAAAA1AAAE7AAAA/0AAAAAAAAAAAAAB38AAAQ3AAAAAesAAARwAAAAAPsAAAACAAAAAgAAAAEAAAAA+wAAAAIAAAACAAAAAAAAAAH9AAABoQAAAAAaADoAOgA6AC8AdgBEAG8AYwBrAEEAcgBlAGEBAAAAALoAAAAAAAL7AAAABQAAAAUAAAAAAAAABAAAAAEAAAACAAAAA/sAAAAFAAAABQAAAAAAAAABAAAAAgAAAAMAAAAE/AAAAD0AAAAAKAAwADoAOgA6AF8AdABiAHAAcgBvAGoAZQBjAHQAcwBfAGYAbwByAG0BAP////8AAP///////////AAAAD0AAAAAKAAwADoAOgA6AF8AdABiAHAAcgBvAGMAdAByAGUAZQBfAGYAbwByAG0AAP////8AAP///////////AAAADcAAAAAIgAwADoAOgA6AF8AdABiAGMAbABhAHMAcwBfAGYAbwByAG0AAP////8AAP///////////AAAAD0AAAAAKAAwADoAOgA6AF8AdABiAGMAYgByAG8AdwBzAGUAcgBfAGYAbwByAG0AAP////8AAP///////////AAAADUAAAAAIAAwADoAOgA6AF8AdABiAG8AcABlAG4AXwBmAG8AcgBtAAD/////AAD///////////0AAAJ7AAAAABoAOgA6ADoALwB2AEQAbwBjAGsAQQByAGUAYQEAAAAELgABAAAAAfsAAAACAAAAAgAAAAAAAAAB+wAAAAIAAAACAAAAAQAAAAD8AAAAKQAAAAAcADoAOgA6AE0ARABJAEEAUgBFAEEAVABJAEwARQEAAAADxwAB/QAAAfsAAAAAGgA6ADoAOgAvAHYARABvAGMAawBBAHIAZQBhAQAAAADmAAAAAAAC+wAAAAYAAAAGAAAAAwAAAAUAAAAEAAAAAQAAAAIAAAAA+wAAAAYAAAAGAAAAAAAAAAEAAAACAAAAAwAAAAQAAAAF/AAAADkAAAAAJAAwADoAOgA6AF8AdABiAHMAZQBhAHIAYwBoAF8AZgBvAHIAbQAA/////wAA///////////8AAAAOQAAAAAkADAAOgA6ADoAXwB0AGIAdABhAGcAdwBpAG4AXwBmAG8AcgBtAAD/////AAD///////////wAAAA7AAAAACYAMAA6ADoAOgBfAHQAYgB0AGEAZwByAGUAZgBzAF8AZgBvAHIAbQAA/////wAA///////////8AAAANwAAAAAiADAAOgA6ADoAXwB0AGIAcwBoAGUAbABsAF8AZgBvAHIAbQEA/////wAA///////////8AAAATQAAAAA4ADAAOgA6ADoAXwB0AGIAbQBlAHMAcwBhAGcAZQBzAF8AYgByAG8AdwBzAGUAcgBfAGYAbwByAG0AAP////8AAP///////////AAAAD8AAAAAKgAwADoAOgA6AF8AdABiAG8AdQB0AHAAdQB0AHcAaQBuAF8AZgBvAHIAbQAA/////wAA//////////8AAAAA2wAAAAAAAAAC2wAAAAAAAAAB2wAAAAAAAAAD2wAAAAAAAAAA2gAAAB4AMAAtADEANQA3ADkAOAA1ADgAMQAxADcANAA0ADYATgAAAxcAAAHtAAAEtgAAA+QAAAAAAAAAAAAAB38AAAQ3AAAAAesAAAEIAAAAAPsAAAACAAAAAgAAAAAAAAAB+wAAAAIAAAACAAAAAAAAAAH9AAAAiwAAAAAaADoAOgA6AC8AdgBEAG8AYwBrAEEAcgBlAGEAAQAAAoAAAAAAAAL7AAAAAQAAAAEAAAAA+wAAAAEAAAABAAAAAPwAAABBAQAAACAAMQA6ADoAOgBfAHQAYgBmAGkAbgBkAF8AZgBvAHIAbQAB/////wAAAAABkAAAAdYAAAFv7thprAAAAAD8AAAAKQAAAAAcADoAOgA6AE0ARABJAEEAUgBFAEEAVABJAEwARQAB/////wAAAAAAANsAAAAAAAAAAtsAAAAAAAAAAdsAAAAAAAAAA9sAAAAAAAAAAA==
+QTOOLBAR 3 0
+AAAA/wAAAAD9AAAAAAAABO0AAAPJAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAMAAAAQAFMAdABhAG4AZABhAHIAZAEAAAAA/////wAAAAAAAAAAAAAAHgBDAHUAcgByAGUAbgB0ACAAQwBvAG4AdABlAHgAdAEAAAMt/////wAAAAAAAAAAAAAAGgBQAHIAbwBqAGUAYwB0ACAAVABvAG8AbABzAQAABLL/////AAAAAAAAAAA=
+_tbstandard_form 1
+_tbproject_tools_form 1
+_tbcontext_form 1
+END_MONITOR_CONFIGS:
+CWD: ..\boost_1_72
+BUFFER: BN="..\boost_1_72\BuildComplete.cmd"""""
+BI: MA=1 74 1  TABS=2  WWS=1 IWT=0 ST=0 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=	HM=0 MF=117441056 TL=0 MLL=0 ASE=0 LNL=1 LCF=0 CAPS=0 E=0 ESBU2=-1 CL="" SC="" SCE= SCU= ALM=0 FWRM=0 HMRE=0 HMRBW=0 SPCWT= SWF= SM= STAT=
+VIEW: LN=.0 CL=1 LE=0 CX=1 CY=0 WI=5 BI=1 HT=0 HN=0 HF=0 HC=4 HB=4
+BUFFER: BN="README.md"""""
+BI: MA=1 74 1  TABS=2  WWS=1 IWT=0 ST=8 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=	HM=0 MF=118489632 TL=0 MLL=0 ASE=0 LNL=1 LCF=0 CAPS=0 E=0 ESBU2=-1 CL="" SC="" SCE= SCU= ALM=0 FWRM=0 HMRE=0 HMRBW=0 SPCWT= SWF=2 SM= STAT=
+VIEW: LN=.1815 CL=100 LE=0 CX=100 CY=24 WI=5 BI=2 HT=0 HN=0 HF=0 HC=4 HB=4
+BUFFER: BN="\Git\RWracesDB\README.md"""""
+BI: MA=1 74 1  TABS=2  WWS=1 IWT=0 ST=8 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=	HM=0 MF=118489632 TL=0 MLL=0 ASE=0 LNL=1 LCF=0 CAPS=0 E=0 ESBU2=-1 CL="" SC="" SCE= SCU= ALM=0 FWRM=0 HMRE=0 HMRBW=0 SPCWT= SWF=3 SM= STAT=
+VIEW: LN=.0 CL=1 LE=0 CX=1 CY=0 WI=5 BI=3 HT=0 HN=0 HF=0 HC=4 HB=4
+WINDOW: 1 22 1067 711 0 0 N  WF=0 WT=2 ",,," DID=0 MI="*,,,"
+BUFFER: BN="..\boost_1_72\BuildComplete.cmd"""""
+VIEW: LN=.0 CL=1 LE=0 CX=1 CY=0 WI=316 BI=1 HT=0 HN=0 HF=0 HC=4 HB=4
+WINDOW: 1 22 1067 711 0 0 N  WF=0 WT=4 ",,," DID=0 MI="*,,,"
+BUFFER: BN="\Git\RWracesDB\README.md"""""
+VIEW: LN=.1951 CL=62 LE=0 CX=62 CY=33 WI=263 BI=3 HT=0 HN=0 HF=0 HC=4 HB=4
+WINDOW: 1 22 1068 711 0 0 N  WF=0 WT=3 ",,," DID=0 MI="*,,,"
+BUFFER: BN="README.md"""""
+VIEW: LN=.1815 CL=99 LE=27 CX=72 CY=32 WI=276 BI=2 HT=0 HN=0 HF=0 HC=4 HB=4
+MDISTATE: 1
+AAAAAwAAAAIAAAAC2gAAAAIAMAAAAAAAAAA1AAAE7AAAA/0AAAAAAAAAAAAAB38AAAQ3AAAAAuoAAAE2AAAAAvsAAAADAAAAAwAAAAIAAAABAAAAAPsAAAADAAAAAwAAAAEAAAACAAAAAPwAAABjAAAAAFYAMgA6ADoAOgBEADoAXABTAG8AdQByAGMAZQBzAFwAYgBvAG8AcwB0AF8AMQBfADcAMgBcAEIAdQBpAGwAZABDAG8AbQBwAGwAZQB0AGUALgBjAG0AZAAA/////wAA/AAAAEkAAAAAPAA0ADoAOgA6AEQAOgBcAEcAaQB0AFwAUgBXAHIAYQBjAGUAcwBEAEIAXABSAEUAQQBEAE0ARQAuAG0AZAAA/////wAA/AAAAE0AAAAAQAAzADoAOgA6AEQAOgBcAFMAbwB1AHIAYwBlAHMAXABLAGUAZQBQAGEAcwBzAFwAUgBFAEEARABNAEUALgBtAGQBAP////8AAQAAAADaAAAAHgAwAC0AMQA1ADcAOQA4ADUAOAAxADEANwA0ADQANgBOAAADFwAAAe0AAAS2AAAD5AAAAAAAAAAAAAAHfwAABDcAAAAC6gAAABYAAAAC+wAAAAAAAAAA+wAAAAAAAAAAAAAAAA==
+FILEHIST: 9
+..\boost_1_72\bootstrap.log
+..\boost_1_72\build.log
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\bin\Microsoft.Common.CurrentVersion.targets
+Installer\Product.wxs
+KeePass\NewGUI\AMSEdit.cpp
+\Git\README-Template.md
+..\boost_1_72\BuildComplete.cmd
+\Git\RWracesDB\README.md
+README.md
+ALLFILEHIST: 64
+\Git\README-Template.md
+README.md
+\Git\RWracesDB\README.md
+LastPass\LastPass.h
+lastpass\LastPass.cpp
+KeePassLibCpp\SDK\Details\KpDefs.h
+LastPass\Import.h
+LastPass\Import.cpp
+KeePassLibCpp\SDK\Details\IKpUtilities.h
+KeePassLibCpp\SDK\Details\IKpPlugin.h
+KeePassLibCpp\SDK\Details\IKpDatabase.h
+KeePassLibCpp\SDK\Details\IKpConfig.h
+KeePassLibCpp\SDK\Details\IKpAPI3.h
+KeePassLibCpp\SDK\Details\IKpAPI2.h
+KeePassLibCpp\SDK\Details\IKpAPI.h
+LastPass\Groups.h
+LastPass\Groups.cpp
+LastPass\FileIO.h
+LastPass\FileIO.cpp
+Data\Export.txt
+Data\Export.csv
+LastPass\Expandable.h
+LastPass\Duplicates.h
+LastPass\Duplicates.cpp
+LastPass\Database.h
+LastPass\Database.cpp
+PluginFramework\CreatePlugin.h
+C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\ucrt\corecrt.h
+KeePassLibCpp\Util\ComUtil.cpp
+KeePass\Util\CmdLine\CommandLineOption.cpp
+..\boost_1_72\BuildComplete.cmd
+..\boost_1_72\build.log
+..\boost_1_72\bootstrap.log
+C:\Program Files (x86)\Windows Kits\10\include\10.0.18362.0\ucrt\assert.h
+KeePassLibCpp\SysSpec_Windows\AppUtil.cpp
+KeePass\NewGUI\AMSEdit.cpp
+..\RWracesDB\SrcFiles\AddressTbl.h
+..\RWracesDB\SrcFiles\AddressTbl.cpp
+..\RWracesDB\SrcFiles\AddressMap.h
+..\RWracesDB\RWracesDB\ReadNewDB\AddressMap.h
+..\RWracesDB\RWracesDB\NewDBMaps\AddressMap.h
+..\RWracesDB\SrcFiles\AddressMap.cpp
+..\RWracesDB\RWracesDB\ReadNewDB\AddressMap.cpp
+..\boost_1_68_0\libs\icl\doc\html\boost_icl\function_reference\addition.html
+KeePass\AddEntryDlg.cpp
+..\RWracesDB\RWracesDB\ReadNewDB\Debug\acedao.tli
+..\RWracesDB\Debug\LibWin7\acedao.tli
+..\RWracesDB\RWracesDB\ReadNewDB\Debug\acedao.tlh
+..\RWracesDB\Debug\LibWin7\acedao.tlh
+..\Library\LibFiles\AceDao.h
+..\Library\LibFiles\AceDao.cpp
+..\Library\AboutFiles\About.rc2
+..\RWracesDB\SrcFiles\About.h
+..\Library\AboutFiles\About.h
+..\RWracesDB\SrcFiles\About.cpp
+..\Library\AboutFiles\About.cpp
+..\RWracesDB\GoogleEarthDoc\AAA_RACES.xlsx
+..\RWracesDB\GoogleEarthDoc\AAA_RACES.csv
+\Documents\SJRaces\Survey\2020\00dbSurvey.txt
+..\RWracesDB\RWracesDB\00DB.vpw
+..\RWracesDB\RWracesDB\00DB.vcxproj.filters
+..\RWracesDB\RWracesDB\00DB.vcxproj
+..\RWracesDB\RWracesDB\00DB.v12.suo
+..\RWracesDB\RWracesDB\00DB.sln
+DEBUG: 0 0 0 0 5 0 windbg
+printf
+strcpy
+strcmp
+std::*
+boost::*
+DEBUG2: 0
+TBCLASS: 0 0
