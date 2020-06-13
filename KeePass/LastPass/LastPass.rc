@@ -18,15 +18,15 @@ BEGIN
     LP_About             "About..."
     LP_Test              "Test Stuff"
 
-    XL_ABOUT  "Last Pass Import/Export Plugin\nVersion 1.7.0 by Bob -- K6RWY"
+    XL_ABOUT  "Last Pass Import/Export Plugin\nVersion 1.7.1 by Bob -- K6RWY"
 END
 
 
 // Version Information resources
 
 VS_VERSION_INFO VERSIONINFO
-    FILEVERSION     1,7,0,0
-    PRODUCTVERSION  1,7,0,0
+    FILEVERSION     1,7,1,0
+    PRODUCTVERSION  1,7,1,0
     FILEOS          VOS__WINDOWS32
     FILETYPE        VFT_DLL
 BEGIN
@@ -36,12 +36,12 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Bob -- K6RWY"
             VALUE "FileDescription", "Last Pass Export plugin for KeePass"
-            VALUE "FileVersion", "1.7.0"
+            VALUE "FileVersion", "1.7.1"
             VALUE "InternalName", "Last Pass Export"
             VALUE "LegalCopyright", "Bob -- K6RWY"
             VALUE "OriginalFilename", "LastPass.dll"
             VALUE "ProductName", "KeePass Plugin"
-            VALUE "ProductVersion", "1.7.0"
+            VALUE "ProductVersion", "1.7.1"
         END
     END
     BLOCK "VarFileInfo"

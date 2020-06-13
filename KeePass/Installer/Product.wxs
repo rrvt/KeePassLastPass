@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
 
-<Product Id="*" UpgradeCode="9BC992CB-C156-4297-849F-A3E834DEC70B" Language="1033"
-         Manufacturer="KeePass" Name="KeePass"
+<Product Id="*" UpgradeCode="E4B33AD1-E88F-4AF5-BF88-DA9B628977AD" Language="1033"
+         Manufacturer="Bob -- K6RWY" Name="KeePass"
          Version="!(bind.fileVersion.KeePass.cmp)"
          >
 
   <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine"
-           Manufacturer="KeePass" Description="Installs KeePass"
-           Comments="Copyright (c) KeePass"
+           Manufacturer="Bob -- K6RWY" Description="Installs KeePass"
+           Comments="Copyright (c) Bob -- K6RWY"
            />
 
   <MajorUpgrade Schedule="afterInstallInitialize"
-                AllowDowngrades="no"   IgnoreRemoveFailure="no"   AllowSameVersionUpgrades="yes"
+                AllowDowngrades="no"   IgnoreRemoveFailure="no"   AllowSameVersionUpgrades="no"
                 DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
 
   <MediaTemplate EmbedCab="yes" />
@@ -34,17 +34,20 @@
   <Property Id="ARPPRODUCTICON"  Value="PwSafeIcon.ico" />
 
   <Feature Id="ProductFeatures" Title="Main Product" Level="1" >
-    <ComponentGroupRef Id="Main.ftr"/>
+    <ComponentGroupRef Id="KeePass.ftr"/>
+    <ComponentGroupRef Id="PlugIns.ftr"/>
     <ComponentGroupRef Id="UninstallKeePass.ftr"/>
   </Feature>
 </Product>
 
 <Fragment>
-<ComponentGroup Id="Main.ftr">
+<ComponentGroup Id="KeePass.ftr">
   <ComponentRef Id="KeePass.cmp"/>
-  <ComponentRef Id="LastPass.cmp"/>
-  <ComponentRef Id="EnglishDB.cmp"/>
   <ComponentRef Id="KeePassLib.cmp"/>
+</ComponentGroup>
+<ComponentGroup Id="PlugIns.ftr">
+  <ComponentRef Id="LastPass.cmp"/>
+  <ComponentRef Id="EnglishPL.cmp"/>
 </ComponentGroup>
 <ComponentGroup Id="UninstallKeePass.ftr">
   <ComponentRef Id="UninstallKeePass.cmp"/>
@@ -55,13 +58,11 @@
 <Fragment>
   <Directory Id="TARGETDIR" Name="SourceDir">
     <Directory Id="ProgramFilesFolder">
-      <Directory Id="KeePass.pff" Name="KeePass">
-        <Directory Id="KeePass_Plugins.pff" Name="Plugins"/>
-      </Directory>
+      <Directory Id="KeePass.pff" Name="KeePass" />
     </Directory>
 
     <Directory Id="ProgramMenuFolder" Name="StartMenu">
-      <Directory Id="KeePass.pmf" Name="KeePass"/>
+      <Directory Id="KeePass.pmf" Name="KeePass" />
     </Directory>
 
     <Directory Id="DesktopFolder" Name="Desktop" />
@@ -74,7 +75,7 @@
 
 <Fragment>
 
-  <Component Id="KeePass.cmp"  Guid="980DA7E3-C637-489E-B9B3-B004ECAF3AFA" Directory="KeePass.pff">
+  <Component Id="KeePass.cmp"  Guid="219C5BD5-758C-4CF0-A50C-A49DD9450E89" Directory="KeePass.pff">
     <File Id="KeePass.cmp" Source="$(var.SolutionDir)Release\KeePass.exe" KeyPath="yes"/>
 
     <Shortcut Id               = "KeePass.shc"
@@ -96,18 +97,7 @@
               />
   </Component>
 
-  <Component Id="LastPass.cmp"  Guid="623CAAEB-2449-4970-9D47-1E0DB0482D1C"
-                                                                      Directory="KeePass_Plugins.pff">
-    <File Id="LastPass.cmp" Source="$(var.SolutionDir)Release\Plugins\LastPass.dll" KeyPath="yes"/>
-  </Component>
-
-  <Component Id="EnglishDB.cmp"  Guid="9204F4C2-8389-411E-A7AB-23E15AE0F7C3"
-                                                                      Directory="KeePass_Plugins.pff">
-    <File Id="EnglishDB.cmp"
-                    Source="$(var.SolutionDir)Release\Plugins\English_DB_Backup.plng" KeyPath="yes"/>
-  </Component>
-
-  <Component Id="KeePassLib.cmp"  Guid="B72AEF59-0B96-460B-8A45-60DD7B9FF513" Directory="KeePass.pff">
+  <Component Id="KeePassLib.cmp"  Guid="91157E1C-C077-4F31-B2AE-AEA31675482F" Directory="KeePass.pff">
     <File Id="KeePassLib.cmp" Source="$(var.SolutionDir)Release\KeePassLib.dll" KeyPath="yes"/>
   </Component>
 
@@ -115,8 +105,21 @@
 
 <Fragment>
 
+  <Component Id="LastPass.cmp"  Guid="AC6D8794-DD18-4F91-B05A-92AA7CCD2AB3" Directory="KeePass.pff">
+    <File Id="LastPass.cmp" Source="$(var.SolutionDir)Release\Plugins\LastPass.dll" KeyPath="yes"/>
+  </Component>
+
+  <Component Id="EnglishPL.cmp"  Guid="5C88466F-4740-46F0-A07D-657BC61793FD" Directory="KeePass.pff">
+    <File Id="EnglishPL.cmp"
+                    Source="$(var.SolutionDir)Release\Plugins\English_DB_Backup.plng" KeyPath="yes"/>
+  </Component>
+
+</Fragment>
+
+<Fragment>
+
   <Component Id="UninstallKeePass.cmp" 
-                                  Guid="ADDCD209-7597-4F94-808D-00A65A9CC2FC" Directory="KeePass.pmf">
+                                  Guid="08F3F15A-0B49-4BD5-9073-8B438CCAC0D0" Directory="KeePass.pmf">
 
     <Shortcut Id               = "UninstallKeePass.shc"
               Name             = "Uninstall KeePass"

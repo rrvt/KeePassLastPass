@@ -25,8 +25,9 @@ of the changes I made in KeePass.  Note the directory name changes:
 
 I put the Boost directory at the same level as the KeePass directory.  The Boost Library must be compiled.
 I chose the complete command:
+```
    b2 --build-dir=D:\SandBox\boost_1_72\Build toolset=msvc --build-type=complete  stage >build.log 2>&1
-
+```
 The Extension "Wix Toolset visual Studio 2017 Extension" is also required.  It can be found in
 "visual Studio 2017/Tools/Extensions and Updates".
 

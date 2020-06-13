@@ -33,9 +33,25 @@
     </WixExtension>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\KeePassLib\KeePassLib.vcxproj">
+      <Name>KeePassLib</Name>
+      <Project>{97e15437-c3a6-4c37-bfe5-12e6211932f1}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
     <ProjectReference Include="..\KeePass\KeePass.vcxproj">
       <Name>KeePass</Name>
       <Project>{c739c9f5-288c-4a5b-b9d8-38a406796a75}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+    <ProjectReference Include="..\LastPass\LastPass.vcxproj">
+      <Name>LastPass</Name>
+      <Project>{d7b8c96f-a338-4a81-ac03-8cdc93bb10c5}</Project>
       <Private>True</Private>
       <DoNotHarvest>True</DoNotHarvest>
       <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
