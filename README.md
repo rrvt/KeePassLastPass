@@ -13,20 +13,24 @@ It will produce the same file as what was imported.  I have not attempted to loa
 
 ## Getting Started
 
-Compiled with Visual Studio 2017 (VS17).  It requires the Boost Libraries:  https://www.boost.org/ and
-the WiX Toolset extension to VS17.  The boost library links may need adjusting in the project properties.
+Compiled with Visual Studio 2017 (VS17).  KeePass v1.39 requires the Boost version 1.75 Libraries:
+https://www.boost.org/ and the WiX Toolset extension to VS17.
+The boost library links may need adjusting in the project properties.
 
 Do a difference between the latest KeePass (1.38 at the time of writing) and this code to get an idea
-of the changes I made in KeePass.  Note the directory name changes:
-  - WinGUI was changed to KeePass
-  - KeePassLibC was changed to KeePassLib
+of the changes I made in KeePass.  Note the Project name:
+
+  - Project KeePassLibC name was changed to KeePassLib
+  - Project Deprecated was added as a static library
+  - Project LastPass was added as a dll
+  - Project Installer was added as a Wix installer (see WixApp)
 
 ### Prerequisites
 
 I put the Boost directory at the same level as the KeePass directory.  The Boost Library must be compiled.
 I chose the complete command:
 ```
-   b2 --build-dir=D:\SandBox\boost_1_72\Build toolset=msvc --build-type=complete  stage >build.log 2>&1
+   b2 --build-dir=D:\SandBox\boost.1.75\Build toolset=msvc --build-type=complete  stage >build.log 2>&1
 ```
 The Extension "Wix Toolset visual Studio 2017 Extension" is also required.  It can be found in
 "visual Studio 2017/Tools/Extensions and Updates".
