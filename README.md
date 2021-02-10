@@ -1,15 +1,15 @@
 # KeePass/LastPass Extension
 
-This is primarily a Last Pass Import/Export Extension to KeePass 1.38 (C++ Version).
+This is primarily a Last Pass Import/Export Extension to KeePass 1.39 (C++ Version).
 
-I like Password Vaults and a couple of years ago the password vault I was using got a little confused and
+I like Password Vaults and a few years ago the password vault I was using got a little confused and
 deleted all my passwords.  I abandoned that vault and decided that the next vault I used would have a
 backup.  I chose LastPass based on comments but I was determined to save the passwords on my personal
 computer too.  So KeePass also received good marks and the source is available.  Being a veteran C++
 SE I chose it in the C++ version.  Last Pass keeps changing its export function so this version will
-process the latest version of its export file (Early 2020).  Since It might be necessary to restore the
-passwords to LastPass there is an export function included in the KeePass/LastPass extension.  It will
-produce the same file as what was imported.  I have not attempted to load it into LastPass...
+process the latest version of its export file (Early 2020 and 2021).  Since It might be necessary to
+restore the passwords to LastPass there is an export function included in the KeePass/LastPass extension.
+It will produce the same file as what was imported.  I have not attempted to load it into LastPass...
 
 ## Getting Started
 
@@ -36,6 +36,21 @@ Changes to the Installer may made by editing the "Product.wxs" file or obtaining
 ### Installing
 
 Run the KeePassInstaller.msi to install KeePass.
+
+## Updates
+
+### Update 2/9/21
+
+KeePass update this January to 1.39.  However, I had made some additions to KeePass to facilitate
+adding a LastPass PlugIn.  So those needed to be forwarded from 1.38 version.  This was done using
+SlickEdit's difference engine.
+Furthermore, KeePass is built for many different compilers and Visual Studio 2017 deprecates GetVersion
+and GetVersionEx so I've moved those two functions into a Deprecated Library and enclosed them in
+pragmas to avoid the warning.
+
+Modified the Interator a bit to model IterT in the Library even though the guts use KeePassLib to
+actually return the entries.  Made the duplicate hunting a bit more stringent.  The user will need to
+resolve the duplicates that are just close to each other.
 
 ## Built With
 
