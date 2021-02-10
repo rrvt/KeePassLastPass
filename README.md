@@ -63,8 +63,9 @@ Visual Studio 2017 in C++.
 ## Authors
 
 KeePass Authors for most of it.
-Robert Van Tuyl for the LastPass Extension and some minor additions to the ini file functions.  Other
-changes in KeePass code were made to suppress noisy warnings (mostly about version but a few others too).
+Robert Van Tuyl for the LastPass Extension and some minor additions to the ini file functions.
+
+Contact:  romeo romeo victor tango alpha tango sam whisky delta echo dot charlie oscar mike
 
 ## License
 
