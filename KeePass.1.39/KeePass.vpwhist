@@ -1,0 +1,383 @@
+[ProjectDates]
+WinGUI\PwSafe.vcxproj=20210210045335644
+KeePassLibC\KeePassLib.vcxproj=20210209223349407
+Deprecated\Deprecated.vcxproj=20210209045630622
+LastPass\LastPass.vcxproj=20210209223951608
+Installer\Installer.wixproj=20210210044007678
+[Global]
+CurrentProject=WinGUI\PwSafe.vpj
+ActiveSolutionConfig=Release|Win32
+[ActiveConfig]
+WinGUI\PwSafe.vpj=,Release|Win32
+KeePassLibC\KeePassLib.vpj=,Debug|Win32
+Deprecated\Deprecated.vpj=,Debug|Win32
+LastPass\LastPass.vpj=,Debug|Win32
+Installer\Installer.vpj=,Debug|x86
+[TreeExpansion2]
++@ Deprecated\Deprecated.vcxproj
++@ Installer\Installer.wixproj
++@ KeePassLibC\KeePassLib.vcxproj
++@ LastPass\LastPass.vcxproj
+-@ WinGUI\PwSafe.vcxproj
+  + Header Files
+  + KeePassLibCpp
+    + Crypto
+      + SHA2
+    + DataExchange
+    + Details
+    + IO
+    + PasswordGenerator
+    + SDK
+      + Details
+    + SysSpec_Windows
+    + Util
+  + NewGUI
+    + TaskbarListEx
+    + TaskDialog
+    + VistaMenu
+  + Plugins
+  + Resource Files
+  + Source Files
+  + Util
+    + CmdLine
+    + SprEngine
+scroll:0
+[State]
+MONITOR_CONFIGS: 234
+MONITOR_CONFIG: 232 0 0 1920 1080
+SCREEN: 1920 1080 490 8 1409 1043 0 0 N 0 0 0 0 1145 733 0
+MDISTATE: 1
+AAAAAwAAAAIAAAAC2gAAAAIAMAAAAAAAAAA1AAAFgAAAA/wAAAAAAAAAAAAAB38AAAQ3AAAAAuoAAAB6AAAAAvsAAAABAAAAAQAAAAD7AAAAAQAAAAEAAAAA/AAAAFcAAAAASgAyADoAOgA6AEQAOgBcAFMAbwB1AHIAYwBlAHMAXABLAGUAZQBQAGEAcwBzAC4AMQAuADMAOQBcAFIARQBBAEQATQBFAC4AbQBkAQD/////AAEAAAAA2gAAAB4AMAAtADEANQA3ADkAOAA1ADgAMQAxADcANAA0ADYATgAABHIAAAHPAAAGEAAAA8UAAAAAAAAAAAAAB38AAAQ3AAAAAuoAAAAWAAAAAvsAAAAAAAAAAPsAAAAAAAAAAAAAAAA=
+DEBUG_LAYOUT: 56 1 42 7 6 N 0
+_tbprojects_form F=8
+_tbdebug_exceptions_form F=384
+_tbsymbolcalls_form F=40
+_tbfind_symbol_form F=32
+_tbdebug_breakpoints_form F=384
+_tbclass_form F=8
+_tbFTPOpen_form F=0
+_tbdebug_stack_form F=64
+_tbdeltasave_form F=0
+_tbslickc_stack_form F=8
+_tbproctree_form F=8
+_tbbaseclasses_form F=40
+_tbsymbol_props_form F=8
+_tbshell_form F=8
+_tbdebug_watches_form F=64
+_tbsearch_form F=8
+_tbcbrowser_form F=8
+_tbsymbolcallers_form F=40
+_tbregex_form F=40
+_tbunittest_form F=0
+_tbdebug_regs_form F=64
+_tbbufftabs_form F=11
+_tbFTPClient_form F=0
+_tbfind_form F=36
+_tbmessages_browser_form F=8
+_tbnotification_form F=36
+_tbsymbol_args_form F=8
+_tbfilelist_form F=44
+_tbbookmarks_form F=8
+_tbtagwin_form F=8
+_tbderivedclasses_form F=40
+_tbdebug_members_form F=64
+_tbannotations_browser_form F=0
+_tboutputwin_form F=8
+_tbtagrefs_form F=8
+_tbopen_form F=40
+_tbdebug_classes_form F=64
+_tbdebug_autovars_form F=64
+_tbdebug_locals_form F=64
+_tbdebug_threads_form F=64
+_tbdebug_memory_form F=64
+_tbclipboard_form F=44
+_tbdebug_stack_form T=0
+_tbdebug_locals_form T=0
+_tbdebug_autovars_form T=0
+_tbdebug_breakpoints_form T=0
+_tbdebug_exceptions_form T=0
+_tbdebug_watches_form T=0
+_tbdebug_members_form T=0
+AAAAAwAAAAEAAAAB2gAAAAIAMAAAAAAAAABXAAAE1AAAA/sAAAAAAAAAAAAAB38AAAQ3AAAAAesAAATMAAAAAPsAAAACAAAAAgAAAAEAAAAA+wAAAAIAAAACAAAAAAAAAAH9AAAB1wAAAAAaADoAOgA6AC8AdgBEAG8AYwBrAEEAcgBlAGEBAAAAAXwAAAAAAAH7AAAAAgAAAAIAAAABAAAAAPsAAAACAAAAAgAAAAEAAAAA/QAAAI0AAAAAGgA6ADoAOgAvAHYARABvAGMAawBBAHIAZQBhAQAAAAOSAAAAAAAC+wAAAAEAAAABAAAAAPsAAAABAAAAAQAAAAD8AAAAQwAAAAAuADAAOgA6ADoAXwB0AGIAZABlAGIAdQBnAF8AcwB0AGEAYwBrAF8AZgBvAHIAbQEA/////wAA///////////9AAAA8wAAAAAaADoAOgA6AC8AdgBEAG8AYwBrAEEAcgBlAGEBAAAAAOYAAAAAAAL7AAAAAgAAAAIAAAAAAAAAAfsAAAACAAAAAgAAAAAAAAAB/AAAAE8AAAAAOgAwADoAOgA6AF8AdABiAGQAZQBiAHUAZwBfAGIAcgBlAGEAawBwAG8AaQBuAHQAcwBfAGYAbwByAG0BAP////8AAP///////////AAAAE0AAAAAOAAwADoAOgA6AF8AdABiAGQAZQBiAHUAZwBfAGUAeABjAGUAcAB0AGkAbwBuAHMAXwBmAG8AcgBtAAD/////AAD///////////0AAAKhAAAAABoAOgA6ADoALwB2AEQAbwBjAGsAQQByAGUAYQEAAAADhwABAAAAAfsAAAACAAAAAgAAAAAAAAAB+wAAAAIAAAACAAAAAQAAAAD8AAAAKQAAAAAcADoAOgA6AE0ARABJAEEAUgBFAEEAVABJAEwARQEAAAACrAAB/QAAAiEAAAAAGgA6ADoAOgAvAHYARABvAGMAawBBAHIAZQBhAQAAAADmAAAAAAAA+wAAAAIAAAACAAAAAAAAAAH7AAAAAgAAAAIAAAABAAAAAP0AAAE5AAAAABoAOgA6ADoALwB2AEQAbwBjAGsAQQByAGUAYQEAAAAA6AAAAAAAAvsAAAADAAAAAwAAAAAAAAACAAAAAfsAAAADAAAAAwAAAAAAAAABAAAAAvwAAABJAAAAADQAMAA6ADoAOgBfAHQAYgBkAGUAYgB1AGcAXwBhAHUAdABvAHYAYQByAHMAXwBmAG8AcgBtAQD/////AAH///////////wAAABFAAAAADAAMAA6ADoAOgBfAHQAYgBkAGUAYgB1AGcAXwBsAG8AYwBhAGwAcwBfAGYAbwByAG0AAP////8AAP///////////AAAAEcAAAAAMgAwADoAOgA6AF8AdABiAGQAZQBiAHUAZwBfAG0AZQBtAGIAZQByAHMAXwBmAG8AcgBtAAD/////AAD///////////0AAACRAAAAABoAOgA6ADoALwB2AEQAbwBjAGsAQQByAGUAYQEAAAABfAAAAAAAAvsAAAABAAAAAQAAAAD7AAAAAQAAAAEAAAAA/AAAAEcAAAAAMgAwADoAOgA6AF8AdABiAGQAZQBiAHUAZwBfAHcAYQB0AGMAaABlAHMAXwBmAG8AcgBtAQD/////AAD//////////wAAAADbAAAAAAAAAALbAAAAAAAAAAHbAAAAAAAAAAPbAAAAAAAAAAA=
+QTOOLBAR 4 0
+AAAA/wAAAAD9AAAAAAAABNUAAAOlAAAABAAAAAQAAAAIAAAACPwAAAACAAAAAgAAAAMAAAAQAFMAdABhAG4AZABhAHIAZAEAAAAA/////wAAAAAAAAAAAAAAHgBDAHUAcgByAGUAbgB0ACAAQwBvAG4AdABlAHgAdAEAAAMt/////wAAAAAAAAAAAAAAGgBQAHIAbwBqAGUAYwB0ACAAVABvAG8AbABzAQAABJr/////AAAAAAAAAAAAAAACAAAAAQAAAAoARABlAGIAdQBnAQAAAAD/////AAAAAAAAAAA=
+_tbstandard_form 1
+_tbproject_tools_form 1
+_tbcontext_form 1
+_tbdebugbb_form 1
+FULLSCREEN_LAYOUT: 47 1 42 0 4 N 0
+_tbprojects_form F=8
+_tbdebug_exceptions_form F=384
+_tbsymbolcalls_form F=40
+_tbfind_symbol_form F=32
+_tbdebug_breakpoints_form F=384
+_tbclass_form F=8
+_tbFTPOpen_form F=0
+_tbdebug_stack_form F=64
+_tbdeltasave_form F=0
+_tbslickc_stack_form F=8
+_tbproctree_form F=8
+_tbbaseclasses_form F=40
+_tbsymbol_props_form F=8
+_tbshell_form F=8
+_tbdebug_watches_form F=64
+_tbsearch_form F=8
+_tbcbrowser_form F=8
+_tbsymbolcallers_form F=40
+_tbregex_form F=40
+_tbunittest_form F=0
+_tbdebug_regs_form F=64
+_tbbufftabs_form F=11
+_tbFTPClient_form F=0
+_tbfind_form F=36
+_tbmessages_browser_form F=8
+_tbnotification_form F=36
+_tbsymbol_args_form F=8
+_tbfilelist_form F=44
+_tbbookmarks_form F=8
+_tbtagwin_form F=8
+_tbderivedclasses_form F=40
+_tbdebug_members_form F=64
+_tbannotations_browser_form F=0
+_tboutputwin_form F=8
+_tbtagrefs_form F=8
+_tbopen_form F=40
+_tbdebug_classes_form F=64
+_tbdebug_autovars_form F=64
+_tbdebug_locals_form F=64
+_tbdebug_threads_form F=64
+_tbdebug_memory_form F=64
+_tbclipboard_form F=44
+AAAAAwAAAAEAAAAB2gAAAAIAMAAAAAAAAAA1AAAEhwAAA/sAAAAAAAAAAAAAB38AAAQ3AAAAAesAAABwAAAAAPsAAAABAAAAAQAAAAD7AAAAAQAAAAEAAAAA/AAAACkAAAAAHAA6ADoAOgBNAEQASQBBAFIARQBBAFQASQBMAEUBAAAAB4AAAAAAAADbAAAAAAAAAALbAAAAAAAAAAHbAAAAAAAAAAPbAAAAAAAAAAA=
+QTOOLBAR 2 0
+AAAA/wAAAAD9AAAAAAAABIgAAAPHAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAIAAAAQAFMAdABhAG4AZABhAHIAZAEAAAAA/////wAAAAAAAAAAAAAAHgBDAHUAcgByAGUAbgB0ACAAQwBvAG4AdABlAHgAdAEAAAMt/////wAAAAAAAAAA
+_tbstandard_form 1
+_tbcontext_form 1
+STANDARD_LAYOUT: 61 1 44 12 4 N 0
+_tbbufftabs_form F=11
+_tbprojects_form F=8
+_tbdebug_watches_form F=64
+_tbbaseclasses_form F=40
+_tbdeltasave_form F=0
+_tbdebug_regs_form F=64
+_tbFTPOpen_form F=0
+_tbdebug_threads_form F=64
+_tbclipboard_form F=44
+_tbopen_form F=40
+_tbterminal_form F=8
+_tbdebug_exceptions_form F=384
+_tbdebug_classes_form F=64
+_tbtagwin_form F=8
+_tbdebug_autovars_form F=64
+_tbsymbolcallers_form F=40
+_tbFTPClient_form F=0
+_tbtagrefs_form F=8
+_tbfind_symbol_form F=32
+_tbdebug_locals_form F=64
+_tbdebug_members_form F=64
+_tbdebug_memory_form F=64
+_tbsymbol_args_form F=8
+_tbdebug_stack_form F=64
+_tbsymbolcalls_form F=40
+_tbsymbol_props_form F=8
+_tbfilelist_form F=44
+_tboutputwin_form F=8
+_tbclass_form F=8
+_tbunittest_form F=0
+_tbfind_form F=36
+_tbmessages_browser_form F=8
+_tbannotations_browser_form F=0
+_tbdebug_breakpoints_form F=384
+_tbnotification_form F=36
+_tbinteractive_form F=8
+_tbproctree_form F=8
+_tbbookmarks_form F=8
+_tbregex_form F=40
+_tbslickc_stack_form F=8
+_tbderivedclasses_form F=40
+_tbshell_form F=8
+_tbcbrowser_form F=8
+_tbsearch_form F=8
+_tbproctree_form T=0
+_tbsearch_form T=0
+_tboutputwin_form T=0
+_tbcbrowser_form T=0
+_tbclass_form T=0
+_tbtagwin_form T=0
+_tbterminal_form T=0
+_tbopen_form T=0
+_tbmessages_browser_form T=0
+_tbtagrefs_form T=0
+_tbshell_form T=0
+_tbprojects_form T=0
+AAAAAwAAAAEAAAAC2gAAAAIAMAAAAAAAAAA1AAAFgAAAA/wAAAAAAAAAAAAAB38AAAQ3AAAAAesAAAS6AAAAAPsAAAACAAAAAgAAAAEAAAAA+wAAAAIAAAACAAAAAAAAAAH9AAABoQAAAAAaADoAOgA6AC8AdgBEAG8AYwBrAEEAcgBlAGEBAAAAAQMAAAAAAAL7AAAABQAAAAUAAAAAAAAABAAAAAMAAAACAAAAAfsAAAAFAAAABQAAAAAAAAABAAAAAgAAAAMAAAAE/AAAAD0AAAAAKAAwADoAOgA6AF8AdABiAHAAcgBvAGoAZQBjAHQAcwBfAGYAbwByAG0BAP////8AAP///////////AAAAD0AAAAAKAAwADoAOgA6AF8AdABiAHAAcgBvAGMAdAByAGUAZQBfAGYAbwByAG0AAP////8AAP///////////AAAADcAAAAAIgAwADoAOgA6AF8AdABiAGMAbABhAHMAcwBfAGYAbwByAG0AAP////8AAP///////////AAAAD0AAAAAKAAwADoAOgA6AF8AdABiAGMAYgByAG8AdwBzAGUAcgBfAGYAbwByAG0AAP////8AAP///////////AAAADUAAAAAIAAwADoAOgA6AF8AdABiAG8AcABlAG4AXwBmAG8AcgBtAAD/////AAD///////////0AAALFAAAAABoAOgA6ADoALwB2AEQAbwBjAGsAQQByAGUAYQEAAAAEeAABAAAAAfsAAAACAAAAAgAAAAAAAAAB+wAAAAIAAAACAAAAAQAAAAD8AAAAKQAAAAAcADoAOgA6AE0ARABJAEEAUgBFAEEAVABJAEwARQEAAAAC3AAB/QAAAkUAAAAAGgA6ADoAOgAvAHYARABvAGMAawBBAHIAZQBhAQAAAADmAAAAAAAC+wAAAAcAAAAHAAAAAwAAAAYAAAAFAAAABAAAAAIAAAABAAAAAPsAAAAHAAAABwAAAAAAAAABAAAAAgAAAAMAAAAEAAAABQAAAAb8AAAAOQAAAAAkADAAOgA6ADoAXwB0AGIAcwBlAGEAcgBjAGgAXwBmAG8AcgBtAAD/////AAD///////////wAAAA5AAAAACQAMAA6ADoAOgBfAHQAYgB0AGEAZwB3AGkAbgBfAGYAbwByAG0AAP////8AAP///////////AAAADsAAAAAJgAwADoAOgA6AF8AdABiAHQAYQBnAHIAZQBmAHMAXwBmAG8AcgBtAAD/////AAD///////////wAAAA3AAAAACIAMAA6ADoAOgBfAHQAYgBzAGgAZQBsAGwAXwBmAG8AcgBtAQD/////AAD///////////wAAABNAAAAADgAMAA6ADoAOgBfAHQAYgBtAGUAcwBzAGEAZwBlAHMAXwBiAHIAbwB3AHMAZQByAF8AZgBvAHIAbQAA/////wAA///////////8AAAAPQAAAAAoADAAOgA6ADoAXwB0AGIAdABlAHIAbQBpAG4AYQBsAF8AZgBvAHIAbQAA/////wAA///////////8AAAAPwAAAAAqADAAOgA6ADoAXwB0AGIAbwB1AHQAcAB1AHQAdwBpAG4AXwBmAG8AcgBtAAD/////AAD//////////wAAAADbAAAAAAAAAALbAAAAAAAAAAHbAAAAAAAAAAPbAAAAAAAAAADaAAAAHgAwAC0AMQA1ADcAOQA4ADUAOAAxADEANwA0ADQANgBOAAAEcgAAAc8AAAYQAAADxQAAAAAAAAAAAAAHfwAABDcAAAAB6wAAAQgAAAAA+wAAAAIAAAACAAAAAAAAAAH7AAAAAgAAAAIAAAAAAAAAAf0AAACLAAAAABoAOgA6ADoALwB2AEQAbwBjAGsAQQByAGUAYQABAAACgAAAAAAAAvsAAAABAAAAAQAAAAD7AAAAAQAAAAEAAAAA/AAAAEEBAAAAIAAxADoAOgA6AF8AdABiAGYAaQBuAGQAXwBmAG8AcgBtAAH/////AAAAAAGPAAAB1QAAAXeJwSCLAAAAAPwAAAApAAAAABwAOgA6ADoATQBEAEkAQQBSAEUAQQBUAEkATABFAAH/////AAAAAAAA2wAAAAAAAAAC2wAAAAAAAAAB2wAAAAAAAAAD2wAAAAAAAAAA
+QTOOLBAR 2 0
+AAAA/wAAAAD9AAAAAAAABYEAAAPIAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAIAAAAQAFMAdABhAG4AZABhAHIAZAEAAAAA/////wAAAAAAAAAAAAAAHgBDAHUAcgByAGUAbgB0ACAAQwBvAG4AdABlAHgAdAEAAAMt/////wAAAAAAAAAA
+_tbstandard_form 1
+_tbcontext_form 1
+APP_LAYOUT: 61 1 44 12 4 N 0
+_tbbufftabs_form F=11
+_tbprojects_form F=8
+_tbdebug_watches_form F=64
+_tbbaseclasses_form F=40
+_tbdeltasave_form F=0
+_tbdebug_regs_form F=64
+_tbFTPOpen_form F=0
+_tbdebug_threads_form F=64
+_tbclipboard_form F=44
+_tbopen_form F=40
+_tbterminal_form F=8
+_tbdebug_exceptions_form F=384
+_tbdebug_classes_form F=64
+_tbtagwin_form F=8
+_tbdebug_autovars_form F=64
+_tbsymbolcallers_form F=40
+_tbFTPClient_form F=0
+_tbtagrefs_form F=8
+_tbfind_symbol_form F=32
+_tbdebug_locals_form F=64
+_tbdebug_members_form F=64
+_tbdebug_memory_form F=64
+_tbsymbol_args_form F=8
+_tbdebug_stack_form F=64
+_tbsymbolcalls_form F=40
+_tbsymbol_props_form F=8
+_tbfilelist_form F=44
+_tboutputwin_form F=8
+_tbclass_form F=8
+_tbunittest_form F=0
+_tbfind_form F=36
+_tbmessages_browser_form F=8
+_tbannotations_browser_form F=0
+_tbdebug_breakpoints_form F=384
+_tbnotification_form F=36
+_tbinteractive_form F=8
+_tbproctree_form F=8
+_tbbookmarks_form F=8
+_tbregex_form F=40
+_tbslickc_stack_form F=8
+_tbderivedclasses_form F=40
+_tbshell_form F=8
+_tbcbrowser_form F=8
+_tbsearch_form F=8
+_tbproctree_form T=0
+_tbsearch_form T=0
+_tboutputwin_form T=0
+_tbcbrowser_form T=0
+_tbclass_form T=0
+_tbtagwin_form T=0
+_tbterminal_form T=0
+_tbopen_form T=0
+_tbmessages_browser_form T=0
+_tbtagrefs_form T=0
+_tbshell_form T=0
+_tbprojects_form T=0
+AAAAAwAAAAEAAAAC2gAAAAIAMAAAAAAAAAA1AAAFgAAAA/wAAAAAAAAAAAAAB38AAAQ3AAAAAesAAAS6AAAAAPsAAAACAAAAAgAAAAEAAAAA+wAAAAIAAAACAAAAAAAAAAH9AAABoQAAAAAaADoAOgA6AC8AdgBEAG8AYwBrAEEAcgBlAGEBAAAAAQMAAAAAAAL7AAAABQAAAAUAAAAAAAAABAAAAAMAAAACAAAAAfsAAAAFAAAABQAAAAAAAAABAAAAAgAAAAMAAAAE/AAAAD0AAAAAKAAwADoAOgA6AF8AdABiAHAAcgBvAGoAZQBjAHQAcwBfAGYAbwByAG0BAP////8AAP///////////AAAAD0AAAAAKAAwADoAOgA6AF8AdABiAHAAcgBvAGMAdAByAGUAZQBfAGYAbwByAG0AAP////8AAP///////////AAAADcAAAAAIgAwADoAOgA6AF8AdABiAGMAbABhAHMAcwBfAGYAbwByAG0AAP////8AAP///////////AAAAD0AAAAAKAAwADoAOgA6AF8AdABiAGMAYgByAG8AdwBzAGUAcgBfAGYAbwByAG0AAP////8AAP///////////AAAADUAAAAAIAAwADoAOgA6AF8AdABiAG8AcABlAG4AXwBmAG8AcgBtAAD/////AAD///////////0AAALFAAAAABoAOgA6ADoALwB2AEQAbwBjAGsAQQByAGUAYQEAAAAEeAABAAAAAfsAAAACAAAAAgAAAAAAAAAB+wAAAAIAAAACAAAAAQAAAAD8AAAAKQAAAAAcADoAOgA6AE0ARABJAEEAUgBFAEEAVABJAEwARQEAAAAC3AAB/QAAAkUAAAAAGgA6ADoAOgAvAHYARABvAGMAawBBAHIAZQBhAQAAAADmAAAAAAAC+wAAAAcAAAAHAAAAAwAAAAYAAAAFAAAABAAAAAIAAAABAAAAAPsAAAAHAAAABwAAAAAAAAABAAAAAgAAAAMAAAAEAAAABQAAAAb8AAAAOQAAAAAkADAAOgA6ADoAXwB0AGIAcwBlAGEAcgBjAGgAXwBmAG8AcgBtAAD/////AAD///////////wAAAA5AAAAACQAMAA6ADoAOgBfAHQAYgB0AGEAZwB3AGkAbgBfAGYAbwByAG0AAP////8AAP///////////AAAADsAAAAAJgAwADoAOgA6AF8AdABiAHQAYQBnAHIAZQBmAHMAXwBmAG8AcgBtAAD/////AAD///////////wAAAA3AAAAACIAMAA6ADoAOgBfAHQAYgBzAGgAZQBsAGwAXwBmAG8AcgBtAQD/////AAD///////////wAAABNAAAAADgAMAA6ADoAOgBfAHQAYgBtAGUAcwBzAGEAZwBlAHMAXwBiAHIAbwB3AHMAZQByAF8AZgBvAHIAbQAA/////wAA///////////8AAAAPQAAAAAoADAAOgA6ADoAXwB0AGIAdABlAHIAbQBpAG4AYQBsAF8AZgBvAHIAbQAA/////wAA///////////8AAAAPwAAAAAqADAAOgA6ADoAXwB0AGIAbwB1AHQAcAB1AHQAdwBpAG4AXwBmAG8AcgBtAAD/////AAD//////////wAAAADbAAAAAAAAAALbAAAAAAAAAAHbAAAAAAAAAAPbAAAAAAAAAADaAAAAHgAwAC0AMQA1ADcAOQA4ADUAOAAxADEANwA0ADQANgBOAAAEcgAAAc8AAAYQAAADxQAAAAAAAAAAAAAHfwAABDcAAAAB6wAAAQgAAAAA+wAAAAIAAAACAAAAAAAAAAH7AAAAAgAAAAIAAAAAAAAAAf0AAACLAAAAABoAOgA6ADoALwB2AEQAbwBjAGsAQQByAGUAYQABAAACgAAAAAAAAvsAAAABAAAAAQAAAAD7AAAAAQAAAAEAAAAA/AAAAEEBAAAAIAAxADoAOgA6AF8AdABiAGYAaQBuAGQAXwBmAG8AcgBtAAH/////AAAAAAGPAAAB1QAAAXeJwSCLAAAAAPwAAAApAAAAABwAOgA6ADoATQBEAEkAQQBSAEUAQQBUAEkATABFAAH/////AAAAAAAA2wAAAAAAAAAC2wAAAAAAAAAB2wAAAAAAAAAD2wAAAAAAAAAA
+QTOOLBAR 2 0
+AAAA/wAAAAD9AAAAAAAABYEAAAPIAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAIAAAAQAFMAdABhAG4AZABhAHIAZAEAAAAA/////wAAAAAAAAAAAAAAHgBDAHUAcgByAGUAbgB0ACAAQwBvAG4AdABlAHgAdAEAAAMt/////wAAAAAAAAAA
+_tbstandard_form 1
+_tbcontext_form 1
+END_MONITOR_CONFIGS:
+CWD: WinGUI
+BUFFER: BN="README.md"""""
+BI: MA=1 74 1  TABS=2  WWS=1 IWT= ST=8 IN=2 BW=0 US=32000 RO=0 SE=1 SN=0 BIN=0 MN=	HM=0 MF=118489632 TL=0 MLL=0 ASE=0 LNL=1 LCF=0 CAPS=0 E=0 ESBU2=-1 CL="Default" SC="" SCE= SCU= ALM=0 FWRM=0 HMRE=0 HMRBW=0 SPCWT= SWF=2 SM= STAT=
+VIEW: LN=.0 CL=1 LE=0 CX=2 CY=0 WI=5 BI=1 HT=0 HN=0 HF=0 HC=4 HB=4
+WINDOW: 1 22 1143 710 0 0 N  WF=0 WT=2 ",,," DID=0 MI="*,,,"
+BUFFER: BN="README.md"""""
+VIEW: LN=.2452 CL=1 LE=0 CX=1 CY=20 WI=12 BI=1 HT=0 HN=0 HF=0 HC=4 HB=4
+MDISTATE: 1
+AAAAAwAAAAIAAAAC2gAAAAIAMAAAAAAAAAA1AAAFgAAAA/wAAAAAAAAAAAAAB38AAAQ3AAAAAuoAAAB6AAAAAvsAAAABAAAAAQAAAAD7AAAAAQAAAAEAAAAA/AAAAFcAAAAASgAyADoAOgA6AEQAOgBcAFMAbwB1AHIAYwBlAHMAXABLAGUAZQBQAGEAcwBzAC4AMQAuADMAOQBcAFIARQBBAEQATQBFAC4AbQBkAQD/////AAEAAAAA2gAAAB4AMAAtADEANQA3ADkAOAA1ADgAMQAxADcANAA0ADYATgAABHIAAAHPAAAGEAAAA8UAAAAAAAAAAAAAB38AAAQ3AAAAAuoAAAAWAAAAAvsAAAAAAAAAAPsAAAAAAAAAAAAAAAA=
+FILEHIST: 9
+Data\dbAuXfpX.csv
+LastPass\Database.h
+LastPass\Database.cpp
+LastPass\LPentry.h
+KeePassLibCpp\PwStructs.h
+KeePassLibCpp\SDK\Details\IKpDatabase.h
+LastPass\LastPass.cpp
+LastPass\LastPass.rc
+README.md
+ALLFILEHIST: 64
+README.md
+KeePassLibCpp\PwStructs.h
+Debug\PwSafe\PwSafe.log
+WinGUI\PwSafe.cpp
+KeePassLibCpp\PwManager.cpp
+WinGUI\OptionsDlg.cpp
+LastPass\MyMenu.h
+lastpass\MyMenu.cpp
+C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\bin\Microsoft.Common.CurrentVersion.targets
+KeePassLibCpp\Util\MemUtil.cpp
+KeePassLibC\KeePassAPI\ManagerAPI.cpp
+LastPass\LPentry.h
+LastPass\LPentry.cpp
+LastPass\LastPass.rc
+LastPass\LastPass.cpp
+KeePassLibC\KeePassLib.vcxproj.user
+KeePassLibC\KeePassLib.vcxproj.filters
+KeePassLibC\KeePassLib.vcxproj
+KeePassLibC\KeePassLib.def
+C:\Users\rrvt\AppData\Roaming\KeePass\KeePass.ini
+Debug\PwSafe\KeePass.Build.CppClean.log
+..\Library\Library.prj\IterT.h
+KeePassLibCpp\SDK\Details\IKpDatabase.h
+LastPass\Groups.h
+LastPass\Groups.cpp
+KeePassLibCpp\Util\FileTransactionEx.cpp
+LastPass\Duplicates.h
+LastPass\Duplicates.cpp
+Data\dbAuXfpX.csv
+LastPass\Database.h
+LastPass\Database.cpp
+WinGUI\Util\CmdLine\CommandLineTokens.h
+KeePassLibC\KeePassAPI\APIDefEx.h
+wingui\newgui\amsedit.cpp
+c:\program files (x86)\microsoft visual studio\2017\professional\vc\tools\msvc\14.16.27023\atlmfc\include\afxstr.h
+\SandBox\RWracesDB\SrcFiles\AddressTbl.h
+\SandBox\RWracesDB\SrcFiles\AddressTbl.cpp
+\SandBox\RWracesDB\SrcFiles\AddressMap.h
+\SandBox\RWracesDB\RWracesDB\ReadNewDB\AddressMap.h
+\SandBox\RWracesDB\RWracesDB\NewDBMaps\AddressMap.h
+\SandBox\RWracesDB\SrcFiles\AddressMap.cpp
+\SandBox\RWracesDB\RWracesDB\ReadNewDB\AddressMap.cpp
+\SandBox\boost_1_68_0\libs\icl\doc\html\boost_icl\function_reference\addition.html
+WinGUI\AddEntryDlg.cpp
+\SandBox\KeePass\KeePass\AddEntryDlg.cpp
+\SandBox\RWracesDB\RWracesDB\ReadNewDB\Debug\acedao.tli
+\SandBox\RWracesDB\Debug\LibWin7\acedao.tli
+\SandBox\RWracesDB\RWracesDB\ReadNewDB\Debug\acedao.tlh
+\SandBox\RWracesDB\Debug\LibWin7\acedao.tlh
+\SandBox\Library\LibFiles\AceDao.h
+\SandBox\Library\LibFiles\AceDao.cpp
+\SandBox\Library\AboutFiles\About.rc2
+\SandBox\RWracesDB\SrcFiles\About.h
+\SandBox\Library\AboutFiles\About.h
+\SandBox\RWracesDB\SrcFiles\About.cpp
+\SandBox\Library\AboutFiles\About.cpp
+\SandBox\RWracesDB\GoogleEarthDoc\AAA_RACES.xlsx
+\SandBox\RWracesDB\GoogleEarthDoc\AAA_RACES.csv
+\Documents\SJRaces\Survey\2020\00dbSurvey.txt
+\SandBox\RWracesDB\RWracesDB\00DB.vpw
+\SandBox\RWracesDB\RWracesDB\00DB.vcxproj.filters
+\SandBox\RWracesDB\RWracesDB\00DB.vcxproj
+\SandBox\RWracesDB\RWracesDB\00DB.v12.suo
+\SandBox\RWracesDB\RWracesDB\00DB.sln
+DEBUG: 0 0 1 0 5 0 windbg
+00..\KeePass.1.38\KeePass\StdAfx.h2710
+printf
+strcpy
+strcmp
+std::*
+boost::*
+DEBUG2: 1
+00..\KeePass.1.38\KeePass\StdAfx.h271044
+#pragmaonce
+
+
+#include<SDKDDKVer.h>
+
+
+#ifndef_SECURE_ATL
+#define_SECURE_ATL1
+#endif
+TBCLASS: 0 0
