@@ -1,0 +1,367 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{3fc71617-bf6a-43fd-b51f-eab2075b3d1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{7f2906fc-17d6-46db-9fa5-e2e2410b8e3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{91892dfa-d2ae-4e11-a3ae-7235925e6143}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KeePassLibCpp">
+      <UniqueIdentifier>{9c92fa64-f309-41ce-9a5f-505e5b0aa659}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KeePassLibCpp\Crypto">
+      <UniqueIdentifier>{16de32bd-a6aa-4e19-8f76-c244d7eea8b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KeePassLibCpp\Crypto\SHA2">
+      <UniqueIdentifier>{9f4ec805-d924-4064-aaf6-be2a983cde06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KeePassLibCpp\DataExchange">
+      <UniqueIdentifier>{35cb7486-45f3-4669-b204-dedc080d0600}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KeePassLibCpp\SysSpec_Windows">
+      <UniqueIdentifier>{3418d81f-31b2-4bae-bfc9-030716f9b4ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KeePassLibCpp\Util">
+      <UniqueIdentifier>{05caabba-cb89-4e72-a27f-e62710f2c67c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KeePassLibCpp\PasswordGenerator">
+      <UniqueIdentifier>{9976b772-3518-4102-9f1f-b77f436fe23e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KeePassLibCpp\Details">
+      <UniqueIdentifier>{64dedcf1-f22f-47f4-9337-57ce4568103a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KeePassLibCpp\SDK">
+      <UniqueIdentifier>{e1a5e5d7-d45b-4e12-8361-f7d70d206ec8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KeePassLibCpp\SDK\Details">
+      <UniqueIdentifier>{81e4028a-eccd-4a49-aded-f96cb49f2302}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KeePassLibCpp\IO">
+      <UniqueIdentifier>{fb12d617-91b9-4645-8faf-0040b845e500}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KeePassAPI">
+      <UniqueIdentifier>{fa75a730-5817-40ae-a1f7-c72dfbb4a746}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="KeePassLib.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StdAfx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\PwCompat.cpp">
+      <Filter>KeePassLibCpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\PwManager.cpp">
+      <Filter>KeePassLibCpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\Crypto\ARCFour.cpp">
+      <Filter>KeePassLibCpp\Crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\Crypto\KeyTransform.cpp">
+      <Filter>KeePassLibCpp\Crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\Crypto\KeyTransform_BCrypt.cpp">
+      <Filter>KeePassLibCpp\Crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\Crypto\MemoryProtectionEx.cpp">
+      <Filter>KeePassLibCpp\Crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\Crypto\Rijndael.cpp">
+      <Filter>KeePassLibCpp\Crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\Crypto\TestImpl.cpp">
+      <Filter>KeePassLibCpp\Crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\Crypto\Twofish.cpp">
+      <Filter>KeePassLibCpp\Crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\Crypto\TwofishClass.cpp">
+      <Filter>KeePassLibCpp\Crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\Crypto\SHA2\SHA2.cpp">
+      <Filter>KeePassLibCpp\Crypto\SHA2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\DataExchange\PwExport.cpp">
+      <Filter>KeePassLibCpp\DataExchange</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\DataExchange\PwImport.cpp">
+      <Filter>KeePassLibCpp\DataExchange</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\SysSpec_Windows\AppUtil.cpp">
+      <Filter>KeePassLibCpp\SysSpec_Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\SysSpec_Windows\NewRandom.cpp">
+      <Filter>KeePassLibCpp\SysSpec_Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\SysSpec_Windows\StrUtilEx.cpp">
+      <Filter>KeePassLibCpp\SysSpec_Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\Util\Base64.cpp">
+      <Filter>KeePassLibCpp\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\Util\ComUtil.cpp">
+      <Filter>KeePassLibCpp\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\Util\EntryUtil.cpp">
+      <Filter>KeePassLibCpp\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\Util\FileTransactionEx.cpp">
+      <Filter>KeePassLibCpp\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\Util\MemUtil.cpp">
+      <Filter>KeePassLibCpp\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\Util\PopularPasswords.cpp">
+      <Filter>KeePassLibCpp\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\Util\PwQualityEst.cpp">
+      <Filter>KeePassLibCpp\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\Util\PwUtil.cpp">
+      <Filter>KeePassLibCpp\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\Util\StrUtil.cpp">
+      <Filter>KeePassLibCpp\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\Util\TranslateEx.cpp">
+      <Filter>KeePassLibCpp\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\PasswordGenerator\CharSetBasedGenerator.cpp">
+      <Filter>KeePassLibCpp\PasswordGenerator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\PasswordGenerator\PasswordGenerator.cpp">
+      <Filter>KeePassLibCpp\PasswordGenerator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\PasswordGenerator\PatternBasedGenerator.cpp">
+      <Filter>KeePassLibCpp\PasswordGenerator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\PasswordGenerator\PwCharSet.cpp">
+      <Filter>KeePassLibCpp\PasswordGenerator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\Details\PwCompatImpl.cpp">
+      <Filter>KeePassLibCpp\Details</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\Details\PwFileImpl.cpp">
+      <Filter>KeePassLibCpp\Details</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\Details\PwFindImpl.cpp">
+      <Filter>KeePassLibCpp\Details</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\IO\KpInternetStream.cpp">
+      <Filter>KeePassLibCpp\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\IO\KpMemoryStream.cpp">
+      <Filter>KeePassLibCpp\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\IO\KpStream.cpp">
+      <Filter>KeePassLibCpp\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="KeePassAPI\LibraryAPI.cpp">
+      <Filter>KeePassAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="KeePassAPI\ManagerAPI.cpp">
+      <Filter>KeePassAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="KeePassAPI\StructAPI.cpp">
+      <Filter>KeePassAPI</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="KeePassLib.def">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="res\KeePassLib.rc2">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="KeePassLib.rc">
+      <Filter>Source Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="KeePassLib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StdAfx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\PwCompat.h">
+      <Filter>KeePassLibCpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\PwManager.h">
+      <Filter>KeePassLibCpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\PwStructs.h">
+      <Filter>KeePassLibCpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\PwStructsEx.h">
+      <Filter>KeePassLibCpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\SysDefEx.h">
+      <Filter>KeePassLibCpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Crypto\ARCFour.h">
+      <Filter>KeePassLibCpp\Crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Crypto\KeyTransform.h">
+      <Filter>KeePassLibCpp\Crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Crypto\KeyTransform_BCrypt.h">
+      <Filter>KeePassLibCpp\Crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Crypto\MemoryProtectionEx.h">
+      <Filter>KeePassLibCpp\Crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Crypto\Rijndael.h">
+      <Filter>KeePassLibCpp\Crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Crypto\TestImpl.h">
+      <Filter>KeePassLibCpp\Crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Crypto\Twofish.h">
+      <Filter>KeePassLibCpp\Crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Crypto\TwofishClass.h">
+      <Filter>KeePassLibCpp\Crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Crypto\SHA2\EDefs.h">
+      <Filter>KeePassLibCpp\Crypto\SHA2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Crypto\SHA2\SHA2.h">
+      <Filter>KeePassLibCpp\Crypto\SHA2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Crypto\SHA2\TDefs.h">
+      <Filter>KeePassLibCpp\Crypto\SHA2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\DataExchange\PwExport.h">
+      <Filter>KeePassLibCpp\DataExchange</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\DataExchange\PwImport.h">
+      <Filter>KeePassLibCpp\DataExchange</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\SysSpec_Windows\SysSpecWin.h">
+      <Filter>KeePassLibCpp\SysSpec_Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Util\AppUtil.h">
+      <Filter>KeePassLibCpp\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Util\Base64.h">
+      <Filter>KeePassLibCpp\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Util\ComUtil.h">
+      <Filter>KeePassLibCpp\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Util\EntryUtil.h">
+      <Filter>KeePassLibCpp\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Util\FileTransactionEx.h">
+      <Filter>KeePassLibCpp\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Util\MemUtil.h">
+      <Filter>KeePassLibCpp\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Util\NewRandom.h">
+      <Filter>KeePassLibCpp\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Util\PopularPasswords.h">
+      <Filter>KeePassLibCpp\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Util\PwQualityEst.h">
+      <Filter>KeePassLibCpp\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Util\PwUtil.h">
+      <Filter>KeePassLibCpp\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Util\StrUtil.h">
+      <Filter>KeePassLibCpp\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Util\TranslateEx.h">
+      <Filter>KeePassLibCpp\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\PasswordGenerator\CharSetBasedGenerator.h">
+      <Filter>KeePassLibCpp\PasswordGenerator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\PasswordGenerator\PasswordGenerator.h">
+      <Filter>KeePassLibCpp\PasswordGenerator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\PasswordGenerator\PatternBasedGenerator.h">
+      <Filter>KeePassLibCpp\PasswordGenerator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\PasswordGenerator\PwCharSet.h">
+      <Filter>KeePassLibCpp\PasswordGenerator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Details\PwCompatImpl.h">
+      <Filter>KeePassLibCpp\Details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\SDK\KpSDK.h">
+      <Filter>KeePassLibCpp\SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\SDK\Details\IKpAPI.h">
+      <Filter>KeePassLibCpp\SDK\Details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\SDK\Details\IKpCommandLine.h">
+      <Filter>KeePassLibCpp\SDK\Details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\SDK\Details\IKpCommandLineOption.h">
+      <Filter>KeePassLibCpp\SDK\Details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\SDK\Details\IKpConfig.h">
+      <Filter>KeePassLibCpp\SDK\Details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\SDK\Details\IKpDatabase.h">
+      <Filter>KeePassLibCpp\SDK\Details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\SDK\Details\IKpFileTransaction.h">
+      <Filter>KeePassLibCpp\SDK\Details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\SDK\Details\IKpFullPathName.h">
+      <Filter>KeePassLibCpp\SDK\Details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\SDK\Details\IKpPlugin.h">
+      <Filter>KeePassLibCpp\SDK\Details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\SDK\Details\IKpUnknown.h">
+      <Filter>KeePassLibCpp\SDK\Details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\SDK\Details\IKpUtilities.h">
+      <Filter>KeePassLibCpp\SDK\Details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\SDK\Details\KpDefs.h">
+      <Filter>KeePassLibCpp\SDK\Details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\SDK\Details\KpGuids.h">
+      <Filter>KeePassLibCpp\SDK\Details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\IO\KpInternetStream.h">
+      <Filter>KeePassLibCpp\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\IO\KpMemoryStream.h">
+      <Filter>KeePassLibCpp\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\IO\KpStream.h">
+      <Filter>KeePassLibCpp\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="KeePassAPI\APIDefEx.h">
+      <Filter>KeePassAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="KeePassAPI\LibraryAPI.h">
+      <Filter>KeePassAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="KeePassAPI\ManagerAPI.h">
+      <Filter>KeePassAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="KeePassAPI\StructAPI.h">
+      <Filter>KeePassAPI</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

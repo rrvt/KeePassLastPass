@@ -1,0 +1,1063 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{14dac92d-a107-4c12-9fcb-82fae1e7fd08}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{5f4e0e38-415e-4939-91d3-a72ad913341b}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{b407ca9b-f326-4de8-9d49-e27fa0b91355}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;cnt;rtf;gif;jpg;jpeg;jpe;png</Extensions>
+    </Filter>
+    <Filter Include="Util">
+      <UniqueIdentifier>{babac7f5-85a3-44a0-9d8d-980c4f714691}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Util\CmdLine">
+      <UniqueIdentifier>{60f12ce7-5a20-43a6-82fc-df5f26faddf8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Util\SprEngine">
+      <UniqueIdentifier>{37a952af-cfe1-4ce4-b59b-1102329f9bff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NewGUI">
+      <UniqueIdentifier>{5dcf8548-d985-4132-9d0f-166237e64ddf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NewGUI\TaskDialog">
+      <UniqueIdentifier>{de922b71-a89b-4a40-bffb-612a47ef27dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NewGUI\TaskbarListEx">
+      <UniqueIdentifier>{98a6a9d4-8627-412c-b77d-350a0aff8c57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NewGUI\VistaMenu">
+      <UniqueIdentifier>{a1d3f7cc-db5b-4b17-9306-1f7848803be7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KeePassLibCpp">
+      <UniqueIdentifier>{20ca852b-3dd6-4744-90fd-021c8e6126c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KeePassLibCpp\Crypto">
+      <UniqueIdentifier>{4740f082-4f37-4e6c-905c-b65e5b3dedfe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KeePassLibCpp\Crypto\SHA2">
+      <UniqueIdentifier>{5b5a688e-88d7-4cd2-85bb-5363b3e22166}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KeePassLibCpp\SysSpec_Windows">
+      <UniqueIdentifier>{f85d65ee-b62d-4370-9c1b-ee27bf2fc8b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KeePassLibCpp\DataExchange">
+      <UniqueIdentifier>{c58a75c6-e264-4e76-9335-93fb0aada6d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KeePassLibCpp\Util">
+      <UniqueIdentifier>{01742d08-a89d-4802-8b7a-222303b30f6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KeePassLibCpp\PasswordGenerator">
+      <UniqueIdentifier>{12225ab7-309b-4bb6-b0c0-1ec79adbff06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KeePassLibCpp\Details">
+      <UniqueIdentifier>{ae227b89-5a61-4a6a-a184-56b635852ca6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KeePassLibCpp\SDK">
+      <UniqueIdentifier>{a33793ad-1337-4d0c-9496-cbd092bb98af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KeePassLibCpp\SDK\Details">
+      <UniqueIdentifier>{4edbb03b-5cc6-47a8-a07d-008ac389a93d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="KeePassLibCpp\IO">
+      <UniqueIdentifier>{7f6fdb74-7a17-4848-b292-c1e2bca96ec6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Plugins">
+      <UniqueIdentifier>{5ce2b0f3-e19f-4294-ba75-88a339607795}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AddEntryDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AddGroupDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CheckOptionsDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DbSettingsDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EntryListDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EntryPropertiesDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FieldRefDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FindInDbDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GetRandomDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HelpSourceDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IconPickerDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImportOptionsDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LanguagesDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionsAutoTypeDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OptionsDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PasswordDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PermissionDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PluginsDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PwGeneratorAdvDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PwGeneratorExDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PwSafe.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PwSafeDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SingleLineEditDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="StdAfx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TanWizardDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="UpdateInfoDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\AppLocator.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\FileLock.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\KeySourcesPool.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\PrivateConfig.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\PrivateConfigEx.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\RemoteControl.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\RestartManagerEx.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\SendKeys.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\SendKeysEx.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\SessionNotify.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\ShutdownBlocker.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\SInstance.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\UpdateCheck.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\UpdateCheckEx.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\VersionInfo.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\WinUtil.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\CmdLine\CmdArgs.cpp">
+      <Filter>Util\CmdLine</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\CmdLine\CommandLineOption.cpp">
+      <Filter>Util\CmdLine</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\CmdLine\CommandLineTokens.cpp">
+      <Filter>Util\CmdLine</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\CmdLine\Executable.cpp">
+      <Filter>Util\CmdLine</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\CmdLine\FullPathName.cpp">
+      <Filter>Util\CmdLine</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\SprEngine\SprEncoding.cpp">
+      <Filter>Util\SprEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\SprEngine\SprEngine.cpp">
+      <Filter>Util\SprEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="NewGUI\AMSEdit.cpp">
+      <Filter>NewGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="NewGUI\AutoCompleteEx.cpp">
+      <Filter>NewGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="NewGUI\AutoRichEditCtrlFx.cpp">
+      <Filter>NewGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="NewGUI\BCMenu.cpp">
+      <Filter>NewGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="NewGUI\BtnST.cpp">
+      <Filter>NewGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="NewGUI\ColorStaticEx.cpp">
+      <Filter>NewGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="NewGUI\ColourPickerXP.cpp">
+      <Filter>NewGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="NewGUI\CustomComboBoxEx.cpp">
+      <Filter>NewGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="NewGUI\CustomListCtrlEx.cpp">
+      <Filter>NewGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="NewGUI\CustomTreeCtrlEx.cpp">
+      <Filter>NewGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="NewGUI\DragDropEx.cpp">
+      <Filter>NewGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="NewGUI\DwmUtil.cpp">
+      <Filter>NewGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="NewGUI\FontUtil.cpp">
+      <Filter>NewGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="NewGUI\GlobalWindowManager.cpp">
+      <Filter>NewGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="NewGUI\GradientUtil.cpp">
+      <Filter>NewGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="NewGUI\ImageUtilEx.cpp">
+      <Filter>NewGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="NewGUI\KCSideBannerWnd.cpp">
+      <Filter>NewGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="NewGUI\MsgRelayWnd.cpp">
+      <Filter>NewGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="NewGUI\NewColorizerEx.cpp">
+      <Filter>NewGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="NewGUI\NewDialogsEx.cpp">
+      <Filter>NewGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="NewGUI\NewGUICommon.cpp">
+      <Filter>NewGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="NewGUI\OptionsList.cpp">
+      <Filter>NewGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="NewGUI\QualityProgressCtrl.cpp">
+      <Filter>NewGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="NewGUI\SecureEditEx.cpp">
+      <Filter>NewGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="NewGUI\StatusDialogEx.cpp">
+      <Filter>NewGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="NewGUI\SystemTray.cpp">
+      <Filter>NewGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="NewGUI\SystemTrayEx.cpp">
+      <Filter>NewGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="NewGUI\ThemeHelperST.cpp">
+      <Filter>NewGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="NewGUI\WindowGroups.cpp">
+      <Filter>NewGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="NewGUI\XHyperLink.cpp">
+      <Filter>NewGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="NewGUI\XPStyleButtonST.cpp">
+      <Filter>NewGUI</Filter>
+    </ClCompile>
+    <ClCompile Include="NewGUI\TaskDialog\VistaTaskDialog.cpp">
+      <Filter>NewGUI\TaskDialog</Filter>
+    </ClCompile>
+    <ClCompile Include="NewGUI\TaskbarListEx\TaskbarListEx.cpp">
+      <Filter>NewGUI\TaskbarListEx</Filter>
+    </ClCompile>
+    <ClCompile Include="NewGUI\VistaMenu\VistaMenu.cpp">
+      <Filter>NewGUI\VistaMenu</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\PwCompat.cpp">
+      <Filter>KeePassLibCpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\PwManager.cpp">
+      <Filter>KeePassLibCpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\Crypto\ARCFour.cpp">
+      <Filter>KeePassLibCpp\Crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\Crypto\KeyTransform.cpp">
+      <Filter>KeePassLibCpp\Crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\Crypto\KeyTransform_BCrypt.cpp">
+      <Filter>KeePassLibCpp\Crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\Crypto\MemoryProtectionEx.cpp">
+      <Filter>KeePassLibCpp\Crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\Crypto\Rijndael.cpp">
+      <Filter>KeePassLibCpp\Crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\Crypto\TestImpl.cpp">
+      <Filter>KeePassLibCpp\Crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\Crypto\Twofish.cpp">
+      <Filter>KeePassLibCpp\Crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\Crypto\TwofishClass.cpp">
+      <Filter>KeePassLibCpp\Crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\Crypto\SHA2\SHA2.cpp">
+      <Filter>KeePassLibCpp\Crypto\SHA2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\SysSpec_Windows\AppUtil.cpp">
+      <Filter>KeePassLibCpp\SysSpec_Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\SysSpec_Windows\NewRandom.cpp">
+      <Filter>KeePassLibCpp\SysSpec_Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\SysSpec_Windows\StrUtilEx.cpp">
+      <Filter>KeePassLibCpp\SysSpec_Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\DataExchange\PwExport.cpp">
+      <Filter>KeePassLibCpp\DataExchange</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\DataExchange\PwImport.cpp">
+      <Filter>KeePassLibCpp\DataExchange</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\Util\Base64.cpp">
+      <Filter>KeePassLibCpp\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\Util\ComUtil.cpp">
+      <Filter>KeePassLibCpp\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\Util\EntryUtil.cpp">
+      <Filter>KeePassLibCpp\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\Util\FileTransactionEx.cpp">
+      <Filter>KeePassLibCpp\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\Util\MemUtil.cpp">
+      <Filter>KeePassLibCpp\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\Util\PopularPasswords.cpp">
+      <Filter>KeePassLibCpp\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\Util\PwQualityEst.cpp">
+      <Filter>KeePassLibCpp\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\Util\PwUtil.cpp">
+      <Filter>KeePassLibCpp\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\Util\StrUtil.cpp">
+      <Filter>KeePassLibCpp\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\Util\TranslateEx.cpp">
+      <Filter>KeePassLibCpp\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\PasswordGenerator\CharSetBasedGenerator.cpp">
+      <Filter>KeePassLibCpp\PasswordGenerator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\PasswordGenerator\PasswordGenerator.cpp">
+      <Filter>KeePassLibCpp\PasswordGenerator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\PasswordGenerator\PatternBasedGenerator.cpp">
+      <Filter>KeePassLibCpp\PasswordGenerator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\PasswordGenerator\PwCharSet.cpp">
+      <Filter>KeePassLibCpp\PasswordGenerator</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\Details\PwCompatImpl.cpp">
+      <Filter>KeePassLibCpp\Details</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\Details\PwFileImpl.cpp">
+      <Filter>KeePassLibCpp\Details</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\Details\PwFindImpl.cpp">
+      <Filter>KeePassLibCpp\Details</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\IO\KpInternetStream.cpp">
+      <Filter>KeePassLibCpp\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\IO\KpMemoryStream.cpp">
+      <Filter>KeePassLibCpp\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\IO\KpStream.cpp">
+      <Filter>KeePassLibCpp\IO</Filter>
+    </ClCompile>
+    <ClCompile Include="Plugins\KpApiImpl.cpp">
+      <Filter>Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="Plugins\KpCommandLineImpl.cpp">
+      <Filter>Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="Plugins\KpCommandLineOptionImpl.cpp">
+      <Filter>Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="Plugins\KpDatabaseImpl.cpp">
+      <Filter>Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="Plugins\KpFileTransactionImpl.cpp">
+      <Filter>Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="Plugins\KpFullPathNameImpl.cpp">
+      <Filter>Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="Plugins\KpUtilitiesImpl.cpp">
+      <Filter>Plugins</Filter>
+    </ClCompile>
+    <ClCompile Include="Plugins\PluginMgr.cpp">
+      <Filter>Plugins</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AddEntryDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AddGroupDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CheckOptionsDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DbSettingsDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EntryListDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EntryPropertiesDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FieldRefDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FindInDbDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GetRandomDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HelpSourceDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IconPickerDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ImportOptionsDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LanguagesDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionsAutoTypeDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OptionsDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PasswordDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PermissionDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PluginsDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PwGeneratorAdvDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PwGeneratorExDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PwSafe.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PwSafeDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SingleLineEditDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StdAfx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TanWizardDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="UpdateInfoDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\AppLocator.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\FileLock.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\KeySourcesPool.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\PrivateConfig.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\PrivateConfigEx.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\RemoteControl.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\RestartManagerEx.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\SendKeys.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\SendKeysEx.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\SessionNotify.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\ShutdownBlocker.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\SInstance.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\UpdateCheck.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\UpdateCheckEx.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\VersionInfo.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\WinUtil.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\CmdLine\CmdArgs.h">
+      <Filter>Util\CmdLine</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\CmdLine\CommandLineOption.h">
+      <Filter>Util\CmdLine</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\CmdLine\CommandLineTokens.h">
+      <Filter>Util\CmdLine</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\CmdLine\Executable.h">
+      <Filter>Util\CmdLine</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\CmdLine\FullPathName.h">
+      <Filter>Util\CmdLine</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\SprEngine\SprEncoding.h">
+      <Filter>Util\SprEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\SprEngine\SprEngine.h">
+      <Filter>Util\SprEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="NewGUI\AMSEdit.h">
+      <Filter>NewGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="NewGUI\AutoCompleteEx.h">
+      <Filter>NewGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="NewGUI\AutoRichEditCtrlFx.h">
+      <Filter>NewGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="NewGUI\BCMenu.h">
+      <Filter>NewGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="NewGUI\BtnST.h">
+      <Filter>NewGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="NewGUI\ColorStaticEx.h">
+      <Filter>NewGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="NewGUI\ColourPickerXP.h">
+      <Filter>NewGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="NewGUI\CustomComboBoxEx.h">
+      <Filter>NewGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="NewGUI\CustomListCtrlEx.h">
+      <Filter>NewGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="NewGUI\CustomTreeCtrlEx.h">
+      <Filter>NewGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="NewGUI\DragDropEx.h">
+      <Filter>NewGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="NewGUI\DwmUtil.h">
+      <Filter>NewGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="NewGUI\FontUtil.h">
+      <Filter>NewGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="NewGUI\GlobalWindowManager.h">
+      <Filter>NewGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="NewGUI\GradientUtil.h">
+      <Filter>NewGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="NewGUI\ImageUtilEx.h">
+      <Filter>NewGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="NewGUI\KCSideBannerWnd.h">
+      <Filter>NewGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="NewGUI\KCWndUtil.h">
+      <Filter>NewGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="NewGUI\MemDCEx.h">
+      <Filter>NewGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="NewGUI\MsgRelayWnd.h">
+      <Filter>NewGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="NewGUI\NewColorizerEx.h">
+      <Filter>NewGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="NewGUI\NewDialogsEx.h">
+      <Filter>NewGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="NewGUI\NewGUICommon.h">
+      <Filter>NewGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="NewGUI\OptionsList.h">
+      <Filter>NewGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="NewGUI\QualityProgressCtrl.h">
+      <Filter>NewGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="NewGUI\SecureEditEx.h">
+      <Filter>NewGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="NewGUI\StatusDialogEx.h">
+      <Filter>NewGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="NewGUI\SystemTray.h">
+      <Filter>NewGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="NewGUI\SystemTrayEx.h">
+      <Filter>NewGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="NewGUI\ThemeHelperST.h">
+      <Filter>NewGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="NewGUI\WindowGroups.h">
+      <Filter>NewGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="NewGUI\XHyperLink.h">
+      <Filter>NewGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="NewGUI\XPStyleButtonST.h">
+      <Filter>NewGUI</Filter>
+    </ClInclude>
+    <ClInclude Include="NewGUI\TaskDialog\VistaTaskDialog.h">
+      <Filter>NewGUI\TaskDialog</Filter>
+    </ClInclude>
+    <ClInclude Include="NewGUI\TaskbarListEx\TaskbarListEx.h">
+      <Filter>NewGUI\TaskbarListEx</Filter>
+    </ClInclude>
+    <ClInclude Include="NewGUI\TaskbarListEx\TaskbarListExIdl.h">
+      <Filter>NewGUI\TaskbarListEx</Filter>
+    </ClInclude>
+    <ClInclude Include="NewGUI\VistaMenu\VistaMenu.h">
+      <Filter>NewGUI\VistaMenu</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\PwCompat.h">
+      <Filter>KeePassLibCpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\PwManager.h">
+      <Filter>KeePassLibCpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\PwStructs.h">
+      <Filter>KeePassLibCpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\PwStructsEx.h">
+      <Filter>KeePassLibCpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\SysDefEx.h">
+      <Filter>KeePassLibCpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Crypto\ARCFour.h">
+      <Filter>KeePassLibCpp\Crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Crypto\KeyTransform.h">
+      <Filter>KeePassLibCpp\Crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Crypto\KeyTransform_BCrypt.h">
+      <Filter>KeePassLibCpp\Crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Crypto\MemoryProtectionEx.h">
+      <Filter>KeePassLibCpp\Crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Crypto\Rijndael.h">
+      <Filter>KeePassLibCpp\Crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Crypto\TestImpl.h">
+      <Filter>KeePassLibCpp\Crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Crypto\Twofish.h">
+      <Filter>KeePassLibCpp\Crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Crypto\TwofishClass.h">
+      <Filter>KeePassLibCpp\Crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Crypto\SHA2\EDefs.h">
+      <Filter>KeePassLibCpp\Crypto\SHA2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Crypto\SHA2\SHA2.h">
+      <Filter>KeePassLibCpp\Crypto\SHA2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Crypto\SHA2\TDefs.h">
+      <Filter>KeePassLibCpp\Crypto\SHA2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\SysSpec_Windows\SysSpecWin.h">
+      <Filter>KeePassLibCpp\SysSpec_Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\DataExchange\PwExport.h">
+      <Filter>KeePassLibCpp\DataExchange</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\DataExchange\PwImport.h">
+      <Filter>KeePassLibCpp\DataExchange</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Util\AppUtil.h">
+      <Filter>KeePassLibCpp\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Util\Base64.h">
+      <Filter>KeePassLibCpp\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Util\ComUtil.h">
+      <Filter>KeePassLibCpp\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Util\EntryUtil.h">
+      <Filter>KeePassLibCpp\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Util\FileTransactionEx.h">
+      <Filter>KeePassLibCpp\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Util\MemUtil.h">
+      <Filter>KeePassLibCpp\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Util\NewRandom.h">
+      <Filter>KeePassLibCpp\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Util\PopularPasswords.h">
+      <Filter>KeePassLibCpp\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Util\PwQualityEst.h">
+      <Filter>KeePassLibCpp\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Util\PwUtil.h">
+      <Filter>KeePassLibCpp\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Util\StrUtil.h">
+      <Filter>KeePassLibCpp\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Util\TranslateEx.h">
+      <Filter>KeePassLibCpp\Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\PasswordGenerator\CharSetBasedGenerator.h">
+      <Filter>KeePassLibCpp\PasswordGenerator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\PasswordGenerator\PasswordGenerator.h">
+      <Filter>KeePassLibCpp\PasswordGenerator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\PasswordGenerator\PatternBasedGenerator.h">
+      <Filter>KeePassLibCpp\PasswordGenerator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\PasswordGenerator\PwCharSet.h">
+      <Filter>KeePassLibCpp\PasswordGenerator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Details\PwCompatImpl.h">
+      <Filter>KeePassLibCpp\Details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\SDK\KpSDK.h">
+      <Filter>KeePassLibCpp\SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\SDK\Details\IKpAPI.h">
+      <Filter>KeePassLibCpp\SDK\Details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\SDK\Details\IKpAPI2.h">
+      <Filter>KeePassLibCpp\SDK\Details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\SDK\Details\IKpAPI3.h">
+      <Filter>KeePassLibCpp\SDK\Details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\SDK\Details\IKpCommandLine.h">
+      <Filter>KeePassLibCpp\SDK\Details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\SDK\Details\IKpCommandLineOption.h">
+      <Filter>KeePassLibCpp\SDK\Details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\SDK\Details\IKpConfig.h">
+      <Filter>KeePassLibCpp\SDK\Details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\SDK\Details\IKpDatabase.h">
+      <Filter>KeePassLibCpp\SDK\Details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\SDK\Details\IKpFileTransaction.h">
+      <Filter>KeePassLibCpp\SDK\Details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\SDK\Details\IKpFullPathName.h">
+      <Filter>KeePassLibCpp\SDK\Details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\SDK\Details\IKpPlugin.h">
+      <Filter>KeePassLibCpp\SDK\Details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\SDK\Details\IKpUnknown.h">
+      <Filter>KeePassLibCpp\SDK\Details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\SDK\Details\IKpUtilities.h">
+      <Filter>KeePassLibCpp\SDK\Details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\SDK\Details\KpDefs.h">
+      <Filter>KeePassLibCpp\SDK\Details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\SDK\Details\KpGuids.h">
+      <Filter>KeePassLibCpp\SDK\Details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\IO\KpInternetStream.h">
+      <Filter>KeePassLibCpp\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\IO\KpMemoryStream.h">
+      <Filter>KeePassLibCpp\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\IO\KpStream.h">
+      <Filter>KeePassLibCpp\IO</Filter>
+    </ClInclude>
+    <ClInclude Include="Plugins\KpApiImpl.h">
+      <Filter>Plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="Plugins\KpCommandLineImpl.h">
+      <Filter>Plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="Plugins\KpCommandLineOptionImpl.h">
+      <Filter>Plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="Plugins\KpDatabaseImpl.h">
+      <Filter>Plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="Plugins\KpFileTransactionImpl.h">
+      <Filter>Plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="Plugins\KpFullPathNameImpl.h">
+      <Filter>Plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="Plugins\KpUtilitiesImpl.h">
+      <Filter>Plugins</Filter>
+    </ClInclude>
+    <ClInclude Include="Plugins\PluginMgr.h">
+      <Filter>Plugins</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\autotype.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\cancel.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\clienticex.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\clock.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\disk.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\document.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\entry_ed.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\file.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\help_sma.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\help_smp.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\iconpic.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\infoicon.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\infoiconex.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\KeePass.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\key.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\key_smal.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\keyhole.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\language.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\lock_ovr.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\locked.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\mouse_sm.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\ok.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\optionicex.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\options.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\plugins.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\PwSafe.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\random_b.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\randomke.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\search.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\tb_about.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\tb_adden.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\tb_copyp.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\tb_copyu.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\tb_defau.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\tb_delet.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\tb_edite.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\tb_find.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\tb_lock.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\tb_new.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\tb_open.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\tb_save.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\tb_save1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\tb_saved.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\toolssma.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\unlocked.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\winprops.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\world.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\MostPopularPasswords.bin">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="res\PwSafe.rc2">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="PwSafe.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
