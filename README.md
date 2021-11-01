@@ -43,6 +43,11 @@ Run the KeePassInstaller.msi to install KeePass.
 
 ## Updates
 
+### Update 10/31/21
+
+Changed Resources (i.e. xxx.rc data) access so that it will work with a dll.  Changed the logic in the
+About Box code.  Some other library changes.  Some corresponding changes in the application.
+
 ### Update 10/30/21
 
 Boost has moved to version 1.77, so I compiled that version, again at the same level as KeePass in the
@@ -87,7 +92,7 @@ quit
 The script may be called as follows to produce a Release version of the library:
 
 ```
-tcc"  /C BuildForWin Release D:\Sources\boost.1.77\ static
+tcc  /C BuildForWin Release D:\Sources\boost.1.77\ static
 ```
 
 The script is run in jpsoftware's Take Command (i.e. tcc). Their websit is https://jpsoft.com/.

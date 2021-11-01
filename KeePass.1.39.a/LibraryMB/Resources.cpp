@@ -27,8 +27,32 @@ if (GetModuleFileName(hm, path, sizeof(path)) == 0)
 // The path variable should now contain the full filepath for this DLL.
 */
 
-ResourceData::ResourceData(void* staticEntity) :
-                                           success(false), handle(0), data(0), dataSize(0), fileInfo(0) {
+ResourceData::ResourceData() : data(0), dataSize(0), handle(0), fileInfo(0), success(false)
+                                                                  {static Tchar tch;   initEntity(&tch);}
+
+
+
+ResourceData::ResourceData(void* staticEntity) : data(0), dataSize(0), handle(0),
+                                                                            fileInfo(0), success(false) {
+#if 1
+  initEntity(staticEntity);
+#else
+Tchar path[MAX_PATH];
+HMODULE modl;
+
+  if (!GetModuleHandleEx(GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS |
+                      GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT, (Tchar*)staticEntity, &modl)) return;
+
+  if (!GetModuleFileName(modl, path, noElements(path))) return;
+
+  initialize(path);
+#endif
+  }
+
+
+// Initialize exe or dll by static address
+
+void ResourceData::initEntity(void* staticEntity) {
 Tchar path[MAX_PATH];
 HMODULE modl;
 
@@ -41,9 +65,9 @@ HMODULE modl;
   }
 
 
-ResourceData::ResourceData(String& path) : success(false), handle(0), data(0), dataSize(0), fileInfo(0) {
-  initialize(path);
-  }
+
+ResourceData::ResourceData(String& path) : data(0), dataSize(0), handle(0),
+                                                          fileInfo(0), success(false) {initialize(path);}
 
 
 ResourceData::~ResourceData() {NewArray(Byte); FreeArray(data); data = 0; success = false;}
@@ -71,32 +95,6 @@ uint   lng;
   if (!VerQueryValue(data, _T("\\"), (LPVOID*) &fileInfo, &lng) || !lng) return;
 
   success = true;
-  }
-
-
-String ResourceData::getAboutNameVer() {
-String t;
-String s;
-
-  s.clear();
-
-  if (!getInternalName(t)) t = _T("Unknown");
-
-  s = t;
-
-  #ifdef WinXP
-    s += _T(" (WinXP)");
-  #elif defined UNICODE
-    s += _T(" (UNI 7)");
-  #else
-    s += _T(" (Win 7)");
-  #endif
-
-  if (!getVersion(t)) t = _T("0/0/0");
-
-  threeSect(t);
-
-  s = s + _T(", Version ") + t;  return s.trim();
   }
 
 

@@ -3,7 +3,7 @@
 
 #include "stdafx.h"
 #include "Commands.h"
-#include "About.h"
+#include "AboutDlg.h"
 #include "Duplicates.h"
 #include "GetPathDlg.h"
 #include "KpIter.h"
@@ -118,7 +118,7 @@ Tchar  ch;
   }
 
 
-void Commands::about() {CAboutDlg dlg;   dlg.DoModal();}
+void Commands::about() {AboutDlg dlg;   dlg.DoModal();}
 
 
 

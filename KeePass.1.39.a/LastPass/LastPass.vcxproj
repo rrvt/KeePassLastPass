@@ -119,7 +119,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\Extras\About.cpp" />
+    <ClCompile Include="..\Extras\AboutDlg.cpp" />
     <ClCompile Include="Commands.cpp" />
     <ClCompile Include="Duplicates.cpp" />
     <ClCompile Include="Groups.cpp" />
@@ -135,12 +135,12 @@
     <ClCompile Include="Picker.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\Extras\About.rc2" />
+    <None Include="..\Extras\AboutDlg.rc2" />
     <None Include="LastPass.def" />
     <None Include="res\LastPass.rc2" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Extras\About.h" />
+    <ClInclude Include="..\Extras\AboutDlg.h" />
     <ClInclude Include="..\Extras\ExtraResource.h" />
     <ClInclude Include="Commands.h" />
     <ClInclude Include="Duplicates.h" />
