@@ -5,49 +5,13 @@
 #include <atltime.h>
 
 
-/*
-char path[MAX_PATH];
-HMODULE hm = NULL;
-
-if (GetModuleHandleEx(GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS |
-        GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT,
-        (LPCSTR) &functionInThisDll, &hm) == 0)
-{
-    int ret = GetLastError();
-    fprintf(stderr, "GetModuleHandle failed, error = %d\n", ret);
-    // Return or however you want to handle an error.
-}
-if (GetModuleFileName(hm, path, sizeof(path)) == 0)
-{
-    int ret = GetLastError();
-    fprintf(stderr, "GetModuleFileName failed, error = %d\n", ret);
-    // Return or however you want to handle an error.
-}
-
-// The path variable should now contain the full filepath for this DLL.
-*/
-
 ResourceData::ResourceData() : data(0), dataSize(0), handle(0), fileInfo(0), success(false)
                                                                   {static Tchar tch;   initEntity(&tch);}
 
 
 
 ResourceData::ResourceData(void* staticEntity) : data(0), dataSize(0), handle(0),
-                                                                            fileInfo(0), success(false) {
-#if 1
-  initEntity(staticEntity);
-#else
-Tchar path[MAX_PATH];
-HMODULE modl;
-
-  if (!GetModuleHandleEx(GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS |
-                      GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT, (Tchar*)staticEntity, &modl)) return;
-
-  if (!GetModuleFileName(modl, path, noElements(path))) return;
-
-  initialize(path);
-#endif
-  }
+                                                  fileInfo(0), success(false) {initEntity(staticEntity);}
 
 
 // Initialize exe or dll by static address

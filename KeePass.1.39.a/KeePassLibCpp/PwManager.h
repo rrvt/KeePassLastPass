@@ -40,9 +40,9 @@
 
 // When making a Windows build, don't forget to update the verinfo resource
 #ifndef _UNICODE
-#define PWM_VERSION_STR  _T("1.39.b")
+#define PWM_VERSION_STR  _T("1.39.d")
 #else
-#define PWM_VERSION_STR  _T("1.39.b Unicode")
+#define PWM_VERSION_STR  _T("1.39.d Unicode")
 #endif
 #define PWM_VERSION_DW   0x01270000
 #define PWM_VERSION_QW   0x0001002700000000ULL

@@ -17,7 +17,7 @@
     <ClInclude Include="Expandable.h" />
     <ClInclude Include="ExpandableP.h" />
     <ClInclude Include="FileIO.h" />
-    <ClInclude Include="filename.h" />
+    <ClInclude Include="FileName.h" />
     <ClInclude Include="GetPathDlg.h" />
     <ClInclude Include="IniFile.h" />
     <ClInclude Include="LexT.h" />
@@ -41,7 +41,7 @@
     <ClCompile Include="CSVOutF.cpp" />
     <ClCompile Include="Date.cpp" />
     <ClCompile Include="FileIO.cpp" />
-    <ClCompile Include="filename.cpp" />
+    <ClCompile Include="FileName.cpp" />
     <ClCompile Include="GetPathDlg.cpp" />
     <ClCompile Include="IniFile.cpp" />
     <ClCompile Include="Random.cpp" />
@@ -119,13 +119,15 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <Optimization>Full</Optimization>
+      <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
-      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <IntrinsicFunctions>false</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
