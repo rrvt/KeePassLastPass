@@ -115,7 +115,7 @@ Tchar  ch;
 
   fi.close();
 
-  if (remove(pth)) {
+  if (_tremove(pth)) {
     String err;
 
     getError(GetLastError(), err);   messageBox(err);
