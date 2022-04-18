@@ -14,19 +14,19 @@
     <ProjectGuid>{C739C9F5-288C-4A5B-B9D8-38A406796A75}</ProjectGuid>
     <RootNamespace>PwSafe</RootNamespace>
     <Keyword>MFCProj</Keyword>
-    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <UseOfMfc>Dynamic</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
     <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <UseOfMfc>Dynamic</UseOfMfc>
     <CharacterSet>MultiByte</CharacterSet>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -66,7 +66,7 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <TargetEnvironment>Win32</TargetEnvironment>
       <TypeLibraryName>.\Release/PwSafe.tlb</TypeLibraryName>
-      <HeaderFileName/>
+      <HeaderFileName />
     </Midl>
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
@@ -87,8 +87,10 @@
       <AdditionalIncludeDirectories>
         $(ProjectDir);$(SolutionDir)..\KeePassLibCpp\;$(SolutionDir)..\Deprecated\;$(SolutionDir)..\..\Boost.1.77\
       </AdditionalIncludeDirectories>
-      <DebugInformationFormat/>
-      <BasicRuntimeChecks/>
+      <DebugInformationFormat />
+      <BasicRuntimeChecks />
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -126,7 +128,7 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <TargetEnvironment>Win32</TargetEnvironment>
       <TypeLibraryName>.\Debug/PwSafe.tlb</TypeLibraryName>
-      <HeaderFileName/>
+      <HeaderFileName />
     </Midl>
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
@@ -147,7 +149,9 @@
       </AdditionalIncludeDirectories>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <WholeProgramOptimization>true</WholeProgramOptimization>
-      <BasicRuntimeChecks/>
+      <BasicRuntimeChecks />
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -162,8 +166,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ProgramDatabaseFile>$(IntDir)KeePass.pdb</ProgramDatabaseFile>
       <SubSystem>Windows</SubSystem>
-      <RandomizedBaseAddress/>
-      <DataExecutionPrevention/>
+      <RandomizedBaseAddress />
+      <DataExecutionPrevention />
       <TargetMachine>MachineX86</TargetMachine>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -328,7 +332,9 @@
     <ClCompile Include="Util\VersionInfo.cpp" />
     <ClCompile Include="Util\WinUtil.cpp" />
   </ItemGroup>
-  <ItemGroup><ResourceCompile Include="PwSafe.rc" /></ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="PwSafe.rc" />
+  </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\KeePassLibCpp\Crypto\ARCFour.h" />
     <ClInclude Include="..\KeePassLibCpp\Crypto\KeyTransform.h" />
@@ -546,6 +552,8 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />
   <ProjectExtensions>
-    <VisualStudio><UserProperties RESOURCE_FILE="PwSafe.rc" /></VisualStudio>
+    <VisualStudio>
+      <UserProperties RESOURCE_FILE="PwSafe.rc" />
+    </VisualStudio>
   </ProjectExtensions>
 </Project>

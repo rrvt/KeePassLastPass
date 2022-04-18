@@ -1064,5 +1064,6 @@
     <None Include="res\PwSafe.rc2">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="..\README.md" />
   </ItemGroup>
 </Project>

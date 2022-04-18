@@ -220,7 +220,7 @@ BOOL CPwSafeApp::InitInstance()
 
         const FullPathName& keyfile = CmdArgs::instance().getKeyfile();
         enum {PATH_EXISTS = FullPathName::PATH_ONLY | FullPathName::PATH_AND_FILENAME};
-        if(keyfile.getState() & PATH_EXISTS && !CmdArgs::instance().preselectIsInEffect())
+        if(keyfile.getState() & (FullPathName::STATE) PATH_EXISTS && !CmdArgs::instance().preselectIsInEffect())
         {
           dwData |= (DWORD)keyfile.getFullPathName().length();
           strData = keyfile.getFullPathName() + strData;

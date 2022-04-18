@@ -32,6 +32,7 @@ POSSIBILITY OF SUCH DAMAGE.
 #include "Executable.h"
 #include <memory>
 
+
 const FullPathName& Executable::instance() {
     static const Executable singleton;
     return singleton.m_module;
@@ -50,7 +51,7 @@ inline std_string getModuleFileName() {
     DWORD max_length = INITIAL_MAX_LENGTH;
     while(true) {
         max_length *= 2;  // Double the maximum length.
-        typedef std::auto_ptr<TCHAR> SmartCharPtr;
+        typedef std::unique_ptr<TCHAR> SmartCharPtr;                           // std::
         SmartCharPtr heapModuleFileName(new TCHAR[max_length]);
 
 #pragma warning(push)                                                             // rrvt

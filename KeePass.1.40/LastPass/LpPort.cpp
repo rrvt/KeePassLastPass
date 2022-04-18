@@ -12,8 +12,9 @@ static TCchar* FormFill = _T("http://ff");
 bool LpPort::openImport(String& path) {
 PathDlgDsc dsc;
 
-  dsc = PathDlgDsc{_T("LastPass Export File"), _T(""), _T("csv"), _T("*.csv")};
   i = 0;
+
+  dsc(_T("LastPass Export File"), _T(""), _T("csv"), _T("*.csv"));
 
   return lex.open(dsc, path);
   }
@@ -65,7 +66,7 @@ String     stg;
 bool LpPort::openExport() {
 PathDlgDsc dsc;
 
-  dsc = PathDlgDsc{_T("LastPass Import File"), _T(""), _T("csv"), _T("*.csv")};
+  dsc(_T("LastPass Import File"), _T(""), _T("csv"), _T("*.csv"));
 
   if (!csv.open(dsc)) return false;
 

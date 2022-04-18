@@ -22,6 +22,8 @@
 
 #include <vector>
 #include <tchar.h>
+#include <string>            // rrvt c++2020
+
 
 #define PDCS_UPPER_CASE       L"ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 #define PDCS_LOWER_CASE       L"abcdefghijklmnopqrstuvwxyz"
@@ -43,43 +45,43 @@
 class PwCharSet
 {
 public:
-	PwCharSet();
-	PwCharSet(LPCWSTR lpCharacters);
-	~PwCharSet();
+  PwCharSet();
+  PwCharSet(LPCWSTR lpCharacters);
+  ~PwCharSet();
 
-	void Clear();
+  void Clear();
 
-	unsigned int Size() const;
+  unsigned int Size() const;
 
-	bool Contains(WCHAR ch) const;
-	bool Contains(LPCWSTR lpCharacters) const;
+  bool Contains(WCHAR ch) const;
+  bool Contains(LPCWSTR lpCharacters) const;
 
-	WCHAR GetAt(unsigned int uPos) const;
+  WCHAR GetAt(unsigned int uPos) const;
 
-	void Add(WCHAR ch);
-	void Add(LPCWSTR lpCharacters);
-	void Add(LPCWSTR lpChars1, LPCWSTR lpChars2, LPCWSTR lpChars3 = NULL);
+  void Add(WCHAR ch);
+  void Add(LPCWSTR lpCharacters);
+  void Add(LPCWSTR lpChars1, LPCWSTR lpChars2, LPCWSTR lpChars3 = NULL);
 
-	void AddRange(WCHAR chLow, WCHAR chHigh);
+  void AddRange(WCHAR chLow, WCHAR chHigh);
 
-	bool AddCharSet(WCHAR chCharSetIdentifier);
+  bool AddCharSet(WCHAR chCharSetIdentifier);
 
-	bool Remove(WCHAR ch);
-	bool Remove(LPCWSTR lpCharacters);
+  bool Remove(WCHAR ch);
+  bool Remove(LPCWSTR lpCharacters);
 
-	bool RemoveIfAllExist(LPCWSTR lpCharacters);
+  bool RemoveIfAllExist(LPCWSTR lpCharacters);
 
-	std::basic_string<WCHAR> ToString() const;
+  std::basic_string<WCHAR> ToString() const;           //std::     rrvt 2020 basic_string<wchar_t>
 
-	USHORT PackAndRemoveCharRanges();
-	void UnpackCharRanges(USHORT usRanges);
+  USHORT PackAndRemoveCharRanges();
+  void UnpackCharRanges(USHORT usRanges);
 
-	static PwCharSet GetSpecialChars();
-	static PwCharSet GetLatin1SChars();
+  static PwCharSet GetSpecialChars();
+  static PwCharSet GetLatin1SChars();
 
 private:
-	std::vector<WCHAR> m_vChars;
-	BYTE m_vTab[PCS_TABSIZE];
+  std::vector<WCHAR> m_vChars;
+  BYTE m_vTab[PCS_TABSIZE];
 };
 
 #endif // ___PW_CHARSET_H___

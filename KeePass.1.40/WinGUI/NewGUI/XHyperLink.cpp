@@ -594,7 +594,7 @@ HINSTANCE CXHyperLink::GotoURL(LPCTSTR url, int showcmd, BOOL bAlwaysOpenNew /*=
   TCHAR key[MAX_PATH * 2];
 
   // First try ShellExecute()
-  TCHAR *verb = _T("open");
+  const TCHAR *verb = _T("open");               // rrvt c++2020
   if (bAlwaysOpenNew)
     verb = _T("new");
   HINSTANCE result = ShellExecute(NULL, verb, url, NULL,NULL, showcmd);

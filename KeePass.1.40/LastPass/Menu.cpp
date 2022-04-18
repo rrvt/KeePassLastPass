@@ -18,7 +18,7 @@ String txt;
 int    icon;
 int    flags;
 
-  MenuCode(int c, TCHAR* p, int icn, int flgs = 0) : code(c), txt(p), icon(icn), flags(flgs) { }
+  MenuCode(int c, TCchar* p, int icn, int flgs) : code(c), txt(p), icon(icn), flags(flgs) { }
   };
 
 

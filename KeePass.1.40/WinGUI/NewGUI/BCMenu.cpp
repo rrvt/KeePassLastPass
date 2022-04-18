@@ -3081,7 +3081,7 @@ int BCMenu::RemoveMenu(wchar_t* pText, BC_Seperator sPos)
   return nPos;
 }
 
-int BCMenu::DeleteMenu(char* pText, BC_Seperator sPos)
+int BCMenu::DeleteMenu(const char* pText, BC_Seperator sPos)             // rrvt
 {
   USES_CONVERSION;
   return DeleteMenu(A2W(pText), sPos);

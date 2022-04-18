@@ -13,19 +13,19 @@ PlugIns.ftr.Path=D:\Sources\KeePass.1.40\Release\Plugins\
 [Icons]
 NoIcons=1
 [Icon00]
-IconID=PwSafe
-WixID=PwSafeIcon.ico
-IconPath=D:\Sources\KeePass.1.40\WinGUI\res\PwSafe.ico
+IconID=PwSafe01
+WixID=PwSafe01Icon.ico
+IconPath=D:\Sources\KeePass.1.40\WinGUI\res\PwSafe01.ico
 [Product]
 ProductName=KeePass
 Company=Bob -- K6RWY
 WixName=KeePass
-WixVersion=1.40.0.0
+WixVersion=1.40.1.0
 UpgradeGUID=E4B33AD1-E88F-4AF5-BF88-DA9B628977AD
 SaveVerAllowed=0
 LicenseRequired=0
 LicensePath=D:\Sources\KeePass.1.40\KeePass\
-IconID=PwSafe
+IconID=PwSafe01
 [PFFDirectories]
 NoDirectories=1
 [PFFDirDesc00]
@@ -44,7 +44,7 @@ Name=KeePass
 HasChildren=0
 [Features]
 Count=2
-CurSel=KeePass
+CurSel=PlugIns
 [Ftr00]
 FeatureID=KeePass
 ProgramID=KeePass
@@ -56,9 +56,10 @@ ID=KeePass
 Path=D:\Sources\KeePass.1.40\Release\KeePass.exe
 Guid=219C5BD5-758C-4CF0-A50C-A49DD9450E89
 Description=Password Manager
-IconID=PwSafe
+IconID=PwSafe01
 IsStartMenu=1
 IsDeskTop=1
+IsVersionAvail=1
 [Ftr00Cmp01]
 ID=KeePassLib
 Path=D:\Sources\KeePass.1.40\Release\KeePassLibC.dll

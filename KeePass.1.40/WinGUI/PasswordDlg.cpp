@@ -620,7 +620,7 @@ void CPasswordDlg::OnOK()
         const DWORD dwKeyFileError = ::GetLastError();
         if(dwKeyFileError != dwDummyErrorCode)
         {
-          std::basic_string<TCHAR> strKeyError = strTemp;
+          std::basic_string<TCHAR> strKeyError = strTemp.GetBuffer();     // rrvt c++2020
           strKeyError += _T("\r\n\r\n");
           strKeyError += CPwUtil::FormatSystemMessage(dwKeyFileError);
 

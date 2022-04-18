@@ -43,6 +43,14 @@ Run the KeePass.msi to install KeePass.
 
 ## Updates
 
+### Update 4/15/22
+
+Big adventure in February when I started moving to a new Win11 and Visual Studio 2022.  I now
+feel that this version is working in the new environment.  There were several changes made to the app
+in order to compile properly on VS22.
+
+There were additional warnings and errors due to the new compiler.  They have been fixed or suppressed.
+
 ### Update 1/30/22
 
 Download the latest version of the c++ version of KeyPass, Version 1.40 and the current version of boost,

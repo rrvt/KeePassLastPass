@@ -66,7 +66,7 @@ void Commands::expungeFile() {
 PathDlgDsc dsc;
 String     path;
 
-  dsc = PathDlgDsc{_T("LastPass Export File"), _T(""), _T("csv"), _T("*.csv")};
+  dsc(_T("LastPass Export File"), _T(""), _T("csv"), _T("*.csv"));
 
   if (getPathDlg(dsc, path)) expungeFile(path);
   }

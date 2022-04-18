@@ -22,11 +22,13 @@ String ext;           // _T("txt")
 String pattern;       // _T("*.txt")
 
   PathDlgDsc() { }
-  PathDlgDsc(TCchar* ttl, TCchar* nm, TCchar* e, TCchar* pat);
+//  PathDlgDsc(TCchar* ttl, TCchar* nm, TCchar* e, TCchar* pat);
   PathDlgDsc(PathDlgDsc& dsc) {copy(dsc);}
  ~PathDlgDsc() { }
 
   virtual PathDlgDsc& operator= (PathDlgDsc& dsc) {copy(dsc); return *this;}
+  PathDlgDsc& operator() (TCchar* ttl, TCchar* nm, TCchar* e, TCchar* pat)
+                                           {title = ttl; name = nm; ext = e; pattern = pat;return *this;}
 
   virtual void copy(PathDlgDsc& dsc);
   };

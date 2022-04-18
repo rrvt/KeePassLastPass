@@ -37,63 +37,63 @@
 
 typedef struct
 {
-	BOOL bGroup;
-	BOOL bGroupTree;
-	BOOL bTitle;
-	BOOL bUserName;
-	BOOL bURL;
-	BOOL bPassword;
-	BOOL bNotes;
-	BOOL bUUID;
-	BOOL bImage;
-	BOOL bCreationTime;
-	BOOL bLastAccTime;
-	BOOL bLastModTime;
-	BOOL bExpireTime;
-	BOOL bAttachment;
+  BOOL bGroup;
+  BOOL bGroupTree;
+  BOOL bTitle;
+  BOOL bUserName;
+  BOOL bURL;
+  BOOL bPassword;
+  BOOL bNotes;
+  BOOL bUUID;
+  BOOL bImage;
+  BOOL bCreationTime;
+  BOOL bLastAccTime;
+  BOOL bLastModTime;
+  BOOL bExpireTime;
+  BOOL bAttachment;
 
-	BOOL bEncodeNewlines;
-	BOOL bExportBackups;
+  BOOL bEncodeNewlines;
+  BOOL bExportBackups;
 } PWEXPORT_OPTIONS;
 
 class CPwExport : boost::noncopyable
 {
 public:
-	CPwExport();
-	virtual ~CPwExport();
+  CPwExport();
+  virtual ~CPwExport();
 
-	void SetManager(CPwManager *pMgr);
-	void SetFormat(int nFormat);
-	void SetNewLineSeq(BOOL bWindows);
+  void SetManager(CPwManager *pMgr);
+  void SetFormat(int nFormat);
+  void SetNewLineSeq(BOOL bWindows);
 
-	BOOL ExportAll(const TCHAR *pszFile, const PWEXPORT_OPTIONS *pOptions, CPwManager *pStoreMgr);
-	BOOL ExportGroup(const TCHAR *pszFile, DWORD dwGroupId, const PWEXPORT_OPTIONS *pOptions, CPwManager *pStoreMgr);
+  BOOL ExportAll(const TCHAR *pszFile, const PWEXPORT_OPTIONS *pOptions, CPwManager *pStoreMgr);
+  BOOL ExportGroup(const TCHAR *pszFile, DWORD dwGroupId, const PWEXPORT_OPTIONS *pOptions, CPwManager *pStoreMgr);
 
-	CString MakeGroupTreeString(DWORD dwGroupId, bool bXmlEncode) const;
+  CString MakeGroupTreeString(DWORD dwGroupId, bool bXmlEncode) const;
 
-	PWEXPORT_OPTIONS m_aDefaults[PWEXP_LAST];
-	int m_nFormat;
+  PWEXPORT_OPTIONS m_aDefaults[PWEXP_LAST];
+  int m_nFormat;
 
 private:
-	void _ExpStr(LPCTSTR lpString);
-	void _ExpLine(LPCTSTR lpString);
-	void _ExpXmlStr(LPCTSTR lpString, DWORD dwXmlEncFlags = XEF_NONE);
-	void _ExpHtmlStr(LPCTSTR lpString, DWORD dwXmlEncFlags = XEF_NONE);
+  void _ExpStr(LPCTSTR lpString);
+  void _ExpLine(LPCTSTR lpString);
+  void _ExpXmlStr(LPCTSTR lpString, DWORD dwXmlEncFlags = XEF_NONE);
+  void _ExpHtmlStr(LPCTSTR lpString, DWORD dwXmlEncFlags = XEF_NONE);
 
-	void _ExpResetSkip();
-	void _ExpSetSep(LPCTSTR lpSep);
-	void _ExpStrIf(BOOL bCondition, LPCTSTR lpString);
-	void _ExpXmlStrIf(BOOL bCondition, LPCTSTR lpString);
-	void _ExpHtmlStrIf(BOOL bCondition, LPCTSTR lpString);
-	void _ExpCsvStrIf(BOOL bCondition, LPCTSTR lpString);
+  void _ExpResetSkip();
+  void _ExpSetSep(LPCTSTR lpSep);
+  void _ExpStrIf(BOOL bCondition, LPCTSTR lpString);
+  void _ExpXmlStrIf(BOOL bCondition, LPCTSTR lpString);
+  void _ExpHtmlStrIf(BOOL bCondition, LPCTSTR lpString);
+  void _ExpCsvStrIf(BOOL bCondition, LPCTSTR lpString);
 
-	CPwManager *m_pMgr;
-	TCHAR *m_pszNewLine;
+  CPwManager *m_pMgr;
+  const TCHAR* m_pszNewLine;                         // Van Tuyl C++ 2020
 
-	FILE *m_fp;
-	BOOL m_bOneSkipped;
-	LPCTSTR m_lpSep;
-	const PWEXPORT_OPTIONS *m_pOptions;
+  FILE *m_fp;
+  BOOL m_bOneSkipped;
+  LPCTSTR m_lpSep;
+  const PWEXPORT_OPTIONS *m_pOptions;
 };
 
 #endif
