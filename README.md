@@ -43,6 +43,13 @@ Run the KeePass.msi to install KeePass.
 
 ## Updates
 
+### Update 4/11/23
+
+Update Boost to 1.81 and recompiled Boost.  Renamed Boost from boost.1.78 to just boost.  Recompiled
+KeePass with the new Boost.  Tested the LastPass import and it seemed fine.  Did not test exporting
+from KeePass to LastPass because KeePass remains the backup as yet unused as backup.  I have used it
+from time to time as it is sometimes easier than LastPass.
+
 ### Update 4/8/23
 
 KeePass checks for updates and 1.41 was announced by KeePass.  So I downloaded the new version.  The

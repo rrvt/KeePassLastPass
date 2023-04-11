@@ -40,7 +40,7 @@
 
 // When making a Windows build, don't forget to update the verinfo resource
 #ifndef _UNICODE
-#define PWM_VERSION_STR  _T("1.41")
+#define PWM_VERSION_STR  _T("1.41.1")
 #else
 #define PWM_VERSION_STR  _T("1.41 Unicode")
 #endif
