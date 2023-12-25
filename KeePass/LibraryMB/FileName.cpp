@@ -4,7 +4,7 @@
 // rrvt 3/1/95    */
 
 
-#include "stdafx.h"
+#include "pch.h"
 #include "filename.h"
 #include <io.h>
 #include <sys/stat.h>
@@ -66,7 +66,7 @@ int    dotPos;
 
   dotPos = fn.findLastOf('.');
 
-  if (dotPos > 0) {fn.resize(dotPos);}  return fn;
+  if (dotPos >= 0) {fn.resize(dotPos);}  return fn;
   }
 
 

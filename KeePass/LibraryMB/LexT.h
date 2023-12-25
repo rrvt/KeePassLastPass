@@ -5,7 +5,7 @@
 
 #pragma once
 #include "LexTOut.h"
-//#include "NotePad.h"
+#include "NotePad.h"
 #include "Token.h"
 #include <float.h>
 #include <math.h>
@@ -714,9 +714,9 @@ static int error_count;     /* number of syntax errors */
 
 template<class Input, class LexTOut, bool WhiteSpace, bool QuoteEol, bool BSinQuote>
            void LexT<Input, LexTOut, WhiteSpace, QuoteEol, BSinQuote>::error(Token* token, TCchar* stg) {
-#if 0
 int    lng    = (int) _tcslen(stg);
 String f;
+
   display_source_line(token);
 
   f.format(_T("%i: Token: %s - Error: %s\n"),  error_count, token->name, stg);
@@ -724,7 +724,6 @@ String f;
   output(notePad, _T("%s\n"), stg);
 
   error_count++;
-#endif
   }
 
 
@@ -733,7 +732,6 @@ String f;
 
 template<class Input, class LexTOut, bool WhiteSpace, bool QuoteEol, bool BSinQuote>
             void LexT<Input, LexTOut, WhiteSpace, QuoteEol, BSinQuote>::display_source_line(Token* tok) {
-#if 0
 String* pstg   = tok->psource;
 String  f;
 
@@ -751,6 +749,5 @@ String  f;
 
     f.format(_T("      %s\n"), pstg->substr(74).str()); output(notePad, _T("%s\n"), f);
     }
-#endif
   }
 

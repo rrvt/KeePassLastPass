@@ -26,13 +26,13 @@ class String;
 class Cstring : public CString {
 public:
 
-  Cstring() : CString() {}
-  Cstring(TCchar*  s) : CString(s) {}
+  Cstring()          : CString() {}
+  Cstring(TCchar* s) : CString(s) {}
   Cstring(String& s);
 
   int      stoi( uint& i, int base=10);
 
-  void     clear() {Empty();}
+  void     clear()   {Empty();}
   bool     isEmpty() {return IsEmpty();}
 
   operator TCchar*() const {return GetString();}
@@ -56,10 +56,22 @@ public:
   Cstring& operator= (long       v);
   Cstring& operator= (ulong      v);
   Cstring& operator= (double     v);
+
+  bool     operator== (Cstring& t) {return (CString) *this == (CString) t;}
+  bool     operator!= (Cstring& t) {return (CString) *this != (CString) t;}
+  bool     operator>  (Cstring& t) {return (CString) *this >  (CString) t;}
+  bool     operator>= (Cstring& t) {return (CString) *this >= (CString) t;}
+  bool     operator<  (Cstring& t) {return (CString) *this <  (CString) t;}
+  bool     operator<= (Cstring& t) {return (CString) *this <= (CString) t;}
   };
 
 
-inline BOOL operator== (CString& s, TCchar* t) {return s.Compare(t);}
+inline bool operator== (Cstring& s, TCchar* t) {return s.Compare(t) == 0;}
+inline bool operator!= (Cstring& s, TCchar* t) {return s.Compare(t) != 0;}
+inline bool operator>  (Cstring& s, TCchar* t) {return s.Compare(t) >  0;}
+inline bool operator>= (Cstring& s, TCchar* t) {return s.Compare(t) >= 0;}
+inline bool operator<  (Cstring& s, TCchar* t) {return s.Compare(t) <  0;}
+inline bool operator<= (Cstring& s, TCchar* t) {return s.Compare(t) <= 0;}
 
 
 class String : public tstring {
@@ -131,6 +143,10 @@ static const int npos = -1;
 //  operator tstring&()       {return s;}
   operator TCchar*() const {return str();}    // Left Hand side of TCchar*, Cstring, bstr & variant_t
   TCchar*      str() const {return c_str();}
+
+#ifdef _UNICODE
+  operator LPWSTR() const {return (LPWSTR) str();}
+#endif
 
 // Concatenation operators
 //  s += t;  where s is a String and t is a String, tstring, Cstring, bstr_t, variant_t,
@@ -526,7 +542,7 @@ private:
 
 
 /*
-basic_string Class Visual Studio 2017Visual Studio 2017
+basic_string Class Visual Studio 2017Visual Studio 2022
 
 Send Feedback on this topic to Microsoft. OnlineView this topic online in your default browser.
 
@@ -789,7 +805,7 @@ See Also
 Reference
 <tstring>
 Thread Safety in the C++ Standard Library
-© 2017 Microsoft Corporation. All rights reserved.
+© 2022 Microsoft Corporation. All rights reserved.
 
 Send Feedback on this topic to Microsoft.
 */

@@ -20,6 +20,7 @@ char*          pbuf;                // read buffer
 char*          ebuf;
 char           buf[1024];
 bool           rtnSeen;
+bool           eof;                 // End of File when reading
 
 int            tabSize;
 int            col;
@@ -37,6 +38,8 @@ enum OpenParms {Read=1, Write=2, Create=4};
   bool open(String& filePath, int parms) {return open(filePath.str(), parms);}
   bool open(TCchar* filePath, int parms);
   void close();
+
+  String getFilePath();
 
   void seekEnd();
 
@@ -56,12 +59,11 @@ enum OpenParms {Read=1, Write=2, Create=4};
   bool write(Byte    v);                            // Writes one byte without interpretation of /n or /r
 
   bool read(String& s);                             // Reads a line terminated by _T("\n")
-  bool read(String& s, int n);                      // Read n characters into a string
+  bool read(String& s, int  n);                     // Read n characters into a string
   bool read(Tchar&  c);                             // reads on char or wchar (i.e. a Tchar)
-  int  read(void* blk, int n);                      // Read block of data from buffer without
-                                                    // interpretation of /n or /r
-  bool read(Byte&    v);                            // Reads one byte without interpretation of /n or /r
-
+  bool read(Byte&   v);                             // Reads one byte without interpretation of /n or /r
+  bool read(void* blk, int& n);                     // Reads up to n bytes in blk, returns true and no of
+                                                    // bytes in blk
   void setTabSize(int nSpaces)                      // Set Tab Size for output, default is 2 spaces
               {if (nSpaces > 0) tabSize = nSpaces;}
   void tab(   int nTabs);                           // Tab every 2 spaces
@@ -70,11 +72,20 @@ enum OpenParms {Read=1, Write=2, Create=4};
 
   Tchar* getLastError();                            // Returns last error
 
+  void   clearException();
+
 private:
 
   bool getChar(char& ch);
   void sendChar(char ch);
+  void enCode(Tchar tch);
   bool fillBuf();
   void flush();
   void saveExcp(CFileException* e);
   };
+
+
+
+//  int  readRaw(void* blk, uint n);                  // Read block of data from buffer without
+//  void writeRaw(void* blk, int noBytes);
+
