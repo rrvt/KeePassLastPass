@@ -84,7 +84,7 @@
       <ProgramDataBaseFileName>$(IntDir)</ProgramDataBaseFileName>
       <WarningLevel>Level4</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)..\KeePassLibCpp\;$(SolutionDir)..\Deprecated\;$(SolutionDir)..\..\Boost.1.78\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)..\KeePassLibCpp\;$(SolutionDir)..\Deprecated\;$(SolutionDir)..\..\boost\</AdditionalIncludeDirectories>
       <DebugInformationFormat />
       <BasicRuntimeChecks />
       <LanguageStandard>stdcpp20</LanguageStandard>
@@ -142,7 +142,7 @@
       <WarningLevel>Level4</WarningLevel>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)..\KeePassLibCpp\;$(SolutionDir)..\Deprecated\;$(SolutionDir)..\..\Boost\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)..\KeePassLibCpp\;$(SolutionDir)..\Deprecated\;$(SolutionDir)..\..\boost\</AdditionalIncludeDirectories>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <WholeProgramOptimization>true</WholeProgramOptimization>
       <BasicRuntimeChecks />

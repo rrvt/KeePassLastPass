@@ -70,7 +70,7 @@
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)Lib;$(SolutionDir)..\Deprecated\;$(ProjectDir)Lib\Argon2\include;$(SolutionDir)..\..\Boost.1.78\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)Lib;$(SolutionDir)..\Deprecated\;$(ProjectDir)Lib\Argon2\include;$(SolutionDir)..\..\boost\</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>
         NDEBUG;WIN32;_WINDOWS;_USRDLL;KP_NO_DEFAULT_SHARE;_AFX_NO_DB_SUPPORT;_SILENCE_CXX20_IS_ALWAYS_EQUAL_DEPRECATION_WARNING;%(PreprocessorDefinitions)
       </PreprocessorDefinitions>
@@ -127,7 +127,7 @@
     </Midl>
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)Lib;$(SolutionDir)..\Deprecated\;$(ProjectDir)Lib\Argon2\include;$(SolutionDir)..\..\Boost\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)Lib;$(SolutionDir)..\Deprecated\;$(ProjectDir)Lib\Argon2\include;$(SolutionDir)..\..\boost\</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_DEBUG;WIN32;_WINDOWS;_USRDLL;KP_NO_DEFAULT_SHARE;_AFX_NO_DB_SUPPORT;_SILENCE_CXX20_IS_ALWAYS_EQUAL_DEPRECATION_WARNING;%(PreprocessorDefinitions)
       </PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>

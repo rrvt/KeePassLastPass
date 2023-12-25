@@ -1,7 +1,7 @@
 // Date & Time using CTime
 
 
-#include "pch.h"
+#include "stdafx.h"
 #include "Date.h"
 #include "MessageBox.h"
 #include "StringInput.h"
@@ -49,7 +49,7 @@ static TCchar*  msg = _T("Date format accepted:\n"
                     " H > 12   -- 24 hour clock always interpreted correctly");
 
 
-typedef LexT<StringInput, LexTOut, false, false, false> Lex;
+typedef LexT<StringInput, false, false, false> Lex;
 
 
 static int utcOffset = 0;

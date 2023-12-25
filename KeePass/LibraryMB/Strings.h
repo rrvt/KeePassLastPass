@@ -26,13 +26,13 @@ class String;
 class Cstring : public CString {
 public:
 
-  Cstring()          : CString() {}
-  Cstring(TCchar* s) : CString(s) {}
+  Cstring() : CString() {}
+  Cstring(TCchar*  s) : CString(s) {}
   Cstring(String& s);
 
   int      stoi( uint& i, int base=10);
 
-  void     clear()   {Empty();}
+  void     clear() {Empty();}
   bool     isEmpty() {return IsEmpty();}
 
   operator TCchar*() const {return GetString();}

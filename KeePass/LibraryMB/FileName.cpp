@@ -4,7 +4,7 @@
 // rrvt 3/1/95    */
 
 
-#include "pch.h"
+#include "stdafx.h"
 #include "filename.h"
 #include <io.h>
 #include <sys/stat.h>

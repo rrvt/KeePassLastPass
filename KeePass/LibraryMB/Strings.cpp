@@ -5,7 +5,7 @@
 // rrvt 08/02/16
 
 
-#include "pch.h"
+#include "stdafx.h"
 #include "Strings.h"
 #include <iomanip>
 #include <sstream>
@@ -180,7 +180,7 @@ String s;
   }
 
 
-String intToString(  long v, int width) {String s;   s.format(_T("%*li"),  width, v); return s;}
+String intToString( long v, int width) {String s;   s.format(_T("%*li"),  width, v); return s;}
 String uintToString(ulong v, int width) {String s;   s.format(_T("%*uli"), width, v); return s;}
 
 

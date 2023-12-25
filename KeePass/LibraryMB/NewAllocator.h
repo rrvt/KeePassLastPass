@@ -36,8 +36,8 @@
 #include <cstdlib>
 #include <crtdbg.h>
 
-#define NewAlloc(T)                 NewAllocatorT<T> MyAllocator
-#define AllocNode                   MyAllocator(                _NORMAL_BLOCK, __FILE__, __LINE__)
+#define NewAlloc(T)      NewAllocatorT<T> MyAllocator
+#define AllocNode        MyAllocator(      _NORMAL_BLOCK, __FILE__, __LINE__)
 #define AllocNodeI1(i1)             MyAllocator(i1,             _NORMAL_BLOCK, __FILE__, __LINE__)
 #define AllocNodeI2(i1, i2)         MyAllocator(i1, i2,         _NORMAL_BLOCK, __FILE__, __LINE__)
 #define AllocNodeI3(i1, i2, i3)     MyAllocator(i1, i2, i3,     _NORMAL_BLOCK, __FILE__, __LINE__)
@@ -48,8 +48,8 @@
 
 #else
 
-#define NewAlloc(T)                 NewAllocatorT<T> MyAllocator
-#define AllocNode                   MyAllocator()
+#define NewAlloc(T)      NewAllocatorT<T> MyAllocator
+#define AllocNode        MyAllocator()
 #define AllocNodeI1(i1)             MyAllocator(i1)
 #define AllocNodeI2(i1, i2)         MyAllocator(i1, i2)
 #define AllocNodeI3(i1, i2, i3)     MyAllocator(i1, i2, i3)

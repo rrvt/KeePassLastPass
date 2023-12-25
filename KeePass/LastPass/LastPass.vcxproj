@@ -63,7 +63,7 @@
       <PreprocessorDefinitions>
         WIN32;_WINDOWS;_DEBUG;_USRDLL;%(PreprocessorDefinitions)
       </PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)..\KeePassLibCpp\;$(SolutionDir)..\LibraryMB\;$(SolutionDir)..\Extras\;$(SolutionDir)..\..\Boost\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)..\KeePassLibCpp\;D:\Sources\KeePass\KeePass\..\..\Library\Library.prj;$(SolutionDir)..\Extras\;$(SolutionDir)..\..\boost\</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <SupportJustMyCode>false</SupportJustMyCode>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
@@ -81,6 +81,8 @@
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <IgnoreAllDefaultLibraries>
+      </IgnoreAllDefaultLibraries>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -108,7 +110,7 @@
       <PreprocessorDefinitions>
         WIN32;_WINDOWS;NDEBUG;_USRDLL;%(PreprocessorDefinitions)
       </PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)..\KeePassLibCpp\;$(SolutionDir)..\LibraryMB\;$(SolutionDir)..\Extras\;$(SolutionDir)..\..\Boost.1.78\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)..\KeePassLibCpp\;D:\Sources\KeePass\KeePass\..\..\Library\Library.prj;$(SolutionDir)..\Extras\;$(SolutionDir)..\..\boost\</AdditionalIncludeDirectories>
       <DebugInformationFormat>None</DebugInformationFormat>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <BasicRuntimeChecks />
@@ -126,6 +128,8 @@
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
       <ProgramDatabaseFile />
+      <IgnoreAllDefaultLibraries>
+      </IgnoreAllDefaultLibraries>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -145,6 +149,8 @@
   <ItemGroup>
     <ClCompile Include="..\Extras\AboutDlg.cpp" />
     <ClCompile Include="Commands.cpp" />
+    <ClCompile Include="CSVLexF.cpp" />
+    <ClCompile Include="CSVOutF.cpp" />
     <ClCompile Include="Duplicates.cpp" />
     <ClCompile Include="Groups.cpp" />
     <ClCompile Include="KpIter.cpp" />
@@ -167,6 +173,8 @@
     <ClInclude Include="..\Extras\AboutDlg.h" />
     <ClInclude Include="..\Extras\ExtraResource.h" />
     <ClInclude Include="Commands.h" />
+    <ClInclude Include="CSVLexF.h" />
+    <ClInclude Include="CSVOutF.h" />
     <ClInclude Include="Duplicates.h" />
     <ClInclude Include="Groups.h" />
     <ClInclude Include="KeePassSDK.h" />

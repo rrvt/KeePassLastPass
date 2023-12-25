@@ -20,6 +20,8 @@
     <ClInclude Include="FileName.h" />
     <ClInclude Include="GetPathDlg.h" />
     <ClInclude Include="IniFile.h" />
+    <ClInclude Include="IterT.h" />
+    <ClInclude Include="LexErr.h" />
     <ClInclude Include="LexT.h" />
     <ClInclude Include="LexTOut.h" />
     <ClInclude Include="ManipT.h" />

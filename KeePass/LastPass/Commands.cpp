@@ -68,7 +68,7 @@ String     path;
 
   dsc(_T("LastPass Export File"), _T(""), _T("csv"), _T("*.csv"));
 
-  if (getPathDlg(dsc, path)) expungeFile(path);
+  if (getOpenDlg(dsc, path)) expungeFile(path);
   }
 
 

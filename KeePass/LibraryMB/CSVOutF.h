@@ -19,7 +19,7 @@ considered to be a separate field in the CSV file.
 #include "FileIO.h"
 #include "ManipT.h"
 
-struct PathDlgDsc;
+class PathDlgDsc;
 
 
 extern TCchar Comma;
@@ -38,11 +38,11 @@ public:
 
   bool     open(PathDlgDsc& dsc);
 
-  CSVOutF& operator<< (String&    s)     {fo.write(quotes(s));                  return *this;}
-  CSVOutF& operator<< (TCchar*    p)     {fo.write(quotes(p));                  return *this;}
-  CSVOutF& operator<< (Tchar     ch)     {fo.write(ch);                         return *this;}
-  CSVOutF& operator<< (int        x)     {String s = x;            fo.write(s); return *this;}
-  CSVOutF& operator<< (Date&     dt)     {String s = dt.toUnix();  fo.write(s); return *this;}
+  CSVOutF& operator<< (String&    s)     {fo.write(quotes(s));              return *this;}
+  CSVOutF& operator<< (TCchar*    p)     {fo.write(quotes(p));              return *this;}
+  CSVOutF& operator<< (Tchar     ch)     {fo.write(ch);                     return *this;}
+  CSVOutF& operator<< (int        x)     {String s = x;        fo.write(s); return *this;}
+  CSVOutF& operator<< (Date&     dt)     {String s; dt >> s;   fo.write(s); return *this;}
 
   CSVOutF& operator<< (CSVManip& m)      {return m.func(*this);}
 
