@@ -3,7 +3,7 @@
 		<p n="..\KeePassLibC\KeePassLib.vpj" v=",Debug|Win32"/>
 		<p n="..\Deprecated\Deprecated.vpj" v=",Debug|Win32"/>
 		<p n="..\LibraryMB\LibraryMB.vpj" v=",Debug|Win32"/>
-		<p n="..\WinGUI\PwSafe.vpj" v=",Debug|Win32"/>
+		<p n="..\WinGUI\PwSafe.vpj" v=",Release|Win32"/>
 		<p n="..\LastPass\LastPass.vpj" v=",Debug|Win32"/>
 		<p n="..\KeePass.wix\KeePassWix.vpj" v=",Debug|x86"/>
 		<p n="..\..\Library\Library.prj\Library.vpj" v=",Debug|Win32"/>
@@ -18,7 +18,7 @@
 		<p n="..\WinGUI\PwSafe.vcxproj" v="20231225013925508"/>
 		<p n="..\LastPass\LastPass.vcxproj" v="20231225013925476"/>
 		<p n="..\KeePass.wix\KeePassWix.wixproj" v="20231225075154989"/>
-		<p n="..\LibraryMB\LibraryMB.vcxproj" v="20231205063615126"/>
+		<p n="..\LibraryMB\LibraryMB.vcxproj" v="20240108020659622"/>
 	</project_dates>
 	<tree_expansion scroll="0">
 		<p n="..\Deprecated\Deprecated.vcxproj" v="+@"/>
@@ -59,8 +59,8 @@
 	<state>
 		<monitor_configs>
 			<monitor_config v="0 0 1920 1080">
-				<screen v="1920 1080 366 0 1369 1049 0 0 N 0 0 0 0 1113 679 0"/>
-				<mdistate v="AAAAAwAAAAIAAAAD2gAAAAIAMAAAAAAAAABAAAAFWAAABAEAAAAAAAAAAAAAB38AAAQ3AAAAAuoAAAI8AAAAAvsAAAAFAAAABQAAAAQAAAADAAAAAgAAAAEAAAAA+wAAAAUAAAAFAAAABAAAAAIAAAABAAAAAAAAAAP8AAAAbQAAAABgADQAOgA6ADoARAA6AFwAUwBvAHUAcgBjAGUAcwBcAEsAZQBlAFAAYQBzAHMAXABLAGUAZQBQAGEAcwBzAEwAaQBiAEMAXABLAGUAZQBQAGEAcwBzAEwAaQBiAC4AcgBjAAD/////AAD8AAAAbQAAAABgADMAOgA6ADoARAA6AFwAUwBvAHUAcgBjAGUAcwBcAEsAZQBlAFAAYQBzAHMAXABLAGUAZQBQAGEAcwBzAEwAaQBiAEMAcABwAFwAUAB3AE0AYQBuAGEAZwBlAHIALgBoAAD/////AAD8AAAAWwAAAABOADUAOgA6ADoARAA6AFwAUwBvAHUAcgBjAGUAcwBcAEsAZQBlAFAAYQBzAHMAXABXAGkAbgBHAFUASQBcAFAAdwBTAGEAZgBlAC4AcgBjAAD/////AAD8AAAAYwAAAABWADIAOgA6ADoARAA6AFwAUwBvAHUAcgBjAGUAcwBcAEsAZQBlAFAAYQBzAHMAXABXAGkAbgBHAFUASQBcAFAAdwBTAGEAZgBlAEQAbABnAC4AYwBwAHAAAP////8AAPwAAABNAAAAAEAANgA6ADoAOgBEADoAXABTAG8AdQByAGMAZQBzAFwASwBlAGUAUABhAHMAcwBcAFIARQBBAEQATQBFAC4AbQBkAQD/////AAEAAAAA2gAAAB4AMAAtADEANQA1ADEANAAyADMAMQAzADEAOQA5ADUATgAAA4cAAAFcAAAFJAAAA/wAAAAAAAAAAAAAB38AAAQ3AAAAAuoAAAAWAAAAAvsAAAAAAAAAAPsAAAAAAAAAAAAAAADaAAAAHgAwAC0AMQA1ADUANgA0ADEANgA1ADMANQA0ADQAMgBOAAAB4AAAAUQAAAL7AAACZgAAAAAAAAAAAAAHfwAABDcAAAAC6gAAABYAAAAC+wAAAAAAAAAA+wAAAAAAAAAAAAAAAA=="/>
+				<screen v="1920 1080 208 0 1548 1049 0 0 N 0 0 0 0 1299 679 0"/>
+				<mdistate v="AAAAAwAAAAIAAAAD2gAAAAIAMAAAAAAAAABAAAAGCwAABAEAAAAAAAAAAAAAB38AAAQ3AAAAAuoAAAJKAAAAAvsAAAAFAAAABQAAAAQAAAADAAAAAgAAAAAAAAAB+wAAAAUAAAAFAAAABAAAAAMAAAACAAAAAAAAAAH8AAAAbQAAAABgADIAOgA6ADoARAA6AFwAUwBvAHUAcgBjAGUAcwBcAEsAZQBlAFAAYQBzAHMAXABLAGUAZQBQAGEAcwBzAEwAaQBiAEMAXABLAGUAZQBQAGEAcwBzAEwAaQBiAC4AcgBjAAD/////AAD8AAAAcQAAAABkADMAOgA6ADoARAA6AFwAUwBvAHUAcgBjAGUAcwBcAEsAZQBlAFAAYQBzAHMAXABLAGUAZQBQAGEAcwBzAEwAaQBiAEMAcABwAFwAUAB3AE0AYQBuAGEAZwBlAHIALgBjAHAAcAAA/////wAA/AAAAG0AAAAAYAA0ADoAOgA6AEQAOgBcAFMAbwB1AHIAYwBlAHMAXABLAGUAZQBQAGEAcwBzAFwASwBlAGUAUABhAHMAcwBMAGkAYgBDAHAAcABcAFAAdwBNAGEAbgBhAGcAZQByAC4AaAAA/////wAA/AAAAFsAAAAATgA1ADoAOgA6AEQAOgBcAFMAbwB1AHIAYwBlAHMAXABLAGUAZQBQAGEAcwBzAFwAVwBpAG4ARwBVAEkAXABQAHcAUwBhAGYAZQAuAHIAYwAA/////wAA/AAAAE0AAAAAQAA2ADoAOgA6AEQAOgBcAFMAbwB1AHIAYwBlAHMAXABLAGUAZQBQAGEAcwBzAFwAUgBFAEEARABNAEUALgBtAGQBAP////8AAQAAAADaAAAAHgAwAC0AMQA1ADUAMQA0ADIAMwAxADMAMQA5ADkANQBOAAADiwAAAJwAAAUoAAADygAAAAAAAAAAAAAHfwAABDcAAAAC6gAAABYAAAAC+wAAAAAAAAAA+wAAAAAAAAAAAAAAANoAAAAeADAALQAxADUANQA2ADQAMQA2ADUAMwA1ADQANAAyAE4AAAHgAAABRAAAAvsAAAJmAAAAAAAAAAAAAAd/AAAENwAAAALqAAAAFgAAAAL7AAAAAAAAAAD7AAAAAAAAAAAAAAAA"/>
 				<debug_layout version="1" state="N" fullscreen="0">
 					<toolwindowinfo>
 						<p n="_tbannotations_browser_form" f="0"/>
@@ -236,8 +236,8 @@
 						<p n="_tbtagwin_form" t="0"/>
 						<p n="_tbterminal_form" t="0"/>
 					</toolwindows>
-					<mdistate v="AAAAAwAAAAEAAAAD2gAAAAIAMAAAAAAAAABAAAAFWAAABAEAAAAAAAAAAAAAB38AAAQ3AAAAAesAAAS6AAAAAPsAAAACAAAAAgAAAAEAAAAA+wAAAAIAAAACAAAAAAAAAAH9AAABoQAAAAAaADoAOgA6AC8AdgBEAG8AYwBrAEEAcgBlAGEBAAAAAPsAAAAAAAL7AAAABQAAAAUAAAAAAAAABAAAAAMAAAACAAAAAfsAAAAFAAAABQAAAAAAAAABAAAAAgAAAAMAAAAE/AAAAD0AAAAAKAAwADoAOgA6AF8AdABiAHAAcgBvAGoAZQBjAHQAcwBfAGYAbwByAG0BAP////8AAP///////////AAAAD0AAAAAKAAwADoAOgA6AF8AdABiAHAAcgBvAGMAdAByAGUAZQBfAGYAbwByAG0AAP////8AAP///////////AAAADcAAAAAIgAwADoAOgA6AF8AdABiAGMAbABhAHMAcwBfAGYAbwByAG0AAP////8AAP///////////AAAAD0AAAAAKAAwADoAOgA6AF8AdABiAGMAYgByAG8AdwBzAGUAcgBfAGYAbwByAG0AAP////8AAP///////////AAAADUAAAAAIAAwADoAOgA6AF8AdABiAG8AcABlAG4AXwBmAG8AcgBtAAD/////AAD///////////0AAALFAAAAABoAOgA6ADoALwB2AEQAbwBjAGsAQQByAGUAYQEAAAAEKAABAAAAAfsAAAACAAAAAgAAAAAAAAAB+wAAAAIAAAACAAAAAQAAAAD8AAAAKQAAAAAcADoAOgA6AE0ARABJAEEAUgBFAEEAVABJAEwARQEAAAACpwAB/QAAAkUAAAAAGgA6ADoAOgAvAHYARABvAGMAawBBAHIAZQBhAQAAAAEWAAAAAAAC+wAAAAcAAAAHAAAAAAAAAAYAAAAFAAAABAAAAAMAAAACAAAAAfsAAAAHAAAABwAAAAEAAAACAAAAAwAAAAAAAAAEAAAABQAAAAb8AAAANwAAAAAiADAAOgA6ADoAXwB0AGIAcwBoAGUAbABsAF8AZgBvAHIAbQEA/////wAA///////////8AAAAOQAAAAAkADAAOgA6ADoAXwB0AGIAcwBlAGEAcgBjAGgAXwBmAG8AcgBtAAD/////AAD///////////wAAAA5AAAAACQAMAA6ADoAOgBfAHQAYgB0AGEAZwB3AGkAbgBfAGYAbwByAG0AAP////8AAP///////////AAAADsAAAAAJgAxADoAOgA6AF8AdABiAHQAYQBnAHIAZQBmAHMAXwBmAG8AcgBtAAD/////AAD///////////wAAABNAAAAADgAMAA6ADoAOgBfAHQAYgBtAGUAcwBzAGEAZwBlAHMAXwBiAHIAbwB3AHMAZQByAF8AZgBvAHIAbQAA/////wAA///////////8AAAAPQAAAAAoADAAOgA6ADoAXwB0AGIAdABlAHIAbQBpAG4AYQBsAF8AZgBvAHIAbQAA/////wAA///////////8AAAAPwAAAAAqADAAOgA6ADoAXwB0AGIAbwB1AHQAcAB1AHQAdwBpAG4AXwBmAG8AcgBtAAD/////AAD//////////wAAAADbAAAAAAAAAALbAAAAAAAAAAHbAAAAAAAAAAPbAAAAAAAAAADaAAAAHgAwAC0AMQA1ADUAMQA0ADIAMwAxADMAMQA5ADkANQBOAAADhwAAAVwAAAUkAAAD/AAAAAAAAAAAAAAHfwAABDcAAAAB6wAAAQgAAAAA+wAAAAIAAAACAAAAAAAAAAH7AAAAAgAAAAIAAAAAAAAAAf0AAACLAAAAABoAOgA6ADoALwB2AEQAbwBjAGsAQQByAGUAYQABAAADsAAAAAAAAvsAAAABAAAAAQAAAAD7AAAAAQAAAAEAAAAA/AAAAEEBAAAAIAAxADoAOgA6AF8AdABiAGYAaQBuAGQAXwBmAG8AcgBtAAH/////AAAAAAGOAAACfgAAAYwx/dREAAAAAPwAAAApAAAAABwAOgA6ADoATQBEAEkAQQBSAEUAQQBUAEkATABFAAH/////AAAAAAAA2wAAAAAAAAAC2wAAAAAAAAAB2wAAAAAAAAAD2wAAAAAAAAAA2gAAAB4AMAAtADEANQA1ADYANAAxADYANQAzADUANAA0ADIATgAAAeAAAAFEAAAC+wAAAmYAAAAAAAAAAAAAB38AAAQ3AAAAAesAAAEQAAAAAPsAAAACAAAAAgAAAAAAAAAB+wAAAAIAAAACAAAAAAAAAAH9AAAAkwAAAAAaADoAOgA6AC8AdgBEAG8AYwBrAEEAcgBlAGEAAQAAA7AAAAAAAAL7AAAAAQAAAAEAAAAA+wAAAAEAAAABAAAAAPwAAABJAQAAACgAMAA6ADoAOgBfAHQAYgBmAGkAbABlAGwAaQBzAHQAXwBmAG8AcgBtAAH/////AAAAAAEOAAABAgAAAWphp6pEAAAAAPwAAAApAAAAABwAOgA6ADoATQBEAEkAQQBSAEUAQQBUAEkATABFAAH/////AAAAAAAA2wAAAAAAAAAC2wAAAAAAAAAB2wAAAAAAAAAD2wAAAAAAAAAA"/>
-					<toolbars state="AAAA/wAAAAD9AAAAAAAABVkAAAPCAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAIAAAAQAFMAdABhAG4AZABhAHIAZAEAAAAA/////wAAAAAAAAAAAAAAHgBDAHUAcgByAGUAbgB0ACAAQwBvAG4AdABlAHgAdAEAAAQ7/////wAAAAAAAAAA">
+					<mdistate v="AAAAAwAAAAEAAAAD2gAAAAIAMAAAAAAAAABAAAAGCwAABAEAAAAAAAAAAAAAB38AAAQ3AAAAAesAAAS6AAAAAPsAAAACAAAAAgAAAAEAAAAA+wAAAAIAAAACAAAAAAAAAAH9AAABoQAAAAAaADoAOgA6AC8AdgBEAG8AYwBrAEEAcgBlAGEBAAAAAPQAAAAAAAL7AAAABQAAAAUAAAAAAAAABAAAAAMAAAACAAAAAfsAAAAFAAAABQAAAAAAAAABAAAAAgAAAAMAAAAE/AAAAD0AAAAAKAAwADoAOgA6AF8AdABiAHAAcgBvAGoAZQBjAHQAcwBfAGYAbwByAG0BAP////8AAP///////////AAAAD0AAAAAKAAwADoAOgA6AF8AdABiAHAAcgBvAGMAdAByAGUAZQBfAGYAbwByAG0AAP////8AAP///////////AAAADcAAAAAIgAwADoAOgA6AF8AdABiAGMAbABhAHMAcwBfAGYAbwByAG0AAP////8AAP///////////AAAAD0AAAAAKAAwADoAOgA6AF8AdABiAGMAYgByAG8AdwBzAGUAcgBfAGYAbwByAG0AAP////8AAP///////////AAAADUAAAAAIAAwADoAOgA6AF8AdABiAG8AcABlAG4AXwBmAG8AcgBtAAD/////AAD///////////0AAALFAAAAABoAOgA6ADoALwB2AEQAbwBjAGsAQQByAGUAYQEAAAAD9QABAAAAAfsAAAACAAAAAgAAAAAAAAAB+wAAAAIAAAACAAAAAQAAAAD8AAAAKQAAAAAcADoAOgA6AE0ARABJAEEAUgBFAEEAVABJAEwARQEAAAACpwAB/QAAAkUAAAAAGgA6ADoAOgAvAHYARABvAGMAawBBAHIAZQBhAQAAAAEWAAAAAAAC+wAAAAcAAAAHAAAAAAAAAAYAAAAFAAAABAAAAAMAAAACAAAAAfsAAAAHAAAABwAAAAEAAAACAAAAAwAAAAAAAAAEAAAABQAAAAb8AAAANwAAAAAiADAAOgA6ADoAXwB0AGIAcwBoAGUAbABsAF8AZgBvAHIAbQEA/////wAA///////////8AAAAOQAAAAAkADAAOgA6ADoAXwB0AGIAcwBlAGEAcgBjAGgAXwBmAG8AcgBtAAD/////AAD///////////wAAAA5AAAAACQAMAA6ADoAOgBfAHQAYgB0AGEAZwB3AGkAbgBfAGYAbwByAG0AAP////8AAP///////////AAAADsAAAAAJgAxADoAOgA6AF8AdABiAHQAYQBnAHIAZQBmAHMAXwBmAG8AcgBtAAD/////AAD///////////wAAABNAAAAADgAMAA6ADoAOgBfAHQAYgBtAGUAcwBzAGEAZwBlAHMAXwBiAHIAbwB3AHMAZQByAF8AZgBvAHIAbQAA/////wAA///////////8AAAAPQAAAAAoADAAOgA6ADoAXwB0AGIAdABlAHIAbQBpAG4AYQBsAF8AZgBvAHIAbQAA/////wAA///////////8AAAAPwAAAAAqADAAOgA6ADoAXwB0AGIAbwB1AHQAcAB1AHQAdwBpAG4AXwBmAG8AcgBtAAD/////AAD//////////wAAAADbAAAAAAAAAALbAAAAAAAAAAHbAAAAAAAAAAPbAAAAAAAAAADaAAAAHgAwAC0AMQA1ADUAMQA0ADIAMwAxADMAMQA5ADkANQBOAAADiwAAAJwAAAUoAAADygAAAAAAAAAAAAAHfwAABDcAAAAB6wAAAQgAAAAA+wAAAAIAAAACAAAAAAAAAAH7AAAAAgAAAAIAAAAAAAAAAf0AAACLAAAAABoAOgA6ADoALwB2AEQAbwBjAGsAQQByAGUAYQABAAADsAAAAAAAAvsAAAABAAAAAQAAAAD7AAAAAQAAAAEAAAAA/AAAAEEBAAAAIAAxADoAOgA6AF8AdABiAGYAaQBuAGQAXwBmAG8AcgBtAAH/////AAAAAAGOAAADDAAAAYzm8G2BAAAAAPwAAAApAAAAABwAOgA6ADoATQBEAEkAQQBSAEUAQQBUAEkATABFAAH/////AAAAAAAA2wAAAAAAAAAC2wAAAAAAAAAB2wAAAAAAAAAD2wAAAAAAAAAA2gAAAB4AMAAtADEANQA1ADYANAAxADYANQAzADUANAA0ADIATgAAAeAAAAFEAAAC+wAAAmYAAAAAAAAAAAAAB38AAAQ3AAAAAesAAAEQAAAAAPsAAAACAAAAAgAAAAAAAAAB+wAAAAIAAAACAAAAAAAAAAH9AAAAkwAAAAAaADoAOgA6AC8AdgBEAG8AYwBrAEEAcgBlAGEAAQAAA7AAAAAAAAL7AAAAAQAAAAEAAAAA+wAAAAEAAAABAAAAAPwAAABJAQAAACgAMAA6ADoAOgBfAHQAYgBmAGkAbABlAGwAaQBzAHQAXwBmAG8AcgBtAAH/////AAAAAAEOAAABAgAAAWphp6pEAAAAAPwAAAApAAAAABwAOgA6ADoATQBEAEkAQQBSAEUAQQBUAEkATABFAAH/////AAAAAAAA2wAAAAAAAAAC2wAAAAAAAAAB2wAAAAAAAAAD2wAAAAAAAAAA"/>
+					<toolbars state="AAAA/wAAAAD9AAAAAAAABgwAAAPCAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAIAAAAQAFMAdABhAG4AZABhAHIAZAEAAAAA/////wAAAAAAAAAAAAAAHgBDAHUAcgByAGUAbgB0ACAAQwBvAG4AdABlAHgAdAEAAAQ7/////wAAAAAAAAAA">
 						<p n="_tbstandard_form" movable="1"/>
 						<p n="_tbcontext_form" movable="1"/>
 					</toolbars>
@@ -304,8 +304,8 @@
 						<p n="_tbtagwin_form" t="0"/>
 						<p n="_tbterminal_form" t="0"/>
 					</toolwindows>
-					<mdistate v="AAAAAwAAAAEAAAAD2gAAAAIAMAAAAAAAAABAAAAFWAAABAEAAAAAAAAAAAAAB38AAAQ3AAAAAesAAAS6AAAAAPsAAAACAAAAAgAAAAEAAAAA+wAAAAIAAAACAAAAAAAAAAH9AAABoQAAAAAaADoAOgA6AC8AdgBEAG8AYwBrAEEAcgBlAGEBAAAAAPsAAAAAAAL7AAAABQAAAAUAAAAAAAAABAAAAAMAAAACAAAAAfsAAAAFAAAABQAAAAAAAAABAAAAAgAAAAMAAAAE/AAAAD0AAAAAKAAwADoAOgA6AF8AdABiAHAAcgBvAGoAZQBjAHQAcwBfAGYAbwByAG0BAP////8AAP///////////AAAAD0AAAAAKAAwADoAOgA6AF8AdABiAHAAcgBvAGMAdAByAGUAZQBfAGYAbwByAG0AAP////8AAP///////////AAAADcAAAAAIgAwADoAOgA6AF8AdABiAGMAbABhAHMAcwBfAGYAbwByAG0AAP////8AAP///////////AAAAD0AAAAAKAAwADoAOgA6AF8AdABiAGMAYgByAG8AdwBzAGUAcgBfAGYAbwByAG0AAP////8AAP///////////AAAADUAAAAAIAAwADoAOgA6AF8AdABiAG8AcABlAG4AXwBmAG8AcgBtAAD/////AAD///////////0AAALFAAAAABoAOgA6ADoALwB2AEQAbwBjAGsAQQByAGUAYQEAAAAEKAABAAAAAfsAAAACAAAAAgAAAAAAAAAB+wAAAAIAAAACAAAAAQAAAAD8AAAAKQAAAAAcADoAOgA6AE0ARABJAEEAUgBFAEEAVABJAEwARQEAAAACpwAB/QAAAkUAAAAAGgA6ADoAOgAvAHYARABvAGMAawBBAHIAZQBhAQAAAAEWAAAAAAAC+wAAAAcAAAAHAAAAAAAAAAYAAAAFAAAABAAAAAMAAAACAAAAAfsAAAAHAAAABwAAAAEAAAACAAAAAwAAAAAAAAAEAAAABQAAAAb8AAAANwAAAAAiADAAOgA6ADoAXwB0AGIAcwBoAGUAbABsAF8AZgBvAHIAbQEA/////wAA///////////8AAAAOQAAAAAkADAAOgA6ADoAXwB0AGIAcwBlAGEAcgBjAGgAXwBmAG8AcgBtAAD/////AAD///////////wAAAA5AAAAACQAMAA6ADoAOgBfAHQAYgB0AGEAZwB3AGkAbgBfAGYAbwByAG0AAP////8AAP///////////AAAADsAAAAAJgAxADoAOgA6AF8AdABiAHQAYQBnAHIAZQBmAHMAXwBmAG8AcgBtAAD/////AAD///////////wAAABNAAAAADgAMAA6ADoAOgBfAHQAYgBtAGUAcwBzAGEAZwBlAHMAXwBiAHIAbwB3AHMAZQByAF8AZgBvAHIAbQAA/////wAA///////////8AAAAPQAAAAAoADAAOgA6ADoAXwB0AGIAdABlAHIAbQBpAG4AYQBsAF8AZgBvAHIAbQAA/////wAA///////////8AAAAPwAAAAAqADAAOgA6ADoAXwB0AGIAbwB1AHQAcAB1AHQAdwBpAG4AXwBmAG8AcgBtAAD/////AAD//////////wAAAADbAAAAAAAAAALbAAAAAAAAAAHbAAAAAAAAAAPbAAAAAAAAAADaAAAAHgAwAC0AMQA1ADUAMQA0ADIAMwAxADMAMQA5ADkANQBOAAADhwAAAVwAAAUkAAAD/AAAAAAAAAAAAAAHfwAABDcAAAAB6wAAAQgAAAAA+wAAAAIAAAACAAAAAAAAAAH7AAAAAgAAAAIAAAAAAAAAAf0AAACLAAAAABoAOgA6ADoALwB2AEQAbwBjAGsAQQByAGUAYQABAAADsAAAAAAAAvsAAAABAAAAAQAAAAD7AAAAAQAAAAEAAAAA/AAAAEEBAAAAIAAxADoAOgA6AF8AdABiAGYAaQBuAGQAXwBmAG8AcgBtAAH/////AAAAAAGOAAACfgAAAYwx/dREAAAAAPwAAAApAAAAABwAOgA6ADoATQBEAEkAQQBSAEUAQQBUAEkATABFAAH/////AAAAAAAA2wAAAAAAAAAC2wAAAAAAAAAB2wAAAAAAAAAD2wAAAAAAAAAA2gAAAB4AMAAtADEANQA1ADYANAAxADYANQAzADUANAA0ADIATgAAAeAAAAFEAAAC+wAAAmYAAAAAAAAAAAAAB38AAAQ3AAAAAesAAAEQAAAAAPsAAAACAAAAAgAAAAAAAAAB+wAAAAIAAAACAAAAAAAAAAH9AAAAkwAAAAAaADoAOgA6AC8AdgBEAG8AYwBrAEEAcgBlAGEAAQAAA7AAAAAAAAL7AAAAAQAAAAEAAAAA+wAAAAEAAAABAAAAAPwAAABJAQAAACgAMAA6ADoAOgBfAHQAYgBmAGkAbABlAGwAaQBzAHQAXwBmAG8AcgBtAAH/////AAAAAAEOAAABAgAAAWphp6pEAAAAAPwAAAApAAAAABwAOgA6ADoATQBEAEkAQQBSAEUAQQBUAEkATABFAAH/////AAAAAAAA2wAAAAAAAAAC2wAAAAAAAAAB2wAAAAAAAAAD2wAAAAAAAAAA"/>
-					<toolbars state="AAAA/wAAAAD9AAAAAAAABVkAAAPCAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAIAAAAQAFMAdABhAG4AZABhAHIAZAEAAAAA/////wAAAAAAAAAAAAAAHgBDAHUAcgByAGUAbgB0ACAAQwBvAG4AdABlAHgAdAEAAAQ7/////wAAAAAAAAAA">
+					<mdistate v="AAAAAwAAAAEAAAAD2gAAAAIAMAAAAAAAAABAAAAGCwAABAEAAAAAAAAAAAAAB38AAAQ3AAAAAesAAAS6AAAAAPsAAAACAAAAAgAAAAEAAAAA+wAAAAIAAAACAAAAAAAAAAH9AAABoQAAAAAaADoAOgA6AC8AdgBEAG8AYwBrAEEAcgBlAGEBAAAAAPQAAAAAAAL7AAAABQAAAAUAAAAAAAAABAAAAAMAAAACAAAAAfsAAAAFAAAABQAAAAAAAAABAAAAAgAAAAMAAAAE/AAAAD0AAAAAKAAwADoAOgA6AF8AdABiAHAAcgBvAGoAZQBjAHQAcwBfAGYAbwByAG0BAP////8AAP///////////AAAAD0AAAAAKAAwADoAOgA6AF8AdABiAHAAcgBvAGMAdAByAGUAZQBfAGYAbwByAG0AAP////8AAP///////////AAAADcAAAAAIgAwADoAOgA6AF8AdABiAGMAbABhAHMAcwBfAGYAbwByAG0AAP////8AAP///////////AAAAD0AAAAAKAAwADoAOgA6AF8AdABiAGMAYgByAG8AdwBzAGUAcgBfAGYAbwByAG0AAP////8AAP///////////AAAADUAAAAAIAAwADoAOgA6AF8AdABiAG8AcABlAG4AXwBmAG8AcgBtAAD/////AAD///////////0AAALFAAAAABoAOgA6ADoALwB2AEQAbwBjAGsAQQByAGUAYQEAAAAD9QABAAAAAfsAAAACAAAAAgAAAAAAAAAB+wAAAAIAAAACAAAAAQAAAAD8AAAAKQAAAAAcADoAOgA6AE0ARABJAEEAUgBFAEEAVABJAEwARQEAAAACpwAB/QAAAkUAAAAAGgA6ADoAOgAvAHYARABvAGMAawBBAHIAZQBhAQAAAAEWAAAAAAAC+wAAAAcAAAAHAAAAAAAAAAYAAAAFAAAABAAAAAMAAAACAAAAAfsAAAAHAAAABwAAAAEAAAACAAAAAwAAAAAAAAAEAAAABQAAAAb8AAAANwAAAAAiADAAOgA6ADoAXwB0AGIAcwBoAGUAbABsAF8AZgBvAHIAbQEA/////wAA///////////8AAAAOQAAAAAkADAAOgA6ADoAXwB0AGIAcwBlAGEAcgBjAGgAXwBmAG8AcgBtAAD/////AAD///////////wAAAA5AAAAACQAMAA6ADoAOgBfAHQAYgB0AGEAZwB3AGkAbgBfAGYAbwByAG0AAP////8AAP///////////AAAADsAAAAAJgAxADoAOgA6AF8AdABiAHQAYQBnAHIAZQBmAHMAXwBmAG8AcgBtAAD/////AAD///////////wAAABNAAAAADgAMAA6ADoAOgBfAHQAYgBtAGUAcwBzAGEAZwBlAHMAXwBiAHIAbwB3AHMAZQByAF8AZgBvAHIAbQAA/////wAA///////////8AAAAPQAAAAAoADAAOgA6ADoAXwB0AGIAdABlAHIAbQBpAG4AYQBsAF8AZgBvAHIAbQAA/////wAA///////////8AAAAPwAAAAAqADAAOgA6ADoAXwB0AGIAbwB1AHQAcAB1AHQAdwBpAG4AXwBmAG8AcgBtAAD/////AAD//////////wAAAADbAAAAAAAAAALbAAAAAAAAAAHbAAAAAAAAAAPbAAAAAAAAAADaAAAAHgAwAC0AMQA1ADUAMQA0ADIAMwAxADMAMQA5ADkANQBOAAADiwAAAJwAAAUoAAADygAAAAAAAAAAAAAHfwAABDcAAAAB6wAAAQgAAAAA+wAAAAIAAAACAAAAAAAAAAH7AAAAAgAAAAIAAAAAAAAAAf0AAACLAAAAABoAOgA6ADoALwB2AEQAbwBjAGsAQQByAGUAYQABAAADsAAAAAAAAvsAAAABAAAAAQAAAAD7AAAAAQAAAAEAAAAA/AAAAEEBAAAAIAAxADoAOgA6AF8AdABiAGYAaQBuAGQAXwBmAG8AcgBtAAH/////AAAAAAGOAAADDAAAAYzm8G2BAAAAAPwAAAApAAAAABwAOgA6ADoATQBEAEkAQQBSAEUAQQBUAEkATABFAAH/////AAAAAAAA2wAAAAAAAAAC2wAAAAAAAAAB2wAAAAAAAAAD2wAAAAAAAAAA2gAAAB4AMAAtADEANQA1ADYANAAxADYANQAzADUANAA0ADIATgAAAeAAAAFEAAAC+wAAAmYAAAAAAAAAAAAAB38AAAQ3AAAAAesAAAEQAAAAAPsAAAACAAAAAgAAAAAAAAAB+wAAAAIAAAACAAAAAAAAAAH9AAAAkwAAAAAaADoAOgA6AC8AdgBEAG8AYwBrAEEAcgBlAGEAAQAAA7AAAAAAAAL7AAAAAQAAAAEAAAAA+wAAAAEAAAABAAAAAPwAAABJAQAAACgAMAA6ADoAOgBfAHQAYgBmAGkAbABlAGwAaQBzAHQAXwBmAG8AcgBtAAH/////AAAAAAEOAAABAgAAAWphp6pEAAAAAPwAAAApAAAAABwAOgA6ADoATQBEAEkAQQBSAEUAQQBUAEkATABFAAH/////AAAAAAAA2wAAAAAAAAAC2wAAAAAAAAAB2wAAAAAAAAAD2wAAAAAAAAAA"/>
+					<toolbars state="AAAA/wAAAAD9AAAAAAAABgwAAAPCAAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAIAAAAQAFMAdABhAG4AZABhAHIAZAEAAAAA/////wAAAAAAAAAAAAAAHgBDAHUAcgByAGUAbgB0ACAAQwBvAG4AdABlAHgAdAEAAAQ7/////wAAAAAAAAAA">
 						<p n="_tbstandard_form" movable="1"/>
 						<p n="_tbcontext_form" movable="1"/>
 					</toolbars>
@@ -1108,7 +1108,7 @@
 			</monitor_config>
 			<monitor_config v="0 0 2048 1152">
 				<screen v="2048 1152 375 4 1322 1049 0 0 N 0 0 0 0 1038 679 0"/>
-				<mdistate v="AAAAAwAAAAIAAAAD2gAAAAIAMAAAAAAAAABAAAAFKQAABAEAAAAAAAAAAAAAB38AAAQ3AAAAAuoAAAHiAAAAAvsAAAAEAAAABAAAAAMAAAACAAAAAQAAAAD7AAAABAAAAAQAAAACAAAAAQAAAAAAAAAD/AAAAG0AAAAAYAA0ADoAOgA6AEQAOgBcAFMAbwB1AHIAYwBlAHMAXABLAGUAZQBQAGEAcwBzAFwASwBlAGUAUABhAHMAcwBMAGkAYgBDAFwASwBlAGUAUABhAHMAcwBMAGkAYgAuAHIAYwAA/////wAA/AAAAG0AAAAAYAAzADoAOgA6AEQAOgBcAFMAbwB1AHIAYwBlAHMAXABLAGUAZQBQAGEAcwBzAFwASwBlAGUAUABhAHMAcwBMAGkAYgBDAHAAcABcAFAAdwBNAGEAbgBhAGcAZQByAC4AaAAA/////wAA/AAAAFsAAAAATgA1ADoAOgA6AEQAOgBcAFMAbwB1AHIAYwBlAHMAXABLAGUAZQBQAGEAcwBzAFwAVwBpAG4ARwBVAEkAXABQAHcAUwBhAGYAZQAuAHIAYwAA/////wAA/AAAAGMAAAAAVgAyADoAOgA6AEQAOgBcAFMAbwB1AHIAYwBlAHMAXABLAGUAZQBQAGEAcwBzAFwAVwBpAG4ARwBVAEkAXABQAHcAUwBhAGYAZQBEAGwAZwAuAGMAcABwAQD/////AAAAAAAA2gAAAB4AMAAtADEANQA1ADEANAAyADMAMQAzADEAOQA5ADUATgAAA4cAAAFcAAAFJAAAA/wAAAAAAAAAAAAAB38AAAQ3AAAAAuoAAAAWAAAAAvsAAAAAAAAAAPsAAAAAAAAAAAAAAADaAAAAHgAwAC0AMQA1ADUANgA0ADEANgA1ADMANQA0ADQAMgBOAAAB4AAAAUQAAAL7AAACZgAAAAAAAAAAAAAHfwAABDcAAAAC6gAAABYAAAAC+wAAAAAAAAAA+wAAAAAAAAAAAAAAAA=="/>
+				<mdistate v="AAAAAwAAAAIAAAAD2gAAAAIAMAAAAAAAAABAAAAGCwAABAEAAAAAAAAAAAAAB38AAAQ3AAAAAuoAAAHwAAAAAvsAAAAEAAAABAAAAAMAAAACAAAAAAAAAAH7AAAABAAAAAQAAAADAAAAAgAAAAAAAAAB/AAAAG0AAAAAYAAyADoAOgA6AEQAOgBcAFMAbwB1AHIAYwBlAHMAXABLAGUAZQBQAGEAcwBzAFwASwBlAGUAUABhAHMAcwBMAGkAYgBDAFwASwBlAGUAUABhAHMAcwBMAGkAYgAuAHIAYwAA/////wAA/AAAAHEAAAAAZAAzADoAOgA6AEQAOgBcAFMAbwB1AHIAYwBlAHMAXABLAGUAZQBQAGEAcwBzAFwASwBlAGUAUABhAHMAcwBMAGkAYgBDAHAAcABcAFAAdwBNAGEAbgBhAGcAZQByAC4AYwBwAHAAAP////8AAPwAAABtAAAAAGAANAA6ADoAOgBEADoAXABTAG8AdQByAGMAZQBzAFwASwBlAGUAUABhAHMAcwBcAEsAZQBlAFAAYQBzAHMATABpAGIAQwBwAHAAXABQAHcATQBhAG4AYQBnAGUAcgAuAGgAAP////8AAPwAAABbAAAAAE4ANQA6ADoAOgBEADoAXABTAG8AdQByAGMAZQBzAFwASwBlAGUAUABhAHMAcwBcAFcAaQBuAEcAVQBJAFwAUAB3AFMAYQBmAGUALgByAGMBAP////8AAQAAAADaAAAAHgAwAC0AMQA1ADUAMQA0ADIAMwAxADMAMQA5ADkANQBOAAADiwAAAJwAAAUoAAADygAAAAAAAAAAAAAHfwAABDcAAAAC6gAAABYAAAAC+wAAAAAAAAAA+wAAAAAAAAAAAAAAANoAAAAeADAALQAxADUANQA2ADQAMQA2ADUAMwA1ADQANAAyAE4AAAHgAAABRAAAAvsAAAJmAAAAAAAAAAAAAAd/AAAENwAAAALqAAAAFgAAAAL7AAAAAAAAAAD7AAAAAAAAAAAAAAAA"/>
 				<fullscreen_layout version="1" state="N" fullscreen="0">
 					<toolwindowinfo>
 						<p n="_tbannotations_browser_form" f="0"/>
@@ -1361,123 +1361,123 @@
 			</monitor_config>
 		</monitor_configs>
 		<cwd v="..\WinGUI"/>
+		<buffer bn="..\KeePassLibCpp\PwManager.cpp" dn="" mtn="">
+			<bi ma="1 110 1" tabs="" wws="1" iwt="" st="8" in="1" bw="0" us="32000" ro="0" se="1" sn="0" bin="0" mn="" hm="0" mf="0" tl="0" mll="0" ase="0" lnl="1" lcf="0" caps="0" e="0" esbu2="-1" clb="" clm="" sc="" sce="" scu="" alm="0" fwrm="0" hmre="0" hmrbw="0" spcwt="" swf="" sm="" ldf="42" stat="" bfont="" mfont="" df="1024" sco="" of=""/>
+			<view ln=".3332" cl="16" le="0" cx="15" cy="24" wi="5" bi="1" ht="0" hn="0" hf="0" hc="4" hb="4"/>
+		</buffer>
 		<buffer bn="..\KeePassLibC\KeePassLib.rc" dn="" mtn="">
 			<bi ma="1 74 1" tabs="2 " wws="1" iwt="" st="0" in="1" bw="0" us="32000" ro="0" se="1" sn="0" bin="0" mn="" hm="0" mf="0" tl="0" mll="0" ase="0" lnl="1" lcf="0" caps="0" e="0" esbu2="-1" clb="" clm="" sc="" sce="" scu="" alm="0" fwrm="0" hmre="0" hmrbw="0" spcwt="" swf="" sm="" ldf="42" stat="" bfont="" mfont="" df="1024" sco="" of=""/>
-			<view ln=".2771" cl="38" le="0" cx="38" cy="29" wi="5" bi="2" ht="0" hn="0" hf="0" hc="4" hb="4"/>
+			<view ln=".2798" cl="38" le="0" cx="37" cy="31" wi="5" bi="2" ht="0" hn="0" hf="0" hc="4" hb="4"/>
 		</buffer>
 		<buffer bn="..\KeePassLibCpp\PwManager.h" dn="" mtn="">
 			<bi ma="1 110 1" tabs="" wws="1" iwt="" st="8" in="1" bw="0" us="32000" ro="0" se="1" sn="0" bin="0" mn="" hm="0" mf="0" tl="0" mll="0" ase="0" lnl="1" lcf="0" caps="0" e="71" esbu2="-1" clb="" clm="" sc="" sce="" scu="" alm="0" fwrm="0" hmre="0" hmrbw="0" spcwt="" swf="" sm="" ldf="42" stat="" bfont="" mfont="" df="1024" sco="" of=""/>
-			<view ln=".1618" cl="30" le="0" cx="31" cy="19" wi="5" bi="3" ht="0" hn="0" hf="0" hc="4" hb="4"/>
+			<view ln=".1637" cl="30" le="0" cx="29" cy="14" wi="5" bi="3" ht="0" hn="0" hf="0" hc="4" hb="4"/>
 		</buffer>
 		<buffer bn="..\WinGUI\PwSafe.rc" dn="" mtn="">
-			<bi ma="1 74 1" tabs="2 " wws="1" iwt="" st="0" in="1" bw="0" us="32000" ro="0" se="1" sn="0" bin="0" mn="" hm="0" mf="0" tl="0" mll="0" ase="0" lnl="1" lcf="0" caps="0" e="0" esbu2="-1" clb="" clm="" sc="" sce="" scu="" alm="0" fwrm="0" hmre="0" hmrbw="0" spcwt="" swf="" sm="" ldf="42" stat="" bfont="" mfont="" df="1024" sco="" of=""/>
-			<view ln=".45242" cl="35" le="0" cx="35" cy="20" wi="5" bi="4" ht="0" hn="0" hf="0" hc="4" hb="4"/>
-		</buffer>
-		<buffer bn="..\WinGUI\PwSafeDlg.cpp" dn="" mtn="">
-			<bi ma="1 110 1" tabs="" wws="1" iwt="" st="8" in="1" bw="0" us="32000" ro="0" se="1" sn="0" bin="0" mn="" hm="0" mf="67109472" tl="0" mll="0" ase="0" lnl="1" lcf="0" caps="0" e="0" esbu2="-1" clb="" clm="" sc="" sce="" scu="" alm="0" fwrm="0" hmre="0" hmrbw="0" spcwt="" swf="" sm="" ldf="42" stat="" bfont="" mfont="" df="1024" sco="" of=""/>
-			<view ln=".23168" cl="18" le="0" cx="18" cy="28" wi="5" bi="1" ht="0" hn="0" hf="0" hc="4" hb="4"/>
+			<bi ma="1 74 1" tabs="2 " wws="1" iwt="" st="0" in="1" bw="0" us="32000" ro="0" se="1" sn="0" bin="0" mn="" hm="0" mf="16777216" tl="0" mll="0" ase="0" lnl="1" lcf="0" caps="0" e="0" esbu2="-1" clb="" clm="" sc="" sce="" scu="" alm="0" fwrm="0" hmre="0" hmrbw="0" spcwt="" swf="" sm="" ldf="42" stat="" bfont="" mfont="" df="1024" sco="" of=""/>
+			<view ln=".45523" cl="38" le="0" cx="37" cy="33" wi="5" bi="4" ht="0" hn="0" hf="0" hc="4" hb="4"/>
 		</buffer>
 		<buffer bn="..\README.md" dn="" mtn="">
 			<bi ma="1 74 1" tabs="2 " wws="1" iwt="" st="8" in="2" bw="0" us="32000" ro="0" se="1" sn="0" bin="0" mn="" hm="0" mf="87032352" tl="0" mll="0" ase="0" lnl="1" lcf="0" caps="0" e="0" esbu2="-1" clb="" clm="" sc="" sce="" scu="" alm="0" fwrm="0" hmre="0" hmrbw="0" spcwt="" swf="2" sm="" ldf="42" stat="" bfont="" mfont="" df="0" sco="" of=""/>
-			<view ln=".0" cl="1" le="0" cx="1" cy="0" wi="5" bi="6" ht="0" hn="0" hf="0" hc="4" hb="4"/>
+			<view ln=".0" cl="1" le="0" cx="0" cy="0" wi="5" bi="5" ht="0" hn="0" hf="0" hc="4" hb="4"/>
 		</buffer>
-		<window x="1" y="22" width="1111" height="656" icon_x="0" icon_y="0" state="N" wf="0" wt="4" font_info=",,," did="0" mi="*,,," pi="2">
+		<window x="1" y="1" width="1297" height="656" icon_x="0" icon_y="0" state="N" wf="0" wt="3" font_info=",,," did="0" mi="*,,," pi="0">
+			<buffer bn="..\KeePassLibCpp\PwManager.cpp" dn="" mtn=""/>
+			<view ln=".3332" cl="16" le="0" cx="15" cy="24" wi="12" bi="1" ht="0" hn="0" hf="0" hc="4" hb="4"/>
+		</window>
+		<window x="1" y="1" width="1297" height="656" icon_x="0" icon_y="0" state="N" wf="0" wt="2" font_info=",,," did="0" mi="*,,," pi="0">
 			<buffer bn="..\KeePassLibC\KeePassLib.rc" dn="" mtn=""/>
-			<view ln=".2771" cl="38" le="0" cx="38" cy="29" wi="15" bi="2" ht="0" hn="0" hf="0" hc="4" hb="4"/>
+			<view ln=".2798" cl="38" le="0" cx="37" cy="31" wi="15" bi="2" ht="0" hn="0" hf="0" hc="4" hb="4"/>
 		</window>
-		<window x="1" y="22" width="1111" height="656" icon_x="0" icon_y="0" state="N" wf="0" wt="3" font_info="Default Unicode Font,12,0,1" did="0" mi="*,,," pi="1">
+		<window x="1" y="1" width="1297" height="656" icon_x="0" icon_y="0" state="N" wf="0" wt="4" font_info="Default Unicode Font,11,0,1" did="0" mi="*,,," pi="2">
 			<buffer bn="..\KeePassLibCpp\PwManager.h" dn="" mtn=""/>
-			<view ln=".1618" cl="30" le="0" cx="30" cy="19" wi="18" bi="3" ht="0" hn="0" hf="0" hc="4" hb="4"/>
+			<view ln=".1637" cl="30" le="0" cx="29" cy="14" wi="18" bi="3" ht="0" hn="0" hf="0" hc="4" hb="4"/>
 		</window>
-		<window x="1" y="22" width="1111" height="656" icon_x="0" icon_y="0" state="N" wf="0" wt="5" font_info=",,," did="0" mi="*,,," pi="3">
+		<window x="1" y="22" width="1297" height="656" icon_x="0" icon_y="0" state="N" wf="0" wt="5" font_info=",,," did="0" mi="*,,," pi="1">
 			<buffer bn="..\WinGUI\PwSafe.rc" dn="" mtn=""/>
-			<view ln=".45242" cl="35" le="0" cx="35" cy="20" wi="21" bi="4" ht="0" hn="0" hf="0" hc="4" hb="4"/>
+			<view ln=".45523" cl="38" le="0" cx="38" cy="33" wi="21" bi="4" ht="0" hn="0" hf="0" hc="4" hb="4"/>
 		</window>
-		<window x="1" y="22" width="1111" height="656" icon_x="0" icon_y="0" state="N" wf="0" wt="2" font_info=",,," did="0" mi="*,,," pi="1">
-			<buffer bn="..\WinGUI\PwSafeDlg.cpp" dn="" mtn=""/>
-			<view ln=".23168" cl="18" le="0" cx="18" cy="28" wi="24" bi="1" ht="0" hn="0" hf="0" hc="4" hb="4"/>
-		</window>
-		<window x="1" y="22" width="1111" height="656" icon_x="0" icon_y="0" state="N" wf="0" wt="6" font_info=",,," did="0" mi="*,,," pi="0">
+		<window x="1" y="22" width="1297" height="656" icon_x="0" icon_y="0" state="N" wf="0" wt="6" font_info=",,," did="0" mi="*,,," pi="0">
 			<buffer bn="..\README.md" dn="" mtn=""/>
-			<view ln=".2162" cl="65" le="0" cx="65" cy="19" wi="379" bi="6" ht="0" hn="0" hf="0" hc="4" hb="4"/>
+			<view ln=".2158" cl="27" le="0" cx="27" cy="18" wi="235" bi="5" ht="0" hn="0" hf="0" hc="4" hb="4"/>
 		</window>
-		<mdistate v="AAAAAwAAAAIAAAAD2gAAAAIAMAAAAAAAAABAAAAFWAAABAEAAAAAAAAAAAAAB38AAAQ3AAAAAuoAAAI8AAAAAvsAAAAFAAAABQAAAAQAAAADAAAAAgAAAAEAAAAA+wAAAAUAAAAFAAAABAAAAAIAAAABAAAAAAAAAAP8AAAAbQAAAABgADQAOgA6ADoARAA6AFwAUwBvAHUAcgBjAGUAcwBcAEsAZQBlAFAAYQBzAHMAXABLAGUAZQBQAGEAcwBzAEwAaQBiAEMAXABLAGUAZQBQAGEAcwBzAEwAaQBiAC4AcgBjAAD/////AAD8AAAAbQAAAABgADMAOgA6ADoARAA6AFwAUwBvAHUAcgBjAGUAcwBcAEsAZQBlAFAAYQBzAHMAXABLAGUAZQBQAGEAcwBzAEwAaQBiAEMAcABwAFwAUAB3AE0AYQBuAGEAZwBlAHIALgBoAAD/////AAD8AAAAWwAAAABOADUAOgA6ADoARAA6AFwAUwBvAHUAcgBjAGUAcwBcAEsAZQBlAFAAYQBzAHMAXABXAGkAbgBHAFUASQBcAFAAdwBTAGEAZgBlAC4AcgBjAAD/////AAD8AAAAYwAAAABWADIAOgA6ADoARAA6AFwAUwBvAHUAcgBjAGUAcwBcAEsAZQBlAFAAYQBzAHMAXABXAGkAbgBHAFUASQBcAFAAdwBTAGEAZgBlAEQAbABnAC4AYwBwAHAAAP////8AAPwAAABNAAAAAEAANgA6ADoAOgBEADoAXABTAG8AdQByAGMAZQBzAFwASwBlAGUAUABhAHMAcwBcAFIARQBBAEQATQBFAC4AbQBkAQD/////AAEAAAAA2gAAAB4AMAAtADEANQA1ADEANAAyADMAMQAzADEAOQA5ADUATgAAA4cAAAFcAAAFJAAAA/wAAAAAAAAAAAAAB38AAAQ3AAAAAuoAAAAWAAAAAvsAAAAAAAAAAPsAAAAAAAAAAAAAAADaAAAAHgAwAC0AMQA1ADUANgA0ADEANgA1ADMANQA0ADQAMgBOAAAB4AAAAUQAAAL7AAACZgAAAAAAAAAAAAAHfwAABDcAAAAC6gAAABYAAAAC+wAAAAAAAAAA+wAAAAAAAAAAAAAAAA=="/>
+		<mdistate v="AAAAAwAAAAIAAAAD2gAAAAIAMAAAAAAAAABAAAAGCwAABAEAAAAAAAAAAAAAB38AAAQ3AAAAAuoAAAJKAAAAAvsAAAAFAAAABQAAAAQAAAADAAAAAgAAAAAAAAAB+wAAAAUAAAAFAAAABAAAAAMAAAACAAAAAAAAAAH8AAAAbQAAAABgADIAOgA6ADoARAA6AFwAUwBvAHUAcgBjAGUAcwBcAEsAZQBlAFAAYQBzAHMAXABLAGUAZQBQAGEAcwBzAEwAaQBiAEMAXABLAGUAZQBQAGEAcwBzAEwAaQBiAC4AcgBjAAD/////AAD8AAAAcQAAAABkADMAOgA6ADoARAA6AFwAUwBvAHUAcgBjAGUAcwBcAEsAZQBlAFAAYQBzAHMAXABLAGUAZQBQAGEAcwBzAEwAaQBiAEMAcABwAFwAUAB3AE0AYQBuAGEAZwBlAHIALgBjAHAAcAAA/////wAA/AAAAG0AAAAAYAA0ADoAOgA6AEQAOgBcAFMAbwB1AHIAYwBlAHMAXABLAGUAZQBQAGEAcwBzAFwASwBlAGUAUABhAHMAcwBMAGkAYgBDAHAAcABcAFAAdwBNAGEAbgBhAGcAZQByAC4AaAAA/////wAA/AAAAFsAAAAATgA1ADoAOgA6AEQAOgBcAFMAbwB1AHIAYwBlAHMAXABLAGUAZQBQAGEAcwBzAFwAVwBpAG4ARwBVAEkAXABQAHcAUwBhAGYAZQAuAHIAYwAA/////wAA/AAAAE0AAAAAQAA2ADoAOgA6AEQAOgBcAFMAbwB1AHIAYwBlAHMAXABLAGUAZQBQAGEAcwBzAFwAUgBFAEEARABNAEUALgBtAGQBAP////8AAQAAAADaAAAAHgAwAC0AMQA1ADUAMQA0ADIAMwAxADMAMQA5ADkANQBOAAADiwAAAJwAAAUoAAADygAAAAAAAAAAAAAHfwAABDcAAAAC6gAAABYAAAAC+wAAAAAAAAAA+wAAAAAAAAAAAAAAANoAAAAeADAALQAxADUANQA2ADQAMQA2ADUAMwA1ADQANAAyAE4AAAHgAAABRAAAAvsAAAJmAAAAAAAAAAAAAAd/AAAENwAAAALqAAAAFgAAAAL7AAAAAAAAAAD7AAAAAAAAAAAAAAAA"/>
 		<filehist>
-			<p n="C:\Users\rrvt\AppData\Local\SlickEdit\28.0.0\vusrmacs.e"/>
-			<p n="..\KeePassLibC\KeePassAPI\LibraryAPI.cpp"/>
-			<p n="..\WinGUI\AddEntryDlg.cpp"/>
-			<p n="..\WinGUI\Resource.h"/>
-			<p n="..\WinGUI\PwSafeDlg.cpp"/>
+			<p n="..\KeePassLibCpp\Util\AppUtil.h"/>
+			<p n="..\KeePassLibC\KeePassAPI\LibraryAPI.h"/>
+			<p n="..\KeePassLibCpp\Util\MemUtil.h"/>
+			<p n="..\KeePassLibCpp\PasswordGenerator\PasswordGenerator.h"/>
+			<p n="..\Deprecated\Deprecated.cpp"/>
+			<p n="..\WinGUI\PwSafe.rc"/>
 			<p n="..\KeePassLibCpp\PwManager.h"/>
 			<p n="..\KeePassLibC\KeePassLib.rc"/>
-			<p n="..\WinGUI\PwSafe.rc"/>
 			<p n="..\README.md"/>
 		</filehist>
 		<allfilehist>
+			<p n="..\KeePassLibCpp\Crypto\Twofish.cpp"/>
+			<p n="..\KeePassLibCpp\Util\TranslateEx.h"/>
+			<p n="..\KeePassLibCpp\Util\TranslateEx.cpp"/>
+			<p n="..\KeePassLibCpp\Crypto\TestImpl.h"/>
+			<p n="..\KeePassLibCpp\Crypto\TestImpl.cpp"/>
+			<p n="..\KeePassLibCpp\Util\StrUtil.h"/>
+			<p n="..\KeePassLibCpp\Util\StrUtil.cpp"/>
+			<p n="..\KeePassLibC\KeePassAPI\StructAPI.h"/>
+			<p n="..\KeePassLibC\KeePassAPI\StructAPI.cpp"/>
+			<p n="..\KeePassLibCpp\Crypto\SHA2\SHA2.h"/>
+			<p n="..\KeePassLibCpp\Crypto\SHA2\SHA2.cpp"/>
+			<p n="..\KeePassLibCpp\Crypto\Rijndael.h"/>
+			<p n="..\KeePassLibCpp\Crypto\Rijndael.cpp"/>
+			<p n="..\KeePassLibC\Lib\Argon2\src\ref.c"/>
 			<p n="..\README.md"/>
+			<p n="..\KeePassLibCpp\Util\PwUtil.h"/>
+			<p n="..\KeePassLibCpp\PwStructs.h"/>
+			<p n="..\WinGUI\PwSafe.rc"/>
+			<p n="..\KeePassLibCpp\Util\PwQualityEst.h"/>
 			<p n="..\KeePassLibCpp\PwManager.h"/>
+			<p n="..\KeePassLibCpp\DataExchange\PwImport.cpp"/>
+			<p n="..\KeePassLibCpp\Details\PwFindImpl.cpp"/>
+			<p n="..\KeePassLibCpp\DataExchange\PwExport.h"/>
+			<p n="..\KeePassLibCpp\Details\PwCompatImpl.cpp"/>
+			<p n="..\KeePassLibCpp\PwCompat.h"/>
+			<p n="..\KeePassLibCpp\PwCompat.cpp"/>
+			<p n="..\KeePassLibCpp\PasswordGenerator\PwCharSet.h"/>
+			<p n="..\KeePassLibCpp\Util\PopularPasswords.h"/>
+			<p n="..\KeePassLibCpp\Util\PopularPasswords.cpp"/>
+			<p n="..\KeePassLibCpp\PasswordGenerator\PatternBasedGenerator.cpp"/>
+			<p n="..\KeePassLibCpp\PasswordGenerator\PasswordGenerator.h"/>
+			<p n="..\KeePassLibCpp\Util\NewRandom.h"/>
+			<p n="..\KeePassLibCpp\Util\MemUtil.h"/>
+			<p n="..\KeePassLibCpp\Util\MemUtil.cpp"/>
+			<p n="..\KeePassLibCpp\Crypto\MemoryProtectionEx.h"/>
+			<p n="..\KeePassLibC\KeePassAPI\ManagerAPI.h"/>
+			<p n="..\KeePassLibC\KeePassAPI\ManagerAPI.cpp"/>
+			<p n="..\KeePassLibC\KeePassAPI\LibraryAPI.h"/>
 			<p n="..\KeePassLibC\KeePassAPI\LibraryAPI.cpp"/>
-			<p n="..\LibraryMB\LexErr.cpp"/>
-			<p n="..\KeePassLibCpp\SDK\Details\KpDefs.h"/>
-			<p n="..\KeePassLibCpp\Crypto\KeyTransform.h"/>
+			<p n="..\KeePassLibCpp\IO\KpStream.h"/>
+			<p n="..\KeePassLibCpp\IO\KpMemoryStream.cpp"/>
+			<p n="..\KeePassLibCpp\IO\KpInternetStream.h"/>
+			<p n="..\KeePassLibCpp\IO\KpInternetStream.cpp"/>
+			<p n="..\KeePassLibCpp\Crypto\KeyTransform_BCrypt.h"/>
+			<p n="..\KeePassLibCpp\Crypto\KeyTransform_BCrypt.cpp"/>
 			<p n="..\KeePassLibC\KeePassLib.rc"/>
-			<p n="..\LibraryMB\IniFile.h"/>
-			<p n="..\LibraryMB\IniFile.cpp"/>
-			<p n="..\LibraryMB\GetPathDlg.h"/>
-			<p n="..\LibraryMB\GetPathDlg.cpp"/>
-			<p n="..\LibraryMB\FileName.cpp"/>
-			<p n="..\LibraryMB\FileIO.h"/>
-			<p n="..\LibraryMB\FileIO.cpp"/>
-			<p n="..\LibraryMB\Expandable.h"/>
-			<p n="..\..\Library\Library.prj\Date.h"/>
-			<p n="..\LibraryMB\Date.h"/>
-			<p n="..\Junk\LibraryMB\Date.h"/>
-			<p n="..\LibraryMB\Date.cpp"/>
-			<p n="..\Junk\LibraryMB\Date.cpp"/>
-			<p n="..\LibraryMB\CSVOutF.h"/>
-			<p n="..\LastPass\CSVOutF.h"/>
-			<p n="..\LibraryMB\CSVOutF.cpp"/>
-			<p n="..\LastPass\CSVOutF.cpp"/>
-			<p n="..\LibraryMB\CSVLexF.h"/>
-			<p n="..\LastPass\CSVLexF.h"/>
-			<p n="..\LibraryMB\CSVLexF.cpp"/>
-			<p n="..\LastPass\CSVLexF.cpp"/>
-			<p n="\Webs\swde\Modules\ConfigureWENdevices.htm"/>
-			<p n="..\LastPass\Commands.cpp"/>
-			<p n="\Webs\swde\Templates\CodingProjs.dwt"/>
-			<p n="\Webs\swde\Modules\CodingProjs\CodingProj.htm"/>
-			<p n="\Webs\swde\Modules\DataBaseProjs\CodeGen01.htm"/>
-			<p n="\Webs\swde\Modules\DataBaseProjs\CodeGen.htm"/>
-			<p n="\Webs\swde\Modules\CodeGen.htm"/>
-			<p n="..\WinGUI\AddEntryDlg.cpp"/>
-			<p n="..\..\boost_1_68_0\libs\bimap\doc\html\boost_bimap\acknowledgements.html"/>
-			<p n="..\..\00DB\ReadNewDB\Debug\acedao.tli"/>
-			<p n="..\..\00DB\ReadNewDB\Debug\acedao.tlh"/>
-			<p n="..\..\Library\LibFiles\AceDao.h"/>
-			<p n="..\..\boost_1_68_0\doc\html\boost\accumulators\accumulator_set.html"/>
-			<p n="..\..\boost_1_68_0\libs\hana\doc\html\accessors_8hpp.html"/>
-			<p n="..\..\boost_1_68_0\doc\html\property_tree\accessing.html"/>
-			<p n="..\..\boost_1_68_0\doc\html\boostbook\dtd\access.html"/>
-			<p n="..\..\boost_1_68_0\doc\html\boost_asio\reference\ip__tcp\acceptor.html"/>
-			<p n="\Webs\swde\SacrilegiousProgGuide\Abstraction.htm"/>
-			<p n="..\..\boost_1_68_0\libs\geometry\doc\html\geometry\aboutdoc.html"/>
-			<p n="..\..\boost_1_68_0\libs\function_types\doc\html\boost_functiontypes\about_tag_types.html"/>
-			<p n="\Webs\swde\about.htm"/>
-			<p n="..\..\WixApp\WixApp.sln\About.h"/>
-			<p n="..\..\PreOutpost\CommonFiles\About.h"/>
-			<p n="..\..\library\aboutfiles\about.h"/>
-			<p n="..\..\WixApp\WixApp.sln\About.cpp"/>
-			<p n="..\..\WixApp\SrcFiles\About.cpp"/>
-			<p n="..\..\PreOutpostBeforeVS13\CommonFiles\About.cpp"/>
-			<p n="..\..\PreOutpost\PreOutpost\About.cpp"/>
-			<p n="..\..\PreOutpost\CommonFiles\About.cpp"/>
-			<p n="..\..\library\aboutfiles\about.cpp"/>
-			<p n="..\..\boost_1_68_0\libs\geometry\example\07_a_graph_route_example.cpp"/>
-			<p n="..\..\00DB\00DB.vpw"/>
-			<p n="..\..\00DB\00DB.v12.suo"/>
-			<p n="\Webs\swde\Modules\000moduleTmpl.htm"/>
-			<p n="..\..\Arduino\LED_Key\__vm\.LED_Key.vsarduino.h"/>
-			<p n="C:\Users\rrvt\AppData\Roaming\.ini"/>
+			<p n="..\KeePassLibCpp\SDK\Details\IKpUtilities.h"/>
+			<p n="..\KeePassLibCpp\Util\EntryUtil.cpp"/>
+			<p n="..\KeePassLibC\Lib\Argon2\src\encoding.c"/>
+			<p n="..\Deprecated\Deprecated.cpp"/>
+			<p n="..\KeePassLibC\Lib\Argon2\src\core.h"/>
+			<p n="..\KeePassLibC\Lib\Argon2\src\core.c"/>
+			<p n="..\KeePassLibCpp\Util\ComUtil.cpp"/>
+			<p n="..\KeePassLibCpp\PasswordGenerator\CharSetBasedGenerator.cpp"/>
+			<p n="..\KeePassLibCpp\Util\Base64.h"/>
+			<p n="..\KeePassLibCpp\Util\Base64.cpp"/>
+			<p n="..\KeePassLibC\Lib\Argon2\include\argon2.h"/>
+			<p n="..\KeePassLibC\Lib\Argon2\src\argon2.c"/>
+			<p n="..\KeePassLibCpp\Crypto\ARCFour.cpp"/>
+			<p n="..\KeePassLibCpp\Util\AppUtil.h"/>
+			<p n="..\KeePassLibCpp\SysSpec_Windows\AppUtil.cpp"/>
+			<p n="..\KeePassLibC\KeePassAPI\APIDefEx.h"/>
+			<p n="..\KeePassLibCpp\Util\AlignedBuffer.h"/>
+			<p n="..\KeePassLibCpp\Util\AlignedBuffer.cpp"/>
 		</allfilehist>
 		<debug callback_name="windbg">
 			<runtime_filters>

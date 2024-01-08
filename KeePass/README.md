@@ -41,7 +41,11 @@ Changes to the Installer may made by editing the "Product.wxs" file or obtaining
 
 Run the KeePass.msi to install KeePass.
 
-## Updates 0
+## Updates
+
+### Update 1/7/24
+
+Library and other changes.
 
 ### Update 12/25/23
 

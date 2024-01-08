@@ -17,11 +17,11 @@ a zero in the pointer.  In the event that there are a mix of pointers and say St
 allocated content) then the Strings must be allowed to destruct normally and the pointers must just be
 zeroed.
 
-The DatumPtrT template defines a pointer to the Datum.  A DatumX is the item that is stored in the array.
-This leads to some efficiency since when moving items in the array, only a pointer is moved.  However, it
-also introduces some complexity.  For the most part, ExpandableP manages allocating and deallocating the
-storage used for the Datum but there is room for the user to allocate and deallocate when this is
-required.  This is the declaration needed to define the pointer object:
+The DatumPtrT template defines a pointer to the Datum.  A DatumPtr is the item that is stored in the
+array.  This leads to some efficiency since when moving items in the array, only a pointer is moved.
+However, it also introduces some complexity.  For the most part, ExpandableP manages allocating and
+deallocating the storage used for the Datum but there is room for the user to allocate and deallocate
+when this is required.  This is the declaration needed to define the pointer object:
 
   -- typedef DatumPtrT<Datum, Key> DatumP;
 
@@ -82,11 +82,11 @@ Once the iterator class is defined then the following is how it would be used:
 
 The operations supported by an ExpandableP array where the declaration is:
 
-  typedef DatumPtrT<Datum, KeyClass> DatumX;                // Usually defined just before iterator
+  typedef DatumPtrT<Datum, KeyClass> DatumPtr;                // Usually defined just before iterator
 
   class Xyz {
-  ExpandableP<Datum, KeyClass, DatumX, 2> data;
-  Datum                         datum;
+  ExpandableP<Datum, KeyClass, DatumPtr, 2> data;
+  Datum                                     datum;
         ,,,
 
 the operations supported are:
@@ -125,12 +125,13 @@ the operations supported are:
                                     // boolean operations datum > key, datum < key, datum == key
   Datum* d = data.allocate();       // Allocate one record and return a pointer to it -- use in moderation
   data.deallocate(&datum);          // Deallocate one record
-  DatumX* datumX = data.getDatumPtr(i);
-                                    // Returns a pointer to a DatumX class.  This should be used sparingly
-                                    // if at all.  I used it once to deal with deallocating a case where
-                                    // the pointer in DatumX contained a base pointer with two varients.
-                                    // Thus, the standard deallocation scheme failed to release all the
-                                    // memory since it only know about the base class.
+
+  DatumPtr* datumX = data.getDatumPtr(i);
+                                    // Returns a pointer to a DatumPtr class.  This should be used
+                                    // sparingly if at all.  I used it once to deal with deallocating a
+                                    // case where the pointer in DatumPtr contained a base pointer with
+                                    // two varients.  Thus, the standard deallocation scheme failed to
+                                    // release all the memory since it only know about the base class.
 */
 
 
@@ -149,8 +150,8 @@ Datum* p;
  ~DatumPtrT() {p = 0;}
   DatumPtrT(DatumPtrT& x) {p = x.p;}
 
-  DatumPtrT& operator=  (Datum& r)  {p = &r;  return *this;}
-  DatumPtrT& operator=  (Datum* r)  {p =  r;  return *this;}
+  DatumPtrT& operator=  (Datum& r)     {p = &r;  return *this;}
+  DatumPtrT& operator=  (Datum* r)     {p =  r;  return *this;}
   DatumPtrT& operator=  (DatumPtrT& x) {p = x.p; return *this;}
 
   // Required for Insertion Sort, i.e. data = dtm;
@@ -168,10 +169,11 @@ Datum* p;
   // Required for Binary Search: where Key& key, datum == key, datum < key, datum > key,
   // Binary Search of Key& (Reference to the key for Datum)
 
-  bool     operator== (Key& key) {return *p == key;}
+  bool     operator== (Key& key) {return *p == key;}        // Also required for Linear Search
   bool     operator<  (Key& key) {return *p <  key;}
   bool     operator>  (Key& key) {return *p >  key;}
 
+  // The rest of the conditionals
   bool     operator!= (Key& key) {return *p != key;}
   bool     operator<= (Key& key) {return *p <= key;}
   bool     operator>= (Key& key) {return *p >= key;}
@@ -179,31 +181,31 @@ Datum* p;
 
 
 
-template <class Datum, class Key, class DatumX, const int n>
+template <class Datum, class Key, class DatumPtr, const int n>
 class ExpandableP {
 
-int     endN;                         // Number of items in the array that may be occupied
-int     tblN;                         // total number of elements in the table
-DatumX* tbl;                          // Pointer to a heap object which is treated as an array of Datums
+int       endN;                         // Number of items in the array that may be occupied
+int       tblN;                         // total number of elements in the table
+DatumPtr* tbl;                          // Pointer to a heap object which is treated as an array of Datums
 
 public:
 
   ExpandableP();                      // Constructor & Destructor
  ~ExpandableP();
 
- ExpandableP& operator= (ExpandableP& e);                               // copy the whole array
+ ExpandableP& operator= (ExpandableP& e);                                   // copy the whole array
 
-  Datum*  allocate()           {NewAlloc(Datum); return AllocNode;}     // allocate a heap record
-  void    deallocate(Datum* p) {NewAlloc(Datum); FreeNode(p);}          // Does not clear array entry.
-  DatumX* getDatumPtr(int i) {return 0 <= i && i < endN ? &tbl[i] : 0;}   // Used for difficult cases
+  Datum*    allocate()           {NewAlloc(Datum); return AllocNode;}       // allocate a heap record
+  void      deallocate(Datum* p) {NewAlloc(Datum); FreeNode(p);}            // Does not clear array entry.
+  DatumPtr* getDatumPtr(int i) {return 0 <= i && i < endN ? &tbl[i] : 0;}   // Used for difficult cases
 
-  DatumX& operator[] (int i);                                           // return the reference
+  DatumPtr& operator[] (int i);                                             // return the reference
 
-  void    clear() {freeAllNodes();}       // Clears the number of items in array (without deleting data)
+  void      clear() {freeAllNodes();}       // Clears the number of items in array (without deleting data)
 
-  int     end()   {return endN;}          // Returns number of items in array if inserted sequentially
+  int       end()   {return endN;}          // Returns number of items in array if inserted sequentially
 
-  // Insert DatumX d into array sorted (being sure to expand it if necessary.
+  // Insert DatumPtr d into array sorted (being sure to expand it if necessary.
   // A record reference suggests that a heap node must be allocated
   // A record pointer means that the node has been allocated by the user and can be
   // inserted directly in the array.  Every record is inserted into the array
@@ -258,29 +260,29 @@ private:
 
 // Constructor
 
-template <class Datum, class Key, class DatumX, const int n>
-ExpandableP<Datum, Key, DatumX, n>::ExpandableP() : endN(0), tblN(n > 0 ? n : 1)
-                     {NewArray(DatumX); tbl = AllocArray(tblN);  ZeroMemory(tbl, tblN * sizeof(DatumX));}
+template <class Datum, class Key, class DatumPtr, const int n>
+ExpandableP<Datum, Key, DatumPtr, n>::ExpandableP() : endN(0), tblN(n > 0 ? n : 1)
+                  {NewArray(DatumPtr); tbl = AllocArray(tblN);  ZeroMemory(tbl, tblN * sizeof(DatumPtr));}
 
 
 // We have placed ptrs to nodes in the array.  But now we need to free the nodes and clear the pointers
 
-template <class Datum, class Key, class DatumX, const int n>
-ExpandableP<Datum, Key, DatumX, n>::~ExpandableP()
-                         {freeAllNodes();  NewArray(DatumX); FreeArray(tbl);   tbl = 0; tblN = 0;}
+template <class Datum, class Key, class DatumPtr, const int n>
+ExpandableP<Datum, Key, DatumPtr, n>::~ExpandableP()
+                               {freeAllNodes();  NewArray(DatumPtr); FreeArray(tbl);   tbl = 0; tblN = 0;}
 
 
 // copy the whole array
 
-template <class Datum, class Key, class DatumX, const int n>
-ExpandableP<Datum, Key, DatumX, n>& ExpandableP<Datum, Key, DatumX, n>::operator= (ExpandableP& e)
+template <class Datum, class Key, class DatumPtr, const int n>
+ExpandableP<Datum, Key, DatumPtr, n>& ExpandableP<Datum, Key, DatumPtr, n>::operator= (ExpandableP& e)
                                                                         {clear(); copy(e); return *this;}
 
 
 // return the reference
 
-template <class Datum, class Key, class DatumX, const int n>
-DatumX& ExpandableP<Datum, Key, DatumX, n>::operator[] (int i) {
+template <class Datum, class Key, class DatumPtr, const int n>
+DatumPtr& ExpandableP<Datum, Key, DatumPtr, n>::operator[] (int i) {
   if (i >= tblN) expand(i);
   if (i >= endN) endN = i+1;
   return tbl[i];
@@ -290,49 +292,49 @@ DatumX& ExpandableP<Datum, Key, DatumX, n>::operator[] (int i) {
 // Append already allocated record on end of array, places pointer at end of array
 // Returns a pointer to the record in the vector
 
-template <class Datum, class Key, class DatumX, const int n>
-Datum* ExpandableP<Datum, Key, DatumX, n>::operator+= (Datum* r)
-                           {if (!r) return 0;   DatumX& rcdP = (*this)[endN]; rcdP.p = r; return rcdP.p;}
+template <class Datum, class Key, class DatumPtr, const int n>
+Datum* ExpandableP<Datum, Key, DatumPtr, n>::operator+= (Datum* r)
+                          {if (!r) return 0;   DatumPtr& rcdP = (*this)[endN]; rcdP.p = r; return rcdP.p;}
 
 
 // Append record at end of array, first allocating a record and then copies data from r into node
 // Returns a pointer to the record in the vector
 
-template <class Datum, class Key, class DatumX, const int n>
-Datum* ExpandableP<Datum, Key, DatumX, n>::operator+= (Datum& r) {
-  DatumX& rcdP = (*this)[endN];
+template <class Datum, class Key, class DatumPtr, const int n>
+Datum* ExpandableP<Datum, Key, DatumPtr, n>::operator+= (Datum& r) {
+  DatumPtr& rcdP = (*this)[endN];
   Datum* node = allocate();    *node = r;   rcdP.p = node;   return node;
   }
 
 
 // Allocate a node and put it at end of array and return reference to node
 
-template <class Datum, class Key, class DatumX, const int n>
-Datum& ExpandableP<Datum, Key, DatumX, n>::nextData()
-                  {DatumX& rcdP = (*this)[endN]; Datum* node = allocate(); rcdP.p = node; return *node;}
+template <class Datum, class Key, class DatumPtr, const int n>
+Datum& ExpandableP<Datum, Key, DatumPtr, n>::nextData()
+                  {DatumPtr& rcdP = (*this)[endN]; Datum* node = allocate(); rcdP.p = node; return *node;}
 
 
 // Get a node at index i or the end of the vector, allocating it if necessary
 
-template <class Datum, class Key, class DatumX, const int n>
-Datum& ExpandableP<Datum, Key, DatumX, n>::getData(int i) {
+template <class Datum, class Key, class DatumPtr, const int n>
+Datum& ExpandableP<Datum, Key, DatumPtr, n>::getData(int i) {
   if (i < 0 || endN < i) i = endN;
-  DatumX& rcdP = (*this)[i];   if (rcdP.p)  return *rcdP.p;
+  DatumPtr& rcdP = (*this)[i];   if (rcdP.p)  return *rcdP.p;
   Datum* node = allocate(); rcdP.p = node; return *node;
   }
 
 
 // Insert data at index, moving other entries out of the way and allocating a new record at x
 
-template <class Datum, class Key, class DatumX, const int n>
-bool ExpandableP<Datum, Key, DatumX, n>::operator() (int x, Datum& d)
+template <class Datum, class Key, class DatumPtr, const int n>
+bool ExpandableP<Datum, Key, DatumPtr, n>::operator() (int x, Datum& d)
                                        {Datum* node = allocate();  *node = d; return (*this)(x, node);}
 
 
 // Insert an an allocated record at index, moving other entries out of the way
 
-template <class Datum, class Key, class DatumX, const int n>
-bool ExpandableP<Datum, Key, DatumX, n>::operator() (int x, Datum* d) {
+template <class Datum, class Key, class DatumPtr, const int n>
+bool ExpandableP<Datum, Key, DatumPtr, n>::operator() (int x, Datum* d) {
 int i;
 
   if (x < 0 || endN < x) return false;
@@ -347,8 +349,8 @@ int i;
 
 // Find Datum in array given a pointer to the record and delete it, see del(int x)
 
-template <class Datum, class Key, class DatumX, const int n>
-bool ExpandableP<Datum, Key, DatumX, n>::del(Datum* p) {
+template <class Datum, class Key, class DatumPtr, const int n>
+bool ExpandableP<Datum, Key, DatumPtr, n>::del(Datum* p) {
 int i;
 
   if (!p || !tbl) return false;
@@ -361,8 +363,8 @@ int i;
 
 // Delete node at x, free node, adjust array to fill gap, clear last entry
 
-template <class Datum, class Key, class DatumX, const int n>
-bool ExpandableP<Datum, Key, DatumX, n>::del(int x) {
+template <class Datum, class Key, class DatumPtr, const int n>
+bool ExpandableP<Datum, Key, DatumPtr, n>::del(int x) {
 int i;
 
   if (endN <= 0 || x < 0 || endN <= x) return false;
@@ -377,8 +379,8 @@ int i;
 
 // Binary search -- only works on sorted array
 
-template <class Datum, class Key, class DatumX, const int n>
-Datum* ExpandableP<Datum, Key, DatumX, n>::bSearch(Key& key) {
+template <class Datum, class Key, class DatumPtr, const int n>
+Datum* ExpandableP<Datum, Key, DatumPtr, n>::bSearch(Key& key) {
 int     beg  = 0;
 int     end  = endN;
 int     last = -1;
@@ -386,7 +388,7 @@ int     i;
 
   for (i = (beg+end)/2; i < endN && i != last; last = i, i = (beg+end)/2) {
 
-    DatumX& rcd = tbl[i];   if (!rcd.p) throw ExpandableException;
+    DatumPtr& rcd = tbl[i];   if (!rcd.p) throw ExpandableException;
 
     if (rcd <  key) {beg = i; continue;}
     if (rcd >  key) {end = i; continue;}
@@ -400,13 +402,13 @@ int     i;
 
 // Linear Search
 
-template <class Datum, class Key, class DatumX, const int n>
-Datum* ExpandableP<Datum, Key, DatumX, n>::find(Key& key) {
+template <class Datum, class Key, class DatumPtr, const int n>
+Datum* ExpandableP<Datum, Key, DatumPtr, n>::find(Key& key) {
 int i;
 
   for (i = 0; i < endN; i++) {
 
-    DatumX& rcd = tbl[i];    if (!rcd.p) throw ExpandableException;
+    DatumPtr& rcd = tbl[i];    if (!rcd.p) throw ExpandableException;
 
     if (rcd == key) return rcd.p;
     }
@@ -417,11 +419,11 @@ int i;
 
 // Insert every record into array using an insertion sort
 
-template <class Datum, class Key, class DatumX, const int n>
-Datum* ExpandableP<Datum, Key, DatumX, n>::insertSorted(Datum* p) {
-DatumX xNode;
-DatumX nextNode;
-int    i;
+template <class Datum, class Key, class DatumPtr, const int n>
+Datum* ExpandableP<Datum, Key, DatumPtr, n>::insertSorted(Datum* p) {
+DatumPtr xNode;
+DatumPtr nextNode;
+int      i;
 
   if (!p) return 0;
   Datum& rcd = *p;
@@ -438,16 +440,16 @@ int    i;
 
 // Expand array
 
-template <class Datum, class Key, class DatumX, const int n>
-void ExpandableP<Datum, Key, DatumX, n>::expand(int i) {
-DatumX* p      = tbl;
-DatumX* q      = tbl;
-int     nItems = tblN;
-int     j;
+template <class Datum, class Key, class DatumPtr, const int n>
+void ExpandableP<Datum, Key, DatumPtr, n>::expand(int i) {
+DatumPtr* p      = tbl;
+DatumPtr* q      = tbl;
+int       nItems = tblN;
+int       j;
 
   while (tblN <= i && tblN < INT_MAX/2) tblN = tblN ? tblN * 2 : 1;
 
-  NewArray(DatumX); tbl = AllocArray(tblN);
+  NewArray(DatumPtr); tbl = AllocArray(tblN);
 
   for (j = 0; j < nItems; j++, p++) {tbl[j] = *p; p->p = 0;}
   for (     ; j < tblN;   j++) tbl[j].p = 0;
@@ -458,8 +460,8 @@ int     j;
 
 // Copy array e to this array
 
-template <class Datum, class Key, class DatumX, const int n>
-void ExpandableP<Datum, Key, DatumX, n>::copy(ExpandableP& e) {
+template <class Datum, class Key, class DatumPtr, const int n>
+void ExpandableP<Datum, Key, DatumPtr, n>::copy(ExpandableP& e) {
 
   if (e.endN > tblN) expand(e.endN);
 
@@ -469,8 +471,8 @@ void ExpandableP<Datum, Key, DatumX, n>::copy(ExpandableP& e) {
 
 // Free all Nodes
 
-template <class Datum, class Key, class DatumX, const int n>
-void ExpandableP<Datum, Key, DatumX, n>::freeAllNodes() {
+template <class Datum, class Key, class DatumPtr, const int n>
+void ExpandableP<Datum, Key, DatumPtr, n>::freeAllNodes() {
 
   if (!tbl) return;
 

@@ -38,14 +38,14 @@
 #define PWM_PRODUCT_NAME       _T("KeePass Password Safe")
 #define PWM_PRODUCT_NAME_SHORT _T("KeePass")
 
-// When making a Windows build, don't forget to update the verinfo resource
+// When making a Windows build, don't forget to update the verinfo resource  // PwSafe Version
 #ifndef _UNICODE
-#define PWM_VERSION_STR  _T("1.41.2")
+#define PWM_VERSION_STR  _T("1.41.3")
 #else
 #define PWM_VERSION_STR  _T("1.41 Unicode")
 #endif
-#define PWM_VERSION_DW   0x01410200
-#define PWM_VERSION_QW   (UINT64) 0x0001004100020000ULL
+#define PWM_VERSION_DW   0x01410300
+#define PWM_VERSION_QW   (UINT64) 0x0001004100030000ULL
 // #define PWM_DEVSNAPSHOT                                      // () UINT64) above -- rrvt 4/7/23
 
 // Database file signature bytes

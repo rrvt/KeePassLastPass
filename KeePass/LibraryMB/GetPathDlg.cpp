@@ -1,7 +1,7 @@
 // Uses a Windows dialog to obtain a path to a file
 
 
-#include "stdafx.h"
+#include "pch.h"
 #include "GetPathDlg.h"
 #include "FileName.h"
 

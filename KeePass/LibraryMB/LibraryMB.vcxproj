@@ -18,6 +18,7 @@
     <ClInclude Include="ExpandableP.h" />
     <ClInclude Include="FileIO.h" />
     <ClInclude Include="FileName.h" />
+    <ClInclude Include="framework.h" />
     <ClInclude Include="GetPathDlg.h" />
     <ClInclude Include="IniFile.h" />
     <ClInclude Include="IterT.h" />
@@ -27,10 +28,10 @@
     <ClInclude Include="ManipT.h" />
     <ClInclude Include="MessageBox.h" />
     <ClInclude Include="NewAllocator.h" />
+    <ClInclude Include="pch.h" />
     <ClInclude Include="Random.h" />
     <ClInclude Include="Resources.h" />
     <ClInclude Include="std.h" />
-    <ClInclude Include="stdafx.h" />
     <ClInclude Include="StringInput.h" />
     <ClInclude Include="Strings.h" />
     <ClInclude Include="targetver.h" />
@@ -47,9 +48,9 @@
     <ClCompile Include="GetPathDlg.cpp" />
     <ClCompile Include="IniFile.cpp" />
     <ClCompile Include="MessageBox.cpp" />
+    <ClCompile Include="pch.cpp" />
     <ClCompile Include="Random.cpp" />
     <ClCompile Include="Resources.cpp" />
-    <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="Strings.cpp" />
     <ClCompile Include="ToString.cpp" />
   </ItemGroup>

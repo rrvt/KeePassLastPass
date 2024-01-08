@@ -47,7 +47,7 @@ private:
 
   int    nData()      {return data.end();}                    // Returns number of data items in array,
                                                               // not necessarily private
-  void  removeDatum(int i) {if (0 <= i && i < nData()) data.del(i);}
+  void   removeDatum(int i) {if (0 <= i && i < nData()) data.del(i);}
 
   friend typename XyzIter;
   };
@@ -70,12 +70,12 @@ The operations supported by an Expandable array where the declaration is:
 the operations supported are:
 
   data1    = data;                  // Copies all the current elements in data to data1, data is unchanged
-  datum = data[i];                  // where 0 <= i < endN
-  data[i] = datum;                  // array expands to encompass i
+  datum    = data[i];               // where 0 <= i < endN
+  data[i]  = datum;                 // array expands to encompass i
   data.clear();                     // content is ignored but number of elements is set to zero
   data     = datum;                 // datum is copied into the sorted array at the correct position
                                     // Requires datum >= datum1
-  data += datum;                    // datum is appended to array (at new last element)
+  data    += datum;                 // datum is appended to array (at new last element)
   Datum& d = data.nextData();       // A reference to new last element of array is returned.  It may used
                                     // as shown or immedialy with a dot operator or even as a target of
   data.nextData() = datum;          // an assignment (where a Datum operator= is defined)
@@ -106,12 +106,12 @@ Datum* tbl;                           // Pointer to a heap object which is treat
 
 public:
 
-  Expandable();                       // Constructor & destructor
+  Expandable();                                 // Constructor & destructor
  ~Expandable();
 
-  Expandable& operator= (Expandable& e);  // Copy from one array to another
+  Expandable& operator= (Expandable& e);        // Copy from one array to another
 
-  Datum& operator[] (int i);          // Index into array, returns a reference
+  Datum& operator[] (int i);                    // Index into array, returns a reference
 
   void clear() {endN = 0;}                      // Clears the number of items in array, no data deleted!
   int  end()   {return endN;}                   // Returns number of elements in array
@@ -130,7 +130,7 @@ public:
                                                 // (at end)
   bool operator() (int x, Datum& d);            // Insert data at index, moving other entries out of the
                                                 // way
-  bool del(int x);                          // Delete datum at index x, move higher elements up one
+  bool del(int x);                              // Delete datum at index x, move higher elements up one
 
   template<class Key> Datum* find(Key key);     // Linear search. Requires datum == key method
 

@@ -119,7 +119,7 @@ LPCTSTR CPwManager::GetTranslationDisplayVersion(LPCTSTR lpFileVersion)
 {
   if(lpFileVersion == NULL) { ASSERT(FALSE); return _T(""); }
 
-  if(_tcscmp(lpFileVersion, _T("1.40")) == 0) return _T("1.40.1 / 1.40");
+  if(_tcscmp(lpFileVersion, _T("1.40")) == 0) return _T("1.40.2 / 1.40");
 
   return lpFileVersion;
 }
