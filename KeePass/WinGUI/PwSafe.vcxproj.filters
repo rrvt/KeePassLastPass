@@ -2,73 +2,73 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{3d3499e0-1cc3-4694-8438-2a175a34e640}</UniqueIdentifier>
+      <UniqueIdentifier>{033b1185-7e17-4ff1-af38-2683e6e0997e}</UniqueIdentifier>
       <Extensions>cpp;c;cxx;rc;def;r;odl;idl;hpj;bat</Extensions>
     </Filter>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{bd80e65f-3458-4325-add2-d1ca10328a19}</UniqueIdentifier>
+      <UniqueIdentifier>{a3f5ac40-b654-4027-a1d1-9061549831f2}</UniqueIdentifier>
       <Extensions>h;hpp;hxx;hm;inl</Extensions>
     </Filter>
     <Filter Include="Resource Files">
-      <UniqueIdentifier>{bb6b1422-0e24-4c9f-af7c-297b2a972959}</UniqueIdentifier>
+      <UniqueIdentifier>{502b5fc8-9d84-437f-bc14-01e0d368ed42}</UniqueIdentifier>
       <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;cnt;rtf;gif;jpg;jpeg;jpe;png</Extensions>
     </Filter>
     <Filter Include="Util">
-      <UniqueIdentifier>{cda6890f-ea32-4705-bb13-822d2e913d3d}</UniqueIdentifier>
+      <UniqueIdentifier>{36be75ea-14a9-4fe8-897a-11cd940b08d7}</UniqueIdentifier>
     </Filter>
     <Filter Include="Util\CmdLine">
-      <UniqueIdentifier>{b5fbb40d-1c1a-4021-87ed-870f5ff3f34c}</UniqueIdentifier>
+      <UniqueIdentifier>{f70b0677-bd7d-411c-a4ff-54bb9b414bb9}</UniqueIdentifier>
     </Filter>
     <Filter Include="Util\SprEngine">
-      <UniqueIdentifier>{52f0412b-8895-4f5a-8a9c-bc5822aad3f3}</UniqueIdentifier>
+      <UniqueIdentifier>{59257e50-2d1b-46f1-b367-f3bc16f943a0}</UniqueIdentifier>
     </Filter>
     <Filter Include="NewGUI">
-      <UniqueIdentifier>{2f063302-9197-4284-9690-8baee4a56c44}</UniqueIdentifier>
+      <UniqueIdentifier>{9006f551-f251-4186-a45f-fcfbf58f28ef}</UniqueIdentifier>
     </Filter>
     <Filter Include="NewGUI\TaskDialog">
-      <UniqueIdentifier>{5eb11968-c39b-43e7-b0e1-3fe8f00b36cc}</UniqueIdentifier>
+      <UniqueIdentifier>{71b3e61f-c884-4aa8-ba40-14e0cc0d1936}</UniqueIdentifier>
     </Filter>
     <Filter Include="NewGUI\TaskbarListEx">
-      <UniqueIdentifier>{80ccd049-0f0c-4e70-9d1c-e5ac1ba4b3f2}</UniqueIdentifier>
+      <UniqueIdentifier>{21c6c862-ada4-403c-bbf6-f894eb2df9f1}</UniqueIdentifier>
     </Filter>
     <Filter Include="NewGUI\VistaMenu">
-      <UniqueIdentifier>{76ff87ef-3d77-47a5-bc6a-4c09780911d0}</UniqueIdentifier>
+      <UniqueIdentifier>{29779867-95f3-4b9b-8b09-8c3fe7c83bc9}</UniqueIdentifier>
     </Filter>
     <Filter Include="KeePassLibCpp">
-      <UniqueIdentifier>{2457de5d-6534-4017-b8ce-54b2e010a340}</UniqueIdentifier>
+      <UniqueIdentifier>{e07ee4da-ebb1-48ef-bf22-8d99e6b33e52}</UniqueIdentifier>
     </Filter>
     <Filter Include="KeePassLibCpp\Crypto">
-      <UniqueIdentifier>{fb187a56-4d3d-4611-96ea-dd4fb4a0c55c}</UniqueIdentifier>
+      <UniqueIdentifier>{359a9ecd-8cb0-4ef2-949d-f0bbccbb046a}</UniqueIdentifier>
     </Filter>
     <Filter Include="KeePassLibCpp\Crypto\SHA2">
-      <UniqueIdentifier>{6a158389-aea8-4e26-a4ce-524342a97ebe}</UniqueIdentifier>
+      <UniqueIdentifier>{73fd095a-b4a7-484e-a96c-139e201b9b8f}</UniqueIdentifier>
     </Filter>
     <Filter Include="KeePassLibCpp\SysSpec_Windows">
-      <UniqueIdentifier>{bbb5c4bd-9aea-4858-b891-fdf6a8f87d1e}</UniqueIdentifier>
+      <UniqueIdentifier>{24969b5e-a032-4f0c-b716-ed0b77eced03}</UniqueIdentifier>
     </Filter>
     <Filter Include="KeePassLibCpp\DataExchange">
-      <UniqueIdentifier>{107f7b5a-f669-4c1a-9bab-f7227d2109b6}</UniqueIdentifier>
+      <UniqueIdentifier>{f5c88ba2-f628-4353-b1fa-d6c72943bb2e}</UniqueIdentifier>
     </Filter>
     <Filter Include="KeePassLibCpp\Util">
-      <UniqueIdentifier>{3cff16a0-9583-4c88-8f67-5f3136effe26}</UniqueIdentifier>
+      <UniqueIdentifier>{0e34fdc2-61aa-48c1-80a6-2ad8edf71308}</UniqueIdentifier>
     </Filter>
     <Filter Include="KeePassLibCpp\PasswordGenerator">
-      <UniqueIdentifier>{6cdf3991-fdbb-4f65-bc7a-153758a95d4c}</UniqueIdentifier>
+      <UniqueIdentifier>{7a1d9524-ca4f-4dc6-9b5a-9caf312096ab}</UniqueIdentifier>
     </Filter>
     <Filter Include="KeePassLibCpp\Details">
-      <UniqueIdentifier>{8c76f06f-6220-40f0-8df9-f4268c6cc3f4}</UniqueIdentifier>
+      <UniqueIdentifier>{75fe864b-dd5e-43d0-951d-9445765f2c98}</UniqueIdentifier>
     </Filter>
     <Filter Include="KeePassLibCpp\SDK">
-      <UniqueIdentifier>{da827bef-5658-43b7-b747-4221c4e5bbee}</UniqueIdentifier>
+      <UniqueIdentifier>{ee2c9664-81cd-42d0-a6f0-0387a858fa04}</UniqueIdentifier>
     </Filter>
     <Filter Include="KeePassLibCpp\SDK\Details">
-      <UniqueIdentifier>{0275264a-8150-47fe-9073-b4fcd9ac7498}</UniqueIdentifier>
+      <UniqueIdentifier>{e9e353d3-1548-4f40-a5a9-07eba6f9993e}</UniqueIdentifier>
     </Filter>
     <Filter Include="KeePassLibCpp\IO">
-      <UniqueIdentifier>{f8ec9b6a-1fa9-43da-abc5-27aaf4197364}</UniqueIdentifier>
+      <UniqueIdentifier>{ecdc640a-9191-40f5-a113-e6483c1b875b}</UniqueIdentifier>
     </Filter>
     <Filter Include="Plugins">
-      <UniqueIdentifier>{da869043-b029-4c7b-b8e9-0a71277ba334}</UniqueIdentifier>
+      <UniqueIdentifier>{6d5e1af5-1a40-4968-a5aa-aeea7d67bd8a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -328,6 +328,12 @@
       <Filter>KeePassLibCpp</Filter>
     </ClCompile>
     <ClCompile Include="..\KeePassLibCpp\Crypto\ARCFour.cpp">
+      <Filter>KeePassLibCpp\Crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\Crypto\ChaCha20.cpp">
+      <Filter>KeePassLibCpp\Crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\KeePassLibCpp\Crypto\CtrBlockCipher.cpp">
       <Filter>KeePassLibCpp\Crypto</Filter>
     </ClCompile>
     <ClCompile Include="..\KeePassLibCpp\Crypto\KeyTransform.cpp">
@@ -742,6 +748,12 @@
     <ClInclude Include="..\KeePassLibCpp\Crypto\ARCFour.h">
       <Filter>KeePassLibCpp\Crypto</Filter>
     </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Crypto\ChaCha20.h">
+      <Filter>KeePassLibCpp\Crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\KeePassLibCpp\Crypto\CtrBlockCipher.h">
+      <Filter>KeePassLibCpp\Crypto</Filter>
+    </ClInclude>
     <ClInclude Include="..\KeePassLibCpp\Crypto\KeyTransform.h">
       <Filter>KeePassLibCpp\Crypto</Filter>
     </ClInclude>
@@ -1065,6 +1077,5 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="..\README.md" />
-    <None Include="C:\Users\rrvt\AppData\Roaming\KeePass\KeePass.ini" />
   </ItemGroup>
 </Project>

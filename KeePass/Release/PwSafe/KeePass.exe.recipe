@@ -5,9 +5,6 @@
       <FullPath>D:\Sources\KeePass\Release\KeePassLibC.dll</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>D:\Sources\KeePass\Release\Plugins\LastPass.dll</FullPath>
-    </ProjectOutput>
-    <ProjectOutput>
       <FullPath>D:\Sources\KeePass\Release\KeePass.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>

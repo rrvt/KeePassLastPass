@@ -1,6 +1,6 @@
 /*
   KeePass Password Safe - The Open-Source Password Manager
-  Copyright (C) 2003-2022 Dominik Reichl <dominik.reichl@t-online.de>
+  Copyright (C) 2003-2024 Dominik Reichl <dominik.reichl@t-online.de>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -62,75 +62,75 @@ typedef LONG NTSTATUS;
 
 typedef struct _BCRYPT_KEY_DATA_BLOB_32
 {
-  ULONG dwMagic;
-  ULONG dwVersion;
-  ULONG cbKeyData;
-  BYTE vKeyData[32];
+	ULONG dwMagic;
+	ULONG dwVersion;
+	ULONG cbKeyData;
+	BYTE vKeyData[32];
 } BCRYPT_KEY_DATA_BLOB_32;
 
 typedef NTSTATUS(WINAPI *LPBCRYPTOPENALGORITHMPROVIDER)(BCRYPT_ALG_HANDLE* phAlgorithm,
-  LPCWSTR pszAlgId, LPCWSTR pszImplementation, ULONG dwFlags);
+	LPCWSTR pszAlgId, LPCWSTR pszImplementation, ULONG dwFlags);
 
 typedef NTSTATUS(WINAPI *LPBCRYPTCLOSEALGORITHMPROVIDER)(BCRYPT_ALG_HANDLE hAlgorithm,
-  ULONG dwFlags);
+	ULONG dwFlags);
 
 typedef NTSTATUS(WINAPI *LPBCRYPTGETPROPERTY)(BCRYPT_HANDLE hObject, LPCWSTR pszProperty,
-  PUCHAR pbOutput, ULONG cbOutput, ULONG* pcbResult, ULONG dwFlags);
+	PUCHAR pbOutput, ULONG cbOutput, ULONG* pcbResult, ULONG dwFlags);
 
 typedef NTSTATUS(WINAPI *LPBCRYPTSETPROPERTY)(BCRYPT_HANDLE hObject, LPCWSTR pszProperty,
-  PUCHAR pbInput, ULONG cbInput, ULONG dwFlags);
+	PUCHAR pbInput, ULONG cbInput, ULONG dwFlags);
 
 // typedef NTSTATUS(WINAPI *LPBCRYPTGENERATESYMMETRICKEY)(BCRYPT_ALG_HANDLE hAlgorithm,
-//  BCRYPT_KEY_HANDLE* phKey, PUCHAR pbKeyObject, ULONG cbKeyObject, PUCHAR pbSecret,
-//  ULONG cbSecret, ULONG dwFlags);
+//	BCRYPT_KEY_HANDLE* phKey, PUCHAR pbKeyObject, ULONG cbKeyObject, PUCHAR pbSecret,
+//	ULONG cbSecret, ULONG dwFlags);
 
 typedef NTSTATUS(WINAPI *LPBCRYPTIMPORTKEY)(BCRYPT_ALG_HANDLE hAlgorithm,
-  BCRYPT_KEY_HANDLE hImportKey, LPCWSTR pszBlobType, BCRYPT_KEY_HANDLE *phKey,
-  PUCHAR pbKeyObject, ULONG cbKeyObject, PUCHAR pbInput, ULONG cbInput, ULONG dwFlags);
+	BCRYPT_KEY_HANDLE hImportKey, LPCWSTR pszBlobType, BCRYPT_KEY_HANDLE *phKey,
+	PUCHAR pbKeyObject, ULONG cbKeyObject, PUCHAR pbInput, ULONG cbInput, ULONG dwFlags);
 
 typedef NTSTATUS(WINAPI *LPBCRYPTDESTROYKEY)(BCRYPT_KEY_HANDLE hKey);
 
 typedef NTSTATUS(WINAPI *LPBCRYPTENCRYPT)(BCRYPT_KEY_HANDLE hKey, PUCHAR pbInput,
-  ULONG cbInput, VOID* pPaddingInfo, PUCHAR pbIV, ULONG cbIV, PUCHAR pbOutput,
-  ULONG cbOutput, ULONG* pcbResult, ULONG dwFlags);
+	ULONG cbInput, VOID* pPaddingInfo, PUCHAR pbIV, ULONG cbIV, PUCHAR pbOutput,
+	ULONG cbOutput, ULONG* pcbResult, ULONG dwFlags);
 
 class CKeyTransformBCrypt
 {
 public:
-  CKeyTransformBCrypt();
-  virtual ~CKeyTransformBCrypt();
+	CKeyTransformBCrypt();
+	virtual ~CKeyTransformBCrypt();
 
-  static BOOL* GetEnabledPtr();
+	static BOOL* GetEnabledPtr();
 
-  HRESULT TransformKey(const BYTE* pbKey32, BYTE* pbData16, UINT64 qwRounds);
-  HRESULT Benchmark(const BYTE* pbKey32, BYTE* pbData16, UINT64* pqwRounds,
-    DWORD dwTimeMs);
+	HRESULT TransformKey(const BYTE* pbKey32, BYTE* pbData16, UINT64 qwRounds);
+	HRESULT Benchmark(const BYTE* pbKey32, BYTE* pbData16, UINT64* pqwRounds,
+		DWORD dwTimeMs);
 
 private:
-  void _FreeLib();
+	void _FreeLib();
 
-  bool _InitBCrypt(BCRYPT_ALG_HANDLE& hAes, BCRYPT_KEY_HANDLE& hKey,
-    boost::shared_ptr<CAlignedBuffer>& spKeyObj, const BYTE* pbKey32);
-  void _DestroyBCrypt(BCRYPT_ALG_HANDLE& hAes, BCRYPT_KEY_HANDLE& hKey);
+	bool _InitBCrypt(BCRYPT_ALG_HANDLE& hAes, BCRYPT_KEY_HANDLE& hKey,
+		boost::shared_ptr<CAlignedBuffer>& spKeyObj, const BYTE* pbKey32);
+	void _DestroyBCrypt(BCRYPT_ALG_HANDLE& hAes, BCRYPT_KEY_HANDLE& hKey);
 
-  bool _Encrypt(BCRYPT_KEY_HANDLE hKey, BYTE* pbData16, UINT64 qwRounds);
+	bool _Encrypt(BCRYPT_KEY_HANDLE hKey, BYTE* pbData16, UINT64 qwRounds);
 
-  static BOOL g_bEnableBCrypt;
+	static BOOL g_bEnableBCrypt;
 
-  HMODULE m_hLib;
-  LPBCRYPTOPENALGORITHMPROVIDER m_lpBCryptOpenAlgorithmProvider;
-  LPBCRYPTCLOSEALGORITHMPROVIDER m_lpBCryptCloseAlgorithmProvider;
-  LPBCRYPTGETPROPERTY m_lpBCryptGetProperty;
-  LPBCRYPTSETPROPERTY m_lpBCryptSetProperty;
-  // LPBCRYPTGENERATESYMMETRICKEY m_lpBCryptGenerateSymmetricKey;
-  LPBCRYPTIMPORTKEY m_lpBCryptImportKey;
-  LPBCRYPTDESTROYKEY m_lpBCryptDestroyKey;
-  LPBCRYPTENCRYPT m_lpBCryptEncrypt;
+	HMODULE m_hLib;
+	LPBCRYPTOPENALGORITHMPROVIDER m_lpBCryptOpenAlgorithmProvider;
+	LPBCRYPTCLOSEALGORITHMPROVIDER m_lpBCryptCloseAlgorithmProvider;
+	LPBCRYPTGETPROPERTY m_lpBCryptGetProperty;
+	LPBCRYPTSETPROPERTY m_lpBCryptSetProperty;
+	// LPBCRYPTGENERATESYMMETRICKEY m_lpBCryptGenerateSymmetricKey;
+	LPBCRYPTIMPORTKEY m_lpBCryptImportKey;
+	LPBCRYPTDESTROYKEY m_lpBCryptDestroyKey;
+	LPBCRYPTENCRYPT m_lpBCryptEncrypt;
 
-  boost::shared_ptr<CAlignedBuffer> m_spBufZero;
-  boost::shared_ptr<CAlignedBuffer> m_spBuf;
+	boost::shared_ptr<CAlignedBuffer> m_spBufZero;
+	boost::shared_ptr<CAlignedBuffer> m_spBuf;
 
-  bool m_bWine;
+	bool m_bWine;
 };
 
 #endif // ___KEY_TRANSFORM_BCRYPT_H___

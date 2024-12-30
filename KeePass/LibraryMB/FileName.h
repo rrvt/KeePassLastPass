@@ -9,6 +9,8 @@
 
 String removePath(TCchar* name);
 
+String removeLastDir(TCchar* fullPath);
+
 String getPath(TCchar* fullPath);
 
 String getMainName(TCchar* fullPath);
@@ -30,8 +32,8 @@ bool   renameFile(Tchar* orig, Tchar* newName, int dSize);
 
 bool   legal_extension(TCchar* name, String* ext, int nExt);
 
-bool   isExplicitExt(TCchar* fn);           // Returns true if extension does not contain a '?' or an '*'
-
+bool   isExplicitExt(TCchar* fn);                   // Returns true if extension does not contain
+                                                    // a '?' or an '*'
 void   removeFile(TCchar* name);
 
 String noBlanks(TCchar* name);

@@ -3,32 +3,34 @@
 This is primarily a Last Pass Import/Export Extension to KeePass 1.41 (C++ Version).
 
 I like Password Vaults and a few years ago the password vault I was using got a little confused and
-deleted all my passwords.  I abandoned that vault and decided that the next vault I used would have a
-backup.  I chose LastPass based on comments but I was determined to save the passwords on my personal
-computer too.  So KeePass also received good marks and the source is available.  Being a veteran C++
-SE I chose it in the C++ version.  Last Pass keeps changing its export function so this version will
-process the latest version of its export file (Early 2022).  Since It might be necessary to
-restore the passwords to LastPass there is an export function included in the KeePass/LastPass extension.
-It will produce the same file as what was imported.  I have not attempted to load it into LastPass...
+deleted all my passwords.  I abandoned that vault and decided that the next vault I used would have
+a backup.  I chose LastPass based on comments but I was determined to save the passwords on my
+personal computer too.  So KeePass also received good marks and the source is available.  Being a
+veteran C++ SE I chose it in the C++ version.  Last Pass keeps changing its export function so this
+version will process the latest version of its export file (Early 2022).  Since It might be
+necessary to restore the passwords to LastPass there is an export function included in the
+KeePass/LastPass extension.  It will produce the same file as what was imported.  I have not
+attempted to load it into LastPass...
 
 ## Getting Started
 
-Compiled with Visual Studio 2022 (VS22).  KeePass v1.41 requires the Boost version 1.78 Libraries:
+Compiled with Visual Studio 2022 (VS22).  KeePass v1.41 requires the Boost version 1.81 Libraries:
 https://www.boost.org/ and the WiX Toolset extension to VS22.
 The boost library links may need adjusting in the project properties.
 
-Do a difference between the latest KeePass (1.39 at the time of writing) and this code to get an idea
-of the changes I made in KeePass.  Note the Project name:
+Do a difference between the latest KeePass (1.39 at the time of writing) and this code to get an
+idea of the changes I made in KeePass.  Note the Project name:
 
-  - Project KeePassLibC name was changed to KeePassLib
   - Project Deprecated was added as a static library
-  - Project LastPass was added as a dll
+  - Project KeePassLibC name was changed to KeePassLib
   - Project Installer was added as a Wix installer (see WixApp)
+  - Project LastPass was added as a dll
+  - Project LibraryMB was added as a static library
 
 ### Prerequisites
 
-I put the Boost directory (v 1.78) at the same level as the KeePass directory.  The Boost Library must
-be compiled.  I chose the complete command:
+I put the Boost directory (v 1.81) at the same level as the KeePass directory.  The Boost Library
+must be compiled.  I chose the complete command:
 ```
    b2 --build-dir=D:\SandBox\boost\Build toolset=msvc --build-type=complete  stage >build.log 2>&1
 ```
@@ -43,7 +45,17 @@ Run the KeePass.msi to install KeePass.
 
 ## Updates
 
+### Update 12/29/24
+
+Downloaded Version 1.42, modified it to remove warnings and errors and added LastPass toolbar
+commands.
+
 ### Update 1/7/24
+
+### Update 2/17/24
+
+Reorganized the Library so that it compiles once into Debug and Release directories under the
+Library directory.
 
 Library and other changes.
 

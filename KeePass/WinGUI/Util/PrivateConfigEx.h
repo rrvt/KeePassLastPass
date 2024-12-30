@@ -1,6 +1,6 @@
 /*
   KeePass Password Safe - The Open-Source Password Manager
-  Copyright (C) 2003-2022 Dominik Reichl <dominik.reichl@t-online.de>
+  Copyright (C) 2003-2024 Dominik Reichl <dominik.reichl@t-online.de>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -25,7 +25,7 @@
 #include "../../KeePassLibCpp/SysDefEx.h"
 #include "../../KeePassLibCpp/SDK/Details/KpDefs.h"
 
-//#include <string>                                       // Van Tuyl Additions
+#include <string>
 #include "std.h"                                          // Van Tuyl Additions
 #include <vector>
 #include <boost/utility.hpp>

@@ -231,7 +231,7 @@ void CSendKeys::SendKeyDown(BYTE VKey, WORD NumTimes, bool GenUpMsg, bool bDelay
         CarryDelay();
       // snippet based on:
       // http://www.codeproject.com/cpp/togglekeys.asp
-      if (currentOS.is >= CurrentOS::WinNT4)                            // rrvt -- dwVersion < 0x80000000
+      if (currentOS.is >= CurrentOS::WinNT4)                      // rrvt -- dwVersion < 0x80000000
       {
         ::keybd_event(VKey, 0x45, KEYEVENTF_EXTENDEDKEY, 0);
         ::keybd_event(VKey, 0x45, KEYEVENTF_EXTENDEDKEY | KEYEVENTF_KEYUP, 0);

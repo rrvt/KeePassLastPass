@@ -1,6 +1,6 @@
 /*
   KeePass Password Safe - The Open-Source Password Manager
-  Copyright (C) 2003-2022 Dominik Reichl <dominik.reichl@t-online.de>
+  Copyright (C) 2003-2024 Dominik Reichl <dominik.reichl@t-online.de>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -29,203 +29,196 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
-#if 0                                                                             // rrvt
 #pragma warning(push)
 #pragma warning(disable: 4100)
-#endif                                                                            // rrvt
 
 /////////////////////////////////////////////////////////////////////////////
 // CCustomTreeCtrlEx
 
 CCustomTreeCtrlEx::CCustomTreeCtrlEx()
 {
-  m_pParentI = NULL;
-  m_bValidDropTarget = FALSE;
+	m_pParentI = NULL;
+	m_bValidDropTarget = FALSE;
 
-  m_bRedrawingEnabled = true;
+	m_bRedrawingEnabled = true;
 }
 
 CCustomTreeCtrlEx::~CCustomTreeCtrlEx()
 {
-  m_bValidDropTarget = FALSE;
+	m_bValidDropTarget = FALSE;
 }
 
 BEGIN_MESSAGE_MAP(CCustomTreeCtrlEx, CTreeCtrl)
-  //{{AFX_MSG_MAP(CCustomTreeCtrlEx)
-  ON_WM_KEYDOWN()
-  ON_WM_SYSKEYDOWN()
-  ON_WM_MOUSEMOVE()
-  //}}AFX_MSG_MAP
+	//{{AFX_MSG_MAP(CCustomTreeCtrlEx)
+	ON_WM_KEYDOWN()
+	ON_WM_SYSKEYDOWN()
+	ON_WM_MOUSEMOVE()
+	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
 
-void CCustomTreeCtrlEx::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
+void CCustomTreeCtrlEx::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags) 
 {
-  // Parent must be initialized first
-  ASSERT(m_pParentI != NULL); if(m_pParentI == NULL) return;
-  ((CPwSafeDlg *)m_pParentI)->NotifyUserActivity();
+	// Parent must be initialized first
+	ASSERT(m_pParentI != NULL); if(m_pParentI == NULL) return;
+	((CPwSafeDlg *)m_pParentI)->NotifyUserActivity();
 
-  if((nChar == VK_UP) | (nChar == VK_DOWN) | (nChar == VK_HOME) | (nChar == VK_END) |
-    (nChar == VK_PRIOR) | (nChar == VK_NEXT) | (nChar == VK_LEFT) | (nChar == VK_RIGHT))
-    ((CPwSafeDlg *)m_pParentI)->_ProcessGroupKey(nChar, nFlags);
+	if((nChar == VK_UP) | (nChar == VK_DOWN) | (nChar == VK_HOME) | (nChar == VK_END) |
+		(nChar == VK_PRIOR) | (nChar == VK_NEXT) | (nChar == VK_LEFT) | (nChar == VK_RIGHT))
+		((CPwSafeDlg *)m_pParentI)->_ProcessGroupKey(nChar, nFlags);
 
-  // In this case let the framework handle the key because
-  // it only sets flags and the framework must move the caret
-  CTreeCtrl::OnKeyDown(nChar, nRepCnt, nFlags);
+	// In this case let the framework handle the key because
+	// it only sets flags and the framework must move the caret
+	CTreeCtrl::OnKeyDown(nChar, nRepCnt, nFlags);
 
-  if(((nChar >= 'A') && (nChar <= 'Z')) || ((nChar >= '0') && (nChar <= '9')))
-    ((CPwSafeDlg *)m_pParentI)->m_bCachedPwlistUpdate = TRUE;
+	if(((nChar >= 'A') && (nChar <= 'Z')) || ((nChar >= '0') && (nChar <= '9')))
+		((CPwSafeDlg *)m_pParentI)->m_bCachedPwlistUpdate = TRUE;
 }
 
-void CCustomTreeCtrlEx::OnSysKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
+void CCustomTreeCtrlEx::OnSysKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags) 
 {
-  // Parent must be initialized first
-  ASSERT(m_pParentI != NULL); if(m_pParentI == NULL) return;
-  ((CPwSafeDlg *)m_pParentI)->NotifyUserActivity();
+	// Parent must be initialized first
+	ASSERT(m_pParentI != NULL); if(m_pParentI == NULL) return;
+	((CPwSafeDlg *)m_pParentI)->NotifyUserActivity();
 
-  if(nFlags & 0x2000)
-  {
-    if(nChar == VK_UP) ((CPwSafeDlg *)m_pParentI)->_ProcessGroupKey(nChar, nFlags);
-    else if(nChar == VK_DOWN) ((CPwSafeDlg *)m_pParentI)->_ProcessGroupKey(nChar, nFlags);
-    else if(nChar == VK_HOME) ((CPwSafeDlg *)m_pParentI)->_ProcessGroupKey(nChar, nFlags);
-    else if(nChar == VK_END) ((CPwSafeDlg *)m_pParentI)->_ProcessGroupKey(nChar, nFlags);
-    else if(nChar == VK_LEFT) ((CPwSafeDlg *)m_pParentI)->_ProcessGroupKey(nChar, nFlags);
-    else if(nChar == VK_RIGHT) ((CPwSafeDlg *)m_pParentI)->_ProcessGroupKey(nChar, nFlags);
-    else CTreeCtrl::OnSysKeyDown(nChar, nRepCnt, nFlags);
-  }
-  else
-  {
-    CTreeCtrl::OnSysKeyDown(nChar, nRepCnt, nFlags);
-  }
+	if(nFlags & 0x2000)
+	{
+		if(nChar == VK_UP) ((CPwSafeDlg *)m_pParentI)->_ProcessGroupKey(nChar, nFlags);
+		else if(nChar == VK_DOWN) ((CPwSafeDlg *)m_pParentI)->_ProcessGroupKey(nChar, nFlags);
+		else if(nChar == VK_HOME) ((CPwSafeDlg *)m_pParentI)->_ProcessGroupKey(nChar, nFlags);
+		else if(nChar == VK_END) ((CPwSafeDlg *)m_pParentI)->_ProcessGroupKey(nChar, nFlags);
+		else if(nChar == VK_LEFT) ((CPwSafeDlg *)m_pParentI)->_ProcessGroupKey(nChar, nFlags);
+		else if(nChar == VK_RIGHT) ((CPwSafeDlg *)m_pParentI)->_ProcessGroupKey(nChar, nFlags);
+		else CTreeCtrl::OnSysKeyDown(nChar, nRepCnt, nFlags);
+	}
+	else
+	{
+		CTreeCtrl::OnSysKeyDown(nChar, nRepCnt, nFlags);
+	}
 }
 
 BOOL CCustomTreeCtrlEx::InitDropHandler()
 {
-  if(m_bValidDropTarget == TRUE) { ASSERT(FALSE); return FALSE; } // Initialized already
+	if(m_bValidDropTarget == TRUE) { ASSERT(FALSE); return FALSE; } // Initialized already
 
-  ASSERT(m_pParentI != NULL);
-  m_drop.m_pTopParentI = m_pParentI;
-  m_drop.m_pParentTree = this;
+	ASSERT(m_pParentI != NULL);
+	m_drop.m_pTopParentI = m_pParentI;
+	m_drop.m_pParentTree = this;
 
-  m_bValidDropTarget = m_drop.Register(this);
-  ASSERT(m_bValidDropTarget == TRUE);
-  return m_bValidDropTarget;
+	m_bValidDropTarget = m_drop.Register(this);
+	ASSERT(m_bValidDropTarget == TRUE);
+	return m_bValidDropTarget;
 }
 
-void CCustomTreeCtrlEx::OnMouseMove(UINT nFlags, CPoint point)
+void CCustomTreeCtrlEx::OnMouseMove(UINT nFlags, CPoint point) 
 {
-  ASSERT(m_pParentI != NULL); if(m_pParentI == NULL) return;
-  ((CPwSafeDlg *)m_pParentI)->NotifyUserActivity();
+	ASSERT(m_pParentI != NULL); if(m_pParentI == NULL) return;
+	((CPwSafeDlg *)m_pParentI)->NotifyUserActivity();
 
-  CTreeCtrl::OnMouseMove(nFlags, point);
+	CTreeCtrl::OnMouseMove(nFlags, point);
 }
 
 bool CCustomTreeCtrlEx::LockRedrawEx(bool bBlockRedrawing)
 {
-  return this->LockRedrawEx(bBlockRedrawing, false);
+	return this->LockRedrawEx(bBlockRedrawing, false);
 }
 
 bool CCustomTreeCtrlEx::LockRedrawEx(bool bBlockRedrawing, bool bFullInvalidate)
 {
-  if(bBlockRedrawing && m_bRedrawingEnabled)
-  {
-    m_bRedrawingEnabled = false;
-    this->SetRedraw(FALSE);
-    return true;
-  }
-  else if(!bBlockRedrawing && !m_bRedrawingEnabled)
-  {
-    m_bRedrawingEnabled = true;
-    this->SetRedraw(TRUE);
-    this->Invalidate(bFullInvalidate ? TRUE : FALSE);
-    return true;
-  }
+	if(bBlockRedrawing && m_bRedrawingEnabled)
+	{
+		m_bRedrawingEnabled = false;
+		this->SetRedraw(FALSE);
+		return true;
+	}
+	else if(!bBlockRedrawing && !m_bRedrawingEnabled)
+	{
+		m_bRedrawingEnabled = true;
+		this->SetRedraw(TRUE);
+		this->Invalidate(bFullInvalidate ? TRUE : FALSE);
+		return true;
+	}
 
-  return false;
+	return false;
 }
 
 void CCustomTreeCtrlEx::DeleteAllItemsEx()
 {
-  if(this->GetCount() == 0) return;
+	if(this->GetCount() == 0) return;
 
-  const bool bLocked = this->LockRedrawEx(true);
-  VERIFY(this->DeleteAllItems());
-  if(bLocked) { VERIFY(this->LockRedrawEx(false)); }
+	const bool bLocked = this->LockRedrawEx(true);
+	VERIFY(this->DeleteAllItems());
+	if(bLocked) { VERIFY(this->LockRedrawEx(false)); }
 }
 
 /////////////////////////////////////////////////////////////////////////////
 
 void CCustomOleDropHandler::SetDragAccept(BOOL bAccept)
 {
-  ASSERT((bAccept == TRUE) || (bAccept == FALSE));
-  m_bAcceptDrop = bAccept;
+	ASSERT((bAccept == TRUE) || (bAccept == FALSE));
+	m_bAcceptDrop = bAccept;
 }
 
 DROPEFFECT CCustomOleDropHandler::OnDragEnter(CWnd* pWnd, COleDataObject* pDataObject, DWORD dwKeyState, CPoint point)
 {
-  return OnDragOver(pWnd, pDataObject, dwKeyState, point);
+	return OnDragOver(pWnd, pDataObject, dwKeyState, point);
 }
 
-DROPEFFECT CCustomOleDropHandler::OnDragOver(CWnd* /*pWnd*/, COleDataObject* /*pDataObject*/,
-                                                                          DWORD dwKeyState, CPoint point)
+DROPEFFECT CCustomOleDropHandler::OnDragOver(CWnd* pWnd, COleDataObject* pDataObject, DWORD dwKeyState, CPoint point)
 {
-  const UINT uGood = TVHT_ONITEMSTATEICON | TVHT_ONITEMBUTTON | TVHT_ONITEMICON | TVHT_ONITEMINDENT | TVHT_ONITEMLABEL | TVHT_ONITEMRIGHT;
+	const UINT uGood = TVHT_ONITEMSTATEICON | TVHT_ONITEMBUTTON | TVHT_ONITEMICON | TVHT_ONITEMINDENT | TVHT_ONITEMLABEL | TVHT_ONITEMRIGHT;
 
-  ASSERT(m_pTopParentI != NULL); ASSERT(m_pParentTree != NULL);
+	ASSERT(m_pTopParentI != NULL); ASSERT(m_pParentTree != NULL);
 
-  if(m_bAcceptDrop == FALSE) { _RemoveDropSelection(); return DROPEFFECT_NONE; } // Don't accept drop from other applications
+	if(m_bAcceptDrop == FALSE) { _RemoveDropSelection(); return DROPEFFECT_NONE; } // Don't accept drop from other applications
 
-  UINT dwState = 0;
-  HTREEITEM h = m_pParentTree->HitTest(point, &dwState);
-  if(((dwState & uGood) > 0) && (h != NULL))
-  {
-    m_pParentTree->SelectDropTarget(h);
-  }
-  else
-  {
-    _RemoveDropSelection();
-    return DROPEFFECT_NONE;
-  }
+	UINT dwState = 0;
+	HTREEITEM h = m_pParentTree->HitTest(point, &dwState);
+	if(((dwState & uGood) > 0) && (h != NULL))
+	{
+		m_pParentTree->SelectDropTarget(h);
+	}
+	else
+	{
+		_RemoveDropSelection();
+		return DROPEFFECT_NONE;
+	}
 
-  if((dwKeyState & MK_CONTROL) == MK_CONTROL) return DROPEFFECT_COPY;
-  return DROPEFFECT_MOVE;
+	if((dwKeyState & MK_CONTROL) == MK_CONTROL) return DROPEFFECT_COPY;
+	return DROPEFFECT_MOVE;
 }
 
-void CCustomOleDropHandler::OnDragLeave(CWnd* /*pWnd*/)
+void CCustomOleDropHandler::OnDragLeave(CWnd* pWnd)
 {
-  _RemoveDropSelection();
+	_RemoveDropSelection();
 }
 
-BOOL CCustomOleDropHandler::OnDrop(CWnd* /*pWnd*/, COleDataObject* /*pDataObject*/,
-                                                                      DROPEFFECT dropEffect, CPoint point)
+BOOL CCustomOleDropHandler::OnDrop(CWnd* pWnd, COleDataObject* pDataObject, DROPEFFECT dropEffect, CPoint point)
 {
-  UINT dwState = 0;
-  const UINT uGood = TVHT_ONITEMSTATEICON | TVHT_ONITEMBUTTON | TVHT_ONITEMICON | TVHT_ONITEMINDENT | TVHT_ONITEMLABEL | TVHT_ONITEMRIGHT;
-  HTREEITEM h;
+	UINT dwState = 0;
+	const UINT uGood = TVHT_ONITEMSTATEICON | TVHT_ONITEMBUTTON | TVHT_ONITEMICON | TVHT_ONITEMINDENT | TVHT_ONITEMLABEL | TVHT_ONITEMRIGHT;
+	HTREEITEM h;
 
-  ASSERT(m_pTopParentI != NULL); ASSERT(m_pParentTree != NULL);
+	ASSERT(m_pTopParentI != NULL); ASSERT(m_pParentTree != NULL);
 
-  if(m_bAcceptDrop == FALSE) return TRUE; // Don't accept drop from other applications
+	if(m_bAcceptDrop == FALSE) return TRUE; // Don't accept drop from other applications
 
-  h = m_pParentTree->HitTest(point, &dwState);
-  if(((dwState & uGood) > 0) && (h != NULL))
-  {
-    ((CPwSafeDlg *)m_pTopParentI)->_HandleEntryDrop(dropEffect, h);
-  }
+	h = m_pParentTree->HitTest(point, &dwState);
+	if(((dwState & uGood) > 0) && (h != NULL))
+	{
+		((CPwSafeDlg *)m_pTopParentI)->_HandleEntryDrop(dropEffect, h);
+	}
 
-  m_bAcceptDrop = FALSE;
-  _RemoveDropSelection();
-  return TRUE;
+	m_bAcceptDrop = FALSE;
+	_RemoveDropSelection();
+	return TRUE;
 }
 
 void CCustomOleDropHandler::_RemoveDropSelection()
 {
-  ASSERT(m_pTopParentI != NULL); ASSERT(m_pParentTree != NULL);
-  m_pParentTree->SelectDropTarget(NULL);
+	ASSERT(m_pTopParentI != NULL); ASSERT(m_pParentTree != NULL);
+	m_pParentTree->SelectDropTarget(NULL);
 }
 
-#if 0                                                                             // rrvt
 #pragma warning(pop)
-#endif                                                                            // rrvt
-

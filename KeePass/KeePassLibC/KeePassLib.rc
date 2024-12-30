@@ -27,18 +27,18 @@ LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
 // TEXTINCLUDE
 //
 
-1 TEXTINCLUDE
+1 TEXTINCLUDE 
 BEGIN
     "resource.h\0"
 END
 
-2 TEXTINCLUDE
+2 TEXTINCLUDE 
 BEGIN
     "#include ""afxres.h""\r\n"
     "\0"
 END
 
-3 TEXTINCLUDE
+3 TEXTINCLUDE 
 BEGIN
     "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
     "#define _AFX_NO_OLE_RESOURCES\r\n"
@@ -73,12 +73,12 @@ LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
 
 /////////////////////////////////////////////////////////////////////////////
 //
-// Version          // PwSafe Version
+// Version
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,41,3
- PRODUCTVERSION 1,41,3
+ FILEVERSION 1,42,0,0
+ PRODUCTVERSION 1,42,0,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -95,13 +95,13 @@ BEGIN
         BEGIN
             VALUE "Comments", "https://keepass.info/"
             VALUE "CompanyName", "Dominik Reichl"
-            VALUE "FileDescription", "KeePass Library 1.41.3"
-            VALUE "FileVersion", "1.41.3"
+            VALUE "FileDescription", "KeePass Library 1.42"
+            VALUE "FileVersion", "1.42.0.0"
             VALUE "InternalName", "KeePassLib"
-            VALUE "LegalCopyright", "Copyright © 2003-2023 Dominik Reichl"
+            VALUE "LegalCopyright", "Copyright © 2003-2024 Dominik Reichl"
             VALUE "OriginalFilename", "KeePassLibCXX.dll"
-            VALUE "ProductName", "KeePass Library 1.41.3"
-            VALUE "ProductVersion", "1.41.3"
+            VALUE "ProductName", "KeePass Library 1.42"
+            VALUE "ProductVersion", "1.42.0.0"
         END
     END
     BLOCK "VarFileInfo"

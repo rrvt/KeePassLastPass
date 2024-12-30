@@ -506,10 +506,8 @@ void CXHyperLink::SetDefaultCursor()
   }
 }
 
-#if 0                                                                             // rrvt
 #pragma warning(push)
 #pragma warning(disable: 4996)
-#endif                                                                            // rrvt
 
 ///////////////////////////////////////////////////////////////////////////////
 // GetRegKey -- Assume regdata is at least MAX_PATH in length                     // rrvt
@@ -530,9 +528,7 @@ LONG CXHyperLink::GetRegKey(HKEY key, LPCTSTR subkey, LPTSTR retdata)
   return retval;
 }
 
-#if 0                                                                             // rrvt
 #pragma warning(pop)
-#endif                                                                            // rrvt
 
 ///////////////////////////////////////////////////////////////////////////////
 // ReportError

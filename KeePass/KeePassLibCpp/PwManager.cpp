@@ -1,6 +1,6 @@
 /*
   KeePass Password Safe - The Open-Source Password Manager
-  Copyright (C) 2003-2022 Dominik Reichl <dominik.reichl@t-online.de>
+  Copyright (C) 2003-2024 Dominik Reichl <dominik.reichl@t-online.de>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -19,7 +19,7 @@
 
 #include "StdAfx.h"
 #include "PwManager.h"
-#include "Crypto/ARCFour.h"
+#include "Crypto/ChaCha20.h"
 #include "Crypto/KeyTransform.h"
 #include "Crypto/MemoryProtectionEx.h"
 #include "Util/Base64.h"
@@ -119,7 +119,7 @@ LPCTSTR CPwManager::GetTranslationDisplayVersion(LPCTSTR lpFileVersion)
 {
   if(lpFileVersion == NULL) { ASSERT(FALSE); return _T(""); }
 
-  if(_tcscmp(lpFileVersion, _T("1.40")) == 0) return _T("1.40.2 / 1.40");
+  if(_tcscmp(lpFileVersion, _T("1.40")) == 0) return _T("1.40.1 / 1.40");
 
   return lpFileVersion;
 }
@@ -1006,63 +1006,61 @@ BOOL CPwManager::SetEntry(DWORD dwIndex, _In_ const PW_ENTRY *pTemplate)
 void CPwManager::LockEntryPassword(_Inout_ PW_ENTRY *pEntry)
 {
   ASSERT_ENTRY(pEntry); if(pEntry == NULL) return;
-  ASSERT(pEntry->pszPassword != NULL); if(pEntry->pszPassword == NULL) return;
+  if(pEntry->pszPassword == NULL) { ASSERT(FALSE); return; }
 
   // Use DPAPI for advanced memory protection, if available and enabled
-  if(CMemoryProtectionEx::EncryptText(pEntry->pszPassword,
-    pEntry->uPasswordLen) == S_OK) return;
+  if(SUCCEEDED(CMemoryProtectionEx::EncryptText(pEntry->pszPassword,
+    pEntry->uPasswordLen))) return;
 
-  // ARCFour is self-inverse, see UnlockEntryPassword
-  if(pEntry->uPasswordLen != 0)
-    ARCFourCrypt((BYTE *)pEntry->pszPassword, pEntry->uPasswordLen * sizeof(TCHAR),
-      m_pSessionKey, PWM_SESSION_KEY_SIZE);
-  ASSERT(pEntry->pszPassword[pEntry->uPasswordLen] == 0);
+  BOOST_STATIC_ASSERT(PWM_SESSION_KEY_SIZE == 32);
+  CChaCha20::Crypt(reinterpret_cast<BYTE *>(pEntry->pszPassword),
+    pEntry->uPasswordLen * sizeof(TCHAR), m_pSessionKey);
+  ASSERT(pEntry->pszPassword[pEntry->uPasswordLen] == _T('\0'));
 }
 
 void CPwManager::UnlockEntryPassword(_Inout_ PW_ENTRY *pEntry)
 {
   ASSERT_ENTRY(pEntry); if(pEntry == NULL) return;
-  ASSERT(pEntry->pszPassword != NULL); if(pEntry->pszPassword == NULL) return;
+  if(pEntry->pszPassword == NULL) { ASSERT(FALSE); return; }
 
   // Use DPAPI for advanced memory protection, if available and enabled
-  if(CMemoryProtectionEx::DecryptText(pEntry->pszPassword,
-    pEntry->uPasswordLen) == S_OK) return;
+  if(SUCCEEDED(CMemoryProtectionEx::DecryptText(pEntry->pszPassword,
+    pEntry->uPasswordLen))) return;
 
-  // ARCFour is self-inverse, see LockEntryPassword
-  if(pEntry->uPasswordLen != 0)
-    ARCFourCrypt((BYTE *)pEntry->pszPassword, pEntry->uPasswordLen * sizeof(TCHAR),
-      m_pSessionKey, PWM_SESSION_KEY_SIZE);
-  ASSERT(static_cast<DWORD>(_tcslen(pEntry->pszPassword)) == pEntry->uPasswordLen);
+  BOOST_STATIC_ASSERT(PWM_SESSION_KEY_SIZE == 32);
+  CChaCha20::Crypt(reinterpret_cast<BYTE *>(pEntry->pszPassword),
+    pEntry->uPasswordLen * sizeof(TCHAR), m_pSessionKey);
+  ASSERT(_tcslen(pEntry->pszPassword) == pEntry->uPasswordLen);
 }
 
 void CPwManager::ProtectMasterKey(bool bProtectKey)
 {
   if(bProtectKey)
   {
-    if(CMemoryProtectionEx::EncryptMemory(m_pMasterKey, 32) == S_OK) return;
+    if(SUCCEEDED(CMemoryProtectionEx::EncryptMemory(m_pMasterKey, 32))) return;
   }
   else // Unprotect
   {
-    if(CMemoryProtectionEx::DecryptMemory(m_pMasterKey, 32) == S_OK) return;
+    if(SUCCEEDED(CMemoryProtectionEx::DecryptMemory(m_pMasterKey, 32))) return;
   }
 
-  // Works for both encryption and decryption
-  ARCFourCrypt(m_pMasterKey, 32, m_pSessionKey, PWM_SESSION_KEY_SIZE);
+  BOOST_STATIC_ASSERT(PWM_SESSION_KEY_SIZE == 32);
+  CChaCha20::Crypt(m_pMasterKey, 32, m_pSessionKey);
 }
 
 void CPwManager::ProtectTransformedMasterKey(bool bProtectKey)
 {
   if(bProtectKey)
   {
-    if(CMemoryProtectionEx::EncryptMemory(m_pTransformedMasterKey, 32) == S_OK) return;
+    if(SUCCEEDED(CMemoryProtectionEx::EncryptMemory(m_pTransformedMasterKey, 32))) return;
   }
   else // Unprotect
   {
-    if(CMemoryProtectionEx::DecryptMemory(m_pTransformedMasterKey, 32) == S_OK) return;
+    if(SUCCEEDED(CMemoryProtectionEx::DecryptMemory(m_pTransformedMasterKey, 32))) return;
   }
 
-  // Works for both encryption and decryption
-  ARCFourCrypt(m_pTransformedMasterKey, 32, m_pSessionKey, PWM_SESSION_KEY_SIZE);
+  BOOST_STATIC_ASSERT(PWM_SESSION_KEY_SIZE == 32);
+  CChaCha20::Crypt(m_pTransformedMasterKey, 32, m_pSessionKey);
 }
 
 void CPwManager::_DetMetaInfo()
@@ -1605,15 +1603,13 @@ BOOL CPwManager::_AddMetaStream(LPCTSTR lpMetaDataDesc, BYTE *pData, DWORD dwLen
 
   PW_ENTRY pe;
   memset(&pe, 0, sizeof(PW_ENTRY));
-  pe.uGroupId       = m_pGroups[0].uGroupId;
-  pe.pBinaryData    = pData; pe.pszAdditional = const_cast<LPTSTR>(lpMetaDataDesc);
-  pe.pszBinaryDesc  = (TCHAR*) PMS_ID_BINDESC;                  // rrvt c++2020
-  pe.pszPassword    = (TCHAR*) _T("");
-  pe.pszTitle       = (TCHAR*) PMS_ID_TITLE;
-  pe.pszURL         = (TCHAR*) PMS_ID_URL;
-  pe.pszUserName    = (TCHAR*) PMS_ID_USER;
-  pe.tCreation      = g_pwTimeNever; pe.tExpire = g_pwTimeNever;
-  pe.tLastAccess    = g_pwTimeNever; pe.tLastMod = g_pwTimeNever;
+  pe.uGroupId = m_pGroups[0].uGroupId;
+  pe.pBinaryData = pData; pe.pszAdditional = const_cast<LPTSTR>(lpMetaDataDesc);
+  pe.pszBinaryDesc = (TCHAR*) PMS_ID_BINDESC; pe.pszPassword = (TCHAR*) _T("");
+  pe.pszTitle = (TCHAR*) PMS_ID_TITLE; pe.pszURL = (TCHAR*) PMS_ID_URL;
+  pe.pszUserName = (TCHAR*) PMS_ID_USER;
+  pe.tCreation = g_pwTimeNever; pe.tExpire = g_pwTimeNever;
+  pe.tLastAccess = g_pwTimeNever; pe.tLastMod = g_pwTimeNever;
   pe.uBinaryDataLen = dwLength;
 
   return AddEntry(&pe);

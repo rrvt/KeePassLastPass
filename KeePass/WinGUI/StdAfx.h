@@ -1,6 +1,6 @@
 /*
   KeePass Password Safe - The Open-Source Password Manager
-  Copyright (C) 2003-2022 Dominik Reichl <dominik.reichl@t-online.de>
+  Copyright (C) 2003-2024 Dominik Reichl <dominik.reichl@t-online.de>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -22,9 +22,6 @@
 
 #pragma once
 
-#include <SDKDDKVer.h>                                                  // rrvt
-
-
 #ifndef _SECURE_ATL
 #define _SECURE_ATL 1
 #endif
@@ -37,7 +34,6 @@
 #define WIN32_LEAN_AND_MEAN
 #endif
 
-#if 0                                                                   // rrvt
 // Using the Windows Headers:
 // https://msdn.microsoft.com/en-us/library/windows/desktop/aa383745.aspx
 #ifndef WINVER
@@ -45,15 +41,13 @@
 #endif
 #ifndef _WIN32_WINNT
 #define _WIN32_WINNT 0x0600
-#endif
+#endif						
 #ifndef _WIN32_WINDOWS
 #define _WIN32_WINDOWS 0x0410
 #endif
 #ifndef _WIN32_IE
 #define _WIN32_IE 0x0600
 #endif
-#endif                                                                  // rrvt
-
 #define _ATL_CSTRING_EXPLICIT_CONSTRUCTORS
 #define _AFX_ALL_WARNINGS
 
@@ -70,25 +64,25 @@
 #if (_MSC_VER >= 1400) // Manifest linking
 #if defined(_M_IX86)
 #pragma comment(linker, "/manifestdependency:\"type='win32' " \
-  "name='Microsoft.Windows.Common-Controls' " \
-  "version='6.0.0.0' " \
-  "processorArchitecture='x86' " \
-  "publicKeyToken='6595b64144ccf1df' " \
-  "language='*'\"")
+	"name='Microsoft.Windows.Common-Controls' " \
+	"version='6.0.0.0' " \
+	"processorArchitecture='x86' " \
+	"publicKeyToken='6595b64144ccf1df' " \
+	"language='*'\"")
 #elif defined(_M_AMD64)
 #pragma comment(linker, "/manifestdependency:\"type='win32' " \
-  "name='Microsoft.Windows.Common-Controls' " \
-  "version='6.0.0.0' " \
-  "processorArchitecture='amd64' " \
-  "publicKeyToken='6595b64144ccf1df' " \
-  "language='*'\"")
+	"name='Microsoft.Windows.Common-Controls' " \
+	"version='6.0.0.0' " \
+	"processorArchitecture='amd64' " \
+	"publicKeyToken='6595b64144ccf1df' " \
+	"language='*'\"")
 #elif defined(_M_IA64)
 #pragma comment(linker, "/manifestdependency:\"type='win32' " \
-  "name='Microsoft.Windows.Common-Controls' " \
-  "version='6.0.0.0' " \
-  "processorArchitecture='ia64' " \
-  "publicKeyToken='6595b64144ccf1df' " \
-  "language='*'\"")
+	"name='Microsoft.Windows.Common-Controls' " \
+	"version='6.0.0.0' " \
+	"processorArchitecture='ia64' " \
+	"publicKeyToken='6595b64144ccf1df' " \
+	"language='*'\"")
 #endif
 #endif // (_MSC_VER >= 1400)
 
@@ -102,7 +96,6 @@
 #include <afxdisp.h>
 #include <afxole.h>
 
-#if 0                                                                   // rrvt
 // #ifdef _WIN32_WINNT
 // #undef _WIN32_WINNT
 // #endif
@@ -110,7 +103,6 @@
 #if (_WIN32_WINNT != 0x0600)
 #error _WIN32_WINNT has been redefined by MFC headers!
 #endif
-#endif                                                                  // rrvt
 
 // Redefine the buggy version of AFXASSUME if we are being compiled on
 // VC 2005 which generates the compiler warning "C4189: '__afx_condVal' :
@@ -125,11 +117,6 @@
 #endif
 #endif
 
-#pragma warning( disable : 4458 )                                       // rrvt
-
 //{{AFX_INSERT_LOCATION}}
 
 #endif // !defined(AFX_STDAFX_H__206CC2C5_063D_11D8_BF16_0050BF14F5CC__INCLUDED_)
-
-
-

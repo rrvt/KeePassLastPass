@@ -1,6 +1,6 @@
 ﻿/*
   KeePass Password Safe - The Open-Source Password Manager
-  Copyright (C) 2003-2022 Dominik Reichl <dominik.reichl@t-online.de>
+  Copyright (C) 2003-2024 Dominik Reichl <dominik.reichl@t-online.de>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -38,15 +38,15 @@
 #define PWM_PRODUCT_NAME       _T("KeePass Password Safe")
 #define PWM_PRODUCT_NAME_SHORT _T("KeePass")
 
-// When making a Windows build, don't forget to update the verinfo resource  // PwSafe Version
+// When making a Windows build, don't forget to update the verinfo resource
 #ifndef _UNICODE
-#define PWM_VERSION_STR  _T("1.41.3")
+#define PWM_VERSION_STR  _T("1.42")
 #else
-#define PWM_VERSION_STR  _T("1.41 Unicode")
+#define PWM_VERSION_STR  _T("1.42 Unicode")
 #endif
-#define PWM_VERSION_DW   0x01410300
-#define PWM_VERSION_QW   (UINT64) 0x0001004100030000ULL
-// #define PWM_DEVSNAPSHOT                                      // () UINT64) above -- rrvt 4/7/23
+#define PWM_VERSION_DW   0x012A0000
+#define PWM_VERSION_QW   0x0001002A00000000ULL
+// #define PWM_DEVSNAPSHOT
 
 // Database file signature bytes
 #define PWM_DBSIG_1      0x9AA2D903
@@ -204,6 +204,7 @@
 #define PWMKEY_USEHELPCENTER        _T("KeeUseHelpCenter")
 #define PWMKEY_USEDPAPIFORMEMPROT   _T("KeeUseDPAPIForMemoryProtection")
 #define PWMKEY_USECNGBCRYPTFORKEYT  _T("KeeUseCNGForKeyTransformations")
+#define PWMKEY_KEYTWEAKWARNING      _T("KeeKeyTransformWeakWarning")
 #define PWMKEY_FORCEALLOWCHANGEMKEY _T("KeeForceAllowChangeMasterKey")
 #define PWMKEY_FORCEALLOWPRINTING   _T("KeeForceAllowPrinting")
 #define PWMKEY_FORCEALLOWIMPORT     _T("KeeForceAllowImport")
@@ -233,8 +234,8 @@
 #define PWM_NUM_INITIAL_ENTRIES 256
 #define PWM_NUM_INITIAL_GROUPS  32
 
-#define PWM_PASSWORD_STRING      LPSTR(_T("********"))
-                                                              // LPSTR(...) added above -- rrvt
+#define PWM_PASSWORD_STRING      _T("********")
+
 #define PWM_KEYMETHOD_OR         FALSE
 #define PWM_KEYMETHOD_AND        TRUE
 
@@ -251,9 +252,9 @@
 #define PWM_FLAG_ARCFOUR         4
 #define PWM_FLAG_TWOFISH         8
 
-#define PWM_SESSION_KEY_SIZE     12
+#define PWM_SESSION_KEY_SIZE     32
 
-#define PWM_STD_KEYENCROUNDS     60000
+#define PWM_STD_KEYENCROUNDS     600000
 
 #define PWM_STD_ICON_GROUP       48
 #define PWM_STD_ICON_GROUP_OPEN  49

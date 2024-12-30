@@ -1,6 +1,6 @@
 /*
   KeePass Password Safe - The Open-Source Password Manager
-  Copyright (C) 2003-2022 Dominik Reichl <dominik.reichl@t-online.de>
+  Copyright (C) 2003-2024 Dominik Reichl <dominik.reichl@t-online.de>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -39,12 +39,12 @@ using boost::scoped_array;
 
 static bool g_bAuInitialized = false;
 
-static bool g_bOSInitialized           = false;                      // rrvt
-static bool g_bIsWin9xSystem           = false;
+static bool g_bOSInitialized = false;
+static bool g_bIsWin9xSystem = false;
 static bool g_bIsAtLeastWinVistaSystem = false;
-static bool g_bIsAtLeastWin7System     = false;
-static bool g_bIsWine                  = false;
-static bool g_bIsAppX                  = false;
+static bool g_bIsAtLeastWin7System = false;
+static bool g_bIsWine = false;
+static bool g_bIsAppX = false;
 
 void AU_EnsureInitialized()
 {
@@ -251,10 +251,10 @@ void Priv_AU_EnsureOSInitialized()
   osvi.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
   GetVersionEx(&osvi);
 
-  g_bIsWin9xSystem           = (osvi.dwMajorVersion <= 4);
+  g_bIsWin9xSystem = (osvi.dwMajorVersion <= 4);
   g_bIsAtLeastWinVistaSystem = (osvi.dwMajorVersion >= 6);
-  g_bIsAtLeastWin7System     = ((osvi.dwMajorVersion > 6) ||
-                                             ((osvi.dwMajorVersion == 6) && (osvi.dwMinorVersion >= 1)));
+  g_bIsAtLeastWin7System = ((osvi.dwMajorVersion > 6) ||
+    ((osvi.dwMajorVersion == 6) && (osvi.dwMinorVersion >= 1)));
 #endif                                                                  // rrvt
 
   // https://wiki.winehq.org/Developer_FAQ#How_can_I_detect_Wine.3F

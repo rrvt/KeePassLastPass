@@ -1,6 +1,6 @@
 /*
   KeePass Password Safe - The Open-Source Password Manager
-  Copyright (C) 2003-2022 Dominik Reichl <dominik.reichl@t-online.de>
+  Copyright (C) 2003-2024 Dominik Reichl <dominik.reichl@t-online.de>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -27,6 +27,7 @@
 #include "../KeePassLibCpp/Util/PopularPasswords.h"
 #include "../KeePassLibCpp/Util/StrUtil.h"
 #include "../KeePassLibCpp/Crypto/MemoryProtectionEx.h"
+#include "../KeePassLibCpp/Crypto/KeyTransform.h"
 #include "../KeePassLibCpp/Crypto/KeyTransform_BCrypt.h"
 #include "Util/ShutdownBlocker.h"
 #include "Util/WinUtil.h"
@@ -165,6 +166,7 @@ BOOL CPwSafeApp::InitInstance()
     dlg.m_bCheckForInstance = pc->GetBool(PWMKEY_SINGLEINSTANCE, FALSE);
     CMemoryProtectionEx::SetEnabledAtStart(pc->GetBool(PWMKEY_USEDPAPIFORMEMPROT, TRUE));
     *CKeyTransformBCrypt::GetEnabledPtr() = pc->GetBool(PWMKEY_USECNGBCRYPTFORKEYT, TRUE);
+    *CKeyTransform::GetKeyTransformWeakWarningPtr() = pc->GetBool(PWMKEY_KEYTWEAKWARNING, TRUE);
     delete pc; pc = NULL;
   }
   else { ASSERT(FALSE); }
@@ -220,7 +222,8 @@ BOOL CPwSafeApp::InitInstance()
 
         const FullPathName& keyfile = CmdArgs::instance().getKeyfile();
         enum {PATH_EXISTS = FullPathName::PATH_ONLY | FullPathName::PATH_AND_FILENAME};
-        if(keyfile.getState() & (FullPathName::STATE) PATH_EXISTS && !CmdArgs::instance().preselectIsInEffect())
+        if(keyfile.getState() & (FullPathName::STATE) PATH_EXISTS &&
+                                                        !CmdArgs::instance().preselectIsInEffect())
         {
           dwData |= (DWORD)keyfile.getFullPathName().length();
           strData = keyfile.getFullPathName() + strData;
@@ -637,7 +640,6 @@ BOOL CPwSafeApp::IsMBThreadACP()
   return FALSE;
 }
 
-
 #pragma warning(push)
 #pragma warning(disable: 4310) // Type cast shortens constant value
 
@@ -649,7 +651,6 @@ TCHAR CPwSafeApp::GetPasswordCharacter()
 }
 
 #pragma warning(pop)
-
 
 LPCTSTR CPwSafeApp::GetPasswordFont()
 {

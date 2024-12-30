@@ -1,6 +1,6 @@
 /*
   KeePass Password Safe - The Open-Source Password Manager
-  Copyright (C) 2003-2022 Dominik Reichl <dominik.reichl@t-online.de>
+  Copyright (C) 2003-2024 Dominik Reichl <dominik.reichl@t-online.de>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -20,16 +20,10 @@
 #include "StdAfx.h"
 #include <mmsystem.h>
 
-#if 0                                                                             // rrvt
 #pragma warning(push)
 #pragma warning(disable: 4201) // Non-standard extension: nameless structure/union
-#endif                                                                            // rrvt
-
 #include <winioctl.h>
-
-#if 0                                                                             // rrvt
 #pragma warning(pop)
-#endif                                                                            // rrvt
 
 #ifdef _UNICODE
 #include <atlbase.h>

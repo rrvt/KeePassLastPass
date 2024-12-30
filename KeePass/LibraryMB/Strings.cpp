@@ -31,13 +31,17 @@ Cstring& Cstring::operator= (String& s) {CString& cs = *this; cs = s.str(); retu
 
 
 Cstring& Cstring::operator= (variant_t& v)
-                    {CString& cs = *this;  if (v.vt == VT_BSTR) cs = (Tchar*) bstr_t(v);  return *this;}
+               {CString& cs = *this;  if (v.vt == VT_BSTR) cs = (Tchar*) bstr_t(v);  return *this;}
 
 
-Cstring& Cstring::operator= (int    v) {String s = v;  CString& cs = *this;  cs = s.str();  return *this;}
-Cstring& Cstring::operator= (long   v) {String s = v;  CString& cs = *this;  cs = s.str();  return *this;}
-Cstring& Cstring::operator= (ulong  v) {String s = v;  CString& cs = *this;  cs = s.str();  return *this;}
-Cstring& Cstring::operator= (double v) {String s = v;  CString& cs = *this;  cs = s.str();  return *this;}
+Cstring& Cstring::operator= (int    v)
+                                {String s = v;  CString& cs = *this;  cs = s.str();  return *this;}
+Cstring& Cstring::operator= (long   v)
+                                {String s = v;  CString& cs = *this;  cs = s.str();  return *this;}
+Cstring& Cstring::operator= (ulong  v)
+                                {String s = v;  CString& cs = *this;  cs = s.str();  return *this;}
+Cstring& Cstring::operator= (double v)
+                                {String s = v;  CString& cs = *this;  cs = s.str();  return *this;}
 
 
 String& String::trim() {trimLeft(); return trimRight();}
@@ -110,9 +114,11 @@ unique_ptr<Tchar> formatted;
 
   loop {
 
-    formatted.reset(new Tchar[n]);               /* Wrap the plain Tchar array into the unique_ptr */
+    formatted.reset(new Tchar[n]);            /* Wrap the plain Tchar array into the unique_ptr */
 
-    va_start(ap, fmt_str);   noChars = _vsntprintf_s(formatted.get(), n, n-1, fmt_str, ap);   va_end(ap);
+    va_start(ap, fmt_str);
+      noChars = _vsntprintf_s(formatted.get(), n, n-1, fmt_str, ap);
+    va_end(ap);
 
     if (noChars >= 0) break;
 
@@ -171,17 +177,46 @@ size_t j = i;
   }
 
 
+//%[flags][width][.precision][size]type
 
 String dblToString(double v, int width, int precision) {
 String s;
 
-  if (precision) {s.format(_T("%*.*f"), width, precision, v);   return s;}
-                  s.format(_T("%*f"),   width,            v);   return s;
+  if      (precision && width) {s.format(_T("%*.*lg"), width, precision, v);   return s;}
+  else if (precision)          {s.format(_T("%.*lg"),         precision, v);   return s;}
+  else if (             width) {s.format(_T("%*lg"),   width,            v);   return s;}
+                                s.format(_T("%lg"),                      v);   return s;
   }
 
 
-String intToString(  long v, int width) {String s;   s.format(_T("%*li"),  width, v); return s;}
-String uintToString(ulong v, int width) {String s;   s.format(_T("%*uli"), width, v); return s;}
+String intToString(  long v, int width, int precision) {
+String s;
+
+  if      (precision && width) {s.format(_T("%*.*li"), width, precision, v);   return s;}
+  else if (precision)          {s.format(_T("%.*li"),         precision, v);   return s;}
+  else if (             width) {s.format(_T("%*li"),   width,            v);   return s;}
+                                s.format(_T("%li"),                      v);   return s;
+  }
+
+
+
+
+String uintToString(ulong v, int width, int precision) {
+String s;
+
+  if      (precision && width) {s.format(_T("%*.*lu"), width, precision, v); return s;}
+  else if (precision)          {s.format(_T("%.*lu"),         precision, v); return s;}
+  else if (             width) {s.format(_T("%*lu"),   width,            v); return s;}
+                                s.format(_T("%lu"),                      v); return s;
+  }
+
+
+String hexToString(ulong  v, int precision) {
+String s;
+
+  if (precision)          {s.format(_T("0x%.*lx"),         precision, v); return s;}
+                           s.format(_T("0x%lx"),                      v); return s;
+  }
 
 
 

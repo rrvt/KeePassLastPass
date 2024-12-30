@@ -3523,7 +3523,7 @@ void CAMSEdit::TimeBehavior::SetAMPM(bool bAM)
   m_pEdit->SetSel(GetAMPMStartPosition() - 1, GetAMPMStartPosition() + m_nAMPMLength);
 
   CString strText;
-  strText.Format(_T(" %s"), bAM ? m_strAM.GetBuffer() : m_strPM.GetBuffer());   // rrvt
+  strText = _T(" ") + bAM ? m_strAM : m_strPM;                                      // rrvt
   m_pEdit->ReplaceSel(strText, TRUE); // set the AM/PM
 }
 
@@ -4062,7 +4062,7 @@ CString CAMSEdit::TimeBehavior::_GetValidText() const
 
 // Formats the given hour, minute, second, and optional AM/PM symbol into a string based on the proper format.
 CString CAMSEdit::TimeBehavior::GetFormattedTime(int nHour, int nMinute, int nSecond,
-                                                            const CString& strAMPM /*= _T("")*/) const {
+                                                      const CString& strAMPM /*= _T("")*/) const {
 TCHAR* ampm = ((CString&) strAMPM).GetBuffer();                         // rrvt
 
   if (IsShowing24HourFormat())
@@ -4967,4 +4967,3 @@ LRESULT CAMSMultiMaskedEdit::OnPaste(WPARAM wParam, LPARAM lParam)
 #endif  // (AMSEDIT_COMPILED_CLASSES & AMSEDIT_ALL_CLASSES) == AMSEDIT_ALL_CLASSES
 
 #pragma warning(pop)
-

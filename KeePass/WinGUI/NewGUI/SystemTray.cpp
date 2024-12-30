@@ -111,11 +111,9 @@ const UINT CSystemTray::m_nTaskbarCreatedMsg = ::RegisterWindowMessage(_T("Taskb
 // DR: Changed CWnd to CMsgRelayWnd to allow message relaying
 CMsgRelayWnd CSystemTray::m_wndInvisible;
 
-#if 0                                                                             // rrvt
 // DR: Added pragmas to avoid level 4 compiler warnings
-//#pragma warning(push)
-//#pragma warning(disable: 4100)
-#endif                                                                            // rrvt
+#pragma warning(push)
+#pragma warning(disable: 4100)
 
 /////////////////////////////////////////////////////////////////////////////
 // CSystemTray construction/creation/destruction
@@ -164,12 +162,12 @@ void CSystemTray::Initialise()
   #if 1                                                                           // rrvt
     m_bWin2K = currentOS.is >= CurrentOS::Win2K;                                  // OS >= Win2K
   #else                                                                           // rrvt
-      OSVERSIONINFO os = { sizeof(os) };
-      GetVersionEx(&os);
-      m_bWin2K = ( VER_PLATFORM_WIN32_NT == os.dwPlatformId && os.dwMajorVersion >= 5 );
+    OSVERSIONINFO os = { sizeof(os) };
+    GetVersionEx(&os);
+    m_bWin2K = ( VER_PLATFORM_WIN32_NT == os.dwPlatformId && os.dwMajorVersion >= 5 );
   #endif                                                                          // rrvt
 #else
-  m_bWin2K = FALSE;
+    m_bWin2K = FALSE;
 #endif
 }
 
@@ -208,7 +206,7 @@ BOOL CSystemTray::Create(CWnd* pParent, UINT uCallbackMessage, LPCTSTR szToolTip
     #if 1                                                                         // rrvt
       m_bEnabled = currentOS.is >= CurrentOS::Win95;                              // OS >= Win95
     #else                                                                         // rrvt
-      m_bEnabled = (GetVersion() & 0xff) >= 4;
+    m_bEnabled = (GetVersion() & 0xff) >= 4;
     #endif                                                                        // rrvt
 
     if (!m_bEnabled)
@@ -1184,7 +1182,5 @@ void CSystemTray::MaximiseFromTray(CWnd* pWnd, BOOL bForceAnimation, BOOL bMaxim
 #endif
 }
 
-#if 0                                                                             // rrvt
 // DR: End warning pragmas
-//#pragma warning(pop)
-#endif                                                                            // rrvt
+#pragma warning(pop)

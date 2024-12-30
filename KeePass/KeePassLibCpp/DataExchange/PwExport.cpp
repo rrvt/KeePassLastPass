@@ -1,6 +1,6 @@
 /*
   KeePass Password Safe - The Open-Source Password Manager
-  Copyright (C) 2003-2022 Dominik Reichl <dominik.reichl@t-online.de>
+  Copyright (C) 2003-2024 Dominik Reichl <dominik.reichl@t-online.de>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -113,8 +113,8 @@ void CPwExport::SetFormat(int nFormat)
 
 void CPwExport::SetNewLineSeq(BOOL bWindows)
 {
-  if(bWindows == TRUE) m_pszNewLine = _T("\r\n");
-  else m_pszNewLine = _T("\n");
+  if(bWindows == TRUE) m_pszNewLine = (TCHAR*) _T("\r\n");                    // rrvt
+  else m_pszNewLine = (TCHAR*) _T("\n");
 }
 
 void CPwExport::_ExpStr(LPCTSTR lpString)

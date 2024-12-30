@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2008-2022 Dominik Reichl
+  Copyright (C) 2008-2024 Dominik Reichl
   All rights reserved.
 
   Redistribution and use in source and binary forms, with or without
@@ -35,8 +35,14 @@
 #include "../../SysDefEx.h"
 #include "IKpUnknown.h"
 #include "std.h"                              // Van Tuyl Addition
+#include <vector>
+#include <string>
+#include <tchar.h>
 
 #pragma pack(1)
+
+typedef std::basic_string<TCHAR> std_string;
+
 
 /// Interface to a configuration object.
 /// Instances of classes supporting this interface can be created using

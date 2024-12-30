@@ -2,18 +2,19 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
 
 <Product Id="*" UpgradeCode="E4B33AD1-E88F-4AF5-BF88-DA9B628977AD" Language="1033"
-                  Manufacturer="Bob -- K6RWY" Name="KeePass"
-                  Version="!(bind.fileVersion.KeePass.cmp)"
-                  >
+                Manufacturer="Bob -- K6RWY" Name="KeePass"
+                Version="!(bind.fileVersion.KeePass.cmp)"
+                >
 
   <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine"
-                      Manufacturer="Bob -- K6RWY" Description="Installs KeePass"
-                      Comments="Copyright (c) Bob -- K6RWY"
-                      />
+                Manufacturer="Bob -- K6RWY" Description="Installs KeePass"
+                Comments="Copyright (c) Bob -- K6RWY"
+                />
 
   <MajorUpgrade Schedule="afterInstallInitialize"
-                                AllowDowngrades="no"   IgnoreRemoveFailure="no"   AllowSameVersionUpgrades="no"
-                                DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+                AllowDowngrades="no"   IgnoreRemoveFailure="no"   AllowSameVersionUpgrades="no"
+                DowngradeErrorMessage="A newer version of [ProductName] is already installed."
+                />
 
   <MediaTemplate EmbedCab="yes" />
 
@@ -30,8 +31,8 @@
   <WixVariable Id="WixUIDialogBmp" Value="C:\Program Files (x86)\WixApp\dialog.bmp"/>
   <WixVariable Id="WixUIBannerBmp" Value="C:\Program Files (x86)\WixApp\banner.bmp"/>
 
-  <Icon     Id="PwSafe01Icon.ico" SourceFile="$(var.SolutionDir)..\WinGUI\res\PwSafe01.ico"/>
-  <Property Id="ARPPRODUCTICON"  Value="PwSafe01Icon.ico" />
+  <Icon     Id="PwSafe_Icon.exe" SourceFile="$(var.SolutionDir)..\WinGUI\res\PwSafe.ico"/>
+  <Property Id="ARPPRODUCTICON"  Value="PwSafe_Icon.exe" />
 
   <Feature Id="ProductFeatures" Title="Main Product" Level="1" >
     <ComponentGroupRef Id="KeePass.ftr"/>
@@ -41,17 +42,17 @@
 </Product>
 
 <Fragment>
-<ComponentGroup Id="KeePass.ftr">
-  <ComponentRef Id="KeePass.cmp"/>
-  <ComponentRef Id="KeePassLib.cmp"/>
-</ComponentGroup>
-<ComponentGroup Id="PlugIns.ftr">
-  <ComponentRef Id="LastPass.cmp"/>
-  <ComponentRef Id="EnglishPL.cmp"/>
-</ComponentGroup>
-<ComponentGroup Id="Uninstall_KeePass.ftr">
-  <ComponentRef Id="Uninstall_KeePass.cmp"/>
-</ComponentGroup>
+  <ComponentGroup Id="KeePass.ftr">
+    <ComponentRef Id="KeePass.cmp"/>
+    <ComponentRef Id="KeePassLib.cmp"/>
+  </ComponentGroup>
+  <ComponentGroup Id="PlugIns.ftr">
+    <ComponentRef Id="LastPass.cmp"/>
+    <ComponentRef Id="EnglishPL.cmp"/>
+  </ComponentGroup>
+  <ComponentGroup Id="Uninstall_KeePass.ftr">
+    <ComponentRef Id="Uninstall_KeePass.cmp"/>
+  </ComponentGroup>
 </Fragment>
 
 <!--Directory structure-->
@@ -66,7 +67,6 @@
     </Directory>
 
     <Directory Id="DesktopFolder" />
-
   </Directory>
 
   <Property Id="ApplicationFolderName" Value="KeePass" />
@@ -75,8 +75,7 @@
 </Fragment>
 
 <Fragment>
-
-  <Component Id="KeePass.cmp"  Guid="219C5BD5-758C-4CF0-A50C-A49DD9450E89" Directory="KEEPASS.PFF">
+  <Component Id="KeePass.cmp" Guid="219C5BD5-758C-4CF0-A50C-A49DD9450E89" Directory="KEEPASS.PFF">
     <File Id="KeePass.cmp" Source="$(var.SolutionDir)..\Release\KeePass.exe" KeyPath="yes"/>
 
     <Shortcut Id               = "KeePass.shc"
@@ -85,7 +84,7 @@
               Advertise        = "yes"
               Directory        = "KeePass.pmf"
               WorkingDirectory = "KEEPASS.PFF"
-              Icon             = "PwSafe01Icon.ico"
+              Icon             = "PwSafe_Icon.exe"
               />
 
     <Shortcut Id               = "KeePass.dsk"
@@ -94,46 +93,42 @@
               Advertise        = "yes"
               Directory        = "DesktopFolder"
               WorkingDirectory = "KEEPASS.PFF"
-              Icon             = "PwSafe01Icon.ico"
+              Icon             = "PwSafe_Icon.exe"
               />
   </Component>
 
-  <Component Id="KeePassLib.cmp"  Guid="91157E1C-C077-4F31-B2AE-AEA31675482F" Directory="KEEPASS.PFF">
+  <Component Id="KeePassLib.cmp" Guid="91157E1C-C077-4F31-B2AE-AEA31675482F"
+                                                                           Directory="KEEPASS.PFF">
     <File Id="KeePassLib.cmp" Source="$(var.SolutionDir)..\Release\KeePassLibC.dll" KeyPath="yes"/>
   </Component>
-
 </Fragment>
 
 <Fragment>
-
-  <Component Id="LastPass.cmp"  Guid="AC6D8794-DD18-4F91-B05A-92AA7CCD2AB3" Directory="KEEPASS.PFF">
-    <File Id="LastPass.cmp" Source="$(var.SolutionDir)..\Release\Plugins\LastPass.dll" KeyPath="yes"/>
+  <Component Id="LastPass.cmp" Guid="AC6D8794-DD18-4F91-B05A-92AA7CCD2AB3" Directory="KEEPASS.PFF">
+    <File Id="LastPass.cmp" Source="$(var.SolutionDir)..\Release\LastPass.dll" KeyPath="yes"/>
   </Component>
 
-  <Component Id="EnglishPL.cmp"  Guid="5C88466F-4740-46F0-A07D-657BC61793FD" Directory="KEEPASS.PFF">
+  <Component Id="EnglishPL.cmp" Guid="5C88466F-4740-46F0-A07D-657BC61793FD"
+                                                                           Directory="KEEPASS.PFF">
     <File Id="EnglishPL.cmp"
-                  Source="$(var.SolutionDir)..\Release\Plugins\English_LastPass.plng" KeyPath="yes"/>
+                        Source="$(var.SolutionDir)..\Release\English_LastPass.plng" KeyPath="yes"/>
   </Component>
-
 </Fragment>
 
 <Fragment>
-
-  <Component Id="Uninstall_KeePass.cmp" 
-                                  Guid="26909F55-FF75-410F-8751-18D1057DBBC7" Directory="KeePass.pmf">
+  <Component Id="Uninstall_KeePass.cmp" Guid="D582FF3D-5CBC-4686-8ABE-90284E396650"
+                                                                           Directory="KeePass.pmf">
 
     <Shortcut Id               = "UninstallKeePass.shc"
               Name             = "Uninstall KeePass"
               Description      = "Uninstalls KeePass"
               Target           = "[System64Folder]msiexec.exe"
               Arguments        = "/x [ProductCode]"
-              Icon             = "PwSafe01Icon.ico"
+              Icon             = "PwSafe_Icon.exe"
               />
     <RemoveFolder Id="KeePass.uni" Directory="KeePass.pmf" On="uninstall"/>
-    <RegistryValue Root="HKCU" Key="Software\Uninstall_KeePass.cmp" Name="installed"
-                   Type="integer" Value="1" KeyPath="yes"/>
+    <RegistryValue Root="HKCU" Key="Software\Uninstall_KeePass.cmp"
+                                          Name="installed" Type="integer" Value="1" KeyPath="yes"/>
   </Component>
-
 </Fragment>
-
 </Wix>

@@ -1,6 +1,6 @@
 /*
   KeePass Password Safe - The Open-Source Password Manager
-  Copyright (C) 2003-2022 Dominik Reichl <dominik.reichl@t-online.de>
+  Copyright (C) 2003-2024 Dominik Reichl <dominik.reichl@t-online.de>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -39,11 +39,9 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
-#if 0
-// Cast truncates constant value
 #pragma warning(push)
+// Cast truncates constant value
 #pragma warning(disable: 4310)
-#endif
 
 /////////////////////////////////////////////////////////////////////////////
 
@@ -963,6 +961,4 @@ KP_KEYPROV_INFO_CPP CPasswordDlg::KeyProvCToS(const KP_KEYPROV_INFO& c)
   return s;
 }
 
-#if 0
 #pragma warning(pop)
-#endif

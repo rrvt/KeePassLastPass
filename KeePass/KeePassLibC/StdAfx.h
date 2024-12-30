@@ -1,6 +1,6 @@
 /*
   KeePass Password Safe - The Open-Source Password Manager
-  Copyright (C) 2003-2022 Dominik Reichl <dominik.reichl@t-online.de>
+  Copyright (C) 2003-2024 Dominik Reichl <dominik.reichl@t-online.de>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -22,9 +22,6 @@
 
 #pragma once
 
-#include <SDKDDKVer.h>                                                  // rrvt
-
-
 #define WIN32_LEAN_AND_MEAN
 #define VC_EXTRALEAN
 
@@ -32,21 +29,18 @@
 #define _SECURE_ATL 1
 #endif
 
-#if 0                                                                   // rrvt
 #ifndef WINVER
 #define WINVER 0x0600
 #endif
 #ifndef _WIN32_WINNT
 #define _WIN32_WINNT 0x0600
-#endif
+#endif						
 #ifndef _WIN32_WINDOWS
 #define _WIN32_WINDOWS 0x0410
 #endif
 #ifndef _WIN32_IE
 #define _WIN32_IE 0x0600
 #endif
-#endif                                                                  // rrvt
-
 #define _ATL_CSTRING_EXPLICIT_CONSTRUCTORS
 #define _AFX_ALL_WARNINGS
 
@@ -70,22 +64,20 @@
 // #endif // _AFX_NO_OLE_SUPPORT
 
 #ifndef _AFX_NO_DB_SUPPORT
-#include <afxdb.h>      // MFC ODBC database classes
+#include <afxdb.h>			// MFC ODBC database classes
 #error KeePass Library doesn't support ODBC.
 #endif // _AFX_NO_DB_SUPPORT
 
 #ifndef _AFX_NO_DAO_SUPPORT
-#include <afxdao.h>     // MFC DAO database classes
+#include <afxdao.h>			// MFC DAO database classes
 #endif // _AFX_NO_DAO_SUPPORT
 
-// #include <afxdtctl.h>    // MFC support for Internet Explorer 4 Common Controls
+// #include <afxdtctl.h>		// MFC support for Internet Explorer 4 Common Controls
 #ifndef _AFX_NO_AFXCMN_SUPPORT
-#include <afxcmn.h>     // MFC support for Windows Common Controls
+#include <afxcmn.h>			// MFC support for Windows Common Controls
 #endif // _AFX_NO_AFXCMN_SUPPORT
 
 //{{AFX_INSERT_LOCATION}}
 // Microsoft Visual C++ will insert additional declarations immediately before the previous line.
 
 #endif // !defined(AFX_STDAFX_H__47C113B5_2F98_41CE_A5E6_1E85AC0DEE11__INCLUDED_)
-
-

@@ -16,9 +16,7 @@
 
 #pragma once
 
-
 #include "ToString.h"
-
 
 class String;
 
@@ -33,10 +31,18 @@ public:
   int      stoi( uint& i, int base=10);
 
   void     clear()   {Empty();}
-  bool     isEmpty() {return IsEmpty();}
+  bool     isEmpty() {return CString::IsEmpty();}
+
+  int      length()  {return GetLength();}
 
   operator TCchar*() const {return GetString();}
   TCchar*      str() const {return GetString();}
+
+  int find(Tchar   ch,  int offset=0) {try {return Find(ch,  offset);} catch (...) {return -1;}}
+  int find(TCchar* stg, int offset=0) {try {return Find(stg, offset);} catch (...) {return -1;}}
+//  int find(TCchar* stg, int offset, int count)
+
+//  int find(const String& stg, int offset=0)
 
   bool     loadRes(uint id) {return LoadString(id);}
 
@@ -102,19 +108,20 @@ static const int npos = -1;
   int   length() {return (int) ((tstring*)this)->size();}      // size() also works on String
   int   size()   {return (int) ((tstring*)this)->size();}
   bool  isEmpty() {return  ((tstring*)this)->empty();}
-  Tchar& operator[](int i) {tstring& s = *this; return s[i];}  // returns reference to character at i
-                                                               // May be used on both sides of '='.
+  Tchar& operator[](int i) {tstring& s = *this; return s[i];}  // returns reference to character at
+                                                               // i May be used on both sides of
+                                                               // '='.
 // Manipulating Functions
 
-  void    clear() {((tstring*)this)->clear();}               // Erases all elements of a tstring
+  void    clear() {((tstring*)this)->clear();}        // Erases all elements of a tstring
 
-  String& trim();                                           // Remove spaces/tabs/etc from both ends
-  String& trimLeft();                                       // Remove spaces/tabs/etc from left end
-  String& trimRight();                                      // Remove spaces/tabs/etc from right end
-  String& upperCase();                                      // Convert lower case to upper case
-  String& lowerCase();                                      // ditto in reverse
-  String& format(TCchar* fmt_str, ...);                     // Apply traditional printf formatting
-                                                            // Note:  Strings are not recognized as input
+  String& trim();                                     // Remove spaces/tabs/etc from both ends
+  String& trimLeft();                                 // Remove spaces/tabs/etc from left end
+  String& trimRight();                                // Remove spaces/tabs/etc from right end
+  String& upperCase();                                // Convert lower case to upper case
+  String& lowerCase();                                // ditto in reverse
+  String& format(TCchar* fmt_str, ...);               // Apply traditional printf formatting
+                                                      // Note:  Strings are not recognized as input
 // Assignment
 
   String& operator= (      Tchar    v) {tstring& s = *this; s = v;              return *this;}
@@ -134,14 +141,14 @@ static const int npos = -1;
 //  String& operator= (      String&  v) {tstring& s = *this; s = v.str();        return *this;}
 
   String& operator= (variant_t& t)
-                           {if (t.vt == VT_BSTR) *this = (tstring) bstr_t(t); else clear(); return *this;}
+                    {if (t.vt == VT_BSTR) *this = (tstring) bstr_t(t); else clear(); return *this;}
 
 
-// Interesting notion:  one cannot define an operator= that results in a non-String value.  Instead one
-// must define casts to the types needed.  An explicit TCchar* is also included for format.
+// Interesting notion:  one cannot define an operator= that results in a non-String value.  Instead
+// one must define casts to the types needed.  An explicit TCchar* is also included for format.
 
-//  operator tstring&()       {return s;}
-  operator TCchar*() const {return str();}    // Left Hand side of TCchar*, Cstring, bstr & variant_t
+  operator TCchar*() const {return str();}    // Left Hand side of TCchar*, Cstring, bstr and
+                                              // variant_t
   TCchar*      str() const {return c_str();}
 
 #ifdef _UNICODE
@@ -171,13 +178,13 @@ static const int npos = -1;
          // Some simple numbers, more complex formatting is up to the engineer
 
          String  operator+  (int v)
-                                {String s = *this; String t; t.format(_T("%li"), v); s += t; return s;}
+                            {String s = *this; String t; t.format(_T("%li"), v); s += t; return s;}
          String  operator+  (long   v)
-                                {String s = *this; String t; t.format(_T("%li"), v); s += t; return s;}
+                            {String s = *this; String t; t.format(_T("%li"), v); s += t; return s;}
          String  operator+  (ulong  v)
-                                {String s = *this; String t; t.format(_T("%lu"), v); s += t; return s;}
+                            {String s = *this; String t; t.format(_T("%lu"), v); s += t; return s;}
          String  operator+  (double v)
-                                {String s = *this; String t; t.format(_T("%lg"), v); s += t; return s;}
+                            {String s = *this; String t; t.format(_T("%lg"), v); s += t; return s;}
 
          String& operator+= (Tchar          t) {tstring& s = *this; s += t; return *this;}
          String& operator+= (TCchar*        t) {tstring& s = *this; s += t; return *this;}
@@ -186,15 +193,16 @@ static const int npos = -1;
          String& operator+= (      String&  t) {tstring& s = *this; s += t; return *this;}
          String& operator+= (      Cstring& t) {tstring& s = *this; s += t; return *this;}
          String& operator+= (      bstr_t&  t) {tstring& s = *this; s += t; return *this;}
-         String& operator+= (variant_t&     v) {if (v.vt == VT_BSTR) *this += bstr_t(v); return *this;}
+         String& operator+= (variant_t&     v)
+                                          {if (v.vt == VT_BSTR) *this += bstr_t(v); return *this;}
          String& operator+= (int        v)
-                          {tstring& s = *this; String t; t.format(_T("%i"),  v); s += t; return *this;}
+                     {tstring& s = *this; String t; t.format(_T("%i"),  v); s += t; return *this;}
          String& operator+= (long       v)
-                          {tstring& s = *this; String t; t.format(_T("%li"), v); s += t; return *this;}
+                     {tstring& s = *this; String t; t.format(_T("%li"), v); s += t; return *this;}
          String& operator+= (ulong      v)
-                          {tstring& s = *this; String t; t.format(_T("%lu"), v); s += t; return *this;}
+                     {tstring& s = *this; String t; t.format(_T("%lu"), v); s += t; return *this;}
          String& operator+= (double     v)
-                          {tstring& s = *this; String t; t.format(_T("%lg"), v); s += t; return *this;}
+                     {tstring& s = *this; String t; t.format(_T("%lg"), v); s += t; return *this;}
 // Loop logic
 // String           s;
 // String::iterator p;
@@ -207,21 +215,21 @@ typedef tstring::reverse_iterator reverseIterator;
   int find(Tchar   ch,  int offset=0) {tstring& s = *this; return (int) s.find(ch,  offset);}
   int find(TCchar* stg, int offset=0) {tstring& s = *this; return (int) s.find(stg, offset);}
   int find(TCchar* stg, int offset, int count)
-                                          {tstring& s = *this; return (int) s.find(stg,  offset, count);}
+                                    {tstring& s = *this; return (int) s.find(stg,  offset, count);}
   int find(const String& stg, int offset=0)
-                                          {tstring& s = *this; return (int) s.find(stg, offset);}
+                                    {tstring& s = *this; return (int) s.find(stg, offset);}
 
   // Find last character in the string given a single character or a group of characters
   // offset -- Index at which the search is to finish
 
-  int findLastOf(Tchar          ch,  int offset=npos)
-                                  {tstring& s = *this; return (int) s.find_last_of(ch,  offset);}
-  int findLastOf(TCchar*       stg, int offset=npos)
-                                  {tstring& s = *this; return (int) s.find_last_of(stg, offset);}
-  int findLastOf(TCchar*       stg, int offset, int count)
-                                  {tstring& s = *this; return (int) s.find_last_of(stg,  offset, count);}
+  int findLastOf(Tchar ch,    int offset=npos)
+                            {tstring& s = *this; return (int) s.find_last_of(ch,  offset);}
+  int findLastOf(TCchar* stg, int offset=npos)
+                            {tstring& s = *this; return (int) s.find_last_of(stg, offset);}
+  int findLastOf(TCchar* stg, int offset, int count)
+                            {tstring& s = *this; return (int) s.find_last_of(stg,  offset, count);}
   int findLastOf(const String& stg, int offset=npos)
-                                  {tstring& s = *this; return (int) s.find_last_of(stg, offset);}
+                            {tstring& s = *this; return (int) s.find_last_of(stg, offset);}
 
 // Conversion to numbers, integer, unsigned long integer and double
 // returns the value, i contains the index of the first unconverted character
@@ -461,7 +469,8 @@ template<class S, class T> String operator+      (const S& s, T& t);
 template<class S, class T> String operator+<T, S>(const S& s, T& t) {String ss(s); return ss += t;}
 
 template<class S, class T> String operator+      (const S& s, const T& t);
-template<class S, class T> String operator+<T, S>(const S& s, const T& t) {String ss(s); return ss += t;}
+template<class S, class T> String operator+<T, S>(const S& s, const T& t)
+                                                                    {String ss(s); return ss += t;}
 
 
 template<class T> String toString(T t);
@@ -474,9 +483,11 @@ template<typename T> String toString<T>(T t) {tstring r = to_tstring((T) t); ret
 #endif
 
 
-String dblToString(double v, int width, int precision);
-String intToString(long   v, int width);
-String uintToString(ulong v, int width);
+String dblToString(double v, int width = 0, int precision = 0);
+String intToString(long   v, int width = 0, int precision = 0);
+String uintToString(ulong v, int width = 0, int precision = 0);
+String hexToString(ulong  v, int precision = 0);                // not left/right adjust due to 0x
+                                                                // prefix
 
 
 class TokenString : public String {
@@ -488,8 +499,8 @@ public:
 
   TokenString& operator= (const String&  t) {String& s = *this; s = t; pos = 0; return *this;}
 
-  bool next(String& stg, TCchar* delim);  // Returns next token in tstring defined by deliminter chars
-  };
+  bool next(String& stg, TCchar* delim);  // Returns next token in tstring defined by deliminter
+  };                                      // chars
 
 
 // Convert a String (Tchar, i.e. wide character) to Ansi string (8 bit char)
@@ -546,17 +557,19 @@ basic_string Class Visual Studio 2017Visual Studio 2022
 
 Send Feedback on this topic to Microsoft. OnlineView this topic online in your default browser.
 
-The sequences controlled by an object of template class basic_string are the Standard C++ tstring class
-and are usually referred to as strings, but they should not be confused with the null-terminated C-style
-strings used throughout the Standard C++ Library. The Standard C++ tstring is a container that enables the
-use of strings as normal types, such as comparison and concatenation operations, iterators, STL
-algorithms, and copying and assigning with class allocator managed memory. If you need to convert a
-Standard C++ tstring to a null-terminated C-style tstring, use the basic_string::c_str member.
+The sequences controlled by an object of template class basic_string are the Standard C++ tstring
+class and are usually referred to as strings, but they should not be confused with the
+null-terminated C-style strings used throughout the Standard C++ Library. The Standard C++ tstring
+is a container that enables the use of strings as normal types, such as comparison and
+concatenation operations, iterators, STL algorithms, and copying and assigning with class allocator
+managed memory. If you need to convert a Standard C++ tstring to a null-terminated C-style tstring,
+use the basic_string::c_str member.
 
 View ColorizedCopy to Clipboardtemplate <class CharType, class Traits = char_traits<CharType>,
-                                                                  class Allocator = allocator<CharType>>
+                                                            class Allocator = allocator<CharType>>
 class basic_string;
-template <class CharType, class Traits = char_traits<CharType>, class Allocator = allocator<CharType>>
+template <class CharType, class Traits = char_traits<CharType>,
+                                                            class Allocator = allocator<CharType>>
 class basic_string;
 
 Parameters
@@ -564,12 +577,12 @@ Parameters
 
 CharType
 The data type of a single character to be stored in the tstring. The Standard C++ Library provides
-specializations of this template class, with the type definitions tstring for elements of type Tchar,
-wstring, for wchar_t, u16string for char16_t, and u32string for char32_t.
+specializations of this template class, with the type definitions tstring for elements of type
+Tchar, wstring, for wchar_t, u16string for char16_t, and u32string for char32_t.
 
 Traits
-Various important properties of the CharType elements in a basic_string specialization are described by
-the class Traits. The default value is char_traits<CharType>.
+Various important properties of the CharType elements in a basic_string specialization are
+described by the class Traits. The default value is char_traits<CharType>.
 
 Allocator
 The type that represents the stored allocator object that encapsulates details about the tstring's
@@ -582,8 +595,8 @@ Constructors
 --------------------------------------------------------------------------------
 
 basic_string
-  Constructs a tstring that is empty or initialized by specific characters or that is a copy of all or
-  part of some other tstring object or C-tstring.
+  Constructs a tstring that is empty or initialized by specific characters or that is a copy of all
+  or part of some other tstring object or C-tstring.
 
 
 Typedefs
@@ -593,20 +606,22 @@ allocator_type
   A type that represents the allocator class for a tstring object.
 
 const_iterator
-  A type that provides a random-access iterator that can access and read a const element in the tstring.
+  A type that provides a random-access iterator that can access and read a const element in the
+  tstring.
 
 const_pointer
   A type that provides a pointer to a const element in a tstring.
 
 const_reference
-  A type that provides a reference to a const element stored in a tstring for reading and performing const
-  operations.
+  A type that provides a reference to a const element stored in a tstring for reading and
+  performing const operations.
 
 const_reverse_iterator
   A type that provides a random-access iterator that can read any const element in the tstring.
 
 difference_type
-  A type that provides the difference between two iterators that refer to elements within the same tstring.
+  A type that provides the difference between two iterators that refer to elements within the same
+  tstring.
 
 iterator
   A type that provides a random-access iterator that can read or modify any element in a tstring.
@@ -622,7 +637,8 @@ reference
   A type that provides a reference to an element stored in a tstring.
 
 reverse_iterator
-  A type that provides a random-access iterator that can read or modify an element in a reversed tstring.
+  A type that provides a random-access iterator that can read or modify an element in a reversed
+  tstring.
 
 size_type
   An unsigned integral type for the number of elements in a tstring.
@@ -655,8 +671,8 @@ c_str
   Converts the contents of a tstring as a C-style, null-terminated, tstring.
 
 capacity
-  Returns the largest number of elements that could be stored in a tstring without increasing the memory
-  allocation of the tstring.
+  Returns the largest number of elements that could be stored in a tstring without increasing the
+  memory allocation of the tstring.
 
 cbegin
   Returns a const iterator addressing the first element in the tstring.
@@ -668,8 +684,8 @@ clear
   Erases all elements of a tstring.
 
 compare
-  Compares a tstring with a specified tstring to determine if the two strings are equal or if one is
-  lexicographically less than the other.
+  Compares a tstring with a specified tstring to determine if the two strings are equal or if one
+  is lexicographically less than the other.
 
 copy
   Copies at most a specified number of characters from an indexed position in a source tstring to a
@@ -679,7 +695,8 @@ crbegin
   Returns a const iterator that addresses the first element in a reversed tstring.
 
 crend
-  Returns a const iterator that addresses the location succeeding the last element in a reversed tstring.
+  Returns a const iterator that addresses the location succeeding the last element in a reversed
+  tstring.
 
 _Copy_s
   Copies at most a specified number of characters from an indexed position in a source tstring to a
@@ -702,10 +719,12 @@ find
   specified sequence of characters.
 
 find_first_not_of
-  Searches through a tstring for the first character that is not any element of a specified tstring.
+  Searches through a tstring for the first character that is not any element of a specified
+  tstring.
 
 find_first_of
-  Searches through a tstring for the first character that matches any element of a specified tstring.
+  Searches through a tstring for the first character that matches any element of a specified
+  tstring.
 
 find_last_not_of
   Searches through a tstring for the last character that is not any element of a specified tstring.
@@ -742,8 +761,8 @@ rend
   Returns an iterator that points just beyond the last element in a reversed tstring.
 
 replace
-  Replaces elements in a tstring at a specified position with specified characters or characters copied
-  from other ranges or strings or C-strings.
+  Replaces elements in a tstring at a specified position with specified characters or characters
+  copied from other ranges or strings or C-strings.
 
 reserve
   Sets the capacity of the tstring to a number at least as great as a specified number.
@@ -788,9 +807,9 @@ Remarks
 If a function is asked to generate a sequence longer than max_size elements, the function reports a
 length error by throwing an object of type length_error.
 
-References, pointers, and iterators that designate elements of the controlled sequence can become invalid
-after any call to a function that alters the controlled sequence, or after the first call to a non- const
-member function.
+References, pointers, and iterators that designate elements of the controlled sequence can become
+invalid after any call to a function that alters the controlled sequence, or after the first call
+to a non- const member function.
 
 Requirements
 --------------------------------------------------------------------------------

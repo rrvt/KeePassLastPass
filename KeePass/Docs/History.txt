@@ -1,3 +1,56 @@
+24/02/01 - 1.42
+- Added option 'Show warning when the key transformation
+  settings are weak' (in 'Tools' -> 'Options' -> tab
+  'Advanced', turned on by default)
+- Added accessibility help page
+
+- Increased default number of AES-KDF iterations
+- Improved dialog banner styles
+- Minor process memory protection improvements
+- Installer: the desktop shortcut is now created for all users
+  (if the option 'Create a desktop shortcut' is activated)
+- Installer: removed the Quick Launch shortcut option
+- Upgraded installer
+- Various UI text improvements
+- Various code optimizations
+- Minor other improvements
+
+- Fixed background of CHM help pages
+
+23/01/02 - 1.41
+- Added {EDGE} placeholder, which is replaced by the executable
+  path of the new (Chromium-based) Microsoft Edge, if installed
+- The {FIREFOX} placeholder now supports detecting the
+  Microsoft Store version of Firefox (in addition to the
+  regular versions)
+- When trying to rearrange entries while automatic sorting is
+  activated, KeePass now asks whether to deactivate automatic
+  sorting
+- Added border for headings in HTML exports/printouts
+- Added horizontal entry separator lines in HTML
+  exports/printouts
+
+- Improved item separation in the entry details view
+- When moving an entry fails, the last access time of the entry
+  is not updated anymore
+- Improved HTML generation for HTML exports/printouts
+- Improved fonts used when printing or exporting to HTML
+- HTML exports/printouts: improved encoding of white-space
+  characters in passwords
+- Reordered fields/columns in exports for improved consistency
+- Upgraded to Boost libraries version 1.81.0
+- Various code optimizations
+- Minor other improvements
+
+22/05/01 - 1.40.1
+- Added workaround for Wine bug 52457
+
+- Increased Authenticode certificate key length
+- Various CHM/help improvements
+- Upgraded to Boost libraries version 1.79.0
+- Upgraded installer
+- Minor other improvements
+
 22/01/02 - 1.40
 - On most Windows systems, AES-KDF is now about 3 times as fast
   as before
@@ -1271,7 +1324,7 @@
 - Installer now uses best compression available
 - Fixed a bug that could increase the database size when saving
   a database multiple times, which has previously been modified
-  by KeePassX (Linux/MacOSX port of KeePass); existing inflated
+  by KeePassX (Linux/MacOS port of KeePass); existing inflated
   databases are shrinked to their normal size without data loss
 - Replaced password generation button by a help button in the
   master key dialog

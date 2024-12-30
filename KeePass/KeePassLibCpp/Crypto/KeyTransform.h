@@ -1,6 +1,6 @@
 /*
   KeePass Password Safe - The Open-Source Password Manager
-  Copyright (C) 2003-2022 Dominik Reichl <dominik.reichl@t-online.de>
+  Copyright (C) 2003-2024 Dominik Reichl <dominik.reichl@t-online.de>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -27,33 +27,37 @@
 class CKeyTransform : boost::noncopyable
 {
 public:
-  CKeyTransform(UINT64 qwRounds, UINT8* pBuf, const UINT8* pKey);
+	CKeyTransform(UINT64 qwRounds, UINT8* pBuf, const UINT8* pKey);
 
-  void Run();
-  bool Succeeded() const { return m_bSucceeded; }
+	static BOOL* GetKeyTransformWeakWarningPtr();
 
-  static bool Transform256(UINT64 qwRounds, UINT8* pBuffer256, const UINT8* pKeySeed256);
-  static UINT64 Benchmark(DWORD dwTimeMs);
+	void Run();
+	bool Succeeded() const { return m_bSucceeded; }
+
+	static bool Transform256(UINT64 qwRounds, UINT8* pBuffer256, const UINT8* pKeySeed256);
+	static UINT64 Benchmark(DWORD dwTimeMs);
 
 private:
-  UINT64 m_qwRounds;
-  UINT8* m_pBuf;
-  const UINT8* m_pKey;
-  bool m_bSucceeded;
+	static BOOL g_bKeyTransformWeakWarning;
+
+	UINT64 m_qwRounds;
+	UINT8* m_pBuf;
+	const UINT8* m_pKey;
+	bool m_bSucceeded;
 };
 
 class CKeyTransformBenchmark : boost::noncopyable
 {
 public:
-  CKeyTransformBenchmark(DWORD dwTimeMs);
+	CKeyTransformBenchmark(DWORD dwTimeMs);
 
-  void Run();
+	void Run();
 
-  UINT64 GetComputedRounds() const { return m_qwComputedRounds; }
+	UINT64 GetComputedRounds() const { return m_qwComputedRounds; }
 
 private:
-  DWORD m_dwTimeMs;
-  UINT64 m_qwComputedRounds;
+	DWORD m_dwTimeMs;
+	UINT64 m_qwComputedRounds;
 };
 
 // Private:

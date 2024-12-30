@@ -175,7 +175,7 @@ public:
   // remove the menu item based on their text, return -1 if not found, otherwise return the menu position;
   int RemoveMenu(char* pText, BC_Seperator sPos=BCMENU_NONE);
   int RemoveMenu(wchar_t* pText, BC_Seperator sPos=BCMENU_NONE);
-  int DeleteMenu(const char* pText, BC_Seperator sPos=BCMENU_NONE);        // rrvt c++ 2020
+  int DeleteMenu(char* pText, BC_Seperator sPos=BCMENU_NONE);
   int DeleteMenu(wchar_t* pText, BC_Seperator sPos=BCMENU_NONE);
 
   // Destoying

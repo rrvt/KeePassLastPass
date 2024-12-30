@@ -1,6 +1,6 @@
 /*
   KeePass Password Safe - The Open-Source Password Manager
-  Copyright (C) 2003-2022 Dominik Reichl <dominik.reichl@t-online.de>
+  Copyright (C) 2003-2024 Dominik Reichl <dominik.reichl@t-online.de>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -30,39 +30,38 @@
 class AppLocator : boost::noncopyable
 {
 private:
-  AppLocator();
-  ~AppLocator();
+	AppLocator();
+	~AppLocator();
 
 public:
-  static void FillPlaceholders(CString* pString, const SPR_CONTENT_FLAGS* pcf);
+	static void FillPlaceholders(CString* pString, const SPR_CONTENT_FLAGS* pcf);
 
 private:
-  static void ReplacePath(CString* p, LPCTSTR lpPlaceholder,
-    const std::basic_string<TCHAR>& strFill, const SPR_CONTENT_FLAGS* pcf);
+	static void ReplacePath(CString* p, LPCTSTR lpPlaceholder,
+		const std::basic_string<TCHAR>& strFill, const SPR_CONTENT_FLAGS* pcf);
 
-  static void GetPaths();
+	static void GetPaths();
 
-  static void FindInternetExplorer();
-  static void FindFirefox();
-  static void FindOpera();
-  static void FindChrome();
-  static void FindSafari();
-  static void FindEdge();
+	static void FindInternetExplorer();
+	static void FindFirefox();
+	static void FindOpera();
+	static void FindChrome();
+	static void FindSafari();
+	static void FindEdge();
 
-  static std_string FindAppByClass(LPCTSTR lpClass, LPCTSTR lpExeName);
-  static std_string FindAppByClass(LPCTSTR lpClass, LPCTSTR lpExeName,
-    REGSAM rsAdd);
+	static std_string FindAppByClass(LPCTSTR lpClass, LPCTSTR lpExeName);
+	static std_string FindAppByClass(LPCTSTR lpClass, LPCTSTR lpExeName,
+		REGSAM rsAdd);
 
-  static std::basic_string<TCHAR> Fix(const std::basic_string<TCHAR>& strPath);
+	static std::basic_string<TCHAR> Fix(const std::basic_string<TCHAR>& strPath);
 
-  static bool m_bPathsQueried;
-
-  static std::basic_string<TCHAR> m_strIEPath;
-  static std::basic_string<TCHAR> m_strFirefoxPath;
-  static std::basic_string<TCHAR> m_strOperaPath;
-  static std::basic_string<TCHAR> m_strChromePath;
-  static std::basic_string<TCHAR> m_strSafariPath;
-  static std::basic_string<TCHAR> m_strEdgePath;
+	static bool m_bPathsQueried;
+	static std::basic_string<TCHAR> m_strIEPath;
+	static std::basic_string<TCHAR> m_strFirefoxPath;
+	static std::basic_string<TCHAR> m_strOperaPath;
+	static std::basic_string<TCHAR> m_strChromePath;
+	static std::basic_string<TCHAR> m_strSafariPath;
+	static std::basic_string<TCHAR> m_strEdgePath;
 };
 
 #endif // ___APPLICATION_LOCATOR_H___

@@ -342,7 +342,11 @@ CColourPickerXP::CColourPickerXP(void):
   bool bIsXP = osvi.dwPlatformId == VER_PLATFORM_WIN32_NT &&
     (osvi.dwMajorVersion > 5 || (osvi.dwMajorVersion == 5 &&
     osvi.dwMinorVersion >= 1));
-#endif                                                                            // rrvt
+
+  m_bFlatMenus = FALSE;
+  if (bIsXP)
+    ::SystemParametersInfo (SPI_GETFLATMENU, 0, &m_bFlatMenus, FALSE);
+#endif
 }
 
 //***********************************************************************
@@ -1002,7 +1006,7 @@ void CColourPickerXP::DrawItem(LPDRAWITEMSTRUCT lpDrawItemStruct)
         szTemp = m_strDefaultText;
       else
       {
-        szTemp.Format(_T("%s:%d %s:%d %s:%d"),                                                    // rrvt
+        szTemp.Format(_T("%s:%d %s:%d %s:%d"),                                          // rrvt
                       m_strRGBText.Left(1).GetBuffer(),   GetRValue(m_Color),
                       m_strRGBText.Mid(1, 1).GetBuffer(), GetGValue(m_Color),
                       m_strRGBText.Mid(2, 1).GetBuffer(), GetBValue(m_Color));

@@ -410,12 +410,12 @@ void BCMenu::DrawItem_Win9xNT2000 (LPDRAWITEMSTRUCT lpDIS)
 
     // draw the up/down/focused/disabled state
 
-#pragma warning( push )                                                           // rrvt
+#pragma warning( push )                                                     // rrvt
 #pragma warning( disable : 4456 )
 
-    UINT state = lpDIS->itemState;                                                // overrides prev def
+    UINT state = lpDIS->itemState;                                          // overrides prev def
 
-#pragma warning( pop )                                                            // rrvt
+#pragma warning( pop )                                                      // rrvt
 
     CString strText;
 
@@ -738,12 +738,12 @@ void BCMenu::DrawItem_WinXP (LPDRAWITEMSTRUCT lpDIS)
 
     // draw the up/down/focused/disabled state
 
-#pragma warning( push )                                                           // rrvt
+#pragma warning( push )                                                     // rrvt
 #pragma warning( disable : 4456 )
 
-    UINT state = lpDIS->itemState;                                                // Overrides prev def
+    UINT state = lpDIS->itemState;                                          // Overrides prev def
 
-#pragma warning( pop )                                                            // rrvt
+#pragma warning( pop )                                                      // rrvt
 
     CString strText;
 
@@ -1953,23 +1953,23 @@ void BCMenu::InsertSpaces(void)
       newstring.Empty();
       newstring=string.Left(j);
 
-#pragma warning( push )                                                           // rrvt
+#pragma warning( push )                                                     // rrvt
 #pragma warning( disable : 4456 )
 
-      LPCTSTR lpstrText = (LPCTSTR)(newstring);                                   // Overrides prev def
+      LPCTSTR lpstrText = (LPCTSTR)(newstring);                             // Overrides prev def
 
-#pragma warning( pop )                                                            // rrvt
+#pragma warning( pop )                                                      // rrvt
 
       t=pDC->GetTextExtent(lpstrText,(int)_tcslen(lpstrText));
       while(t.cx<maxlength){
         newstring+=_T(' ');//SK: modified for Unicode correctness
 
-#pragma warning( push )                                                           // rrvt
+#pragma warning( push )                                                     // rrvt
 #pragma warning( disable : 4456 )
 
-        LPCTSTR lpstrText = (LPCTSTR)(newstring);                                 // Overrides prev def
+        LPCTSTR lpstrText = (LPCTSTR)(newstring);                           // Overrides prev def
 
-#pragma warning( pop )                                                            // rrvt
+#pragma warning( pop )                                                      // rrvt
 
         t=pDC->GetTextExtent(lpstrText,(int)_tcslen(lpstrText));
       }
@@ -2109,7 +2109,7 @@ void BCMenu::SynchronizeMenu(void)
   UINT submenu,nID=0,state,j;
 
   InitializeMenuList(0);
-  for(j=0;j<(UINT)GetMenuItemCount();++j){                     // rrvt
+  for(j=0;j<(UINT)GetMenuItemCount();++j){                                  // rrvt
     mdata=NULL;
     state=GetMenuState(j,MF_BYPOSITION);
     if(state&MF_POPUP){
@@ -3083,7 +3083,7 @@ int BCMenu::RemoveMenu(wchar_t* pText, BC_Seperator sPos)
   return nPos;
 }
 
-int BCMenu::DeleteMenu(const char* pText, BC_Seperator sPos)             // rrvt
+int BCMenu::DeleteMenu(char* pText, BC_Seperator sPos)
 {
   USES_CONVERSION;
   return DeleteMenu(A2W(pText), sPos);
