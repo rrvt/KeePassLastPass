@@ -1,6 +1,6 @@
 /*
   KeePass Password Safe - The Open-Source Password Manager
-  Copyright (C) 2003-2024 Dominik Reichl <dominik.reichl@t-online.de>
+  Copyright (C) 2003-2025 Dominik Reichl <dominik.reichl@t-online.de>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -147,6 +147,9 @@ WCHAR SU_ToAnsiAndBack(WCHAR ch);
 
 const std::vector<WCHAR>& SU_GetNormDashes();
 CString SU_NormalizeDashes(LPCTSTR lpText);
+
+CString SU_EncryptString(LPCTSTR lpPlainText);
+CString SU_DecryptString(LPCTSTR lpCipherText);
 
 /////////////////////////////////////////////////////////////////////////////
 // Natural string comparison API

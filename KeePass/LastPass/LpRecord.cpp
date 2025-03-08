@@ -1,7 +1,7 @@
 // Password LPentry data
 
 
-#include "stdafx.h"
+#include "pch.h"
 #include "LpRecord.h"
 #include "Groups.h"
 #include <random>
@@ -21,7 +21,8 @@ TCchar* FFLineClose = _T("</FFLine~>\n");
 
 
 LpRecord::~LpRecord() {
-  clr(grpName);  clr(url); clr(title); clr(userName); clr(password); clr(notes); clr(fav); clr(additional);
+  clr(grpName);  clr(url);   clr(title); clr(userName);
+  clr(password); clr(notes); clr(fav);   clr(additional);
   }
 
 
@@ -436,6 +437,24 @@ int count;
   }
 
 
+void LpRecord::clr(String& s) {
+uniform_int_distribution<int> rand(32, 127);
+random_device                 rd;
+mt19937                       gen(rd());
+int n = s.length();
+int i;
+TCHAR ch = s[0] - (TCHAR) n;
+
+  for (i = 0; i < n; i++) {
+    ch = (char) rand(gen);
+    s[i] = ch++;
+    }
+  }
+
+
+
+////-------------------------
+
 #if 0
 void LpRecord::updateNotes() {
   if (notes.find(CCType)   >= 0) {updateCC();    return;}
@@ -519,19 +538,4 @@ String s;
   if (nextItem(password, s)) update(PinCode,   s);
   }
 #endif
-
-
-void LpRecord::clr(String& s) {
-uniform_int_distribution<int> rand(32, 127);
-random_device                 rd;
-mt19937                       gen(rd());
-int n = s.length();
-int i;
-TCHAR ch = s[0] - (TCHAR) n;
-
-  for (i = 0; i < n; i++) {
-    ch = (char) rand(gen);
-    s[i] = ch++;
-    }
-  }
 

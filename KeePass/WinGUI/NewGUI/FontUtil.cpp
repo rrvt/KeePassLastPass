@@ -1,6 +1,6 @@
 /*
   KeePass Password Safe - The Open-Source Password Manager
-  Copyright (C) 2003-2024 Dominik Reichl <dominik.reichl@t-online.de>
+  Copyright (C) 2003-2025 Dominik Reichl <dominik.reichl@t-online.de>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -21,6 +21,8 @@
 #include "FontUtil.h"
 #include "NewGUICommon.h"
 #include "../PwSafe.h"
+
+#include <boost/static_assert.hpp>
 
 LOGFONT* CFontUtil::g_plfDefault = NULL;
 CFont* CFontUtil::g_pfBold = NULL;

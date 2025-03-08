@@ -1,6 +1,6 @@
 /*
   KeePass Password Safe - The Open-Source Password Manager
-  Copyright (C) 2003-2024 Dominik Reichl <dominik.reichl@t-online.de>
+  Copyright (C) 2003-2025 Dominik Reichl <dominik.reichl@t-online.de>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -72,13 +72,11 @@ END_MESSAGE_MAP()
 BOOL CEntryListDlg::OnInitDialog()
 {
   CDialog::OnInitDialog();
+  NewGUI_InitDialog(this);
 
   ASSERT(m_pMgr != NULL);
   ASSERT(m_nDisplayMode != ELDMODE_NONE);
   ASSERT(m_pImgList != NULL);
-
-  // Translate all windows
-  EnumChildWindows(this->m_hWnd, NewGUI_TranslateWindowCb, 0);
 
   NewGUI_XPButton(m_btClose, IDB_CANCEL, IDB_CANCEL);
 
@@ -260,7 +258,7 @@ void CEntryListDlg::_AddEntryToList(PW_ENTRY *p, BOOL bExpiredIcon)
   // Hide usernames behind ******** if the user has selected this option
   if(m_bUserStars == TRUE)
   {
-    lvi.pszText = (LPSTR) PWM_PASSWORD_STRING;
+    lvi.pszText = (LPSTR) PWM_PASSWORD_STRING;                              // rrvt
     m_cList.SetItem(&lvi);
   }
   else // Don't hide, display them
@@ -273,7 +271,7 @@ void CEntryListDlg::_AddEntryToList(PW_ENTRY *p, BOOL bExpiredIcon)
   // Hide passwords behind ******** if the user has selected this option
   if(m_bPasswordStars == TRUE)
   {
-    lvi.pszText = (LPSTR) PWM_PASSWORD_STRING;
+    lvi.pszText = (LPSTR) PWM_PASSWORD_STRING;                            // rrvt
     m_cList.SetItem(&lvi);
   }
   else // Don't hide, display them

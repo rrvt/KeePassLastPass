@@ -1,6 +1,6 @@
 /*
   KeePass Password Safe - The Open-Source Password Manager
-  Copyright (C) 2003-2024 Dominik Reichl <dominik.reichl@t-online.de>
+  Copyright (C) 2003-2025 Dominik Reichl <dominik.reichl@t-online.de>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -21,6 +21,7 @@
 #include "StrUtil.h"
 
 #include "AppUtil.h"
+#include "Base64.h"
 #include "MemUtil.h"
 #include "../Crypto/MemoryProtectionEx.h"
 
@@ -32,6 +33,9 @@
 #endif
 
 static std::vector<WCHAR> g_vNormHyphen;
+
+const DWORD g_cbOptEnt = 4;
+static BYTE g_vOptEnt[g_cbOptEnt] = { 0xA5, 0x74, 0x2E, 0xEC };
 
 // Securely erase a CString object
 void EraseCString(CString* pString)
@@ -1041,6 +1045,96 @@ CString SU_NormalizeDashes(LPCTSTR lpText)
 	SAFE_DELETE_ARRAY(lpA);
 	return str;
 #endif
+}
+
+CString SU_EncryptString(LPCTSTR lpPlainText)
+{
+	CString str;
+	if((lpPlainText == NULL) || (lpPlainText[0] == _T('\0'))) return str;
+
+	UTF8_BYTE* pbDataIn = _StringToUTF8(lpPlainText);
+	const DWORD cbDataIn = szlen((const char*)pbDataIn);
+
+	DATA_BLOB dbDataOut = _ToDataBlob(NULL, 0);
+
+	if(cbDataIn != 0)
+	{
+		DATA_BLOB dbDataIn = _ToDataBlob(pbDataIn, cbDataIn);
+		DATA_BLOB dbOptEnt = _ToDataBlob(g_vOptEnt, g_cbOptEnt);
+
+		if(CryptProtectData(&dbDataIn, L"", &dbOptEnt, NULL, NULL,
+			CRYPTPROTECT_UI_FORBIDDEN, &dbDataOut) != FALSE)
+		{
+			DWORD cbBase64 = (((dbDataOut.cbData + 2) / 3) << 2) + 4;
+			std::vector<BYTE> vBase64(cbBase64, 0);
+
+			if(CBase64Codec::Encode(dbDataOut.pbData, dbDataOut.cbData,
+				&vBase64[0], &cbBase64))
+			{
+#ifdef _UNICODE
+				WCHAR* lpw = _StringToUnicode((const char*)&vBase64[0]);
+				str = lpw;
+				SAFE_DELETE_ARRAY(lpw);
+#else
+				str = (const char*)&vBase64[0];
+#endif
+			}
+			else { ASSERT(FALSE); }
+		}
+		else { ASSERT(FALSE); }
+	}
+	else { ASSERT(FALSE); }
+
+	mem_erase(pbDataIn, cbDataIn);
+	SAFE_DELETE_ARRAY(pbDataIn);
+	if(dbDataOut.pbData != NULL) LocalFree(dbDataOut.pbData);
+	return str;
+}
+
+CString SU_DecryptString(LPCTSTR lpCipherText)
+{
+	CString str;
+	if((lpCipherText == NULL) || (lpCipherText[0] == _T('\0'))) return str;
+
+	const std::basic_string<char> strBase64 = _StringToAnsiStl(lpCipherText);
+	const DWORD cbBase64 = static_cast<DWORD>(strBase64.size());
+	DWORD cbC = cbBase64 + 4;
+	std::vector<BYTE> vC(cbC, 0);
+
+	if(CBase64Codec::Decode((const BYTE*)strBase64.c_str(), cbBase64, &vC[0], &cbC))
+	{
+		DATA_BLOB dbDataIn = _ToDataBlob(&vC[0], cbC);
+		DATA_BLOB dbOptEnt = _ToDataBlob(g_vOptEnt, g_cbOptEnt);
+		DATA_BLOB dbDataOut = _ToDataBlob(NULL, 0);
+
+		if(CryptUnprotectData(&dbDataIn, NULL, &dbOptEnt, NULL, NULL,
+			CRYPTPROTECT_UI_FORBIDDEN, &dbDataOut) != FALSE)
+		{
+			std::vector<BYTE> vPZ(dbDataOut.cbData + 1, 0); // Decrypted + '\0'
+			memcpy(&vPZ[0], dbDataOut.pbData, dbDataOut.cbData);
+
+			TCHAR* lp = _UTF8ToString(&vPZ[0]);
+			if((lp != NULL) && (lp[0] != _T('\0')))
+			{
+				str = lp;
+				mem_erase(lp, _tcslen(lp) * sizeof(TCHAR));
+			}
+			else { ASSERT(FALSE); }
+			SAFE_DELETE_ARRAY(lp);
+
+			mem_erase(&vPZ[0], vPZ.size());
+		}
+		else { ASSERT(FALSE); }
+
+		if(dbDataOut.pbData != NULL)
+		{
+			mem_erase(dbDataOut.pbData, dbDataOut.cbData);
+			LocalFree(dbDataOut.pbData);
+		}
+	}
+	else { ASSERT(FALSE); }
+
+	return str;
 }
 
 /////////////////////////////////////////////////////////////////////////////

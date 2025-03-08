@@ -32,7 +32,6 @@ POSSIBILITY OF SUCH DAMAGE.
 #include "Executable.h"
 #include <memory>
 
-
 const FullPathName& Executable::instance() {
     static const Executable singleton;
     return singleton.m_module;

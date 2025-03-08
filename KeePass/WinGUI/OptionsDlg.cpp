@@ -1,6 +1,6 @@
 /*
   KeePass Password Safe - The Open-Source Password Manager
-  Copyright (C) 2003-2024 Dominik Reichl <dominik.reichl@t-online.de>
+  Copyright (C) 2003-2025 Dominik Reichl <dominik.reichl@t-online.de>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -65,6 +65,7 @@ COptionsDlg::COptionsDlg(CWnd* pParent /*=NULL*/)
 	//}}AFX_DATA_INIT
 
 	m_pParentDlg = NULL;
+	m_bInitialPreventScreenCapture = FALSE;
 }
 
 void COptionsDlg::DoDataExchange(CDataExchange* pDX)
@@ -126,11 +127,10 @@ END_MESSAGE_MAP()
 BOOL COptionsDlg::OnInitDialog() 
 {
 	CDialog::OnInitDialog();
+	NewGUI_InitDialog(this);
 
 	ASSERT(m_pParentDlg != NULL);
-
-	NewGUI_TranslateCWnd(this);
-	EnumChildWindows(this->m_hWnd, NewGUI_TranslateWindowCb, 0);
+	m_bInitialPreventScreenCapture = *NewGUI_GetPreventScreenCapturePtr();
 
 	CFontUtil::SetDefaultFontFrom(GetDlgItem(IDC_STATIC_CLIPCLEARTXT));
 
@@ -284,6 +284,7 @@ BOOL COptionsDlg::OnInitDialog()
 	m_olAdvanced.AddCheckItem(TRL("Use advanced memory protection (DPAPI, only Windows Vista and higher)"), CMemoryProtectionEx::GetEnabledPtr(), NULL, OL_LINK_NULL);
 	m_olAdvanced.AddCheckItem(TRL("Use CNG/BCrypt for key transformations (only Windows Vista and higher)"), CKeyTransformBCrypt::GetEnabledPtr(), NULL, OL_LINK_NULL);
 	m_olAdvanced.AddCheckItem(TRL("Show warning when the key transformation settings are weak"), CKeyTransform::GetKeyTransformWeakWarningPtr(), NULL, OL_LINK_NULL);
+	m_olAdvanced.AddCheckItem(TRL("Prevent certain screen captures"), NewGUI_GetPreventScreenCapturePtr(), NULL, OL_LINK_NULL);
 
 	AddTcItem(TRL(OPTSZ_SECURITY), 29);
 	AddTcItem(TRL(OPTSZ_GUI), 6);
@@ -334,6 +335,21 @@ void COptionsDlg::OnOK()
 	if((m_bLockAfterTime == TRUE) && (m_nLockAfter < 5)) m_nLockAfter = 5;
 
 	if(m_bDefaultExpire == FALSE) m_dwDefaultExpire = 0;
+
+	if((m_bInitialPreventScreenCapture == FALSE) &&
+		(*NewGUI_GetPreventScreenCapturePtr() != FALSE))
+	{
+		CString str = TRL("You are about to activate the following option:");
+		str += _T("\r\n'");
+		str += TRL("Prevent certain screen captures");
+		str += _T("'.\r\n\r\n");
+		str += TRL("This may also prevent legitimate other software (remote desktop solutions, accessibility tools such as screen magnifiers, etc.) from seeing KeePass windows.");
+		str += _T("\r\n\r\n");
+		str += TRL("Are you sure you want to activate the option?");
+
+		if(MessageBox(str, PWM_PRODUCT_NAME_SHORT, MB_ICONQUESTION | MB_YESNO) == IDNO)
+			*NewGUI_GetPreventScreenCapturePtr() = FALSE;
+	}
 
 	m_ilIcons.DeleteImageList();
 	m_ilOptionIcons.DeleteImageList();

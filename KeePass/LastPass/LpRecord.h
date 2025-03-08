@@ -18,6 +18,9 @@ extern TCchar* TimeOpen;
 extern TCchar* TimeClose;
 
 
+//url,username,password,totp,extra,name,grouping,fav
+
+
 class LpRecord {
 bool   aNote;
 public:

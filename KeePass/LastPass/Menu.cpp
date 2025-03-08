@@ -1,7 +1,7 @@
 // Last Pass Menu
 
 
-#include "stdafx.h"
+#include "pch.h"
 #include "Menu.h"
 #include "Language.h"
 
@@ -22,17 +22,18 @@ int    flags;
   };
 
 
-const MenuCode menuCodes[] = {{LP_LastPass,          _T("LP_LastPass"),         62, KPMIF_POPUP_START },
-                              {LP_ExportEntries,     _T("LP_ExportEntries"),    62, 0 },
-                              {LP_ImportEntries,     _T("LP_ImportEntries"),    62, 0 },
-                              {LP_ExpungeFile,       _T("LP_ExpungeFile"),      62, 0 },
-                              {LP_Break,             _T("LP_Break"),             0, 0 },
-                              {LP_ToggleDelState,    _T("LP_ToggleDelState"),    0, KPMIF_CHECKBOX },
-                              {LP_RemoveReduntantPW, _T("LP_RemoveReduntantPW"),62, 0},
-                              {LP_About,             _T("LP_About"),            62, 0 },
-                              {LP_Test,              _T("LP_Test"),             62, 0 },
-                              {LP_PopUpEnd,          _T("LP_PopUpEnd"),          0, KPMIF_POPUP_END }
-                              };
+const MenuCode menuCodes[] = {
+                         {LP_LastPass,          _T("LP_LastPass"),         62, KPMIF_POPUP_START },
+                         {LP_ExportEntries,     _T("LP_ExportEntries"),    62, 0 },
+                         {LP_ImportEntries,     _T("LP_ImportEntries"),    62, 0 },
+                         {LP_ExpungeFile,       _T("LP_ExpungeFile"),      62, 0 },
+                         {LP_Break,             _T("LP_Break"),             0, 0 },
+                         {LP_ToggleDelState,    _T("LP_ToggleDelState"),    0, KPMIF_CHECKBOX },
+                         {LP_RemoveReduntantPW, _T("LP_RemoveReduntantPW"),62, 0},
+                         {LP_About,             _T("LP_About"),            62, 0 },
+                         {LP_Test,              _T("LP_Test"),             62, 0 },
+                         {LP_PopUpEnd,          _T("LP_PopUpEnd"),          0, KPMIF_POPUP_END }
+                         };
 
 static MenuCode* getMenuCode(int i);
 
@@ -109,11 +110,12 @@ MenuItem::MenuItem() {ZeroMemory(this, sizeof(MenuItem));}
 
 
 
-MenuCode* getMenuCode(int i) {return 0 <= i && i < noElements(menuCodes) ? (MenuCode*) &menuCodes[i] : 0;}
+MenuCode* getMenuCode(int i)
+                      {return 0 <= i && i < noElements(menuCodes) ? (MenuCode*) &menuCodes[i] : 0;}
 
 
 void MenuItem::set(TCchar* stg, DWORD icon, DWORD flags, DWORD state)
-                      {lpCommandString = (LPTSTR) stg; dwFlags = flags; dwState = state; dwIcon = icon;}
+                 {lpCommandString = (LPTSTR) stg; dwFlags = flags; dwState = state; dwIcon = icon;}
 
 
 

@@ -2,7 +2,7 @@
 
 
 #pragma once
-#include "KeePassSDK.h"     //"SDK/KpSDK.h"
+#include "KeePassSDK.h"
 
 
 class LpRecord;

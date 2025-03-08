@@ -4061,10 +4061,9 @@ CString CAMSEdit::TimeBehavior::_GetValidText() const
 }
 
 // Formats the given hour, minute, second, and optional AM/PM symbol into a string based on the proper format.
-CString CAMSEdit::TimeBehavior::GetFormattedTime(int nHour, int nMinute, int nSecond,
-                                                      const CString& strAMPM /*= _T("")*/) const {
+CString CAMSEdit::TimeBehavior::GetFormattedTime(int nHour, int nMinute, int nSecond, const CString& strAMPM /*= _T("")*/) const
+{
 TCHAR* ampm = ((CString&) strAMPM).GetBuffer();                         // rrvt
-
   if (IsShowing24HourFormat())
   {
     // Handle switching from AM/PM to 24-hour format

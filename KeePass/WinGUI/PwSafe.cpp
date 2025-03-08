@@ -1,6 +1,6 @@
 /*
   KeePass Password Safe - The Open-Source Password Manager
-  Copyright (C) 2003-2024 Dominik Reichl <dominik.reichl@t-online.de>
+  Copyright (C) 2003-2025 Dominik Reichl <dominik.reichl@t-online.de>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -142,6 +142,7 @@ BOOL CPwSafeApp::InitInstance()
 #endif                                                                            // rrvt
 
   NewGUI_InitGDIPlus();
+  NewGUI_Init();
 
   CPwSafeDlg dlg;
   m_pMainWnd = &dlg;
@@ -167,6 +168,7 @@ BOOL CPwSafeApp::InitInstance()
     CMemoryProtectionEx::SetEnabledAtStart(pc->GetBool(PWMKEY_USEDPAPIFORMEMPROT, TRUE));
     *CKeyTransformBCrypt::GetEnabledPtr() = pc->GetBool(PWMKEY_USECNGBCRYPTFORKEYT, TRUE);
     *CKeyTransform::GetKeyTransformWeakWarningPtr() = pc->GetBool(PWMKEY_KEYTWEAKWARNING, TRUE);
+    *NewGUI_GetPreventScreenCapturePtr() = pc->GetBool(PWMKEY_PREVENTSCREENCAPTURE, FALSE);
     delete pc; pc = NULL;
   }
   else { ASSERT(FALSE); }
@@ -213,6 +215,12 @@ BOOL CPwSafeApp::InitInstance()
           dwData |= ((DWORD)CmdArgs::instance().getPassword().length() << 16);
           strData = CmdArgs::instance().getPassword() + strData;
         }
+        else if(!CmdArgs::instance().getPasswordEnc().empty())
+        {
+          CString strPw = SU_DecryptString(CmdArgs::instance().getPasswordEnc().c_str());
+          dwData |= ((DWORD)strPw.GetLength() << 16);
+          strData = std_string(strPw) + strData;
+        }
         else if(CmdArgs::instance().pwStdInIsInEffect())
         {
           std_string strPw = WU_StdInReadPassword();
@@ -223,7 +231,7 @@ BOOL CPwSafeApp::InitInstance()
         const FullPathName& keyfile = CmdArgs::instance().getKeyfile();
         enum {PATH_EXISTS = FullPathName::PATH_ONLY | FullPathName::PATH_AND_FILENAME};
         if(keyfile.getState() & (FullPathName::STATE) PATH_EXISTS &&
-                                                        !CmdArgs::instance().preselectIsInEffect())
+                                          !CmdArgs::instance().preselectIsInEffect())
         {
           dwData |= (DWORD)keyfile.getFullPathName().length();
           strData = keyfile.getFullPathName() + strData;

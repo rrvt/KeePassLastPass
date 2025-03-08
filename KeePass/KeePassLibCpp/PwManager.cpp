@@ -1,6 +1,6 @@
 /*
   KeePass Password Safe - The Open-Source Password Manager
-  Copyright (C) 2003-2024 Dominik Reichl <dominik.reichl@t-online.de>
+  Copyright (C) 2003-2025 Dominik Reichl <dominik.reichl@t-online.de>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -194,7 +194,7 @@ int CPwManager::SetMasterKey(const TCHAR *pszMasterKey, BOOL bDiskDrive,
   else if(CBase64Codec::IsBase64UrlStringT(pszMasterKey))
   {
     mem_erase(paKey, uKeyLen);
-    SAFE_DELETE_ARRAY(paKey); // Don't need ASCII key any more from on now
+    SAFE_DELETE_ARRAY(paKey); // Don't need ANSI key anymore from now on
 
     const bool bDec64 = CBase64Codec::DecodeUrlT(pszMasterKey, vExtKey);
     if(bDec64 && (vExtKey.size() > 0))
@@ -257,7 +257,7 @@ int CPwManager::SetMasterKey(const TCHAR *pszMasterKey, BOOL bDiskDrive,
   else // With key file
   {
     mem_erase(paKey, uKeyLen);
-    SAFE_DELETE_ARRAY(paKey); // Don't need ASCII key any more from on now
+    SAFE_DELETE_ARRAY(paKey); // Don't need ANSI key anymore from now on
 
     if(pszSecondKey == NULL) // Key file only
     {
@@ -1605,7 +1605,7 @@ BOOL CPwManager::_AddMetaStream(LPCTSTR lpMetaDataDesc, BYTE *pData, DWORD dwLen
   memset(&pe, 0, sizeof(PW_ENTRY));
   pe.uGroupId = m_pGroups[0].uGroupId;
   pe.pBinaryData = pData; pe.pszAdditional = const_cast<LPTSTR>(lpMetaDataDesc);
-  pe.pszBinaryDesc = (TCHAR*) PMS_ID_BINDESC; pe.pszPassword = (TCHAR*) _T("");
+  pe.pszBinaryDesc = (TCHAR*) PMS_ID_BINDESC; pe.pszPassword = (TCHAR*) _T("");   // rrvt
   pe.pszTitle = (TCHAR*) PMS_ID_TITLE; pe.pszURL = (TCHAR*) PMS_ID_URL;
   pe.pszUserName = (TCHAR*) PMS_ID_USER;
   pe.tCreation = g_pwTimeNever; pe.tExpire = g_pwTimeNever;

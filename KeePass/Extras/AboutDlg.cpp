@@ -1,7 +1,7 @@
 // About Dialog
 
 
-#include "stdafx.h"
+#include "pch.h"
 #include "AboutDlg.h"
 #include "ExtraResource.h"
 #include "Resources.h"
@@ -59,6 +59,9 @@ bool         rslt;
   return TRUE;
   }
 
+
+
+///-----------------
 
 /*
 

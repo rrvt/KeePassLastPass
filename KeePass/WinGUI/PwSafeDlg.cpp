@@ -1,6 +1,6 @@
 /*
   KeePass Password Safe - The Open-Source Password Manager
-  Copyright (C) 2003-2024 Dominik Reichl <dominik.reichl@t-online.de>
+  Copyright (C) 2003-2025 Dominik Reichl <dominik.reichl@t-online.de>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -548,9 +548,7 @@ END_MESSAGE_MAP()
 BOOL CAboutDlg::OnInitDialog()
 {
   CDialog::OnInitDialog();
-
-  NewGUI_TranslateCWnd(this);
-  EnumChildWindows(this->m_hWnd, NewGUI_TranslateWindowCb, 0);
+  NewGUI_InitDialog(this);
 
   NewGUI_XPButton(m_btOK, IDB_OK, IDB_OK);
 
@@ -645,6 +643,7 @@ LRESULT CAboutDlg::OnXHyperLinkClicked(WPARAM wParam, LPARAM lParam)
 BOOL CPwSafeDlg::OnInitDialog()
 {
   CDialog::OnInitDialog();
+  NewGUI_InitDialog(this, false);
 
   ASSERT((IDM_ABOUTBOX & 0xFFF0) == IDM_ABOUTBOX);
   ASSERT(IDM_ABOUTBOX < 0xF000);
@@ -1669,6 +1668,8 @@ BOOL CPwSafeDlg::_ParseCommandLine()
   const bool bPreSelectIsInEffect = CmdArgs::instance().preselectIsInEffect();
   const BOOL bLocked = (CmdArgs::instance().lockIsInEffect() ? TRUE : FALSE);
 
+  if(strPassword.empty() && !CmdArgs::instance().getPasswordEnc().empty())
+    strPassword = std_string(SU_DecryptString(CmdArgs::instance().getPasswordEnc().c_str()));
   if(strPassword.empty() && CmdArgs::instance().pwStdInIsInEffect())
     strPassword = WU_StdInReadPassword();
 
@@ -2474,6 +2475,7 @@ void CPwSafeDlg::SaveOptions()
   pcfg.SetBool(PWMKEY_USEDPAPIFORMEMPROT, *CMemoryProtectionEx::GetEnabledPtr());
   pcfg.SetBool(PWMKEY_USECNGBCRYPTFORKEYT, *CKeyTransformBCrypt::GetEnabledPtr());
   pcfg.SetBool(PWMKEY_KEYTWEAKWARNING, *CKeyTransform::GetKeyTransformWeakWarningPtr());
+  pcfg.SetBool(PWMKEY_PREVENTSCREENCAPTURE, *NewGUI_GetPreventScreenCapturePtr());
 }
 
 void CPwSafeDlg::_SaveWindowPositionAndSize(CPrivateConfigEx* pConfig)
@@ -2675,7 +2677,7 @@ void CPwSafeDlg::OnViewHideStars()
     ZeroMemory(&lvi, sizeof(LV_ITEM));
     lvi.mask = LVIF_TEXT;
     lvi.iSubItem = 3;
-    lvi.pszText = (TCHAR*) PWM_PASSWORD_STRING;
+    lvi.pszText = (TCHAR*) PWM_PASSWORD_STRING;                          //rrvt
 
     const int nItemCount = m_cList.GetItemCount();
     for(int nItem = 0; nItem < nItemCount; ++nItem)
@@ -3242,7 +3244,7 @@ void CPwSafeDlg::OnPwlistAdd()
     pwTemplate.uGroupId = m_mgr.GetGroupIdByIndex((DWORD)dlg.m_nGroupId);
     pwTemplate.uImageId = static_cast<DWORD>(dlg.m_nIconId);
     pwTemplate.uPasswordLen = static_cast<DWORD>(_tcslen(pwTemplate.pszPassword));
-    pwTemplate.pszBinaryDesc = (TCHAR*) _T("");
+    pwTemplate.pszBinaryDesc = (TCHAR*) _T("");                                    // rrvt
 
     if(_CallPlugins(KPM_ADD_ENTRY, (LPARAM)&pwTemplate, 0) == FALSE) return;
 
@@ -3634,7 +3636,7 @@ void CPwSafeDlg::RebuildContextMenus()
   m_pGroupListTrackableMenu = NewGUI_GetBCMenu(m_pGroupListMenu->GetSubMenu(0));
 
   if(m_bMiniMode == TRUE)
-    m_pGroupListTrackableMenu->DeleteMenu((TCHAR*) _T("&Export Group"));
+    m_pGroupListTrackableMenu->DeleteMenu((TCHAR*) _T("&Export Group"));         // rrvt
 
   _TranslateMenu(m_pGroupListTrackableMenu, TRUE, NULL);
 
@@ -4252,7 +4254,7 @@ void CPwSafeDlg::OnFileNew()
 #ifdef ___PWSAFE_SAMPLE_DATA
     PW_ENTRY pwT;
     pwT.pBinaryData = NULL; pwT.pszBinaryDesc = NULL; pwT.uBinaryDataLen = 0;
-    pwT.pszAdditional = (TCHAR*) _T("Some Notes");
+    pwT.pszAdditional = (TCHAR*) _T("Some Notes");                       // rrvt
     pwT.pszPassword   = (TCHAR*) _T("The Password");
     pwT.pszURL        = (TCHAR*) _T("google.com");
     pwT.pszUserName   = (TCHAR*) _T("Anonymous");
@@ -4274,7 +4276,7 @@ void CPwSafeDlg::OnFileNew()
     tExpired.btMonth = 1; tExpired.btSecond = 0; tExpired.shYear = 2000;
     for(int ir = 0; ir < 10; ++ir)
     {
-      pwT.pszTitle = (TCHAR*) _T("I am expired");
+      pwT.pszTitle = (TCHAR*) _T("I am expired");                             // rrvt
       pwT.uGroupId = m_mgr.GetGroupIdByIndex(static_cast<DWORD>(rand()) % 6);
       pwT.uImageId = (static_cast<DWORD>(rand()) % 30);
       pwT.tExpire = tExpired;
@@ -5157,16 +5159,16 @@ void CPwSafeDlg::OnFileClose()
       const bool bLockOrExit = ((m_bExiting == TRUE) || (m_bIsLocking == TRUE));
       const bool bDoVerification = ((m_bAutoSaveDb == FALSE) && bLockOrExit);
 
-      CString strContent = TRL("The current database file has been modified");
-
+      CString strContent;
       if(m_strFileAbsolute.GetLength() > 0)
       {
+        strContent = TRL("Database file");
         strContent += _T(":\r\n");
         strContent += m_strFileAbsolute;
-        // strContent += _T("\r\n\r\n");
-        // strContent += TRL("Do you want to save the changes?");
       }
-      else strContent += _T(".");
+      else strContent = TRL("The database has been modified.");
+      // strContent += _T("\r\n\r\n");
+      // strContent += TRL("Do you want to save the changes?");
 
       CString strSaveText = TRL("Save all changes made to the database and close the file.");
       if(m_bExiting == TRUE) strSaveText = TRL("Save all changes made to the database and exit KeePass.");
@@ -5204,14 +5206,15 @@ void CPwSafeDlg::OnFileClose()
 
       if(nRes < 0)
       {
-        CString str = TRL("The current database file has been modified");
+        CString str = TRL("The database has been modified.");
 
         if(m_strFileAbsolute.GetLength() > 0)
         {
+          str += _T("\r\n\r\n");
+          str += TRL("Database file");
           str += _T(":\r\n");
           str += m_strFileAbsolute;
         }
-        else str += _T(".");
 
         str += _T("\r\n\r\n");
         str += TRL("Do you want to save the changes before closing?");
@@ -5478,6 +5481,7 @@ void CPwSafeDlg::OnSafeOptions()
     }
 
     NewGUI_SetImgButtons(m_bImgButtons);
+    NewGUI_CustomizeWindow(this, false);
     _SetListParameters();
 
     _CallPlugins(KPM_OPTIONS_POST, 0, 0);
@@ -6037,7 +6041,7 @@ void CPwSafeDlg::OnExtrasGenPw()
 
       _GetCurrentPwTime(&tNow);
       memset(&pwTemplate, 0, sizeof(PW_ENTRY));
-      pwTemplate.pszAdditional = (TCHAR*) _T("");
+      pwTemplate.pszAdditional = (TCHAR*) _T("");                                         // rrvt
       pwTemplate.pszPassword   = (TCHAR*) ((lpPassword != NULL) ? lpPassword : _T(""));
       pwTemplate.pszTitle      = (TCHAR*) _T("");
       pwTemplate.pszURL        = (TCHAR*) _T("");
@@ -6049,7 +6053,7 @@ void CPwSafeDlg::OnExtrasGenPw()
       pwTemplate.uGroupId = dwGroupId;
       pwTemplate.uImageId = 0;
       pwTemplate.uPasswordLen = 0;
-      pwTemplate.pszBinaryDesc = (TCHAR*) _T("");
+      pwTemplate.pszBinaryDesc = (TCHAR*) _T("");                                           // rrvt
 
       if(m_mgr.AddEntry(&pwTemplate) == TRUE)
       {
@@ -6912,7 +6916,7 @@ void CPwSafeDlg::OnFileLock()
   // if(m_bDisplayDialog == TRUE) return; // Cannot do anything while displaying a dialog
 
   // This is a thread-critical function, therefore we fake to show a dialog, this
-  // prevents the timer function from doing anything that could interfer with us
+  // prevents the timer function from doing anything that could interfere with us
   _SetDisplayDialog(true);
 
   if(_CallPlugins(KPM_FILE_LOCK_PRE, 0, 0) == FALSE)
@@ -7627,7 +7631,7 @@ void CPwSafeDlg::_UpdateToolBar(BOOL bForceUpdate)
   //  (((ULONGLONG)dwNumSelectedEntries) << 2) ^ (m_bLocked << 1) ^
   //  m_bModified ^ (((ULONGLONG)dwNumberOfEntries) << 14);
 
-  // Update the rest (toolbar, entry view, ...) only if needed
+  // Update the rest (toolbar, details view, ...) only if needed
   if((ullListParams == m_ullLastListParams) && (bForceUpdate == FALSE)) return;
   m_ullLastListParams = ullListParams;
 
@@ -8556,13 +8560,13 @@ void CPwSafeDlg::OnExtrasTanWizard()
     pwTemplate.tLastMod = tNow;
     pwTemplate.tLastAccess = tNow;
     pwTemplate.pszTitle = const_cast<LPTSTR>(PWS_TAN_ENTRY);
-    pwTemplate.pszURL = (TCHAR*) _T("");
-    pwTemplate.pszAdditional = (TCHAR*) _T("");
+    pwTemplate.pszURL = (TCHAR*) _T("");                                            // rrvt
+    pwTemplate.pszAdditional = (TCHAR*) _T("");                                     // rrvt
     m_mgr.GetNeverExpireTime(&pwTemplate.tExpire);
     pwTemplate.uImageId = 29;
     pwTemplate.uGroupId = dwCurGroupId;
     pwTemplate.pBinaryData = NULL;
-    pwTemplate.pszBinaryDesc = (TCHAR*) _T("");
+    pwTemplate.pszBinaryDesc = (TCHAR*) _T("");                                       // rrvt
     pwTemplate.uBinaryDataLen = 0;
 
     const bool bNatural = NSCAPI_Supported();
@@ -9200,7 +9204,7 @@ void CPwSafeDlg::OnViewHideUsers()
     ZeroMemory(&lvi, sizeof(LV_ITEM));
     lvi.mask = LVIF_TEXT;
     lvi.iSubItem = 1;
-    lvi.pszText = (TCHAR*) PWM_PASSWORD_STRING;
+    lvi.pszText = (TCHAR*) PWM_PASSWORD_STRING;                                           // rrvt
     for(nItem = 0; nItem < m_cList.GetItemCount(); ++nItem)
     {
       lvi.iItem = nItem;

@@ -1,7 +1,7 @@
 // KeePass Database Port
 
 
-#include "stdafx.h"
+#include "pch.h"
 #include "KpPort.h"
 #include "KpIter.h"
 #include "KpRecord.h"
@@ -18,10 +18,6 @@ KpRecord  rcd;
 bool      namesCmp;
 bool      pwsCmp;
 bool      titlesCmp;
-
-if (!lpRcd.notes.isEmpty()) {
-int x = 1;
-}
 
   rcd = lpRcd;
 
@@ -46,7 +42,7 @@ int x = 1;
     // Is Note
 
     if (titlesCmp && (compare(lpRcd.additional, kpRcd->pszAdditional)) || pwsCmp)
-                                                                 {update(iter.curIndx(), rcd);   return;}
+                                                           {update(iter.curIndx(), rcd);   return;}
     break;
     }
 

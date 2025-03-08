@@ -2,10 +2,13 @@
 <Project>
   <ProjectOutputs>
     <ProjectOutput>
-      <FullPath>D:\Sources\KeePass\Release\KeePassLibC.dll</FullPath>
+      <FullPath>D:\Sources\KeePass.1.43\Release\KeePassLibC.dll</FullPath>
     </ProjectOutput>
     <ProjectOutput>
-      <FullPath>D:\Sources\KeePass\Release\KeePass.exe</FullPath>
+      <FullPath>D:\Sources\KeePass.1.43\Release\LastPass.dll</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>D:\Sources\KeePass.1.43\Release\keePass.exe</FullPath>
     </ProjectOutput>
   </ProjectOutputs>
   <ContentFiles />

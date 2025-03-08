@@ -1,9 +1,9 @@
-
 // Groups are used to organize KeePass passwords
 
 
-#include "stdafx.h"
+#include "pch.h"
 #include "Groups.h"
+#include "KeePassSDK.h"
 
 
 Groups groups;
@@ -58,4 +58,8 @@ int i;
 
   return 0;
   }
+
+
+Group& Group::operator= (PW_GROUP* pwg)
+                           {if (pwg) {name = pwg->pszGroupName; id = pwg->uGroupId;} return *this;}
 

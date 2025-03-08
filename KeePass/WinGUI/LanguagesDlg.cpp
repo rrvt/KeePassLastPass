@@ -1,6 +1,6 @@
 /*
   KeePass Password Safe - The Open-Source Password Manager
-  Copyright (C) 2003-2024 Dominik Reichl <dominik.reichl@t-online.de>
+  Copyright (C) 2003-2025 Dominik Reichl <dominik.reichl@t-online.de>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -119,10 +119,8 @@ bool CLanguagesDlg::InitEx(HWND hParent)
 BOOL CLanguagesDlg::OnInitDialog() 
 {
 	CDialog::OnInitDialog();
+	NewGUI_InitDialog(this);
 
-	NewGUI_TranslateCWnd(this);
-	EnumChildWindows(this->m_hWnd, NewGUI_TranslateWindowCb, 0);
-	
 	NewGUI_XPButton(m_btClose, IDB_CANCEL, IDB_CANCEL);
 	NewGUI_XPButton(m_btGetLang, IDB_LANGUAGE, IDB_LANGUAGE);
 	NewGUI_XPButton(m_btOpenFolder, IDB_TB_OPEN, IDB_TB_OPEN);

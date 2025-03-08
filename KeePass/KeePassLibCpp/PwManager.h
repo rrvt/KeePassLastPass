@@ -1,6 +1,6 @@
 ﻿/*
   KeePass Password Safe - The Open-Source Password Manager
-  Copyright (C) 2003-2024 Dominik Reichl <dominik.reichl@t-online.de>
+  Copyright (C) 2003-2025 Dominik Reichl <dominik.reichl@t-online.de>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -25,8 +25,6 @@
 #include "SysDefEx.h"
 #include <string>
 #include <vector>
-#include <boost/static_assert.hpp>                                      // rrvt -- Added for boost changes
-#include <boost/scoped_ptr.hpp>                                         // rrvt -- Added for boost changes
 #include <boost/utility.hpp>
 
 #include "Util/NewRandom.h"
@@ -40,12 +38,12 @@
 
 // When making a Windows build, don't forget to update the verinfo resource
 #ifndef _UNICODE
-#define PWM_VERSION_STR  _T("1.42")
+#define PWM_VERSION_STR  _T("1.43")
 #else
-#define PWM_VERSION_STR  _T("1.42 Unicode")
+#define PWM_VERSION_STR  _T("1.43 Unicode")
 #endif
-#define PWM_VERSION_DW   0x012A0000
-#define PWM_VERSION_QW   0x0001002A00000000ULL
+#define PWM_VERSION_DW   0x012B0000
+#define PWM_VERSION_QW   0x0001002B00000000ULL
 // #define PWM_DEVSNAPSHOT
 
 // Database file signature bytes
@@ -205,6 +203,7 @@
 #define PWMKEY_USEDPAPIFORMEMPROT   _T("KeeUseDPAPIForMemoryProtection")
 #define PWMKEY_USECNGBCRYPTFORKEYT  _T("KeeUseCNGForKeyTransformations")
 #define PWMKEY_KEYTWEAKWARNING      _T("KeeKeyTransformWeakWarning")
+#define PWMKEY_PREVENTSCREENCAPTURE _T("KeePreventScreenCapture")
 #define PWMKEY_FORCEALLOWCHANGEMKEY _T("KeeForceAllowChangeMasterKey")
 #define PWMKEY_FORCEALLOWPRINTING   _T("KeeForceAllowPrinting")
 #define PWMKEY_FORCEALLOWIMPORT     _T("KeeForceAllowImport")
@@ -299,7 +298,7 @@
 #define PWE_INVALID_KEY             4
 #define PWE_NOFILEACCESS_READ       5
 #define PWE_NOFILEACCESS_WRITE      6
-#define PWE_FILEERROR_READ          7
+#define PWE_FILEERROR_READ          7 
 #define PWE_FILEERROR_WRITE         8
 #define PWE_INVALID_RANDOMSOURCE    9
 #define PWE_INVALID_FILESTRUCTURE  10
@@ -356,34 +355,34 @@
 
 typedef struct _PMS_SIMPLE_UI_STATE
 {
-  DWORD uLastSelectedGroupId;
-  DWORD uLastTopVisibleGroupId;
-  BYTE aLastSelectedEntryUuid[16];
-  BYTE aLastTopVisibleEntryUuid[16];
-  DWORD dwReserved01;
-  DWORD dwReserved02;
-  DWORD dwReserved03;
-  DWORD dwReserved04;
-  DWORD dwReserved05;
-  DWORD dwReserved06;
-  DWORD dwReserved07;
-  DWORD dwReserved08;
-  DWORD dwReserved09;
-  DWORD dwReserved10;
-  DWORD dwReserved11;
-  DWORD dwReserved12;
-  DWORD dwReserved13;
-  DWORD dwReserved14;
-  DWORD dwReserved15;
-  DWORD dwReserved16;
+	DWORD uLastSelectedGroupId;
+	DWORD uLastTopVisibleGroupId;
+	BYTE aLastSelectedEntryUuid[16];
+	BYTE aLastTopVisibleEntryUuid[16];
+	DWORD dwReserved01;
+	DWORD dwReserved02;
+	DWORD dwReserved03;
+	DWORD dwReserved04;
+	DWORD dwReserved05;
+	DWORD dwReserved06;
+	DWORD dwReserved07;
+	DWORD dwReserved08;
+	DWORD dwReserved09;
+	DWORD dwReserved10;
+	DWORD dwReserved11;
+	DWORD dwReserved12;
+	DWORD dwReserved13;
+	DWORD dwReserved14;
+	DWORD dwReserved15;
+	DWORD dwReserved16;
 } PMS_SIMPLE_UI_STATE;
 
 #pragma pack()
 
 typedef struct _PWDB_META_STREAM
 {
-  std::basic_string<TCHAR> strName;
-  std::vector<BYTE> vData;
+	std::basic_string<TCHAR> strName;
+	std::vector<BYTE> vData;
 } PWDB_META_STREAM;
 
 typedef std::basic_string<TCHAR> std_string;
@@ -391,10 +390,10 @@ typedef std::pair<std::basic_string<TCHAR>, std::basic_string<TCHAR> > CustomKvp
 
 #ifdef _DEBUG
 #define ASSERT_ENTRY(pp) ASSERT((pp) != NULL); ASSERT((pp)->pszTitle != NULL); \
-  ASSERT((pp)->pszUserName != NULL); ASSERT((pp)->pszURL != NULL); \
-  ASSERT((pp)->pszPassword != NULL); ASSERT((pp)->pszAdditional != NULL); \
-  ASSERT((pp)->pszBinaryDesc != NULL); \
-  if(((pp)->uBinaryDataLen != 0) && ((pp)->pBinaryData == NULL)) { ASSERT(FALSE); }
+	ASSERT((pp)->pszUserName != NULL); ASSERT((pp)->pszURL != NULL); \
+	ASSERT((pp)->pszPassword != NULL); ASSERT((pp)->pszAdditional != NULL); \
+	ASSERT((pp)->pszBinaryDesc != NULL); \
+	if(((pp)->uBinaryDataLen != 0) && ((pp)->pBinaryData == NULL)) { ASSERT(FALSE); }
 #else
 #define ASSERT_ENTRY(pp)
 #endif
@@ -402,198 +401,198 @@ typedef std::pair<std::basic_string<TCHAR>, std::basic_string<TCHAR> > CustomKvp
 class CPwManager : boost::noncopyable
 {
 public:
-  CPwManager();
-  virtual ~CPwManager();
+	CPwManager();
+	virtual ~CPwManager();
 
-  void InitPrimaryInstance();
+	void InitPrimaryInstance();
 
-  static void GetNeverExpireTime(_Out_ PW_TIME *pPwTime);
-  static LPCTSTR GetTranslationDisplayVersion(LPCTSTR lpFileVersion);
+	static void GetNeverExpireTime(_Out_ PW_TIME *pPwTime);
+	static LPCTSTR GetTranslationDisplayVersion(LPCTSTR lpFileVersion);
 
-  // Set the master key for the database
-  int SetMasterKey(const TCHAR *pszMasterKey, BOOL bDiskDrive, const TCHAR *pszSecondKey,
-    const CNewRandomInterface *pARI, BOOL bOverwrite, const TCHAR *pszProviderName);
+	// Set the master key for the database
+	int SetMasterKey(const TCHAR *pszMasterKey, BOOL bDiskDrive, const TCHAR *pszSecondKey,
+		const CNewRandomInterface *pARI, BOOL bOverwrite, const TCHAR *pszProviderName);
 
-  DWORD GetNumberOfEntries() const; // Returns number of entries in database
-  DWORD GetNumberOfGroups() const; // Returns number of groups in database
+	DWORD GetNumberOfEntries() const; // Returns number of entries in database
+	DWORD GetNumberOfGroups() const; // Returns number of groups in database
 
-  // Count items in groups
-  DWORD GetNumberOfItemsInGroup(const TCHAR *pszGroup) const;
-  DWORD GetNumberOfItemsInGroupN(DWORD idGroup) const;
+	// Count items in groups
+	DWORD GetNumberOfItemsInGroup(const TCHAR *pszGroup) const;
+	DWORD GetNumberOfItemsInGroupN(DWORD idGroup) const;
 
-  // Access entry information
-  PW_ENTRY *GetEntry(DWORD dwIndex);
-  PW_ENTRY *GetEntryByGroup(DWORD idGroup, DWORD dwIndex);
-  DWORD GetEntryByGroupN(DWORD idGroup, DWORD dwIndex) const;
-  PW_ENTRY *GetEntryByUuid(const BYTE *pUuid);
-  DWORD GetEntryByUuidN(const BYTE *pUuid) const; // Returns the index of the item with pUuid
-  DWORD GetEntryPosInGroup(_In_ const PW_ENTRY *pEntry) const;
-  PW_ENTRY *GetLastEditedEntry();
+	// Access entry information
+	PW_ENTRY *GetEntry(DWORD dwIndex);
+	PW_ENTRY *GetEntryByGroup(DWORD idGroup, DWORD dwIndex);
+	DWORD GetEntryByGroupN(DWORD idGroup, DWORD dwIndex) const;
+	PW_ENTRY *GetEntryByUuid(const BYTE *pUuid);
+	DWORD GetEntryByUuidN(const BYTE *pUuid) const; // Returns the index of the item with pUuid
+	DWORD GetEntryPosInGroup(_In_ const PW_ENTRY *pEntry) const;
+	PW_ENTRY *GetLastEditedEntry();
 
-  // Access group information
-  PW_GROUP *GetGroup(DWORD dwIndex);
-  PW_GROUP *GetGroupById(DWORD idGroup);
-  DWORD GetGroupByIdN(DWORD idGroup) const;
-  DWORD GetGroupId(const TCHAR *pszGroupName) const;
-  DWORD GetGroupIdByIndex(DWORD uGroupIndex) const;
-  DWORD GetLastChildGroup(DWORD dwParentGroupIndex) const;
-  BOOL GetGroupTree(DWORD idGroup, DWORD *pGroupIndexes) const;
+	// Access group information
+	PW_GROUP *GetGroup(DWORD dwIndex);
+	PW_GROUP *GetGroupById(DWORD idGroup);
+	DWORD GetGroupByIdN(DWORD idGroup) const;
+	DWORD GetGroupId(const TCHAR *pszGroupName) const;
+	DWORD GetGroupIdByIndex(DWORD uGroupIndex) const;
+	DWORD GetLastChildGroup(DWORD dwParentGroupIndex) const;
+	BOOL GetGroupTree(DWORD idGroup, DWORD *pGroupIndexes) const;
 
-  // Add entries and groups
-  BOOL AddGroup(_In_ const PW_GROUP *pTemplate);
-  BOOL AddEntry(_In_ const PW_ENTRY *pTemplate);
-  BOOL BackupEntry(_In_ const PW_ENTRY *pe, _Out_opt_
-    BOOL *pbGroupCreated); // pe must be unlocked already
+	// Add entries and groups
+	BOOL AddGroup(_In_ const PW_GROUP *pTemplate);
+	BOOL AddEntry(_In_ const PW_ENTRY *pTemplate);
+	BOOL BackupEntry(_In_ const PW_ENTRY *pe, _Out_opt_
+		BOOL *pbGroupCreated); // pe must be unlocked already
 
-  // Delete entries and groups
-  BOOL DeleteEntry(DWORD dwIndex);
-  BOOL DeleteGroupById(DWORD uGroupId, BOOL bCreateBackupEntries);
+	// Delete entries and groups
+	BOOL DeleteEntry(DWORD dwIndex);
+	BOOL DeleteGroupById(DWORD uGroupId, BOOL bCreateBackupEntries);
 
-  BOOL SetGroup(DWORD dwIndex, _In_ const PW_GROUP *pTemplate);
-  BOOL SetEntry(DWORD dwIndex, _In_ const PW_ENTRY *pTemplate);
-  // DWORD MakeGroupTree(LPCTSTR lpTreeString, TCHAR tchSeparator);
+	BOOL SetGroup(DWORD dwIndex, _In_ const PW_GROUP *pTemplate);
+	BOOL SetEntry(DWORD dwIndex, _In_ const PW_ENTRY *pTemplate);
+	// DWORD MakeGroupTree(LPCTSTR lpTreeString, TCHAR tchSeparator);
 
-  // Use these functions to make passwords in PW_ENTRY structures readable
-  void LockEntryPassword(_Inout_ PW_ENTRY *pEntry); // Lock password, encrypt it
-  void UnlockEntryPassword(_Inout_ PW_ENTRY *pEntry); // Make password readable
+	// Use these functions to make passwords in PW_ENTRY structures readable
+	void LockEntryPassword(_Inout_ PW_ENTRY *pEntry); // Lock password, encrypt it
+	void UnlockEntryPassword(_Inout_ PW_ENTRY *pEntry); // Make password readable
 
-  void NewDatabase();
-  int OpenDatabase(const TCHAR *pszFile, _Out_opt_ PWDB_REPAIR_INFO *pRepair);
-  // int OpenDatabaseEx(const TCHAR *pszFile, _Out_opt_ PWDB_REPAIR_INFO *pRepair,
-  //  CPwErrorInfo *pErrorInfo);
-  int SaveDatabase(const TCHAR *pszFile, BYTE *pWrittenDataHash32);
+	void NewDatabase();
+	int OpenDatabase(const TCHAR *pszFile, _Out_opt_ PWDB_REPAIR_INFO *pRepair);
+	// int OpenDatabaseEx(const TCHAR *pszFile, _Out_opt_ PWDB_REPAIR_INFO *pRepair,
+	//	CPwErrorInfo *pErrorInfo);
+	int SaveDatabase(const TCHAR *pszFile, BYTE *pWrittenDataHash32);
 
-  // Move entries and groups
-  void MoveEntry(DWORD idGroup, DWORD dwFrom, DWORD dwTo);
-  BOOL MoveGroup(DWORD dwFrom, DWORD dwTo);
-  BOOL MoveGroupEx(DWORD dwFromId, DWORD dwToId);
-  BOOL MoveGroupExDir(DWORD dwGroupId, INT iDirection);
+	// Move entries and groups
+	void MoveEntry(DWORD idGroup, DWORD dwFrom, DWORD dwTo);
+	BOOL MoveGroup(DWORD dwFrom, DWORD dwTo);
+	BOOL MoveGroupEx(DWORD dwFromId, DWORD dwToId);
+	BOOL MoveGroupExDir(DWORD dwGroupId, INT iDirection);
 
-  // Sort entry and group lists
-  void SortGroup(DWORD idGroup, DWORD dwSortByField);
-  void SortGroupList();
+	// Sort entry and group lists
+	void SortGroup(DWORD idGroup, DWORD dwSortByField);
+	void SortGroupList();
 
-  void MergeIn(_Inout_ CPwManager *pDataSource, BOOL bCreateNewUUIDs,
-    BOOL bCompareTimes);
+	void MergeIn(_Inout_ CPwManager *pDataSource, BOOL bCreateNewUUIDs,
+		BOOL bCompareTimes);
 
-  // Find an item
-  // DWORD Find(const TCHAR *pszFindString, BOOL bCaseSensitive,
-  //  DWORD searchFlags, DWORD nStart);
-  DWORD Find(const TCHAR *pszFindString, BOOL bCaseSensitive,
-    DWORD searchFlags, DWORD nStart, DWORD nEndExcl, std_string* pError);
-  DWORD FindEx(const TCHAR *pszFindString, BOOL bCaseSensitive,
-    DWORD searchFlags, DWORD nStart, std_string* pError);
+	// Find an item
+	// DWORD Find(const TCHAR *pszFindString, BOOL bCaseSensitive,
+	//	DWORD searchFlags, DWORD nStart);
+	DWORD Find(const TCHAR *pszFindString, BOOL bCaseSensitive,
+		DWORD searchFlags, DWORD nStart, DWORD nEndExcl, std_string* pError);
+	DWORD FindEx(const TCHAR *pszFindString, BOOL bCaseSensitive,
+		DWORD searchFlags, DWORD nStart, std_string* pError);
 
-  // Get and set the algorithm used to encrypt the database
-  int GetAlgorithm() const;
-  BOOL SetAlgorithm(int nAlgorithm);
+	// Get and set the algorithm used to encrypt the database
+	int GetAlgorithm() const;
+	BOOL SetAlgorithm(int nAlgorithm);
 
-  DWORD GetKeyEncRounds() const;
-  void SetKeyEncRounds(DWORD dwRounds);
+	DWORD GetKeyEncRounds() const;
+	void SetKeyEncRounds(DWORD dwRounds);
 
-  // Checks and corrects the group tree (level order, etc.)
-  void FixGroupTree();
+	// Checks and corrects the group tree (level order, etc.)
+	void FixGroupTree();
 
-  void SubstEntryGroupIds(DWORD dwExistingId, DWORD dwNewId);
+	void SubstEntryGroupIds(DWORD dwExistingId, DWORD dwNewId);
 
-  const PW_DBHEADER *GetLastDatabaseHeader() const;
-  void GetRawMasterKey(_Out_bytecap_c_(32) BYTE *pStorage);
-  void SetRawMasterKey(_In_bytecount_c_(32) const BYTE *pNewKey);
-  void ClearMasterKey(BOOL bClearKey, BOOL bClearTransformedKey);
+	const PW_DBHEADER *GetLastDatabaseHeader() const;
+	void GetRawMasterKey(_Out_bytecap_c_(32) BYTE *pStorage);
+	void SetRawMasterKey(_In_bytecount_c_(32) const BYTE *pNewKey);
+	void ClearMasterKey(BOOL bClearKey, BOOL bClearTransformedKey);
 
-  LPCTSTR GetKeySource() const;
+	LPCTSTR GetKeySource() const;
 
-  std::basic_string<TCHAR> GetPropertyString(DWORD dwPropertyId) const;
-  BOOL SetPropertyString(DWORD dwPropertyId, LPCTSTR lpValue);
+	std::basic_string<TCHAR> GetPropertyString(DWORD dwPropertyId) const;
+	BOOL SetPropertyString(DWORD dwPropertyId, LPCTSTR lpValue);
 
-  std::vector<std::basic_string<TCHAR> >* AccessPropertyStrArray(DWORD dwPropertyId);
+	std::vector<std::basic_string<TCHAR> >* AccessPropertyStrArray(DWORD dwPropertyId);
 
-  BOOL SetCustomKvp(LPCTSTR lpKey, LPCTSTR lpValue);
-  LPCTSTR GetCustomKvp(LPCTSTR lpKey) const;
+	BOOL SetCustomKvp(LPCTSTR lpKey, LPCTSTR lpValue);
+	LPCTSTR GetCustomKvp(LPCTSTR lpKey) const;
 
-  void SetTransactedFileWrites(BOOL bTransacted) { m_bUseTransactedFileWrites = bTransacted; }
+	void SetTransactedFileWrites(BOOL bTransacted) { m_bUseTransactedFileWrites = bTransacted; }
 
-  COLORREF GetColor() const;
-  void SetColor(COLORREF clr);
+	COLORREF GetColor() const;
+	void SetColor(COLORREF clr);
 
-  DWORD m_dwLastSelectedGroupId;
-  DWORD m_dwLastTopVisibleGroupId;
-  BYTE m_aLastSelectedEntryUuid[16];
-  BYTE m_aLastTopVisibleEntryUuid[16];
+	DWORD m_dwLastSelectedGroupId;
+	DWORD m_dwLastTopVisibleGroupId;
+	BYTE m_aLastSelectedEntryUuid[16];
+	BYTE m_aLastTopVisibleEntryUuid[16];
 
 private:
-  void CleanUp(); // Delete everything and release all allocated memory
+	void CleanUp(); // Delete everything and release all allocated memory
 
-  void _DetMetaInfo();
+	void _DetMetaInfo();
 
-  void _AllocEntries(DWORD uEntries);
-  void _DeleteEntryList(BOOL bFreeStrings);
-  void _AllocGroups(DWORD uGroups);
-  void _DeleteGroupList(BOOL bFreeStrings);
+	void _AllocEntries(DWORD uEntries);
+	void _DeleteEntryList(BOOL bFreeStrings);
+	void _AllocGroups(DWORD uGroups);
+	void _DeleteGroupList(BOOL bFreeStrings);
 
-  bool ReadGroupField(USHORT usFieldType, DWORD dwFieldSize,
-    const BYTE *pData, PW_GROUP *pGroup, PWDB_REPAIR_INFO *pRepair);
-  bool ReadEntryField(USHORT usFieldType, DWORD dwFieldSize,
-    const BYTE *pData, PW_ENTRY *pEntry, PWDB_REPAIR_INFO *pRepair);
-  bool ReadExtData(const BYTE* pData, DWORD dwDataSize, PW_GROUP* pg,
-    PW_ENTRY* pe, PWDB_REPAIR_INFO* pRepair);
-  void WriteExtData(CKpMemoryStream& ms);
-  static void WriteExtDataField(CKpMemoryStream& ms, USHORT usFieldType,
-    const BYTE* pData, DWORD dwFieldSize);
+	bool ReadGroupField(USHORT usFieldType, DWORD dwFieldSize,
+		const BYTE *pData, PW_GROUP *pGroup, PWDB_REPAIR_INFO *pRepair);
+	bool ReadEntryField(USHORT usFieldType, DWORD dwFieldSize,
+		const BYTE *pData, PW_ENTRY *pEntry, PWDB_REPAIR_INFO *pRepair);
+	bool ReadExtData(const BYTE* pData, DWORD dwDataSize, PW_GROUP* pg,
+		PW_ENTRY* pe, PWDB_REPAIR_INFO* pRepair);
+	void WriteExtData(CKpMemoryStream& ms);
+	static void WriteExtDataField(CKpMemoryStream& ms, USHORT usFieldType,
+		const BYTE* pData, DWORD dwFieldSize);
 
-  BOOL _AddAllMetaStreams();
-  DWORD _LoadAndRemoveAllMetaStreams(bool bAcceptUnknown);
-  BOOL _AddMetaStream(LPCTSTR lpMetaDataDesc, BYTE *pData, DWORD dwLength);
-  BOOL _IsMetaStream(const PW_ENTRY *p) const;
-  void _ParseMetaStream(PW_ENTRY *p, bool bAcceptUnknown);
-  BOOL _CanIgnoreUnknownMetaStream(const PWDB_META_STREAM& msUnknown) const;
+	BOOL _AddAllMetaStreams();
+	DWORD _LoadAndRemoveAllMetaStreams(bool bAcceptUnknown);
+	BOOL _AddMetaStream(LPCTSTR lpMetaDataDesc, BYTE *pData, DWORD dwLength);
+	BOOL _IsMetaStream(const PW_ENTRY *p) const;
+	void _ParseMetaStream(PW_ENTRY *p, bool bAcceptUnknown);
+	BOOL _CanIgnoreUnknownMetaStream(const PWDB_META_STREAM& msUnknown) const;
 
-  // Encrypt the master key a few times to make brute-force key-search harder
-  BOOL _TransformMasterKey(const BYTE *pKeySeed);
+	// Encrypt the master key a few times to make brute-force key-search harder
+	BOOL _TransformMasterKey(const BYTE *pKeySeed);
 
-  static void HashHeaderWithoutContentHash(const BYTE* pbHeader,
-    std::vector<BYTE>& vHash);
+	static void HashHeaderWithoutContentHash(const BYTE* pbHeader,
+		std::vector<BYTE>& vHash);
 
-  DWORD DeleteLostEntries();
+	DWORD DeleteLostEntries();
 
-  void MoveInternal(DWORD dwFrom, DWORD dwTo);
+	void MoveInternal(DWORD dwFrom, DWORD dwTo);
 
-  static BYTE* SerializeCustomKvp(const CustomKvp& kvp);
-  static bool DeserializeCustomKvp(const BYTE *pStream, CustomKvp& kvpBuffer);
+	static BYTE* SerializeCustomKvp(const CustomKvp& kvp);
+	static bool DeserializeCustomKvp(const BYTE *pStream, CustomKvp& kvpBuffer);
 
-  void ProtectMasterKey(bool bProtectKey);
-  void ProtectTransformedMasterKey(bool bProtectKey);
+	void ProtectMasterKey(bool bProtectKey);
+	void ProtectTransformedMasterKey(bool bProtectKey);
 
-  PW_ENTRY *m_pEntries; // List containing all entries
-  DWORD m_dwMaxEntries; // Maximum number of items that can be stored in the list
-  DWORD m_dwNumEntries; // Current number of items stored in the list
+	PW_ENTRY *m_pEntries; // List containing all entries
+	DWORD m_dwMaxEntries; // Maximum number of items that can be stored in the list
+	DWORD m_dwNumEntries; // Current number of items stored in the list
 
-  PW_GROUP *m_pGroups; // List containing all groups
-  DWORD m_dwMaxGroups; // Maximum number of groups that can be stored in the list
-  DWORD m_dwNumGroups; // Current number of groups stored in the list
+	PW_GROUP *m_pGroups; // List containing all groups
+	DWORD m_dwMaxGroups; // Maximum number of groups that can be stored in the list
+	DWORD m_dwNumGroups; // Current number of groups stored in the list
 
-  PW_DBHEADER m_dbLastHeader;
-  PW_ENTRY *m_pLastEditedEntry; // Last modified entry, use GetLastEditedEntry() to get it
-  std::vector<BYTE> m_vHeaderHash;
+	PW_DBHEADER m_dbLastHeader;
+	PW_ENTRY *m_pLastEditedEntry; // Last modified entry, use GetLastEditedEntry() to get it
+	std::vector<BYTE> m_vHeaderHash;
 
-  CNewRandom m_random; // Pseudo-random number generator
+	CNewRandom m_random; // Pseudo-random number generator
 
-  BYTE m_pSessionKey[PWM_SESSION_KEY_SIZE]; // Used for in-memory encryption of passwords
-  BYTE m_pMasterKey[32]; // Master key used to encrypt the whole database
-  BYTE m_pTransformedMasterKey[32]; // Master key encrypted several times
-  int m_nAlgorithm; // Algorithm used to encrypt the database
-  DWORD m_dwKeyEncRounds;
-  std::basic_string<TCHAR> m_strKeySource;
+	BYTE m_pSessionKey[PWM_SESSION_KEY_SIZE]; // Used for in-memory encryption of passwords
+	BYTE m_pMasterKey[32]; // Master key used to encrypt the whole database
+	BYTE m_pTransformedMasterKey[32]; // Master key encrypted several times
+	int m_nAlgorithm; // Algorithm used to encrypt the database
+	DWORD m_dwKeyEncRounds;
+	std::basic_string<TCHAR> m_strKeySource;
 
-  std::basic_string<TCHAR> m_strDefaultUserName;
-  std::vector<std::basic_string<TCHAR> > m_vSearchHistory;
-  std::vector<CustomKvp> m_vCustomKVPs;
+	std::basic_string<TCHAR> m_strDefaultUserName;
+	std::vector<std::basic_string<TCHAR> > m_vSearchHistory;
+	std::vector<CustomKvp> m_vCustomKVPs;
 
-  std::vector<PWDB_META_STREAM> m_vUnknownMetaStreams;
+	std::vector<PWDB_META_STREAM> m_vUnknownMetaStreams;
 
-  BOOL m_bUseTransactedFileWrites;
+	BOOL m_bUseTransactedFileWrites;
 
-  COLORREF m_clr;
+	COLORREF m_clr;
 };
 
 #endif // ___KEEPASS_PASSWORD_MANAGER_H___

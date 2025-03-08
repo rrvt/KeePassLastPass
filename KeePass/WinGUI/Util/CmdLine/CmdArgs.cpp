@@ -34,6 +34,7 @@ POSSIBILITY OF SUCH DAMAGE.
 // DR 2009-06-05: Added 'minimize' command line option
 // DR 2012-08-14: Added 'pw-stdin' command line option
 // DR 2014-10-25: Added 'cfg-local' command line option
+// DR 2024-07-07: Added 'pw-enc' command line option
 
 #include "StdAfx.h"
 #include "CmdArgs.h"
@@ -55,6 +56,7 @@ CmdArgs::CmdArgs() : m_isPreselect(false), m_isReadOnly(false), m_isLock(false),
     const CommandLineOption preselect  (_T("preselect:"));
     const CommandLineOption readonly   (_T("readonly"));
     const CommandLineOption pw         (_T("pw:"));
+    const CommandLineOption pwEnc      (_T("pw-enc:"));
     const CommandLineOption pwStdIn    (_T("pw-stdin"));
     const CommandLineOption lockcw     (_T("lock"));
     const CommandLineOption mincw      (_T("minimize"));
@@ -109,7 +111,19 @@ CmdArgs::CmdArgs() : m_isPreselect(false), m_isReadOnly(false), m_isLock(false),
                 }
             }
 
-		else if(pwStdIn.isOption(argument)) {
+        // pw-enc option:
+        else if(pwEnc.isOption(argument)) {
+            if(!m_PasswordEnc.empty()) CommandLineTokens::displayIgnoredMessage(argument, TRL("'Pw-Enc' option is already specified"));
+            else {
+                const std_string passwordEnc(pwEnc.optionValue(argument));
+                // If passwordEnc is empty, ignore command argument:
+                if(passwordEnc.empty()) CommandLineTokens::displayIgnoredMessage(argument, TRL("Encrypted password is empty"));
+                else m_PasswordEnc = passwordEnc;
+                }
+            }
+
+        // pw-stdin option:
+        else if(pwStdIn.isOption(argument)) {
             m_isPwStdIn = true;
             }
 

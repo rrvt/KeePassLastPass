@@ -1,6 +1,6 @@
 /*
   KeePass Password Safe - The Open-Source Password Manager
-  Copyright (C) 2003-2024 Dominik Reichl <dominik.reichl@t-online.de>
+  Copyright (C) 2003-2025 Dominik Reichl <dominik.reichl@t-online.de>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -45,6 +45,17 @@ void mem_erase(void *p, size_t cb)
 #else
 	memset(p, 0, cb);
 #endif
+}
+
+DATA_BLOB _ToDataBlob(BYTE* pb, DWORD cb)
+{
+	// ASSERT(pb != NULL); // Allow NULL
+
+	DATA_BLOB db;
+	ZeroMemory(&db, sizeof(DATA_BLOB));
+	db.pbData = pb;
+	db.cbData = cb;
+	return db;
 }
 
 // Pack time to 5 byte structure:

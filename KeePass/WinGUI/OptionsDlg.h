@@ -1,6 +1,6 @@
 /*
   KeePass Password Safe - The Open-Source Password Manager
-  Copyright (C) 2003-2024 Dominik Reichl <dominik.reichl@t-online.de>
+  Copyright (C) 2003-2025 Dominik Reichl <dominik.reichl@t-online.de>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -73,6 +73,8 @@ public:
 private:
 	void AddTcItem(LPCTSTR lpName, int iImageIndex);
 	void _ChangeFont(CString& rSpec, const LOGFONT* plfOverride);
+
+	BOOL m_bInitialPreventScreenCapture;
 
 public:
 	BOOL m_bRememberLast;

@@ -1,7 +1,7 @@
 // LastPass Port
 
 
-#include "stdafx.h"
+#include "pch.h"
 #include "LpPort.h"
 #include "GetPathDlg.h"
 
@@ -103,6 +103,7 @@ LpRecord lpRcd;
 
 
 
+//---------------
 
 #if 0
 void LpPort::writePW(FileIO& fo) {

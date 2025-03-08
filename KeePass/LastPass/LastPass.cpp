@@ -26,7 +26,7 @@
 //    details.
 //
 
-#include "stdafx.h"
+#include "pch.h"
 #include "LastPass.h"
 #include "Commands.h"
 #include "Groups.h"
@@ -67,10 +67,10 @@ bool LastPass::initialize(IKpUnknown* api) {
   hInstDLL = theApp.m_hInstance;
   keePass  = (IKpAPI*) api;
 
-  if (keePass->CreateInstance(CLSID_KpConfig,     IID_IKpConfig,    (void**) &cfg))       return false;
-  if (keePass->QueryInstance( SCLSID_KpDatabase,  IID_IKpDatabase,  (void**) &kpdb))      return false;
-  if (keePass->QueryInstance( SCLSID_KpUtilities, IID_IKpUtilities, (void**) &utilities)) return false;
-
+  if (keePass->CreateInstance(CLSID_KpConfig,     IID_IKpConfig,    (void**) &cfg))   return false;
+  if (keePass->QueryInstance( SCLSID_KpDatabase,  IID_IKpDatabase,  (void**) &kpdb))  return false;
+  if (keePass->QueryInstance( SCLSID_KpUtilities, IID_IKpUtilities, (void**) &utilities))
+                                                                                      return false;
   if (!cfg || !kpdb || !utilities) return false;
 
   h = keePass->GetMainWindowHandle();
@@ -93,8 +93,8 @@ int             pos;
 
   if (!keePass) return;
 
-  if (keePass->QueryInstance(SCLSID_KpCommandLine, IID_IKpCommandLine, (void**) &pCmdLine) != S_OK)
-                                                                                          Verify(FALSE);
+  if (keePass->QueryInstance(SCLSID_KpCommandLine,
+                                    IID_IKpCommandLine, (void**) &pCmdLine) != S_OK) Verify(FALSE);
   appBasePath = pCmdLine->GetExecutablePath();
 
   VERIFY(pCmdLine->Release());

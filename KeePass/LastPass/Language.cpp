@@ -1,7 +1,7 @@
 // Language Processing
 
 
-#include "stdafx.h"
+#include "pch.h"
 #include "Language.h"
 #include "LastPass.h"
 

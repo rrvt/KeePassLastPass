@@ -45,6 +45,15 @@ Run the KeePass.msi to install KeePass.
 
 ## Updates
 
+### Update 3/7/25
+
+Downloaded KeePass Version 1.43.  Removed/resolved compile errors/warnings in VS 2022.  Integrated
+LastPass import/export commands.
+
+### Update 1/1/25
+
+Removed redundant classes from LastPass Export/Import commands.  Cleanup source.
+
 ### Update 12/29/24
 
 Downloaded Version 1.42, modified it to remove warnings and errors and added LastPass toolbar

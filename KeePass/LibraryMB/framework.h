@@ -2,6 +2,8 @@
 
 #pragma once
 
+#define DebugMemoryLeaks
+
 #ifdef DebugMemoryLeaks
 #define _CRTDBG_MAP_ALLOC
 #include <crtdbg.h>
@@ -24,8 +26,10 @@
 
 #include <afxwin.h>                         // MFC core and standard components
 #include <afxext.h>                         // MFC extensions
+#include <afxmt.h>
 
 #include <afxdisp.h>                        // MFC Automation classes
+#include <afxole.h>
 
 #ifndef _AFX_NO_OLE_SUPPORT
 #include <afxdtctl.h>                       // MFC support for Internet Explorer 4 Common Controls
@@ -55,3 +59,27 @@ typedef basic_string<Tchar> tstring;
 #include "Variant.h"
 #include "NewAllocator.h"
 
+
+#ifdef _DEBUG
+#define Verify(f)          assert(f)
+#else
+#define Verify(f)          ((void)(f))
+#endif
+
+// Badly defined in PwManager.h which can't be included in plugins for strange reasons...
+
+// Field flags (for example in Find function)
+// These flags must be disjoint to PWMS_* flags
+#ifndef PWMF_TITLE
+#define PWMF_TITLE              1
+#define PWMF_USER               2
+#define PWMF_URL                4
+#define PWMF_PASSWORD           8
+#define PWMF_ADDITIONAL        16
+#define PWMF_GROUPNAME         32
+#define PWMF_CREATION          64
+#define PWMF_LASTMOD          128
+#define PWMF_LASTACCESS       256
+#define PWMF_EXPIRE           512
+#define PWMF_UUID            1024
+#endif

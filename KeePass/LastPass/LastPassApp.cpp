@@ -26,7 +26,7 @@
 //    details.
 //
 
-#include "stdafx.h"
+#include "pch.h"
 #include "LastPassApp.h"
 
 

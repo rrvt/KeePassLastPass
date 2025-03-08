@@ -3,8 +3,8 @@
 
 #pragma once
 #include "IniFile.h"
-#include "resource.h"
 #include "KeePassSDK.h"
+#include "resource.h"
 
 
 /*struct KP_MENU_ITEM {

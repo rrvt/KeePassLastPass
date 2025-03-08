@@ -1,6 +1,6 @@
 /*
   KeePass Password Safe - The Open-Source Password Manager
-  Copyright (C) 2003-2024 Dominik Reichl <dominik.reichl@t-online.de>
+  Copyright (C) 2003-2025 Dominik Reichl <dominik.reichl@t-online.de>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -49,6 +49,7 @@
 #include "Deprecated.h"                                                           // rrvt
 
 #include <boost/scoped_array.hpp>
+#include <boost/static_assert.hpp>
 #include <iostream>
 
 using boost::scoped_array;
@@ -1025,8 +1026,8 @@ BOOL WU_SupportsMultiLineTooltips()
   osvi.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
   GetVersionEx(&osvi);
 
-  return (((osvi.dwMajorVersion >= 5) && (osvi.dwMinorVersion >= 1)) ?
-    TRUE : FALSE);
+  return ((((osvi.dwMajorVersion == 5) && (osvi.dwMinorVersion >= 1)) ||
+    (osvi.dwMajorVersion > 5)) ? TRUE : FALSE);
 #endif                                                                            // rrvt
 }
 

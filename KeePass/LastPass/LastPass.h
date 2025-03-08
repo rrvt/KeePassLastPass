@@ -1,5 +1,5 @@
 // LastPass.h : main header file for the LastPass DLL
-//
+
 
 #pragma once
 #include "Menu.h"
@@ -70,8 +70,9 @@ private:
   friend HINSTANCE    instDLL();
   friend Cchar*       basePath();
 
-  friend HRESULT KP_API KP_I_CREATEINSTANCE_DECL(REFIID riid, void** ppvObject, IKpUnknown* keePass);
+  friend HRESULT KP_API KP_I_CREATEINSTANCE_DECL(REFIID riid,
+                                                          void** ppvObject, IKpUnknown* keePass);
   };
 
 
-extern LastPass    lastPass;
+extern LastPass lastPass;

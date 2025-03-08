@@ -2,9 +2,9 @@
 
 
 #pragma once
-#include "KeePassSDK.h"     //"SDK/KpSDK.h"
 
-class KpRecord;
+class  KpRecord;
+struct IKpDatabase;
 
 
 class KpIter {
@@ -30,8 +30,8 @@ enum Dir     {Fwd, Rev};
   bool      isLast();
   bool      isFirst();
 
-  void      remove(Dir dir = Fwd) {db.DeleteEntry(i); i += dir == Fwd ? -1 : 1;   adjust();}
-  int       adjust() {return nEntry = db.GetEntryCount();}
+  void      remove(Dir dir = Fwd);        // {db.DeleteEntry(i); i += dir == Fwd ? -1 : 1;   adjust();}
+  int       adjust();                     // {return nEntry = db.GetEntryCount();}
 
 private:
 

@@ -82,7 +82,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="winmm.lib wininet.lib"
+				AdditionalDependencies="crypt32.lib wininet.lib winmm.lib"
 				OutputFile="$(OutDir)\KeePassLibC32.dll"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
@@ -183,7 +183,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="winmm.lib wininet.lib"
+				AdditionalDependencies="crypt32.lib wininet.lib winmm.lib"
 				OutputFile="$(OutDir)\KeePassLibC64.dll"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
@@ -283,7 +283,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="winmm.lib wininet.lib"
+				AdditionalDependencies="crypt32.lib wininet.lib winmm.lib"
 				OutputFile="$(OutDir)\KeePassLibC32.dll"
 				LinkIncremental="2"
 				SuppressStartupBanner="true"
@@ -384,7 +384,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="winmm.lib wininet.lib"
+				AdditionalDependencies="crypt32.lib wininet.lib winmm.lib"
 				OutputFile="$(OutDir)\KeePassLibC64.dll"
 				LinkIncremental="2"
 				SuppressStartupBanner="true"
@@ -486,7 +486,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="winmm.lib wininet.lib"
+				AdditionalDependencies="crypt32.lib wininet.lib winmm.lib"
 				OutputFile="$(OutDir)\KeePassLibC32.dll"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
@@ -587,7 +587,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="winmm.lib wininet.lib"
+				AdditionalDependencies="crypt32.lib wininet.lib winmm.lib"
 				OutputFile="$(OutDir)\KeePassLibC64.dll"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"

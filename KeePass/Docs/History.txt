@@ -1,3 +1,25 @@
+25/03/01 - 1.43
+- Added option 'Prevent certain screen captures' (in 'Tools' ->
+  'Options' -> tab 'Advanced', turned off by default); note
+  that this may also prevent legitimate other software (remote
+  desktop solutions, accessibility tools such as screen
+  magnifiers, etc.) from seeing KeePass windows
+- Added {PASSWORD_ENC} placeholder, which is replaced by the
+  password of the current entry in encrypted form
+  (DPAPI/CryptProtectData)
+- Added '-pw-enc:' command line parameter
+
+- Improved database save confirmation dialog text
+- Improved behavior of the translation system for
+  untranslatable strings
+- Improved project cleanup script
+- Upgraded installer
+- Various UI text improvements
+- Various code optimizations
+- Minor other improvements
+
+- Fixed a Windows version detection bug
+
 24/02/01 - 1.42
 - Added option 'Show warning when the key transformation
   settings are weak' (in 'Tools' -> 'Options' -> tab
@@ -2230,7 +2252,7 @@
 - The window name now indicates if the workspace is locked
 - Translations aren't included in the base package any more,
   they are now available for download on the KeePass homepage
-- From on now a setup program for KeePass is available
+- From now on a setup program for KeePass is available
 
 03/12/17 - 0.85
 - KeePass now has a Windows system tray icon which can minimize

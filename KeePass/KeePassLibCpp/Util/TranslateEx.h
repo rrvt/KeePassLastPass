@@ -1,6 +1,6 @@
 /*
   KeePass Password Safe - The Open-Source Password Manager
-  Copyright (C) 2003-2024 Dominik Reichl <dominik.reichl@t-online.de>
+  Copyright (C) 2003-2025 Dominik Reichl <dominik.reichl@t-online.de>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -26,20 +26,17 @@
 
 // Translate a string (character sequence in code)
 #ifndef TRL
-#define TRL(w__sptr_) _TRL(_T(w__sptr_))
+#define TRL(z__sptr_) _TRL(_T(z__sptr_))
 #else
 #error TRL is defined already!
 #endif
 
 // Translate a variable (do not apply _T macro)
 #ifndef TRL_VAR
-#define TRL_VAR(w__stptr_) _TRL(w__stptr_)
+#define TRL_VAR(z__sptr_) _TRL(z__sptr_)
 #else
 #error TRL_VAR is defined already!
 #endif
-
-#define TRL_MODE_DEF FALSE
-#define TRL_MODE_TRL TRUE
 
 BOOL LoadTranslationTable(LPCTSTR pszTableName);
 BOOL FreeCurrentTranslationTable();

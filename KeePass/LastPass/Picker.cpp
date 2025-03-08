@@ -1,7 +1,7 @@
 // Picker.cpp : implementation file
-//
 
-#include "stdafx.h"
+
+#include "pch.h"
 #include "Picker.h"
 
 
@@ -9,17 +9,13 @@
 
 IMPLEMENT_DYNAMIC(Picker, CDialogEx)
 
-Picker::Picker(CWnd* pParent ) : CDialogEx(IDD_PickerDlg, pParent), group1(_T("")), url1(_T("")),
-                                 title1(_T("")), userName1(_T("")), password1(_T("")), notes1(_T("")),
-                                 timeStamp1(_T("")), group2(_T("")), url2(_T("")), title2(_T("")),
-                                 userName2(_T("")), password2(_T("")), notes2(_T("")),
-                                 timeStamp2(_T("")), cmpGrp(_T(""))
-  , cmpURL(_T(""))
-  , cmpTtl(_T(""))
-  , cmpPsw(_T(""))
-  , cmpNts(_T(""))
-  , cmpUsr(_T(""))
-{ }
+Picker::Picker(CWnd* pParent ) : CDialogEx(IDD_PickerDlg, pParent), group1(_T("")),   url1(_T("")),
+                                 title1(_T("")), userName1(_T("")),  password1(_T("")),
+                                 notes1(_T("")), timeStamp1(_T("")), group2(_T("")),  url2(_T("")),
+                                 title2(_T("")), userName2(_T("")),  password2(_T("")),
+                                 notes2(_T("")), timeStamp2(_T("")), cmpGrp(_T("")),
+                                 cmpURL(_T("")), cmpTtl(_T("")),     cmpPsw(_T("")),
+                                 cmpNts(_T("")), cmpUsr(_T("")) { }
 
 Picker::~Picker() { }
 

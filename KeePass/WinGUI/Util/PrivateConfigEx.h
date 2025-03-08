@@ -1,6 +1,6 @@
 /*
   KeePass Password Safe - The Open-Source Password Manager
-  Copyright (C) 2003-2024 Dominik Reichl <dominik.reichl@t-online.de>
+  Copyright (C) 2003-2025 Dominik Reichl <dominik.reichl@t-online.de>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -26,7 +26,6 @@
 #include "../../KeePassLibCpp/SDK/Details/KpDefs.h"
 
 #include <string>
-#include "std.h"                                          // Van Tuyl Additions
 #include <vector>
 #include <boost/utility.hpp>
 
@@ -46,68 +45,53 @@
 class CPrivateConfigEx : boost::noncopyable
 {
 public:
-  CPrivateConfigEx(BOOL bRequireWriteAccess);
-  virtual ~CPrivateConfigEx();
+	CPrivateConfigEx(BOOL bRequireWriteAccess);
+	virtual ~CPrivateConfigEx();
 
-  BOOL Get(LPCTSTR pszField, LPTSTR pszValue) const;
-  BOOL Set(LPCTSTR pszField, LPCTSTR pszValue);
+	BOOL Get(LPCTSTR pszField, LPTSTR pszValue) const;
+	BOOL Set(LPCTSTR pszField, LPCTSTR pszValue);
 
-  BOOL GetBool(const TCHAR *pszField, BOOL bDefault) const;
-  BOOL SetBool(const TCHAR *pszField, BOOL bValue);
+	BOOL GetBool(const TCHAR *pszField, BOOL bDefault) const;
+	BOOL SetBool(const TCHAR *pszField, BOOL bValue);
 
-  BOOL GetEnforcedBool(LPCTSTR pszField, BOOL bDefault, BOOL bAllowGlobal) const;
+	BOOL GetEnforcedBool(LPCTSTR pszField, BOOL bDefault, BOOL bAllowGlobal) const;
 
-  std::vector<std::basic_string<TCHAR> > GetArray(LPCTSTR pszPrefix) const;
+	std::vector<std::basic_string<TCHAR> > GetArray(LPCTSTR pszPrefix) const;
 
-  std::basic_string<TCHAR> GetSafe(const TCHAR *pszField) const;
+	std::basic_string<TCHAR> GetSafe(const TCHAR *pszField) const;
 
-  // Get the KeePass application data path (directory, not INI
-  // file), without a terminating separator
-  std::basic_string<TCHAR> GetUserPath() const { return m_strUserPath; }
+	// Get the KeePass application data path (directory, not INI
+	// file), without a terminating separator
+	std::basic_string<TCHAR> GetUserPath() const { return m_strUserPath; }
 
-  void LoadStaticConfigFileOverrides(bool bPreserveExisting);
-  static void SetConfigFileOverride(int nConfigID, LPCTSTR lpPath);
-
-
-// Van Tuyl Extensions
-  bool set(TCHAR* section, const TCHAR* pszField, const TCHAR* pszValue) const;
-  bool set(TCHAR* section, const TCHAR* pszField,         bool bValue)   const;
-  bool get(TCHAR* section, const TCHAR* pszField,       TCHAR* pszValue) const;
-  bool get(TCHAR* section, const TCHAR* pszField,  std_string& val)      const;
-  bool get(TCHAR* section, const TCHAR* pszField,         bool bDefault) const;
-  bool del(TCHAR* section, const TCHAR* pszField) const;
-private:
-
-  bool SetIn(const TCHAR* sect, const TCHAR*  pszField, const TCHAR* pszValue, int nConfigID) const;
-  bool GetIn(const TCHAR* sect, const TCHAR*  pszField,       TCHAR* pszValue, int nConfigID) const;
-
-// End Van Tuyl Extenstions
+	void LoadStaticConfigFileOverrides(bool bPreserveExisting);
+	static void SetConfigFileOverride(int nConfigID, LPCTSTR lpPath);
 
 private:
-  void GetConfigPaths();
-  void FlushGlobal(BOOL bDeleteCache);
-  void PrepareUserWrite(LPCTSTR lpFile);
-  void ApplyFileOverrides();
+	void GetConfigPaths();
+	void FlushGlobal(BOOL bDeleteCache);
+	void PrepareUserWrite(LPCTSTR lpFile);
+	void ApplyFileOverrides();
 
-  BOOL GetIn(LPCTSTR pszField, LPTSTR pszValue, int nConfigID) const;
-  BOOL SetIn(LPCTSTR pszField, LPCTSTR pszValue, int nConfigID);
+	BOOL GetIn(LPCTSTR pszField, LPTSTR pszValue, int nConfigID) const;
+	BOOL SetIn(LPCTSTR pszField, LPCTSTR pszValue, int nConfigID);
 
-  static void FlushIni(LPCTSTR lpIniFilePath);
+	static void FlushIni(LPCTSTR lpIniFilePath);
 
-  static BOOL m_bInstanceActive;
+	static BOOL m_bInstanceActive;
 
-  BOOL m_bCanWrite;
+	BOOL m_bCanWrite;
 
-  std::basic_string<TCHAR> m_strFileEnforced;
-  std::basic_string<TCHAR> m_strFileGlobal;
-  std::basic_string<TCHAR> m_strFileUser;
+	std::basic_string<TCHAR> m_strFileEnforced;
+	std::basic_string<TCHAR> m_strFileGlobal;
+	std::basic_string<TCHAR> m_strFileUser;
 
-  std::basic_string<TCHAR> m_strUserPath;
-  BOOL m_bTriedToCreateUserPath;
+	std::basic_string<TCHAR> m_strUserPath;
+	BOOL m_bTriedToCreateUserPath;
 
-  BOOL m_bPreferUser;
+	BOOL m_bPreferUser;
 
-  std::basic_string<TCHAR> m_strFileCachedGlobal;
+	std::basic_string<TCHAR> m_strFileCachedGlobal;
 };
 
 #endif // ___PRIVATE_CONFIG_EX_H___

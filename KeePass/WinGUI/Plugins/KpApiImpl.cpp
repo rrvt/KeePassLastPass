@@ -1,6 +1,6 @@
 /*
   KeePass Password Safe - The Open-Source Password Manager
-  Copyright (C) 2003-2024 Dominik Reichl <dominik.reichl@t-online.de>
+  Copyright (C) 2003-2025 Dominik Reichl <dominik.reichl@t-online.de>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -354,7 +354,7 @@ STDMETHODIMP CKpApiImpl::UpdateTranslationTable()
 
 STDMETHODIMP_(LPCTSTR) CKpApiImpl::Translate(LPCTSTR lpDefString)
 {
-	return _TRL(lpDefString);
+	return TRL_VAR(lpDefString);
 }
 
 STDMETHODIMP_(BOOL) CKpApiImpl::IsInitialCommandLineFile()

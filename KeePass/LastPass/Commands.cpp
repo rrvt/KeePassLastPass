@@ -1,7 +1,7 @@
 // Last Pass Commands
 
 
-#include "stdafx.h"
+#include "pch.h"
 #include "Commands.h"
 #include "AboutDlg.h"
 #include "Duplicates.h"
@@ -73,20 +73,7 @@ String     path;
 
 
 
-void Commands::toggleDelState() {
-#if 1
-  menu.toggleDelState();
-#else
-DWORD&          dwState = items[delMenuX].dwState;
-const MenuCode* p;
-
-  dwState = dwState ^ KPMIS_CHECKED;
-
-  p = getMenuCode(delMenuX);
-
-  cfg->set((Tchar*) LPsection, p->txt, dwState != 0);
-#endif
-  }
+void Commands::toggleDelState() {menu.toggleDelState();}
 
 
 
@@ -111,8 +98,8 @@ Tchar  ch;
 
   n = fi.getLength();
 
-  for (i = 0, ch = ' '; i < n; i++) {fi.write(ch);   if (ch++ > 126) {fi.write(_T("\r\n")); ch = ' ';}}
-
+  for (i = 0, ch = ' '; i < n; i++)
+                                {fi.write(ch);   if (ch++ > 126) {fi.write(_T("\r\n")); ch = ' ';}}
   fi.close();
 
   if (_tremove(pth)) {
@@ -127,9 +114,21 @@ void Commands::about() {AboutDlg dlg;   dlg.DoModal();}
 
 
 
-void Commands::testStuff() {
-  }
+void Commands::testStuff() { }
 
 
 
+//-----------------------
+
+#if 1
+#else
+DWORD&          dwState = items[delMenuX].dwState;
+const MenuCode* p;
+
+  dwState = dwState ^ KPMIS_CHECKED;
+
+  p = getMenuCode(delMenuX);
+
+  cfg->set((Tchar*) LPsection, p->txt, dwState != 0);
+#endif
 

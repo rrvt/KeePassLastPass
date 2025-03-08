@@ -1,5 +1,5 @@
 /*
-  Copyright (C) 2008-2024 Dominik Reichl
+  Copyright (C) 2008-2025 Dominik Reichl
   All rights reserved.
 
   Redistribution and use in source and binary forms, with or without
@@ -10,8 +10,8 @@
     notice, this list of conditions and the following disclaimer.
   * Redistributions in binary form must reproduce the above copyright
     notice, this list of conditions and the following disclaimer in
-  the documentation and/or other materials provided with the
-  distribution.
+	the documentation and/or other materials provided with the
+	distribution.
 
   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
   "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
@@ -34,79 +34,41 @@
 
 #include "../../SysDefEx.h"
 #include "IKpUnknown.h"
-#include "std.h"                              // Van Tuyl Addition
-#include <vector>
-#include <string>
-#include <tchar.h>
 
 #pragma pack(1)
-
-typedef std::basic_string<TCHAR> std_string;
-
 
 /// Interface to a configuration object.
 /// Instances of classes supporting this interface can be created using
 /// IKpAPI::CreateInstance.
 struct KP_DECL_INTERFACE("6F7B9713-FC6E-4FD6-BF55-044DF9E701B0") IKpConfig :
-  public IKpUnknown
+	public IKpUnknown
 {
 public:
-  /// Get the string value of a configuration item.
-  /// @param pszField Name of the configuration item.
-  /// @param pszValue This output buffer must be able to hold at
-  /// least SI_REGSIZE characters (TCHARs).
-  STDMETHOD_(BOOL, Get)(LPCTSTR pszField, LPTSTR pszValue) = 0;
+	/// Get the string value of a configuration item.
+	/// @param pszField Name of the configuration item.
+	/// @param pszValue This output buffer must be able to hold at
+	/// least SI_REGSIZE characters (TCHARs).
+	STDMETHOD_(BOOL, Get)(LPCTSTR pszField, LPTSTR pszValue) = 0;
 
-  /// Set the string value of a configuration item.
-  /// @param pszField Name of the configuration item.
-  /// @param pszValue New value of the configuration item. If NULL,
-  /// the configuration item is deleted.
-  /// @return TRUE, if setting the item has succeeded.
-  /// @return FALSE, otherwise.
-  STDMETHOD_(BOOL, Set)(LPCTSTR pszField, LPCTSTR pszValue) = 0;
+	/// Set the string value of a configuration item.
+	/// @param pszField Name of the configuration item.
+	/// @param pszValue New value of the configuration item. If NULL,
+	/// the configuration item is deleted.
+	/// @return TRUE, if setting the item has succeeded.
+	/// @return FALSE, otherwise.
+	STDMETHOD_(BOOL, Set)(LPCTSTR pszField, LPCTSTR pszValue) = 0;
 
-  /// Get the boolean value of a configuration item.
-  STDMETHOD_(BOOL, GetBool)(LPCTSTR pszField, BOOL bDefault) = 0;
+	/// Get the boolean value of a configuration item.
+	STDMETHOD_(BOOL, GetBool)(LPCTSTR pszField, BOOL bDefault) = 0;
 
-  /// Set the boolean value of a configuration item.
-  /// @return TRUE, if setting the item has succeeded.
-  /// @return FALSE, otherwise.
-  STDMETHOD_(BOOL, SetBool)(LPCTSTR pszField, BOOL bValue) = 0;
+	/// Set the boolean value of a configuration item.
+	/// @return TRUE, if setting the item has succeeded.
+	/// @return FALSE, otherwise.
+	STDMETHOD_(BOOL, SetBool)(LPCTSTR pszField, BOOL bValue) = 0;
 
-// Van Tuyl Additions
-
-  /// Set the string value of a configuration item in specified section.
-  /// @param section name in configuration file (e.g. [KeePass])
-  /// @param pszField Name of the configuration item.
-  /// @param pszValue New value of the configuration item. If NULL, the configuration item is deleted.
-  ///        bDefault -- bool type (result of an boolean expression, true or false)
-  /// @return TRUE, if setting the item has succeeded.
-  /// @return FALSE, otherwise.
-
-  STDMETHOD_(bool, set)(TCHAR* section, const TCHAR* pszField, const TCHAR* pszValue) = 0;
-  STDMETHOD_(bool, set)(TCHAR* section, const TCHAR* pszField,  bool bDefault) = 0;
-
-
-  /// Get the string value of a configuration item from specified section.
-  /// @param section name in configuration file (e.g. [KeePass])
-  /// @param pszField Name of the configuration item.
-  /// @param pszValue This output buffer must be able to hold at least SI_REGSIZE characters (TCHARs).
-  ///        val -- a std_string
-  ///        bDefault -- return value if ini file does not contain pszField
-  /// @return -- true when ini file contains field or value of boolean/default in the event of geting a
-  ///            a boolean
-
-  STDMETHOD_(bool, get)(TCHAR* section, const TCHAR* pszField, TCHAR* pszValue) = 0;
-  STDMETHOD_(bool, get)(TCHAR* section, const TCHAR* pszField, std_string& val) = 0;
-  STDMETHOD_(bool, get)(TCHAR* section, const TCHAR* pszField,  bool bDefault) = 0;
-
-  STDMETHOD_(bool, del)(TCHAR* section, const TCHAR* pszField) = 0;
-
-// End Van Tuyl Additions
-
-  /// Get the KeePass application data path (directory, not INI
-  /// file), without a terminating separator.
-  STDMETHOD(GetUserPath)(LPTSTR lpBuf, DWORD dwBufMaxChars) = 0;
+	/// Get the KeePass application data path (directory, not INI
+	/// file), without a terminating separator.
+	STDMETHOD(GetUserPath)(LPTSTR lpBuf, DWORD dwBufMaxChars) = 0;
 };
 
 #pragma pack()

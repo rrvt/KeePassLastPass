@@ -3,18 +3,19 @@
 /*
 The template for loading, storing and accessing CSV files is contained in several files:
   *  CSVLex   -- A Lexical Analyser (FSM) for reading CSV files
-  *  CSVOut   -- Contains a class for outputing to a CSV file (managing commas and quotes withing fields)
+  *  CSVOut   -- Contains a class for outputing to a CSV file (managing commas and quotes withing
+                 fields)
   *  CSVRcdB  -- A base file for your CSV Record to provide basic functionality
-  *  CSVRcdsT -- Contains a template for creating a container for CSV Records.  May be used as a base
-                 class for extending functionality with a subclass.
+  *  CSVRcdsT -- Contains a template for creating a container for CSV Records.  May be used as a
+                base class for extending functionality with a subclass.
 
-The principal functions are get_token() and accept_token();  Get token returns the token code for token
-and makes sure that both token and token1 are the next two tokens in the input stream.  Accept token
-removes token from the input stream so that the next get token reads another token from the input stream.
-Until accept token is called no changes in the two tokens are done.
+The principal functions are get_token() and accept_token();  Get token returns the token code for
+token and makes sure that both token and token1 are the next two tokens in the input stream.
+Accept token removes token from the input stream so that the next get token reads another token
+from the input stream.  Until accept token is called no changes in the two tokens are done.
 
-Many simple decisions about the input stream may be made by just observing the next two tokens and they
-are provided by CSVLex.
+Many simple decisions about the input stream may be made by just observing the next two tokens and
+they are provided by CSVLex.
 */
 
 #pragma once
@@ -55,7 +56,7 @@ int        tokenNo;                         // Number of token from left margin
 class CSVLexF {
 
 enum States {nil, begin_tok, collect_symbol, got_quote, collect_string, got_backslash, got_eol,
-                                                                              end_of_file,  illegal_tok};
+                                                                        end_of_file,  illegal_tok};
 FileIO   fi;
 String   source_line;
 String   source_line1;
@@ -115,6 +116,6 @@ private:
 
   void   terminate(CSVtok& tok, String* source[]);
 
-  String getSourceLine(CSVtok& token);         // display source line associated with current token.
+  String getSourceLine(CSVtok& token);        // display source line associated with current token.
   };
 

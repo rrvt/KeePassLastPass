@@ -1,6 +1,6 @@
 /*
   KeePass Password Safe - The Open-Source Password Manager
-  Copyright (C) 2003-2024 Dominik Reichl <dominik.reichl@t-online.de>
+  Copyright (C) 2003-2025 Dominik Reichl <dominik.reichl@t-online.de>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -87,8 +87,7 @@ LPCTSTR CPwUtil::GetUniCvtPtr(LPCTSTR lpBase, BOOL bTranslate)
 {
 	if(lpBase == NULL) return PWU_CVT_EX; // NULL is allowed, return unique default pointer
 
-	if(bTranslate != FALSE) return _TRL(lpBase);
-	return lpBase; // Untranslated
+	return ((bTranslate != FALSE) ? TRL_VAR(lpBase) : lpBase);
 }
 
 BOOL CPwUtil::ConvertStrToHex(char ch1, char ch2, BYTE& bt)

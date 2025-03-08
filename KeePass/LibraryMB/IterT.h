@@ -74,8 +74,8 @@ private:
   };
 
 
-//Obj Iterator -- i.e. the actual Object is contained in the iterator, therefore use it immediately after
-// a pointer is returned to it...
+//Obj Iterator -- i.e. the actual Object is contained in the iterator, therefore use it immediately
+// after a pointer is returned to it...
 /*
 Datum* StoreX::getDatum(int i, Datum& d) {
 

@@ -3,7 +3,9 @@
 
 #pragma once
 #include "Expandable.h"
-#include "KeePassSDK.h"     //"SDK/KpSDK.h"
+
+struct                   IKpDatabase;
+typedef struct _PW_GROUP PW_GROUP;
 
 
 class Group {
@@ -17,8 +19,8 @@ public:
  ~Group() { }
 
   Group& operator= (Group& g) {name = g.name; id = g.id; return *this;}
-  Group& operator= (PW_GROUP* pwg)
-                                {if (pwg) {name = pwg->pszGroupName; id = pwg->uGroupId;} return *this;}
+  Group& operator= (PW_GROUP* pwg);
+//                         {if (pwg) {name = pwg->pszGroupName; id = pwg->uGroupId;} return *this;}
   friend class Groups;
   };
 
@@ -41,10 +43,15 @@ public:
   DWORD  getID(TCchar* grpName);
 
   DWORD  bkupID() {initialize(); return backupID;}
-private:
-
-//Groups() : kpdb(*(IKpDatabase*)0) { }
   };
 
 
 extern Groups groups;
+
+
+
+//--------------
+
+
+//Groups() : kpdb(*(IKpDatabase*)0) { }
+

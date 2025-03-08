@@ -56,4 +56,4 @@ public:
   afx_msg void OnDelRcd2();
   afx_msg void OnCancelAll();
   afx_msg void OnFinish();
-};
+  };

@@ -1,6 +1,6 @@
 /*
   KeePass Password Safe - The Open-Source Password Manager
-  Copyright (C) 2003-2024 Dominik Reichl <dominik.reichl@t-online.de>
+  Copyright (C) 2003-2025 Dominik Reichl <dominik.reichl@t-online.de>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -177,7 +177,17 @@ typedef struct _MY_GRADIENT_RECT
 #define BCM_SETSHIELD 0x160C
 #endif
 
+#ifndef WDA_MONITOR
+#define WDA_NONE    0x00000000
+#define WDA_MONITOR 0x00000001
+#endif
+
+void NewGUI_Init();
 void NewGUI_CleanUp();
+
+BOOL* NewGUI_GetPreventScreenCapturePtr();
+
+void NewGUI_InitDialog(CDialog* pDlg, bool bTranslate = true);
 
 COLORREF NewGUI_GetBgColor();
 COLORREF NewGUI_GetBtnColor();
@@ -265,5 +275,7 @@ SIZE NewGUI_GetWindowContentSize(HWND hWnd);
 // void NewGUI_ResetFocus(CWnd* pToFocus);
 
 BOOL NewGUI_GetNonClientMetrics(NONCLIENTMETRICS* p);
+
+void NewGUI_CustomizeWindow(CWnd* pWnd, bool bInit);
 
 #endif // ___NEW_GUI_COMMON___

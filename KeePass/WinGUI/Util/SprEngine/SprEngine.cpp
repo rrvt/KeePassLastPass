@@ -1,6 +1,6 @@
 /*
   KeePass Password Safe - The Open-Source Password Manager
-  Copyright (C) 2003-2024 Dominik Reichl <dominik.reichl@t-online.de>
+  Copyright (C) 2003-2025 Dominik Reichl <dominik.reichl@t-online.de>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -101,6 +101,19 @@ CString SprCompileInternal(LPCTSTR lpText, PW_ENTRY* pEntry, CPwManager* pDataba
 
 			SprFillIfExists(str, _T("{PASSWORD}"), strPwCopy, pEntry,
 				pDatabase, pcf, dwRecursionLevel, vRefsCache);
+
+			if(str.Find(_T("{PASSWORD_ENC}")) >= 0)
+			{
+				CString strPwCmp = _T("{PASSWORD}");
+				SprFillIfExists(strPwCmp, _T("{PASSWORD}"), strPwCopy, pEntry,
+					pDatabase, NULL, dwRecursionLevel, vRefsCache);
+
+				CString strPwEnc = SU_EncryptString(strPwCmp);
+				SprFillPlaceholder(str, _T("{PASSWORD_ENC}"), strPwEnc, pcf);
+
+				EraseCString(&strPwCmp);
+				EraseCString(&strPwEnc);
+			}
 
 			EraseCString(&strPwCopy); // Erase local copy
 		}

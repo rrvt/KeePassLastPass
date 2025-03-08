@@ -1,6 +1,6 @@
 /*
   KeePass Password Safe - The Open-Source Password Manager
-  Copyright (C) 2003-2024 Dominik Reichl <dominik.reichl@t-online.de>
+  Copyright (C) 2003-2025 Dominik Reichl <dominik.reichl@t-online.de>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -33,533 +33,377 @@
 #define PCFG_NOTFOUND _T("DD1B11FE241D475AA14A7555729D6BCB")
 
 typedef HRESULT(WINAPI *LPSHGETSPECIALFOLDERPATH)(HWND hwndOwner,
-  LPTSTR lpszPath, int nFolder, BOOL fCreate);
+	LPTSTR lpszPath, int nFolder, BOOL fCreate);
 
 static std::basic_string<TCHAR> g_strFileOverrideGlobal;
 static std::basic_string<TCHAR> g_strFileOverrideUser;
 
 CPrivateConfigEx::CPrivateConfigEx(BOOL bRequireWriteAccess)
 {
-  m_bPreferUser = FALSE;
-  m_bCanWrite = bRequireWriteAccess;
-  m_bTriedToCreateUserPath = FALSE;
+	m_bPreferUser = FALSE;
+	m_bCanWrite = bRequireWriteAccess;
+	m_bTriedToCreateUserPath = FALSE;
 
-  this->GetConfigPaths();
+	this->GetConfigPaths();
 
-  TCHAR tszPref[SI_REGSIZE];
-  if(this->GetIn(PWMKEY_PREFERUSER, tszPref, CFG_ID_GLOBAL) == TRUE)
-    m_bPreferUser = ((_tcscmp(tszPref, CFG_VAL_TRUE) == 0) ? TRUE : FALSE);
+	TCHAR tszPref[SI_REGSIZE];
+	if(this->GetIn(PWMKEY_PREFERUSER, tszPref, CFG_ID_GLOBAL) == TRUE)
+		m_bPreferUser = ((_tcscmp(tszPref, CFG_VAL_TRUE) == 0) ? TRUE : FALSE);
 }
 
 CPrivateConfigEx::~CPrivateConfigEx()
 {
-  this->FlushGlobal(TRUE);
+	this->FlushGlobal(TRUE);
 }
 
 void CPrivateConfigEx::GetConfigPaths()
 {
-  TCHAR tszAppDir[MAX_PATH * 3];
-  tszAppDir[0] = 0; tszAppDir[1] = 0;
+	TCHAR tszAppDir[MAX_PATH * 3];
+	tszAppDir[0] = 0; tszAppDir[1] = 0;
 
-  BOOST_STATIC_ASSERT(SI_REGSIZE >= _countof(tszAppDir));
+	BOOST_STATIC_ASSERT(SI_REGSIZE >= _countof(tszAppDir));
 
-  TCHAR tszTemp[SI_REGSIZE];
-  VERIFY(AU_GetApplicationDirectory(tszTemp, SI_REGSIZE - 1, TRUE, FALSE));
-  m_strFileGlobal = tszTemp;
-  m_strFileGlobal += _T("\\");
-  m_strFileGlobal += PWM_EXENAME;
+	TCHAR tszTemp[SI_REGSIZE];
+	VERIFY(AU_GetApplicationDirectory(tszTemp, SI_REGSIZE - 1, TRUE, FALSE));
+	m_strFileGlobal = tszTemp;
+	m_strFileGlobal += _T("\\");
+	m_strFileGlobal += PWM_EXENAME;
 
-  m_strFileEnforced = m_strFileGlobal;
-  m_strFileEnforced += CFG_SUFFIX_ENF;
+	m_strFileEnforced = m_strFileGlobal;
+	m_strFileEnforced += CFG_SUFFIX_ENF;
 
-  m_strFileGlobal += CFG_SUFFIX_STD;
+	m_strFileGlobal += CFG_SUFFIX_STD;
 
-  tszTemp[0] = 0;
-  HINSTANCE hShell32 = AU_LoadLibrary(_T("Shell32.dll"));
-  if(hShell32 != NULL)
-  {
-    LPSHGETSPECIALFOLDERPATH lpGet = (LPSHGETSPECIALFOLDERPATH)GetProcAddress(hShell32,
+	tszTemp[0] = 0;
+	HINSTANCE hShell32 = AU_LoadLibrary(_T("Shell32.dll"));
+	if(hShell32 != NULL)
+	{
+		LPSHGETSPECIALFOLDERPATH lpGet = (LPSHGETSPECIALFOLDERPATH)GetProcAddress(hShell32,
 #ifndef _UNICODE
-      "SHGetSpecialFolderPathA"
+			"SHGetSpecialFolderPathA"
 #else
-      "SHGetSpecialFolderPathW"
+			"SHGetSpecialFolderPathW"
 #endif
-      );
+			);
 
-    // WinNT 4.0 doesn't support this function, therefore check for NULL pointer without assertion
-    if(lpGet != NULL) lpGet(NULL, tszTemp, CSIDL_APPDATA, TRUE);
+		// WinNT 4.0 doesn't support this function, therefore check for NULL pointer without assertion
+		if(lpGet != NULL) lpGet(NULL, tszTemp, CSIDL_APPDATA, TRUE);
 
-    lpGet = NULL; FreeLibrary(hShell32); hShell32 = NULL;
-  } else { ASSERT(FALSE); }
+		lpGet = NULL; FreeLibrary(hShell32); hShell32 = NULL;
+	} else { ASSERT(FALSE); }
 
-  if(tszTemp[0] == 0) // GetSpecialFolderPath failed
-  {
-    m_strFileUser = PWM_EXENAME;
-    m_strFileUser += CFG_SUFFIX_STD;
+	if(tszTemp[0] == 0) // GetSpecialFolderPath failed
+	{
+		m_strFileUser = PWM_EXENAME;
+		m_strFileUser += CFG_SUFFIX_STD;
 
-    m_strUserPath.clear();
-  }
-  else
-  {
-    const DWORD uLen = (DWORD)_tcslen(tszTemp); ASSERT(uLen != 0);
+		m_strUserPath.clear();
+	}
+	else
+	{
+		const DWORD uLen = (DWORD)_tcslen(tszTemp); ASSERT(uLen != 0);
 
-    if(tszTemp[uLen - 1] != _T('\\'))
-      _tcscat_s(tszTemp, _T("\\"));
+		if(tszTemp[uLen - 1] != _T('\\'))
+			_tcscat_s(tszTemp, _T("\\"));
 
-    _tcscat_s(tszTemp, PWM_EXENAME);
+		_tcscat_s(tszTemp, PWM_EXENAME);
 
-    _tcscpy_s(tszAppDir, tszTemp);
+		_tcscpy_s(tszAppDir, tszTemp);
 
-    m_strFileUser = tszTemp;
-    m_strUserPath = tszTemp;
+		m_strFileUser = tszTemp;
+		m_strUserPath = tszTemp;
 
-    m_strFileUser += _T("\\");
-    m_strFileUser += PWM_EXENAME;
-    m_strFileUser += CFG_SUFFIX_STD;
-  }
+		m_strFileUser += _T("\\");
+		m_strFileUser += PWM_EXENAME;
+		m_strFileUser += CFG_SUFFIX_STD;
+	}
 
-  ApplyFileOverrides();
+	ApplyFileOverrides();
 
-  if(_FileAccessible(m_strFileGlobal.c_str()) == TRUE)
-  {
-    m_strFileCachedGlobal = WU_GetTempFile(CFG_SUFFIX_STD);
+	if(_FileAccessible(m_strFileGlobal.c_str()) == TRUE)
+	{
+		m_strFileCachedGlobal = WU_GetTempFile(CFG_SUFFIX_STD);
 
-    if(CopyFile(m_strFileGlobal.c_str(), m_strFileCachedGlobal.c_str(),
-      FALSE) == FALSE)
-    {
-      ASSERT(FALSE);
-      m_strFileCachedGlobal.clear();
-    }
-  }
+		if(CopyFile(m_strFileGlobal.c_str(), m_strFileCachedGlobal.c_str(),
+			FALSE) == FALSE)
+		{
+			ASSERT(FALSE);
+			m_strFileCachedGlobal.clear();
+		}
+	}
 }
 
 void CPrivateConfigEx::ApplyFileOverrides()
 {
-  if(g_strFileOverrideGlobal.size() > 0) m_strFileGlobal = g_strFileOverrideGlobal;
-  if(g_strFileOverrideUser.size() > 0) m_strFileUser = g_strFileOverrideUser;
+	if(g_strFileOverrideGlobal.size() > 0) m_strFileGlobal = g_strFileOverrideGlobal;
+	if(g_strFileOverrideUser.size() > 0) m_strFileUser = g_strFileOverrideUser;
 }
 
 void CPrivateConfigEx::FlushGlobal(BOOL bDeleteCache)
 {
-  if(m_strFileCachedGlobal.size() == 0) return;
+	if(m_strFileCachedGlobal.size() == 0) return;
 
-  if(m_bCanWrite == TRUE)
-  {
-    CPrivateConfigEx::FlushIni(m_strFileCachedGlobal.c_str());
+	if(m_bCanWrite == TRUE)
+	{
+		CPrivateConfigEx::FlushIni(m_strFileCachedGlobal.c_str());
 
-    const BOOL bCopyResult = CopyFile(m_strFileCachedGlobal.c_str(),
-      m_strFileGlobal.c_str(), FALSE);
+		const BOOL bCopyResult = CopyFile(m_strFileCachedGlobal.c_str(),
+			m_strFileGlobal.c_str(), FALSE);
 
-    if(bCopyResult != FALSE)
-      _CallPlugins(KPM_OPTIONS_SAVE_GLOBAL, (LPARAM)m_strFileGlobal.c_str(), 0);
-    else { ASSERT(FALSE); }
-  }
+		if(bCopyResult != FALSE)
+			_CallPlugins(KPM_OPTIONS_SAVE_GLOBAL, (LPARAM)m_strFileGlobal.c_str(), 0);
+		else { ASSERT(FALSE); }
+	}
 
-  if(bDeleteCache == TRUE)
-  {
-    if(DeleteFile(m_strFileCachedGlobal.c_str()) != FALSE)
-      m_strFileCachedGlobal.clear();
-    else { ASSERT(FALSE); }
-  }
+	if(bDeleteCache == TRUE)
+	{
+		if(DeleteFile(m_strFileCachedGlobal.c_str()) != FALSE)
+			m_strFileCachedGlobal.clear();
+		else { ASSERT(FALSE); }
+	}
 }
 
 void CPrivateConfigEx::FlushIni(LPCTSTR lpIniFilePath)
 {
-  ASSERT(lpIniFilePath != NULL); if(lpIniFilePath == NULL) return;
-  ASSERT(lpIniFilePath[0] != 0); if(lpIniFilePath[0] == 0) return;
+	ASSERT(lpIniFilePath != NULL); if(lpIniFilePath == NULL) return;
+	ASSERT(lpIniFilePath[0] != 0); if(lpIniFilePath[0] == 0) return;
 
-  // Do not verify the following call, as it always returns FALSE
-  // on Windows 95 / 98 / ME
-  WritePrivateProfileString(NULL, NULL, NULL, lpIniFilePath);
+	// Do not verify the following call, as it always returns FALSE
+	// on Windows 95 / 98 / ME
+	WritePrivateProfileString(NULL, NULL, NULL, lpIniFilePath);
 }
 
 void CPrivateConfigEx::PrepareUserWrite(LPCTSTR lpFile)
 {
-  ASSERT(m_bCanWrite == TRUE);
+	ASSERT(m_bCanWrite == TRUE);
 
-  if((m_bPreferUser == TRUE) || (_FileWritable(m_strFileGlobal.c_str()) == FALSE))
-  {
-    if((m_strUserPath.size() > 0) && (m_bTriedToCreateUserPath == FALSE))
-    {
-      std_string strDir = m_strUserPath;
-      strDir += _T("\\");
+	if((m_bPreferUser == TRUE) || (_FileWritable(m_strFileGlobal.c_str()) == FALSE))
+	{
+		if((m_strUserPath.size() > 0) && (m_bTriedToCreateUserPath == FALSE))
+		{
+			std_string strDir = m_strUserPath;
+			strDir += _T("\\");
 
-      // Ensure the user path existence only if the file that is
-      // about to be written resides in this path
-      if((strDir.size() < _tcslen(lpFile)) && (_tcsnicmp(strDir.c_str(),
-        lpFile, strDir.size()) == 0))
-      {
-        CreateDirectory(m_strUserPath.c_str(), NULL); // Ensure existence
-        m_bTriedToCreateUserPath = TRUE; // Try once only
-      }
-    }
-  }
+			// Ensure the user path existence only if the file that is
+			// about to be written resides in this path
+			if((strDir.size() < _tcslen(lpFile)) && (_tcsnicmp(strDir.c_str(),
+				lpFile, strDir.size()) == 0))
+			{
+				CreateDirectory(m_strUserPath.c_str(), NULL); // Ensure existence
+				m_bTriedToCreateUserPath = TRUE; // Try once only
+			}
+		}
+	}
 }
 
 BOOL CPrivateConfigEx::Get(LPCTSTR pszField, LPTSTR pszValue) const
 {
-  if(this->GetIn(pszField, pszValue, CFG_ID_ENFORCED) == TRUE)
-    return TRUE;
+	if(this->GetIn(pszField, pszValue, CFG_ID_ENFORCED) == TRUE)
+		return TRUE;
 
-  TCHAR tszGlobal[SI_REGSIZE];
-  BOOL bGlobal = this->GetIn(pszField, tszGlobal, CFG_ID_GLOBAL);
+	TCHAR tszGlobal[SI_REGSIZE];
+	BOOL bGlobal = this->GetIn(pszField, tszGlobal, CFG_ID_GLOBAL);
 
-  TCHAR tszUser[SI_REGSIZE];
-  BOOL bUser = this->GetIn(pszField, tszUser, CFG_ID_USER);
+	TCHAR tszUser[SI_REGSIZE];
+	BOOL bUser = this->GetIn(pszField, tszUser, CFG_ID_USER);
 
-  if((bGlobal == FALSE) && (bUser == FALSE))
-  {
-    pszValue[0] = 0; pszValue[1] = 0;
-    return FALSE;
-  }
-  else if((bGlobal == TRUE) && (bUser == FALSE))
-  {
-    _tcscpy_s(pszValue, SI_REGSIZE - 1, tszGlobal);
-    return TRUE;
-  }
-  else if((bGlobal == FALSE) && (bUser == TRUE))
-  {
-    _tcscpy_s(pszValue, SI_REGSIZE - 1, tszUser);
-    return TRUE;
-  }
+	if((bGlobal == FALSE) && (bUser == FALSE))
+	{
+		pszValue[0] = 0; pszValue[1] = 0;
+		return FALSE;
+	}
+	else if((bGlobal == TRUE) && (bUser == FALSE))
+	{
+		_tcscpy_s(pszValue, SI_REGSIZE - 1, tszGlobal);
+		return TRUE;
+	}
+	else if((bGlobal == FALSE) && (bUser == TRUE))
+	{
+		_tcscpy_s(pszValue, SI_REGSIZE - 1, tszUser);
+		return TRUE;
+	}
 
-  // (bGlobal == TRUE) && (bUser == TRUE)
-  if(m_bPreferUser == TRUE) _tcscpy_s(pszValue, SI_REGSIZE - 1, tszUser);
-  else _tcscpy_s(pszValue, SI_REGSIZE - 1, tszGlobal);
-  return TRUE;
+	// (bGlobal == TRUE) && (bUser == TRUE)
+	if(m_bPreferUser == TRUE) _tcscpy_s(pszValue, SI_REGSIZE - 1, tszUser);
+	else _tcscpy_s(pszValue, SI_REGSIZE - 1, tszGlobal);
+	return TRUE;
 }
 
 BOOL CPrivateConfigEx::Set(LPCTSTR pszField, LPCTSTR pszValue)
 {
-  // pszValue may be NULL -- this deletes the item
+	// pszValue may be NULL -- this deletes the item
 
-  if(m_bPreferUser == TRUE)
-  {
-    if(this->SetIn(pszField, pszValue, CFG_ID_USER) == TRUE) return TRUE;
-    if(this->SetIn(pszField, pszValue, CFG_ID_GLOBAL) == TRUE) return TRUE;
-  }
-  else // Don't prefer user -- use global first
-  {
-    if(this->SetIn(pszField, pszValue, CFG_ID_GLOBAL) == TRUE) return TRUE;
-    if(this->SetIn(pszField, pszValue, CFG_ID_USER) == TRUE) return TRUE;
-  }
+	if(m_bPreferUser == TRUE)
+	{
+		if(this->SetIn(pszField, pszValue, CFG_ID_USER) == TRUE) return TRUE;
+		if(this->SetIn(pszField, pszValue, CFG_ID_GLOBAL) == TRUE) return TRUE;
+	}
+	else // Don't prefer user -- use global first
+	{
+		if(this->SetIn(pszField, pszValue, CFG_ID_GLOBAL) == TRUE) return TRUE;
+		if(this->SetIn(pszField, pszValue, CFG_ID_USER) == TRUE) return TRUE;
+	}
 
-  CKpApiImpl::Instance().SetStatusBarText(TRL("Failed to save the configuration."));
-  return FALSE;
+	CKpApiImpl::Instance().SetStatusBarText(TRL("Failed to save the configuration."));
+	return FALSE;
 }
 
 BOOL CPrivateConfigEx::GetIn(LPCTSTR pszField, LPTSTR pszValue, int nConfigID) const
 {
-  LPCTSTR lpNotFound = PCFG_NOTFOUND;
+	LPCTSTR lpNotFound = PCFG_NOTFOUND;
 
-  TCHAR tszTemp[SI_REGSIZE];
-  tszTemp[0] = 0; tszTemp[1] = 0;
+	TCHAR tszTemp[SI_REGSIZE];
+	tszTemp[0] = 0; tszTemp[1] = 0;
 
-  ASSERT(pszValue != NULL); if(pszValue == NULL) return FALSE;
-  pszValue[0] = 0; pszValue[1] = 0; // Reset string
+	ASSERT(pszValue != NULL); if(pszValue == NULL) return FALSE;
+	pszValue[0] = 0; pszValue[1] = 0; // Reset string
 
-  ASSERT(pszField != NULL); if(pszField == NULL) return FALSE;
-  ASSERT(pszField[0] != 0); if(pszField[0] == 0) return FALSE;
+	ASSERT(pszField != NULL); if(pszField == NULL) return FALSE;
+	ASSERT(pszField[0] != 0); if(pszField[0] == 0) return FALSE;
 
-  LPCTSTR lpFile = m_strFileUser.c_str();
-  if(nConfigID == CFG_ID_GLOBAL)
-  {
-    if(m_strFileCachedGlobal.size() != 0)
-      lpFile = m_strFileCachedGlobal.c_str();
-    else
-      lpFile = m_strFileGlobal.c_str();
-  }
-  else if(nConfigID == CFG_ID_ENFORCED) lpFile = m_strFileEnforced.c_str();
+	LPCTSTR lpFile = m_strFileUser.c_str();
+	if(nConfigID == CFG_ID_GLOBAL)
+	{
+		if(m_strFileCachedGlobal.size() != 0)
+			lpFile = m_strFileCachedGlobal.c_str();
+		else
+			lpFile = m_strFileGlobal.c_str();
+	}
+	else if(nConfigID == CFG_ID_ENFORCED) lpFile = m_strFileEnforced.c_str();
 
-  GetPrivateProfileString(PWM_EXENAME, pszField, lpNotFound, tszTemp,
-    SI_REGSIZE - 1, lpFile);
-  if(_tcscmp(tszTemp, lpNotFound) == 0) return FALSE;
+	GetPrivateProfileString(PWM_EXENAME, pszField, lpNotFound, tszTemp,
+		SI_REGSIZE - 1, lpFile);
+	if(_tcscmp(tszTemp, lpNotFound) == 0) return FALSE;
 
-  _tcscpy_s(pszValue, SI_REGSIZE - 1, tszTemp);
-  return TRUE;
+	_tcscpy_s(pszValue, SI_REGSIZE - 1, tszTemp);
+	return TRUE;
 }
 
 BOOL CPrivateConfigEx::SetIn(LPCTSTR pszField, LPCTSTR pszValue, int nConfigID)
 {
-  ASSERT(pszField != NULL); if(pszField == NULL) return FALSE;
-  ASSERT(_tcslen(pszField) > 0); if(_tcslen(pszField) == 0) return FALSE;
-  // pszValue may be NULL -- this deletes the item
+	ASSERT(pszField != NULL); if(pszField == NULL) return FALSE;
+	ASSERT(_tcslen(pszField) > 0); if(_tcslen(pszField) == 0) return FALSE;
+	// pszValue may be NULL -- this deletes the item
 
-  ASSERT(m_bCanWrite == TRUE);
+	ASSERT(m_bCanWrite == TRUE);
 
-  LPCTSTR lpFile = m_strFileUser.c_str();
-  if(nConfigID == CFG_ID_GLOBAL)
-  {
-    if(m_strFileCachedGlobal.size() != 0)
-      lpFile = m_strFileCachedGlobal.c_str();
-    else
-      lpFile = m_strFileGlobal.c_str();
-  }
-  else if(nConfigID == CFG_ID_USER)
-    PrepareUserWrite(lpFile);
+	LPCTSTR lpFile = m_strFileUser.c_str();
+	if(nConfigID == CFG_ID_GLOBAL)
+	{
+		if(m_strFileCachedGlobal.size() != 0)
+			lpFile = m_strFileCachedGlobal.c_str();
+		else
+			lpFile = m_strFileGlobal.c_str();
+	}
+	else if(nConfigID == CFG_ID_USER)
+		PrepareUserWrite(lpFile);
 
-  return ((WritePrivateProfileString(PWM_EXENAME, pszField, pszValue, lpFile) ==
-    FALSE) ? FALSE : TRUE); // Zero-based success mapping
+	return ((WritePrivateProfileString(PWM_EXENAME, pszField, pszValue, lpFile) ==
+		FALSE) ? FALSE : TRUE); // Zero-based success mapping
 }
 
 BOOL CPrivateConfigEx::GetBool(const TCHAR *pszField, BOOL bDefault) const
 {
-  ASSERT((bDefault == FALSE) || (bDefault == TRUE));
+	ASSERT((bDefault == FALSE) || (bDefault == TRUE));
 
-  TCHAR tszTemp[SI_REGSIZE];
-  if(this->Get(pszField, tszTemp) == FALSE) return bDefault;
+	TCHAR tszTemp[SI_REGSIZE];
+	if(this->Get(pszField, tszTemp) == FALSE) return bDefault;
 
-  if(_tcsicmp(tszTemp, CFG_VAL_TRUE) == 0) return TRUE;
-  else if(_tcsicmp(tszTemp, CFG_VAL_FALSE) == 0) return FALSE;
+	if(_tcsicmp(tszTemp, CFG_VAL_TRUE) == 0) return TRUE;
+	else if(_tcsicmp(tszTemp, CFG_VAL_FALSE) == 0) return FALSE;
 
-  return bDefault; // Parsing failed
+	return bDefault; // Parsing failed
 }
 
 BOOL CPrivateConfigEx::SetBool(const TCHAR *pszField, BOOL bValue)
 {
-  ASSERT((bValue == FALSE) || (bValue == TRUE));
-  return this->Set(pszField, (bValue == FALSE) ? CFG_VAL_FALSE : CFG_VAL_TRUE);
+	ASSERT((bValue == FALSE) || (bValue == TRUE));
+	return this->Set(pszField, (bValue == FALSE) ? CFG_VAL_FALSE : CFG_VAL_TRUE);
 }
 
 BOOL CPrivateConfigEx::GetEnforcedBool(LPCTSTR pszField, BOOL bDefault,
-  BOOL bAllowGlobal) const
+	BOOL bAllowGlobal) const
 {
-  TCHAR tszTemp[SI_REGSIZE];
+	TCHAR tszTemp[SI_REGSIZE];
 
-  if(this->GetIn(pszField, tszTemp, CFG_ID_ENFORCED) == TRUE)
-  {
-    if(_tcsicmp(tszTemp, CFG_VAL_TRUE) == 0) return TRUE;
-    else if(_tcsicmp(tszTemp, CFG_VAL_FALSE) == 0) return FALSE;
-    return bDefault;
-  }
+	if(this->GetIn(pszField, tszTemp, CFG_ID_ENFORCED) == TRUE)
+	{
+		if(_tcsicmp(tszTemp, CFG_VAL_TRUE) == 0) return TRUE;
+		else if(_tcsicmp(tszTemp, CFG_VAL_FALSE) == 0) return FALSE;
+		return bDefault;
+	}
 
-  if(bAllowGlobal == TRUE)
-  {
-    if(this->GetIn(pszField, tszTemp, CFG_ID_GLOBAL) == TRUE)
-    {
-      if(_tcsicmp(tszTemp, CFG_VAL_TRUE) == 0) return TRUE;
-      else if(_tcsicmp(tszTemp, CFG_VAL_FALSE) == 0) return FALSE;
-    }
-  }
+	if(bAllowGlobal == TRUE)
+	{
+		if(this->GetIn(pszField, tszTemp, CFG_ID_GLOBAL) == TRUE)
+		{
+			if(_tcsicmp(tszTemp, CFG_VAL_TRUE) == 0) return TRUE;
+			else if(_tcsicmp(tszTemp, CFG_VAL_FALSE) == 0) return FALSE;
+		}
+	}
 
-  return bDefault;
+	return bDefault;
 }
 
 std::vector<std::basic_string<TCHAR> > CPrivateConfigEx::GetArray(
-  LPCTSTR pszPrefix) const
+	LPCTSTR pszPrefix) const
 {
-  std::vector<std::basic_string<TCHAR> > v;
+	std::vector<std::basic_string<TCHAR> > v;
 
-  ASSERT(pszPrefix != NULL); if(pszPrefix == NULL) return v;
-  ASSERT(pszPrefix[0] != 0); if(pszPrefix[0] == 0) return v;
+	ASSERT(pszPrefix != NULL); if(pszPrefix == NULL) return v;
+	ASSERT(pszPrefix[0] != 0); if(pszPrefix[0] == 0) return v;
 
-  DWORD uIndex = 0;
-  TCHAR tszValue[SI_REGSIZE];
+	DWORD uIndex = 0;
+	TCHAR tszValue[SI_REGSIZE];
 
-  while(true)
-  {
-    CString strKey;
-    strKey.Format(_T("%s%u"), pszPrefix, uIndex);
+	while(true)
+	{
+		CString strKey;
+		strKey.Format(_T("%s%u"), pszPrefix, uIndex);
 
-    if(this->Get(strKey, tszValue) == FALSE) break;
+		if(this->Get(strKey, tszValue) == FALSE) break;
 
-    std::basic_string<TCHAR> strValue = tszValue;
-    v.push_back(strValue);
+		std::basic_string<TCHAR> strValue = tszValue;
+		v.push_back(strValue);
 
-    ++uIndex;
-  }
+		++uIndex;
+	}
 
-  return v;
+	return v;
 }
 
 std::basic_string<TCHAR> CPrivateConfigEx::GetSafe(const TCHAR *pszField) const
 {
-  TCHAR tszTemp[SI_REGSIZE];
+	TCHAR tszTemp[SI_REGSIZE];
 
-  if(this->Get(pszField, tszTemp) == FALSE)
-    return std::basic_string<TCHAR>();
+	if(this->Get(pszField, tszTemp) == FALSE)
+		return std::basic_string<TCHAR>();
 
-  return std::basic_string<TCHAR>(tszTemp);
+	return std::basic_string<TCHAR>(tszTemp);
 }
 
 void CPrivateConfigEx::LoadStaticConfigFileOverrides(bool bPreserveExisting)
 {
-  std::basic_string<TCHAR> str;
+	std::basic_string<TCHAR> str;
 
-  str = this->GetSafe(PWMKEY_CFGOVERRIDE_GLOBAL);
-  if((g_strFileOverrideGlobal.size() == 0) || !bPreserveExisting)
-    g_strFileOverrideGlobal = str;
+	str = this->GetSafe(PWMKEY_CFGOVERRIDE_GLOBAL);
+	if((g_strFileOverrideGlobal.size() == 0) || !bPreserveExisting)
+		g_strFileOverrideGlobal = str;
 
-  str = this->GetSafe(PWMKEY_CFGOVERRIDE_USER);
-  if((g_strFileOverrideUser.size() == 0) || !bPreserveExisting)
-    g_strFileOverrideUser = str;
+	str = this->GetSafe(PWMKEY_CFGOVERRIDE_USER);
+	if((g_strFileOverrideUser.size() == 0) || !bPreserveExisting)
+		g_strFileOverrideUser = str;
 
-  ApplyFileOverrides();
+	ApplyFileOverrides();
 }
 
 void CPrivateConfigEx::SetConfigFileOverride(int nConfigID, LPCTSTR lpPath)
 {
-  if(lpPath == NULL) { ASSERT(FALSE); return; }
+	if(lpPath == NULL) { ASSERT(FALSE); return; }
 
-  if(nConfigID == CFG_ID_GLOBAL)
-    g_strFileOverrideGlobal = lpPath;
-  else if(nConfigID == CFG_ID_USER)
-    g_strFileOverrideUser = lpPath;
-  else { ASSERT(FALSE); }
+	if(nConfigID == CFG_ID_GLOBAL)
+		g_strFileOverrideGlobal = lpPath;
+	else if(nConfigID == CFG_ID_USER)
+		g_strFileOverrideUser = lpPath;
+	else { ASSERT(FALSE); }
 }
-
-
-
-// Van Tuyl Additions
-
-
-
-bool CPrivateConfigEx::get(TCHAR* section, const TCHAR* pszField, bool bDefault) const {
-std_string s;
-
-  if (get(section, pszField, s) == FALSE) return bDefault;
-
-  return s.compare(CFG_VAL_TRUE)  == 0 ? true : s.compare(CFG_VAL_FALSE) == 0 ? false : bDefault;
-  }
-
-
-bool CPrivateConfigEx::get(TCHAR* section, const TCHAR* pszField, TCHAR* pszValue) const {
-TCHAR tszGlobal[SI_REGSIZE];
-bool  bGlobal;
-TCHAR tszUser[SI_REGSIZE];
-bool  bUser;
-
-  if (GetIn(section, pszField, pszValue, CFG_ID_ENFORCED)) return true;
-
-  bGlobal = GetIn(section, pszField, tszGlobal, CFG_ID_GLOBAL);
-  bUser   = GetIn(section, pszField, tszUser,   CFG_ID_USER);
-
-  if (!bGlobal && !bUser) {pszValue[0] = 0; pszValue[1] = 0;               return false;}
-  if (bGlobal  && !bUser) {_tcscpy_s(pszValue, SI_REGSIZE - 1, tszGlobal); return true;}
-  if (!bGlobal && bUser)  {_tcscpy_s(pszValue, SI_REGSIZE - 1, tszUser);   return true;}
-
-  // (bGlobal == TRUE) && (bUser == TRUE)
-
-  if (m_bPreferUser) _tcscpy_s(pszValue, SI_REGSIZE - 1, tszUser);
-  else               _tcscpy_s(pszValue, SI_REGSIZE - 1, tszGlobal);
-
-  return true;
-  }
-
-
-
-bool CPrivateConfigEx::get(TCHAR* section, const TCHAR* pszField, std_string& val) const {
-TCHAR tszGlobal[SI_REGSIZE];
-BOOL  bGlobal;
-TCHAR tszUser[SI_REGSIZE];
-BOOL  bUser;
-
-  if (GetIn(section, pszField, tszGlobal, CFG_ID_ENFORCED) == TRUE) {val = tszGlobal; return TRUE;}
-
-  bGlobal = GetIn(section, pszField, tszGlobal, CFG_ID_GLOBAL);
-  bUser   = GetIn(section, pszField, tszUser,   CFG_ID_USER);
-
-  if (bGlobal == FALSE && bUser == FALSE) {val = _T("");    return FALSE;}
-  if (bGlobal == TRUE  && bUser == FALSE) {val = tszGlobal; return TRUE;}
-  if (bGlobal == FALSE && bUser == TRUE)  {val = tszUser;   return TRUE;}
-
-  // (bGlobal == TRUE) && (bUser == TRUE)
-
-  val = m_bPreferUser == TRUE ? tszUser : tszGlobal;   return TRUE;
-  }
-
-
-
-bool CPrivateConfigEx::set(TCHAR* section, const TCHAR* pszField, const TCHAR* pszValue) const {
-
-  if (m_bPreferUser) {
-    if (SetIn(section, pszField, pszValue, CFG_ID_USER))   return true;
-    if (SetIn(section, pszField, pszValue, CFG_ID_GLOBAL)) return true;
-    }
-
-  else {                                    // Don't prefer user -- use global first
-    if (SetIn(section, pszField, pszValue, CFG_ID_GLOBAL)) return true;
-    if (SetIn(section, pszField, pszValue, CFG_ID_USER))   return true;
-    }
-
-  CKpApiImpl::Instance().SetStatusBarText(TRL("Failed to save the configuration."));
-
-  return false;
-  }
-
-
-bool CPrivateConfigEx::set(TCHAR* section, const TCHAR* pszField, bool bValue) const {
-const TCHAR* p = bValue ? CFG_VAL_TRUE : CFG_VAL_FALSE;
-
-  return set(section, pszField, p);
-  }
-
-
-
-bool CPrivateConfigEx::del(TCHAR* section, const TCHAR* pszField) const {
-const TCHAR* p = 0;
-
-  ASSERT(pszField != NULL); if (pszField == NULL) return false;
-
-  SetIn(section, pszField, p, CFG_ID_USER);   return SetIn(section, pszField, p, CFG_ID_GLOBAL);
-  }
-
-
-
-bool CPrivateConfigEx::GetIn(const TCHAR* sect, const TCHAR*  pszField,
-                                                                  TCHAR* pszValue, int nConfigID) const {
-LPCTSTR lpNotFound = PCFG_NOTFOUND;
-TCHAR   tszTemp[SI_REGSIZE];
-LPCTSTR lpFile;
-
-  tszTemp[0] = 0; tszTemp[1] = 0;
-
-  ASSERT(pszValue != NULL); if (pszValue == NULL) return false;
-
-  pszValue[0] = 0; pszValue[1] = 0; // Reset string
-
-  ASSERT(pszField != NULL); if (pszField == NULL) return false;
-  ASSERT(pszField[0] != 0); if (pszField[0] == 0) return false;
-
-  if (!sect || !sect[0]) sect = PWM_EXENAME;
-
-  lpFile = m_strFileUser.c_str();
-
-  if (nConfigID == CFG_ID_GLOBAL) {
-
-    if (m_strFileCachedGlobal.size() != 0) lpFile = m_strFileCachedGlobal.c_str();
-    else                                   lpFile = m_strFileGlobal.c_str();
-    }
-  else if (nConfigID == CFG_ID_ENFORCED)   lpFile = m_strFileEnforced.c_str();
-
-  GetPrivateProfileString(sect, pszField, lpNotFound, tszTemp, SI_REGSIZE - 1, lpFile);
-
-  if (_tcscmp(tszTemp, lpNotFound) == 0) return false;
-
-  _tcscpy_s(pszValue, SI_REGSIZE - 1, tszTemp); return true;
-  }
-
-
-bool CPrivateConfigEx::SetIn(const TCHAR* sect, const TCHAR* pszField,
-                                                            const TCHAR* pszValue, int nConfigID) const {
-LPCTSTR lpFile;
-
-  ASSERT(pszField != NULL); if (pszField == NULL) return false;
-  ASSERT(_tcslen(pszField) > 0); if (_tcslen(pszField) == 0) return false;
-
-  if (!sect || !sect[0]) sect = PWM_EXENAME;
-
-  lpFile = m_strFileUser.c_str();
-
-  if (nConfigID == CFG_ID_GLOBAL) {
-    if (m_strFileCachedGlobal.size() != 0) lpFile = m_strFileCachedGlobal.c_str();
-    else                                   lpFile = m_strFileGlobal.c_str();
-    }
-
-  else if (nConfigID == CFG_ID_USER) ((CPrivateConfigEx*)this)->PrepareUserWrite(lpFile);
-
-  return WritePrivateProfileString(sect, pszField, pszValue, lpFile) != 0;  // Zero-based success mapping
-  }
-
-// End Van Tuyl Additions
-

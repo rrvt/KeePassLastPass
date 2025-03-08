@@ -2,64 +2,64 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{07370224-b0d8-4e7d-b9c6-b04be9d131e6}</UniqueIdentifier>
+      <UniqueIdentifier>{26313721-ab2d-482b-92c7-6a35cfeaa35b}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{1b67b0f3-3cbb-4147-afaa-d6fe3cb9528a}</UniqueIdentifier>
+      <UniqueIdentifier>{b5641ebd-d133-4467-aa65-85da599acca2}</UniqueIdentifier>
     </Filter>
     <Filter Include="Resource Files">
-      <UniqueIdentifier>{9df462d4-8abf-48cb-9548-000af739b4ba}</UniqueIdentifier>
+      <UniqueIdentifier>{8001daa0-50f1-491d-b30d-ebecb5315b5b}</UniqueIdentifier>
     </Filter>
     <Filter Include="KeePassLibCpp">
-      <UniqueIdentifier>{9ea5bf50-12f2-4bdb-96c6-b83d86e0b14a}</UniqueIdentifier>
+      <UniqueIdentifier>{91f39618-429d-4451-8cf2-f94daa02c229}</UniqueIdentifier>
     </Filter>
     <Filter Include="KeePassLibCpp\Crypto">
-      <UniqueIdentifier>{ccbf71cd-55d3-41a8-8dcc-580b44531a55}</UniqueIdentifier>
+      <UniqueIdentifier>{d1d9f193-5b3a-46dc-8735-a603da7fb4cb}</UniqueIdentifier>
     </Filter>
     <Filter Include="KeePassLibCpp\Crypto\SHA2">
-      <UniqueIdentifier>{9afae7d9-9cc5-4903-87ec-bf6447c7c85d}</UniqueIdentifier>
+      <UniqueIdentifier>{f870a1cb-e531-4ebb-8ed1-6f4e66b1a7fe}</UniqueIdentifier>
     </Filter>
     <Filter Include="KeePassLibCpp\DataExchange">
-      <UniqueIdentifier>{ad84e931-2c04-4dbb-82e9-cc8568141919}</UniqueIdentifier>
+      <UniqueIdentifier>{9b3fe13d-5f2f-422b-b5b3-e1fc776bfa78}</UniqueIdentifier>
     </Filter>
     <Filter Include="KeePassLibCpp\SysSpec_Windows">
-      <UniqueIdentifier>{c1f26f52-aa15-4f45-a738-6a7766c4203d}</UniqueIdentifier>
+      <UniqueIdentifier>{a6113d9a-6719-4af4-815f-a99b17e415c8}</UniqueIdentifier>
     </Filter>
     <Filter Include="KeePassLibCpp\Util">
-      <UniqueIdentifier>{ec80faf8-9a96-46de-bbec-443df0bfef69}</UniqueIdentifier>
+      <UniqueIdentifier>{55f80ca5-59df-403e-8127-80721588db7c}</UniqueIdentifier>
     </Filter>
     <Filter Include="KeePassLibCpp\PasswordGenerator">
-      <UniqueIdentifier>{d338abee-70e3-4a8e-8156-b5840ef81cdd}</UniqueIdentifier>
+      <UniqueIdentifier>{9ebdfef5-f18b-4fca-b869-e99ca2bb426d}</UniqueIdentifier>
     </Filter>
     <Filter Include="KeePassLibCpp\Details">
-      <UniqueIdentifier>{9c83020d-5f92-45fc-8889-f983583171b5}</UniqueIdentifier>
+      <UniqueIdentifier>{5fd06754-05ed-4192-a167-4bd6dc1b9261}</UniqueIdentifier>
     </Filter>
     <Filter Include="KeePassLibCpp\SDK">
-      <UniqueIdentifier>{9c412aa7-faab-4d4b-b8ee-4d2a2f6b6aa2}</UniqueIdentifier>
+      <UniqueIdentifier>{6e5558b0-1ed9-485f-a9d4-2bb473201b4f}</UniqueIdentifier>
     </Filter>
     <Filter Include="KeePassLibCpp\SDK\Details">
-      <UniqueIdentifier>{294301f6-4b07-4c3a-b33c-8be5eba0d3e0}</UniqueIdentifier>
+      <UniqueIdentifier>{ff4b9233-a78f-4f63-88c2-5ef71274ef99}</UniqueIdentifier>
     </Filter>
     <Filter Include="KeePassLibCpp\IO">
-      <UniqueIdentifier>{2b070a48-2d1f-4e92-bf85-9a4a163ad1c8}</UniqueIdentifier>
+      <UniqueIdentifier>{61b531b0-5ccd-407b-bc17-455da4a4d823}</UniqueIdentifier>
     </Filter>
     <Filter Include="KeePassAPI">
-      <UniqueIdentifier>{406700ab-5a1e-4055-95c8-d869c93df13e}</UniqueIdentifier>
+      <UniqueIdentifier>{f6afe687-8bd4-483e-9c01-59af03057f42}</UniqueIdentifier>
     </Filter>
     <Filter Include="Lib">
-      <UniqueIdentifier>{ef2f170e-6c58-4609-bbc3-ab4452ecc290}</UniqueIdentifier>
+      <UniqueIdentifier>{ada61f6b-6241-48a1-b82c-e500a0e9c522}</UniqueIdentifier>
     </Filter>
     <Filter Include="Lib\Argon2">
-      <UniqueIdentifier>{59885944-2c3c-4a5c-976d-1c07a4a9b0d8}</UniqueIdentifier>
+      <UniqueIdentifier>{7fab2d69-3f3b-44ae-944c-dfca2dc21d40}</UniqueIdentifier>
     </Filter>
     <Filter Include="Lib\Argon2\include">
-      <UniqueIdentifier>{74bdada8-9220-425e-a2a2-ec3f9fa5acc6}</UniqueIdentifier>
+      <UniqueIdentifier>{125497a3-9e97-4883-88ef-7509073d4113}</UniqueIdentifier>
     </Filter>
     <Filter Include="Lib\Argon2\src">
-      <UniqueIdentifier>{dfac3aa3-bed4-4d07-b394-73f609c01196}</UniqueIdentifier>
+      <UniqueIdentifier>{348d35e9-13ca-49d9-8574-ce168eeddaf4}</UniqueIdentifier>
     </Filter>
     <Filter Include="Lib\Argon2\src\blake2">
-      <UniqueIdentifier>{5124c4f7-57dc-4abe-87ce-3e9138c4e436}</UniqueIdentifier>
+      <UniqueIdentifier>{a7222793-13d2-470f-a521-dfb759f4ab5d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -441,6 +441,5 @@
     <ClInclude Include="Lib\Argon2\src\blake2\blamka-round-ref.h">
       <Filter>Lib\Argon2\src\blake2</Filter>
     </ClInclude>
-    <ClInclude Include="..\KeePassLibCpp\std.h" />
   </ItemGroup>
 </Project>

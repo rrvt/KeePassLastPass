@@ -1,6 +1,6 @@
 /*
   KeePass Password Safe - The Open-Source Password Manager
-  Copyright (C) 2003-2024 Dominik Reichl <dominik.reichl@t-online.de>
+  Copyright (C) 2003-2025 Dominik Reichl <dominik.reichl@t-online.de>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -28,108 +28,108 @@
 class CKpApiImpl : public IKpAPI3
 {
 private:
-  CKpApiImpl();
+	CKpApiImpl();
 
 public:
-  static CKpApiImpl& Instance();
+	static CKpApiImpl& Instance();
 
-  KP_DECL_IUNKNOWN;
+	KP_DECL_IUNKNOWN;
 
-  STDMETHODIMP CreateInstance(REFCLSID rclsid, REFIID riid, void** ppvObject);
-  STDMETHODIMP CreateInstanceEx(REFCLSID rclsid, REFIID riid, void** ppvObject,
-    LPARAM lParamW, LPARAM lParamL);
-  STDMETHODIMP QueryInstance(REFCLSID rclsid, REFIID riid, void** ppvObject);
+	STDMETHODIMP CreateInstance(REFCLSID rclsid, REFIID riid, void** ppvObject);
+	STDMETHODIMP CreateInstanceEx(REFCLSID rclsid, REFIID riid, void** ppvObject,
+		LPARAM lParamW, LPARAM lParamL);
+	STDMETHODIMP QueryInstance(REFCLSID rclsid, REFIID riid, void** ppvObject);
 
-  STDMETHODIMP DeleteObject(void* pObject);
-  STDMETHODIMP DeleteArray(void* pArray);
+	STDMETHODIMP DeleteObject(void* pObject);
+	STDMETHODIMP DeleteArray(void* pArray);
 
-  STDMETHODIMP_(DWORD) GetVersion();
-  STDMETHODIMP_(LPCTSTR) GetVersionStr();
-  STDMETHODIMP_(DWORD) GetCharSize();
-  STDMETHODIMP_(DWORD) GetPointerSize();
-  STDMETHODIMP_(DWORD) GetDebugLevel();
+	STDMETHODIMP_(DWORD) GetVersion();
+	STDMETHODIMP_(LPCTSTR) GetVersionStr();
+	STDMETHODIMP_(DWORD) GetCharSize();
+	STDMETHODIMP_(DWORD) GetPointerSize();
+	STDMETHODIMP_(DWORD) GetDebugLevel();
 
-  STDMETHODIMP_(HWND) GetMainWindowHandle();
-  STDMETHODIMP_(HIMAGELIST) GetClientIconsImageList();
+	STDMETHODIMP_(HWND) GetMainWindowHandle();
+	STDMETHODIMP_(HIMAGELIST) GetClientIconsImageList();
 
-  STDMETHODIMP_(LPCTSTR) GetTranslationName();
-  STDMETHODIMP_(LPCTSTR) Translate(LPCTSTR lpDefString);
+	STDMETHODIMP_(LPCTSTR) GetTranslationName();
+	STDMETHODIMP_(LPCTSTR) Translate(LPCTSTR lpDefString);
 
-  STDMETHODIMP GetNeverExpireTime(PW_TIME* pBuf);
-  STDMETHODIMP GetCurrentPwTime(PW_TIME* pBuf);
+	STDMETHODIMP GetNeverExpireTime(PW_TIME* pBuf);
+	STDMETHODIMP GetCurrentPwTime(PW_TIME* pBuf);
 
-  STDMETHODIMP_(BOOL) IsFileOpen();
-  STDMETHODIMP_(LPCTSTR) GetAbsoluteDatabasePath();
+	STDMETHODIMP_(BOOL) IsFileOpen();
+	STDMETHODIMP_(LPCTSTR) GetAbsoluteDatabasePath();
 
-  STDMETHODIMP_(DWORD) GetEntryListItemCount();
-  STDMETHODIMP_(DWORD) GetSelectedGroupId();
+	STDMETHODIMP_(DWORD) GetEntryListItemCount();
+	STDMETHODIMP_(DWORD) GetSelectedGroupId();
 
-  STDMETHODIMP_(BOOL) IsFileModified();
-  STDMETHODIMP SetFileModified(BOOL bModified);
+	STDMETHODIMP_(BOOL) IsFileModified();
+	STDMETHODIMP SetFileModified(BOOL bModified);
 
-  STDMETHODIMP_(BOOL) IsDisplayingDialog();
-  STDMETHODIMP SetDisplayDialog(BOOL bDialogDisplayed);
+	STDMETHODIMP_(BOOL) IsDisplayingDialog();
+	STDMETHODIMP SetDisplayDialog(BOOL bDialogDisplayed);
 
-  STDMETHODIMP EntryListEnsureVisible(INT nItem, BOOL bPartialOK);
+	STDMETHODIMP EntryListEnsureVisible(INT nItem, BOOL bPartialOK);
 
-  STDMETHODIMP UpdateToolBar();
-  STDMETHODIMP UpdateGroupTree();
-  STDMETHODIMP UpdateEntryList();
-  STDMETHODIMP UpdateUI();
+	STDMETHODIMP UpdateToolBar();
+	STDMETHODIMP UpdateGroupTree();
+	STDMETHODIMP UpdateEntryList();
+	STDMETHODIMP UpdateUI();
 
-  STDMETHODIMP SetStatusBarText(LPCTSTR lpText);
+	STDMETHODIMP SetStatusBarText(LPCTSTR lpText);
 
-  STDMETHODIMP ShowDialog(DWORD dwDialogId, DWORD dwVersion, void* pConfig,
-    INT* pnResult, void* pOutput);
+	STDMETHODIMP ShowDialog(DWORD dwDialogId, DWORD dwVersion, void* pConfig,
+		INT* pnResult, void* pOutput);
 
-  STDMETHODIMP AutoType(PW_ENTRY* pEntry, LONG_PTR lFlags);
+	STDMETHODIMP AutoType(PW_ENTRY* pEntry, LONG_PTR lFlags);
 
-  STDMETHODIMP AddImportMenuItem(LPCTSTR lpText, UINT uId, INT nIconId);
+	STDMETHODIMP AddImportMenuItem(LPCTSTR lpText, UINT uId, INT nIconId);
 
-  STDMETHODIMP_(BOOL) IsInitialCommandLineFile();
+	STDMETHODIMP_(BOOL) IsInitialCommandLineFile();
 
-  STDMETHODIMP GetProperty(DWORD dwID, void* pOutValue);
-  STDMETHODIMP SetProperty(DWORD dwID, void* pNewValue);
+	STDMETHODIMP GetProperty(DWORD dwID, void* pOutValue);
+	STDMETHODIMP SetProperty(DWORD dwID, void* pNewValue);
 
-  STDMETHODIMP_(BOOL) IsFileLocked();
-  STDMETHODIMP LockFile(BOOL bLock);
+	STDMETHODIMP_(BOOL) IsFileLocked();
+	STDMETHODIMP LockFile(BOOL bLock);
 
-  STDMETHODIMP_(BOOL) IsFileReadOnly();
+	STDMETHODIMP_(BOOL) IsFileReadOnly();
 
-  STDMETHODIMP NotifyUserActivity();
+	STDMETHODIMP NotifyUserActivity();
 
-  STDMETHODIMP ParseAndOpenUrlWithEntryInfo(LPCTSTR lpUrl, PW_ENTRY* pEntry);
+	STDMETHODIMP ParseAndOpenUrlWithEntryInfo(LPCTSTR lpUrl, PW_ENTRY* pEntry);
 
-  STDMETHODIMP_(BOOL) CanSort();
-  STDMETHODIMP SortListIfAutoSort();
-  STDMETHODIMP SortList(DWORD dwByField, BOOL bAutoSortCall);
+	STDMETHODIMP_(BOOL) CanSort();
+	STDMETHODIMP SortListIfAutoSort();
+	STDMETHODIMP SortList(DWORD dwByField, BOOL bAutoSortCall);
 
-  STDMETHODIMP EntryListSaveView();
-  STDMETHODIMP EntryListRestoreView();
+	STDMETHODIMP EntryListSaveView();
+	STDMETHODIMP EntryListRestoreView();
 
-  STDMETHODIMP GroupTreeSaveView(BOOL bSaveSelection);
-  STDMETHODIMP GroupTreeRestoreView();
+	STDMETHODIMP GroupTreeSaveView(BOOL bSaveSelection);
+	STDMETHODIMP GroupTreeRestoreView();
 
-  STDMETHODIMP_(BOOL) RemoveSearchGroup();
+	STDMETHODIMP_(BOOL) RemoveSearchGroup();
 
-  STDMETHODIMP UpdateTitleBar();
-  STDMETHODIMP UpdateTrayIcon();
-  STDMETHODIMP UpdateGuiToManager();
-  STDMETHODIMP UpdateCachedGroupIDs();
+	STDMETHODIMP UpdateTitleBar();
+	STDMETHODIMP UpdateTrayIcon();
+	STDMETHODIMP UpdateGuiToManager();
+	STDMETHODIMP UpdateCachedGroupIDs();
 
-  STDMETHODIMP_(BOOL) IsUnsafeAllowed(HWND hWndParent);
+	STDMETHODIMP_(BOOL) IsUnsafeAllowed(HWND hWndParent);
 
-  STDMETHODIMP Find(DWORD dwFindGroupId);
-  STDMETHODIMP QuickFind(LPCTSTR lpText);
+	STDMETHODIMP Find(DWORD dwFindGroupId);
+	STDMETHODIMP QuickFind(LPCTSTR lpText);
 
-  STDMETHODIMP ShowToolBar(BOOL bShow);
+	STDMETHODIMP ShowToolBar(BOOL bShow);
 
-  STDMETHODIMP_(UINT) GetControlMessageID();
+	STDMETHODIMP_(UINT) GetControlMessageID();
 
-  STDMETHODIMP_(BOOL) IsInMiniMode();
+	STDMETHODIMP_(BOOL) IsInMiniMode();
 
 private:
-  KP_DECL_STDREFIMPL;
+	KP_DECL_STDREFIMPL;
 };
 
 #pragma pack()
@@ -139,40 +139,22 @@ private:
 class CKpConfigImpl : public IKpConfig
 {
 public:
-  CKpConfigImpl(BOOL bRequireWriteAccess);
- ~CKpConfigImpl() { }                                     // rrvt
+	CKpConfigImpl(BOOL bRequireWriteAccess);
 
-  KP_DECL_IUNKNOWN;
+	KP_DECL_IUNKNOWN;
 
-  STDMETHODIMP_(BOOL) Get(LPCTSTR pszField, LPTSTR pszValue);
-  STDMETHODIMP_(BOOL) Set(LPCTSTR pszField, LPCTSTR pszValue);
+	STDMETHODIMP_(BOOL) Get(LPCTSTR pszField, LPTSTR pszValue);
+	STDMETHODIMP_(BOOL) Set(LPCTSTR pszField, LPCTSTR pszValue);
 
-  STDMETHODIMP_(BOOL) GetBool(LPCTSTR pszField, BOOL bDefault);
-  STDMETHODIMP_(BOOL) SetBool(LPCTSTR pszField, BOOL bValue);
+	STDMETHODIMP_(BOOL) GetBool(LPCTSTR pszField, BOOL bDefault);
+	STDMETHODIMP_(BOOL) SetBool(LPCTSTR pszField, BOOL bValue);
 
-// Van Tuyl Additions
-
-  STDMETHODIMP_(bool) set(TCHAR* section, const TCHAR* pszField, const TCHAR* pszValue)
-                                                   {return m_pConfig->set(section, pszField, pszValue);}
-  STDMETHODIMP_(bool) set(TCHAR* section, const TCHAR* pszField, bool bValue)
-                                                   {return m_pConfig->set(section, pszField, bValue);}
-  STDMETHODIMP_(bool) get(TCHAR* section, const TCHAR* pszField,       TCHAR* pszValue)
-                                                   {return m_pConfig->get(section, pszField, pszValue);}
-  STDMETHODIMP_(bool) get(TCHAR* section, const TCHAR* pszField, std_string&  val)
-                                                   {return m_pConfig->get(section, pszField, val);}
-  STDMETHODIMP_(bool) get(TCHAR* section, const TCHAR* pszField, bool bDefault)
-                                                   {return m_pConfig->get(section, pszField, bDefault);}
-  STDMETHODIMP_(bool) del(TCHAR* section, const TCHAR* pszField)
-                                                   {return m_pConfig->del(section, pszField);}
-// End Van Tuyl Additions
-
-
-  STDMETHODIMP GetUserPath(LPTSTR lpBuf, DWORD dwBufMaxChars);
+	STDMETHODIMP GetUserPath(LPTSTR lpBuf, DWORD dwBufMaxChars);
 
 private:
-  KP_DECL_STDREFIMPL;
+	KP_DECL_STDREFIMPL;
 
-  CPrivateConfigEx* m_pConfig;
+	CPrivateConfigEx* m_pConfig;
 };
 
 #pragma pack()

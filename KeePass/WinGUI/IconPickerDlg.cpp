@@ -1,6 +1,6 @@
 /*
   KeePass Password Safe - The Open-Source Password Manager
-  Copyright (C) 2003-2024 Dominik Reichl <dominik.reichl@t-online.de>
+  Copyright (C) 2003-2025 Dominik Reichl <dominik.reichl@t-online.de>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -63,12 +63,10 @@ END_MESSAGE_MAP()
 BOOL CIconPickerDlg::OnInitDialog() 
 {
 	CDialog::OnInitDialog();
+	NewGUI_InitDialog(this);
 
 	ASSERT(m_pImageList != NULL);
 	ASSERT(m_uNumIcons != 0);
-
-	NewGUI_TranslateCWnd(this);
-	EnumChildWindows(this->m_hWnd, NewGUI_TranslateWindowCb, 0);
 
 	m_cList.SetImageList(m_pImageList, LVSIL_SMALL);
 

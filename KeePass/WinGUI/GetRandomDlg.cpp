@@ -1,6 +1,6 @@
 /*
   KeePass Password Safe - The Open-Source Password Manager
-  Copyright (C) 2003-2024 Dominik Reichl <dominik.reichl@t-online.de>
+  Copyright (C) 2003-2025 Dominik Reichl <dominik.reichl@t-online.de>
 
   This program is free software; you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -65,15 +65,13 @@ END_MESSAGE_MAP()
 BOOL CGetRandomDlg::OnInitDialog() 
 {
 	CDialog::OnInitDialog();
+	NewGUI_InitDialog(this);
 
 	m_cMouseProgress.SetRange(0, 100);
 	m_cMouseProgress.SetPos(0);
 
 	m_dwCurPoint = 0;
 	m_bMouseActive = FALSE;
-
-	NewGUI_TranslateCWnd(this);
-	EnumChildWindows(this->m_hWnd, NewGUI_TranslateWindowCb, 0);
 
 	NewGUI_XPButton(m_btOK, IDB_OK, IDB_OK);
 	NewGUI_XPButton(m_btCancel, IDB_CANCEL, IDB_CANCEL);

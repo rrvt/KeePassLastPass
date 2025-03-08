@@ -1,14 +1,17 @@
 // Iterator over the KeePass Data
 
 
-#include "stdafx.h"
+#include "pch.h"
 #include "KpIter.h"
 #include "groups.h"
+#include "KeePassSDK.h"
 #include "KpRecord.h"
 
 
 KpRecord* KpIter::operator() (Dir rev) {
-  nEntry = db.GetEntryCount();   bkupID = groups.bkupID();   i = rev ? nEntry-1 : 0;   return next(rev);
+  nEntry = db.GetEntryCount();   bkupID = groups.bkupID();   i = rev ? nEntry-1 : 0;
+
+  return next(rev);
   }
 
 
@@ -31,5 +34,11 @@ KpRecord* rcd;
 
   return 0;
   }
+
+
+void KpIter::remove(Dir dir) {db.DeleteEntry(i); i += dir == Fwd ? -1 : 1;   adjust();}
+
+
+int  KpIter::adjust() {return nEntry = db.GetEntryCount();}
 
 

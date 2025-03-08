@@ -1,7 +1,7 @@
 // Duplicates
 
 
-#include "stdafx.h"
+#include "pch.h"
 #include "Duplicates.h"
 #include "KpIter.h"
 #include "LpRecord.h"
@@ -37,11 +37,6 @@ bool      rslt = false;
     dlg.notes1      = prep(lpRcd1.notes, noteType1);
     dlg.timeStamp1  = lpRcd1.timeStamp;
 
-if (lpRcd1.title.find(_T("verdrive")) >= 0 || lpRcd1.title.find(_T("verDrive")) >= 0) {
-int x = 1;
-}
-
-
     KpIter iter2 = iter;
 
     for (index2 = srchdupRcd(iter2, *rcd1); index2 >= 0; index2 = srchdupRcd(iter2, *rcd1)) {
@@ -75,11 +70,12 @@ int x = 1;
 
       if (dlgRslt == IDC_DelRcd1) {iter.remove();  rslt = true;   break;}
 
-      if (dlgRslt == IDC_DelRcd2) {kpdb.DeleteEntry(index2);  iter.adjust();  rslt = true;  continue;}
+      if (dlgRslt == IDC_DelRcd2)
+                              {kpdb.DeleteEntry(index2);  iter.adjust();  rslt = true;  continue;}
 
-      if (dlgRslt == IDC_Finish)   return rslt;
+      if (dlgRslt == IDC_Finish) return rslt;
 
-      if (dlgRslt == IDCANCEL)     return 0;
+      if (dlgRslt == IDCANCEL)   return 0;
       }
     }
 
@@ -94,13 +90,6 @@ KpRecord* kpRcd;
 
   for (kpRcd = iter++; kpRcd; kpRcd = iter++) {
 
-
-
-String title = kpRcd->pszTitle;
-if (title.find(_T("verdrive")) >=0 || title.find(_T("verDrive")) >= 0) {
-int x = 1;
-}
-
     if (kpRcd == &rcd) continue;
 
     if (_tcslen(kpRcd->pszTitle) && !_tcscmp(kpRcd->pszTitle, rcd.pszTitle)) return iter.curIndx();
@@ -108,7 +97,7 @@ int x = 1;
     if (!kpRcd->uPasswordLen     || kpRcd->uPasswordLen != rcd.uPasswordLen) continue;
     if (!memcmp(kpRcd->pszPassword, rcd.pszPassword, kpRcd->uPasswordLen))   {
       if (_tcslen(kpRcd->pszUserName) && !_tcscmp(kpRcd->pszUserName, rcd.pszUserName))
-                                                                                    return iter.curIndx();
+                                                                             return iter.curIndx();
       }
     }
 
@@ -153,6 +142,7 @@ TCchar* Duplicates::isEqual(String& left, String& right) {
   }
 
 
+///---------------
 
 #if 0
 String     title     = entry.pszTitle;

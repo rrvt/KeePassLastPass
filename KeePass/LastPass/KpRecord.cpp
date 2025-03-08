@@ -1,6 +1,6 @@
 
 
-#include "stdafx.h"
+#include "pch.h"
 #include "KpRecord.h"
 #include "Groups.h"
 #include "LpRecord.h"
