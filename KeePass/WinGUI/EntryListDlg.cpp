@@ -258,7 +258,7 @@ void CEntryListDlg::_AddEntryToList(PW_ENTRY *p, BOOL bExpiredIcon)
   // Hide usernames behind ******** if the user has selected this option
   if(m_bUserStars == TRUE)
   {
-    lvi.pszText = (LPSTR) PWM_PASSWORD_STRING;                              // rrvt
+    lvi.pszText = (LPWSTR) PWM_PASSWORD_STRING;                              // rrvt
     m_cList.SetItem(&lvi);
   }
   else // Don't hide, display them
@@ -271,7 +271,7 @@ void CEntryListDlg::_AddEntryToList(PW_ENTRY *p, BOOL bExpiredIcon)
   // Hide passwords behind ******** if the user has selected this option
   if(m_bPasswordStars == TRUE)
   {
-    lvi.pszText = (LPSTR) PWM_PASSWORD_STRING;                            // rrvt
+    lvi.pszText = (LPWSTR) PWM_PASSWORD_STRING;                            // rrvt
     m_cList.SetItem(&lvi);
   }
   else // Don't hide, display them

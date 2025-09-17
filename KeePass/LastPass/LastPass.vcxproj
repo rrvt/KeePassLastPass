@@ -22,16 +22,16 @@
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
     <UseOfMfc>Dynamic</UseOfMfc>
-    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v143</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>MultiByte</CharacterSet>
+    <CharacterSet>Unicode</CharacterSet>
     <UseOfMfc>Dynamic</UseOfMfc>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
@@ -62,11 +62,11 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_WINDOWS;_DEBUG;_USRDLL;%(PreprocessorDefinitions)
       </PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)..\KeePassLibCpp\;$(SolutionDir)..\LibraryMB\;$(SolutionDir)..\Extras\;$(SolutionDir)..\..\boost\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)..\KeePassLibCpp\;$(ProjectDir)..\..\Library\Library\;$(SolutionDir)..\Extras\;$(ProjectDir)..\..\vcpkg\installed\x86-windows-static\include\</AdditionalIncludeDirectories>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <SupportJustMyCode>false</SupportJustMyCode>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
-      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
       <BasicRuntimeChecks />
       <PrecompiledHeaderFile />
       <PrecompiledHeaderOutputFile />
@@ -77,13 +77,13 @@
     <Link>
       <SubSystem>Windows</SubSystem>
       <ModuleDefinitionFile>.\LastPass.def</ModuleDefinitionFile>
-      <AdditionalDependencies>comsuppw.lib;LibraryMB.lib</AdditionalDependencies>
+      <AdditionalDependencies>comsuppw.lib;Library.lib</AdditionalDependencies>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
       <IgnoreAllDefaultLibraries>
       </IgnoreAllDefaultLibraries>
-      <AdditionalLibraryDirectories>$(SolutionDir)..\$(Configuration)\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\Library\$(Configuration)\</AdditionalLibraryDirectories>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -111,7 +111,7 @@
       <PreprocessorDefinitions>
         WIN32;_WINDOWS;NDEBUG;_USRDLL;%(PreprocessorDefinitions)
       </PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)..\KeePassLibCpp\;$(SolutionDir)..\LibraryMB\;$(SolutionDir)..\Extras\;$(SolutionDir)..\..\boost\</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(SolutionDir)..\KeePassLibCpp\;$(ProjectDir)..\..\Library\Library\;$(SolutionDir)..\Extras\;$(SolutionDir)..\..\boost\</AdditionalIncludeDirectories>
       <DebugInformationFormat>None</DebugInformationFormat>
       <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
       <BasicRuntimeChecks />
@@ -126,13 +126,13 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <ModuleDefinitionFile>.\LastPass.def</ModuleDefinitionFile>
-      <AdditionalDependencies>comsuppw.lib;LibraryMB.lib</AdditionalDependencies>
+      <AdditionalDependencies>comsuppw.lib;Library.lib</AdditionalDependencies>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
       <ProgramDatabaseFile />
       <IgnoreAllDefaultLibraries>
       </IgnoreAllDefaultLibraries>
-      <AdditionalLibraryDirectories>$(SolutionDir)..\$(Configuration)\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\Library\$(Configuration)\</AdditionalLibraryDirectories>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -152,6 +152,8 @@
   <ItemGroup>
     <ClCompile Include="..\Extras\AboutDlg.cpp" />
     <ClCompile Include="Commands.cpp" />
+    <ClCompile Include="CSVLexF.cpp" />
+    <ClCompile Include="CSVOutF.cpp" />
     <ClCompile Include="Duplicates.cpp" />
     <ClCompile Include="Groups.cpp" />
     <ClCompile Include="KpIter.cpp" />
@@ -163,6 +165,7 @@
     <ClCompile Include="LpPort.cpp" />
     <ClCompile Include="LpRecord.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="pch.cpp" />
     <ClCompile Include="Picker.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -174,7 +177,10 @@
     <ClInclude Include="..\Extras\AboutDlg.h" />
     <ClInclude Include="..\Extras\ExtraResource.h" />
     <ClInclude Include="Commands.h" />
+    <ClInclude Include="CSVLexF.h" />
+    <ClInclude Include="CSVOutF.h" />
     <ClInclude Include="Duplicates.h" />
+    <ClInclude Include="framework.h" />
     <ClInclude Include="Groups.h" />
     <ClInclude Include="KeePassSDK.h" />
     <ClInclude Include="KpIter.h" />
@@ -186,6 +192,7 @@
     <ClInclude Include="LpPort.h" />
     <ClInclude Include="LpRecord.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="pch.h" />
     <ClInclude Include="Picker.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="std.h" />
@@ -193,11 +200,6 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="LastPass.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\KeePassLibC\KeePassLib.vcxproj">
-      <Project>{97e15437-c3a6-4c37-bfe5-12e6211932f1}</Project>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />

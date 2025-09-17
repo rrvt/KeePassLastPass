@@ -69,8 +69,8 @@ OSVERSIONINFO info = {sizeof(info)};
   #pragma warning( push )
   #pragma warning( disable : 4996 )
 
-    GetVersionEx(&info);                    // Only reports up to Win8.1.  Look at registry for later
-                                            // OSes
+    GetVersionEx(&info);                // Only reports up to Win8.1.  Look at registry for later
+                                        // OSes
   #pragma warning( pop )
 
   maj = info.dwMajorVersion;

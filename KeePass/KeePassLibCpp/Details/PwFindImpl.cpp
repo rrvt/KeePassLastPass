@@ -31,159 +31,166 @@ static std_string g_strFindCachedString;
 static std::vector<std_string> g_vFindCachedSplitted;
 
 // DWORD CPwManager::Find(const TCHAR *pszFindString, BOOL bCaseSensitive,
-//	DWORD searchFlags, DWORD nStart)
+//  DWORD searchFlags, DWORD nStart)
 // {
-//	return this->Find(pszFindString, bCaseSensitive, searchFlags, nStart, DWORD_MAX);
+//  return this->Find(pszFindString, bCaseSensitive, searchFlags, nStart, DWORD_MAX);
 // }
 
 DWORD CPwManager::Find(const TCHAR *pszFindString, BOOL bCaseSensitive,
-	DWORD searchFlags, DWORD nStart, DWORD nEndExcl, std_string* pError)
+  DWORD searchFlags, DWORD nStart, DWORD nEndExcl, std_string* pError)
 {
-	if(pError != NULL) pError->clear();
+  if(pError != NULL) pError->clear();
 
-	if(nEndExcl > m_dwNumEntries) nEndExcl = m_dwNumEntries;
+  if(nEndExcl > m_dwNumEntries) nEndExcl = m_dwNumEntries;
 
-	if(nStart >= nEndExcl) return DWORD_MAX;
-	ASSERT(pszFindString != NULL); if(pszFindString == NULL) return DWORD_MAX;
+  if(nStart >= nEndExcl) return DWORD_MAX;
+  ASSERT(pszFindString != NULL); if(pszFindString == NULL) return DWORD_MAX;
 
-	CString strFind = pszFindString;
-	if((strFind.GetLength() == 0) || (strFind == _T("*"))) return nStart;
+  CString strFind = pszFindString;
+  if((strFind.GetLength() == 0) || (strFind == _T("*"))) return nStart;
 
-	scoped_ptr<boost::basic_regex<TCHAR> > spRegex;
-	// #ifndef _WIN64
-	if((searchFlags & PWMS_REGEX) != 0)
-	{
-		try
-		{
-			if(bCaseSensitive == FALSE)
-				spRegex.reset(new boost::basic_regex<TCHAR>((LPCTSTR)strFind,
-					boost::regex_constants::icase));
-			else
-				spRegex.reset(new boost::basic_regex<TCHAR>((LPCTSTR)strFind));
-		}
-		catch(...)
-		{
-			if(pError != NULL)
-			{
-				*pError = (LPCTSTR)strFind;
-				*pError += _T("\r\n\r\n");
-				*pError += TRL("The regular expression is invalid.");
-			}
+  scoped_ptr<boost::basic_regex<TCHAR> > spRegex;
+  // #ifndef _WIN64
+  if((searchFlags & PWMS_REGEX) != 0)
+  {
+    try
+    {
+      if(bCaseSensitive == FALSE)
+        spRegex.reset(new boost::basic_regex<TCHAR>((LPCTSTR)strFind,
+          boost::regex_constants::icase));
+      else
+        spRegex.reset(new boost::basic_regex<TCHAR>((LPCTSTR)strFind));
+    }
+    catch(...)
+    {
+      if(pError != NULL)
+      {
+        *pError = (LPCTSTR)strFind;
+        *pError += _T("\r\n\r\n");
+        *pError += TRL("The regular expression is invalid.");
+      }
 
-			return DWORD_MAX;
-		}
-	}
-	// #else
-	// #pragma message("No regular expression support in x64 library.")
-	// #endif
+      return DWORD_MAX;
+    }
+  }
+  // #else
+  // #pragma message("No regular expression support in x64 library.")
+  // #endif
 
-	LPCTSTR lpSearch = strFind;
-	if(bCaseSensitive == FALSE)
-	{
-		strFind = strFind.MakeLower();
-		lpSearch = strFind;
-	}
+  LPCTSTR lpSearch = strFind;
+  if(bCaseSensitive == FALSE)
+  {
+    strFind = strFind.MakeLower();
+    lpSearch = strFind;
+  }
 
-	for(DWORD i = nStart; i < nEndExcl; ++i)
-	{
-		if((searchFlags & PWMF_TITLE) != 0)
-		{
-			if(StrMatchText(m_pEntries[i].pszTitle, lpSearch, bCaseSensitive, spRegex.get()))
-				return i;
-		}
+  for(DWORD i = nStart; i < nEndExcl; ++i)
+  {
+    if((searchFlags & PWMF_TITLE) != 0)
+    {
+      if(StrMatchText(m_pEntries[i].pszTitle, lpSearch, bCaseSensitive, spRegex.get()))
+        return i;
+    }
 
-		if((searchFlags & PWMF_USER) != 0)
-		{
-			if(StrMatchText(m_pEntries[i].pszUserName, lpSearch, bCaseSensitive, spRegex.get()))
-				return i;
-		}
+    if((searchFlags & PWMF_USER) != 0)
+    {
+      if(StrMatchText(m_pEntries[i].pszUserName, lpSearch, bCaseSensitive, spRegex.get()))
+        return i;
+    }
 
-		if((searchFlags & PWMF_URL) != 0)
-		{
-			if(StrMatchText(m_pEntries[i].pszURL, lpSearch, bCaseSensitive, spRegex.get()))
-				return i;
-		}
+    if((searchFlags & PWMF_URL) != 0)
+    {
+      if(StrMatchText(m_pEntries[i].pszURL, lpSearch, bCaseSensitive, spRegex.get()))
+        return i;
+    }
 
-		if((searchFlags & PWMF_PASSWORD) != 0)
-		{
-			UnlockEntryPassword(&m_pEntries[i]);
-			const bool bMatch = StrMatchText(m_pEntries[i].pszPassword, lpSearch,
-				bCaseSensitive, spRegex.get());
-			LockEntryPassword(&m_pEntries[i]);
+    if((searchFlags & PWMF_PASSWORD) != 0)
+    {
+      UnlockEntryPassword(&m_pEntries[i]);
+      const bool bMatch = StrMatchText(m_pEntries[i].pszPassword, lpSearch,
+        bCaseSensitive, spRegex.get());
+      LockEntryPassword(&m_pEntries[i]);
 
-			if(bMatch) return i;
-		}
+      if(bMatch) return i;
+    }
 
-		if((searchFlags & PWMF_ADDITIONAL) != 0)
-		{
-			if(StrMatchText(m_pEntries[i].pszAdditional, lpSearch, bCaseSensitive, spRegex.get()))
-				return i;
-		}
+    if((searchFlags & PWMF_ADDITIONAL) != 0)
+    {
+      if(StrMatchText(m_pEntries[i].pszAdditional, lpSearch, bCaseSensitive, spRegex.get()))
+        return i;
+    }
 
-		if((searchFlags & PWMF_GROUPNAME) != 0)
-		{
-			const DWORD dwGroupIndex = GetGroupByIdN(m_pEntries[i].uGroupId);
-			ASSERT(dwGroupIndex != DWORD_MAX);
-			if(dwGroupIndex == DWORD_MAX) continue;
+    if((searchFlags & PWMF_GROUPNAME) != 0)
+    {
+      const DWORD dwGroupIndex = GetGroupByIdN(m_pEntries[i].uGroupId);
+      ASSERT(dwGroupIndex != DWORD_MAX);
+      if(dwGroupIndex == DWORD_MAX) continue;
 
-			if(StrMatchText(GetGroup(dwGroupIndex)->pszGroupName, lpSearch,
-				bCaseSensitive, spRegex.get()))
-				return i;
-		}
+      if(StrMatchText(GetGroup(dwGroupIndex)->pszGroupName, lpSearch,
+        bCaseSensitive, spRegex.get()))
+        return i;
+    }
 
-		if((searchFlags & PWMF_UUID) != 0)
-		{
-			CString strUuid;
-			_UuidToString(m_pEntries[i].uuid, &strUuid);
+    if((searchFlags & PWMF_BinaryDesc) != 0)                                // rrvt 4/20/25
+    {
+      if(StrMatchText(m_pEntries[i].pszBinaryDesc, lpSearch, bCaseSensitive, spRegex.get()))
+        return i;
+    }
 
-			if(StrMatchText(strUuid, lpSearch, FALSE, spRegex.get()))
-				return i;
-		}
-	}
 
-	return DWORD_MAX;
+    if((searchFlags & PWMF_UUID) != 0)
+    {
+      CString strUuid;
+      _UuidToString(m_pEntries[i].uuid, &strUuid);
+
+      if(StrMatchText(strUuid, lpSearch, FALSE, spRegex.get()))
+        return i;
+    }
+  }
+
+  return DWORD_MAX;
 }
 
 DWORD CPwManager::FindEx(const TCHAR *pszFindString, BOOL bCaseSensitive,
-	DWORD searchFlags, DWORD nStart, std_string* pError)
+  DWORD searchFlags, DWORD nStart, std_string* pError)
 {
-	if(pError != NULL) pError->clear();
+  if(pError != NULL) pError->clear();
 
-	if(((searchFlags & PWMS_REGEX) != 0) || (pszFindString == NULL) ||
-		(pszFindString[0] == 0))
-		return this->Find(pszFindString, bCaseSensitive, searchFlags,
-			nStart, DWORD_MAX, pError);
+  if(((searchFlags & PWMS_REGEX) != 0) || (pszFindString == NULL) ||
+    (pszFindString[0] == 0))
+    return this->Find(pszFindString, bCaseSensitive, searchFlags,
+      nStart, DWORD_MAX, pError);
 
-	const std_string strText = pszFindString;
-	if(strText != g_strFindCachedString)
-	{
-		g_vFindCachedSplitted = SU_SplitSearchTerms(strText.c_str());
-		g_strFindCachedString = strText;
-	}
-	const std::vector<std_string>* pvTerms = &g_vFindCachedSplitted;
+  const std_string strText = pszFindString;
+  if(strText != g_strFindCachedString)
+  {
+    g_vFindCachedSplitted = SU_SplitSearchTerms(strText.c_str());
+    g_strFindCachedString = strText;
+  }
+  const std::vector<std_string>* pvTerms = &g_vFindCachedSplitted;
 
-	if(pvTerms->size() == 0) return nStart;
+  if(pvTerms->size() == 0) return nStart;
 
-	DWORD dwIndex = nStart;
-	while(dwIndex != DWORD_MAX)
-	{
-		bool bAllMatch = true;
-		for(size_t i = 0; i < pvTerms->size(); ++i)
-		{
-			const std_string& strTerm = (*pvTerms)[i];
-			const DWORD dwRes = this->Find(strTerm.c_str(), bCaseSensitive,
-				searchFlags, dwIndex, DWORD_MAX, pError);
+  DWORD dwIndex = nStart;
+  while(dwIndex != DWORD_MAX)
+  {
+    bool bAllMatch = true;
+    for(size_t i = 0; i < pvTerms->size(); ++i)
+    {
+      const std_string& strTerm = (*pvTerms)[i];
+      const DWORD dwRes = this->Find(strTerm.c_str(), bCaseSensitive,
+        searchFlags, dwIndex, DWORD_MAX, pError);
 
-			if(dwRes > dwIndex)
-			{
-				dwIndex = dwRes;
-				bAllMatch = false;
-				break;
-			}
-		}
+      if(dwRes > dwIndex)
+      {
+        dwIndex = dwRes;
+        bAllMatch = false;
+        break;
+      }
+    }
 
-		if(bAllMatch) break;
-	}
+    if(bAllMatch) break;
+  }
 
-	return dwIndex;
+  return dwIndex;
 }

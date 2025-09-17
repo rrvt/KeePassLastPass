@@ -925,6 +925,9 @@
     <ClInclude Include="Plugins\PluginMgr.h">
       <Filter>Plugins</Filter>
     </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\autotype.bmp">
@@ -1076,5 +1079,7 @@
     <None Include="res\PwSafe.rc2">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="..\README.md" />
+    <None Include="C:\Users\rrvt\AppData\Roaming\KeePass\KeePass.ini" />
   </ItemGroup>
 </Project>

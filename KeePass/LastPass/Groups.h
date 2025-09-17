@@ -33,16 +33,16 @@ Expandable<Group, 16> groups;
 
 public:
 
-  Groups() : kpdb(0), nGroups(0), backupID(0) {}
- ~Groups() { }
+          Groups() : kpdb(0), nGroups(0), backupID(0) {}
+         ~Groups() { }
 
-  void   setKpdb(IKpDatabase* db) {kpdb = db;}
-  void   initialize();
+  void    setKpdb(IKpDatabase* db) {kpdb = db;}
+  void    initialize();
 
-  Cchar* getName(DWORD grpID);
-  DWORD  getID(TCchar* grpName);
+  TCchar* getName(DWORD grpID);
+  DWORD   getID(TCchar* grpName);
 
-  DWORD  bkupID() {initialize(); return backupID;}
+  DWORD   bkupID() {initialize(); return backupID;}
   };
 
 

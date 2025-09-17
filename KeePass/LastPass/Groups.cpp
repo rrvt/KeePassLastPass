@@ -49,7 +49,7 @@ int    cnt;
   }
 
 
-Cchar* Groups::getName(DWORD grpID) {
+TCchar* Groups::getName(DWORD grpID) {
 int i;
 
   initialize();

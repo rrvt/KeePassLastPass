@@ -10259,7 +10259,7 @@ void CPwSafeDlg::BuildPluginMenu()
       if((p->dwFlags & KPMIF_POPUP_START) > 0)
       {
         if(bMakeSeparator == TRUE)
-          { psub->AppendODMenu(_T(""), MF_OWNERDRAW | MF_SEPARATOR); bMakeSeparator = FALSE; }
+          { psub->AppendODMenu((LPWSTR)_T(""), MF_OWNERDRAW | MF_SEPARATOR); bMakeSeparator = FALSE; }
 
         psub = psub->AppendODPopupMenu(p->lpCommandString);
         if(psub != NULL) ptrs.push_back(psub);
@@ -10271,7 +10271,7 @@ void CPwSafeDlg::BuildPluginMenu()
       else
       {
         if(bMakeSeparator == TRUE)
-          { psub->AppendODMenu(_T(""), MF_OWNERDRAW | MF_SEPARATOR); bMakeSeparator = FALSE; }
+          { psub->AppendODMenu((LPWSTR)_T(""), MF_OWNERDRAW | MF_SEPARATOR); bMakeSeparator = FALSE; }
 
         if(p->dwIcon != 0)
           psub->AppendODMenu(p->lpCommandString, uFlags, (int)p->dwCommandID, &m_ilIcons, (int)(p->dwIcon - 1));

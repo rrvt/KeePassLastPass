@@ -34,7 +34,7 @@
 #include "LastPassApp.h"
 
 
-static TCchar* CmdLinePrefix = "lp_export.";
+static TCchar* CmdLinePrefix = _T("lp_export.");
 
 
 LastPass    lastPass;

@@ -50,7 +50,7 @@ String     stg;
 
       rcd.setAdditional();
 
-      if (field  < 5) {errorField.format("No Fields = %i", field); return false;}
+      if (field  < 5) {errorField.format(_T("No Fields = %i"), field); return false;}
 
       rcd.setAnote();
 

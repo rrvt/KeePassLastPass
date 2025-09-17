@@ -33,7 +33,9 @@
 #ifndef WIN32_LEAN_AND_MEAN
 #define WIN32_LEAN_AND_MEAN
 #endif
-
+#if 1
+#include "targetver.h"
+#else
 // Using the Windows Headers:
 // https://msdn.microsoft.com/en-us/library/windows/desktop/aa383745.aspx
 #ifndef WINVER
@@ -41,13 +43,15 @@
 #endif
 #ifndef _WIN32_WINNT
 #define _WIN32_WINNT 0x0600
-#endif						
+#endif
 #ifndef _WIN32_WINDOWS
 #define _WIN32_WINDOWS 0x0410
 #endif
 #ifndef _WIN32_IE
 #define _WIN32_IE 0x0600
 #endif
+#endif
+
 #define _ATL_CSTRING_EXPLICIT_CONSTRUCTORS
 #define _AFX_ALL_WARNINGS
 
@@ -64,25 +68,25 @@
 #if (_MSC_VER >= 1400) // Manifest linking
 #if defined(_M_IX86)
 #pragma comment(linker, "/manifestdependency:\"type='win32' " \
-	"name='Microsoft.Windows.Common-Controls' " \
-	"version='6.0.0.0' " \
-	"processorArchitecture='x86' " \
-	"publicKeyToken='6595b64144ccf1df' " \
-	"language='*'\"")
+  "name='Microsoft.Windows.Common-Controls' " \
+  "version='6.0.0.0' " \
+  "processorArchitecture='x86' " \
+  "publicKeyToken='6595b64144ccf1df' " \
+  "language='*'\"")
 #elif defined(_M_AMD64)
 #pragma comment(linker, "/manifestdependency:\"type='win32' " \
-	"name='Microsoft.Windows.Common-Controls' " \
-	"version='6.0.0.0' " \
-	"processorArchitecture='amd64' " \
-	"publicKeyToken='6595b64144ccf1df' " \
-	"language='*'\"")
+  "name='Microsoft.Windows.Common-Controls' " \
+  "version='6.0.0.0' " \
+  "processorArchitecture='amd64' " \
+  "publicKeyToken='6595b64144ccf1df' " \
+  "language='*'\"")
 #elif defined(_M_IA64)
 #pragma comment(linker, "/manifestdependency:\"type='win32' " \
-	"name='Microsoft.Windows.Common-Controls' " \
-	"version='6.0.0.0' " \
-	"processorArchitecture='ia64' " \
-	"publicKeyToken='6595b64144ccf1df' " \
-	"language='*'\"")
+  "name='Microsoft.Windows.Common-Controls' " \
+  "version='6.0.0.0' " \
+  "processorArchitecture='ia64' " \
+  "publicKeyToken='6595b64144ccf1df' " \
+  "language='*'\"")
 #endif
 #endif // (_MSC_VER >= 1400)
 
@@ -96,12 +100,14 @@
 #include <afxdisp.h>
 #include <afxole.h>
 
+#if 0
 // #ifdef _WIN32_WINNT
 // #undef _WIN32_WINNT
 // #endif
 // #define _WIN32_WINNT 0x0600
 #if (_WIN32_WINNT != 0x0600)
 #error _WIN32_WINNT has been redefined by MFC headers!
+#endif
 #endif
 
 // Redefine the buggy version of AFXASSUME if we are being compiled on

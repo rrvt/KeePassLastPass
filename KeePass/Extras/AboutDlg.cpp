@@ -4,7 +4,7 @@
 #include "pch.h"
 #include "AboutDlg.h"
 #include "ExtraResource.h"
-#include "Resources.h"
+#include "ResourceData.h"
 
 
 static Tchar here;

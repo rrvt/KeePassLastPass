@@ -27,18 +27,18 @@ LANGUAGE LANG_GERMAN, SUBLANG_GERMAN
 // TEXTINCLUDE
 //
 
-1 TEXTINCLUDE 
+1 TEXTINCLUDE
 BEGIN
     "resource.h\0"
 END
 
-2 TEXTINCLUDE 
+2 TEXTINCLUDE
 BEGIN
     "#include ""afxres.h""\r\n"
     "\0"
 END
 
-3 TEXTINCLUDE 
+3 TEXTINCLUDE
 BEGIN
     "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
     "#define _AFX_NO_OLE_RESOURCES\r\n"
@@ -645,7 +645,7 @@ END
 //
 
 #ifdef APSTUDIO_INVOKED
-GUIDELINES DESIGNINFO 
+GUIDELINES DESIGNINFO
 BEGIN
     IDD_CHECKOPTIONS_DLG, DIALOG
     BEGIN
@@ -856,8 +856,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,43,0,0
- PRODUCTVERSION 1,43,0,0
+ FILEVERSION 1,43,1
+ PRODUCTVERSION 1,43,1
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -874,13 +874,13 @@ BEGIN
         BEGIN
             VALUE "Comments", "https://keepass.info/"
             VALUE "CompanyName", "Dominik Reichl"
-            VALUE "FileDescription", "KeePass Password Safe 1.43"
-            VALUE "FileVersion", "1.43.0.0"
+            VALUE "FileDescription", "KeePass Password Safe 1.43.1"
+            VALUE "FileVersion", "1.43.1"
             VALUE "InternalName", "PwSafe"
             VALUE "LegalCopyright", "Copyright © 2003-2025 Dominik Reichl"
             VALUE "OriginalFilename", "KeePass.exe"
-            VALUE "ProductName", "KeePass Password Safe 1.43"
-            VALUE "ProductVersion", "1.43.0.0"
+            VALUE "ProductName", "KeePass Password Safe 1.43.1"
+            VALUE "ProductVersion", "1.43.1"
         END
     END
     BLOCK "VarFileInfo"
@@ -895,7 +895,7 @@ END
 // Menu
 //
 
-IDR_MAINMENU MENU 
+IDR_MAINMENU MENU
 BEGIN
     POPUP "&File"
     BEGIN
@@ -1017,7 +1017,7 @@ BEGIN
     END
 END
 
-IDR_PWLIST_MENU MENU 
+IDR_PWLIST_MENU MENU
 BEGIN
     POPUP "Submenu"
     BEGIN
@@ -1058,7 +1058,7 @@ BEGIN
     END
 END
 
-IDR_GROUPLIST_MENU MENU 
+IDR_GROUPLIST_MENU MENU
 BEGIN
     POPUP "Submenu"
     BEGIN
@@ -1096,7 +1096,7 @@ BEGIN
     END
 END
 
-IDR_SYSTRAY_MENU MENU 
+IDR_SYSTRAY_MENU MENU
 BEGIN
     POPUP "Submenu"
     BEGIN
@@ -1114,7 +1114,7 @@ BEGIN
     END
 END
 
-IDR_RECTX_MENU MENU 
+IDR_RECTX_MENU MENU
 BEGIN
     POPUP "Submenu"
     BEGIN
@@ -1130,7 +1130,7 @@ BEGIN
     END
 END
 
-IDR_COLVIEW_MENU MENU 
+IDR_COLVIEW_MENU MENU
 BEGIN
     POPUP "Submenu"
     BEGIN
@@ -1151,7 +1151,7 @@ BEGIN
     END
 END
 
-IDR_PLUGINS_MENU MENU 
+IDR_PLUGINS_MENU MENU
 BEGIN
     POPUP "Submenu"
     BEGIN
@@ -1160,7 +1160,7 @@ BEGIN
     END
 END
 
-IDR_EXPIRESMENU MENU 
+IDR_EXPIRESMENU MENU
 BEGIN
     POPUP "Popup"
     BEGIN
@@ -1177,7 +1177,7 @@ BEGIN
     END
 END
 
-IDR_ENTRYTOOLS_MENU MENU 
+IDR_ENTRYTOOLS_MENU MENU
 BEGIN
     POPUP "Popup"
     BEGIN
@@ -1364,7 +1364,7 @@ IDB_AUTOTYPE            BITMAP                  "res\\autotype.bmp"
 // Accelerator
 //
 
-IDR_ACCEL_MAIN ACCELERATORS 
+IDR_ACCEL_MAIN ACCELERATORS
 BEGIN
     "Z",            ID_EXTRAS_GENPW,        VIRTKEY, CONTROL, NOINVERT
     "W",            ID_FILE_CLOSE,          VIRTKEY, CONTROL, NOINVERT
@@ -1413,7 +1413,7 @@ IDB_MAIN                PNG                     "res\\KeePass.png"
 // String Table
 //
 
-STRINGTABLE 
+STRINGTABLE
 BEGIN
     IDS_ABOUTBOX            "&About KeePass..."
 END

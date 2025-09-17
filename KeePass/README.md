@@ -45,6 +45,10 @@ Run the KeePass.msi to install KeePass.
 
 ## Updates
 
+### 9/17/25
+
+Update KeePass 1.43.1.
+
 ### Update 3/7/25
 
 Downloaded KeePass Version 1.43.  Removed/resolved compile errors/warnings in VS 2022.  Integrated

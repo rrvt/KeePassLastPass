@@ -44,7 +44,7 @@ public:
   STDMETHODIMP_(DWORD)         GetMenuItemCount();
   STDMETHODIMP_(KP_MENU_ITEM*) GetMenuItems();
 
-  Cchar*                       basePath() {return appBasePath.str();}
+  TCchar*                      basePath() {return appBasePath.str();}
   HINSTANCE                    instDLL()  {return hInstDLL;}
 
 private:
